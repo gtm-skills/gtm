@@ -134,7 +134,7 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              2,000+ AI Prompts for
+              2,000+ GTM Prompts for
               <span className="block bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
                 B2B Sales & Marketing
               </span>

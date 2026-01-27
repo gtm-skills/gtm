@@ -180,7 +180,7 @@ export default function Home() {
                     <div className="flex-1">
                       <span className="text-orange-400 font-bold">/gtm</span>
                       <span className="text-zinc-100"> research </span>
-                      <span className="text-cyan-400">Stripe</span>
+                      <span className="text-cyan-400">Acme Corp</span>
                       <span className="text-zinc-100"> for </span>
                       <span className="text-purple-400">enterprise sales</span>
                       <span className="animate-pulse text-orange-400 ml-1">|</span>

@@ -41,6 +41,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/free-tools/mcp-server',
     '/free-tools/claude-integrations',
     '/download',
+    '/templates',
+    '/projects',
+    '/signals',
   ];
 
   // All 24 tonality pages

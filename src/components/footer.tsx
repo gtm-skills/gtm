@@ -1,11 +1,8 @@
-'use client';
-
 import Link from 'next/link';
-import { Github, Twitter } from 'lucide-react';
-import { ProspedaLink } from '@/components/tracked-link';
+import { Github } from 'lucide-react';
 
 const footerLinks = {
-  Resources: [
+  Prompts: [
     { name: 'Industry Prompts', href: '/industry' },
     { name: 'Role Playbooks', href: '/role' },
     { name: 'Workflows', href: '/workflow' },
@@ -15,12 +12,12 @@ const footerLinks = {
   Tools: [
     { name: 'MCP Server', href: '/free-tools/mcp-server' },
     { name: 'Claude Integrations', href: '/free-tools/claude-integrations' },
-    { name: 'ClawdBot Tutorial', href: '/free-tools/clawdbot' },
+    { name: 'Claude Projects', href: '/projects' },
     { name: 'Download All', href: '/download' },
   ],
-  Company: [
-    { name: 'Prospeda', href: 'https://prospeda.com' },
+  Community: [
     { name: 'GitHub', href: 'https://github.com/Prospeda/gtm-skills' },
+    { name: 'Contribute', href: 'https://github.com/Prospeda/gtm-skills/blob/main/CONTRIBUTING.md' },
     { name: 'Contact', href: 'mailto:hello@gtm-skills.com' },
   ],
 };
@@ -50,14 +47,6 @@ export function Footer() {
               >
                 <Github className="h-5 w-5" />
               </a>
-              <a
-                href="https://twitter.com/prospeda"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
             </div>
           </div>
 
@@ -86,13 +75,15 @@ export function Footer() {
             © {new Date().getFullYear()} GTM Skills. MIT License.
           </p>
           <p className="text-sm text-muted-foreground">
-            Built by{' '}
-            <ProspedaLink
-              location="footer"
+            Built by the{' '}
+            <a
+              href="https://github.com/Prospeda/gtm-skills/graphs/contributors"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-foreground hover:underline"
             >
-              Prospeda
-            </ProspedaLink>
+              community
+            </a>
           </p>
         </div>
       </div>

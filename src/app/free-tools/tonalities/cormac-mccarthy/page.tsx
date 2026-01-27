@@ -316,14 +316,14 @@ export default function CormacMcCarthyTonalityPage() {
         {/* CTA */}
         <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
-            Need a fully agentic sales team?
+            Love this tonality?
           </h2>
           <p className="text-orange-100 mb-6 max-w-xl mx-auto">
-            Prospeda is an AI BDR that runs these workflows for you—research, outreach, and follow-up on autopilot.
+            Star the repo to help others discover GTM Skills and save it for later.
           </p>
-          <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-white text-teal-700 hover:bg-zinc-100">
-              Learn About Prospeda
+              Star on GitHub
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>

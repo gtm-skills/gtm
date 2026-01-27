@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
-import { ArrowRight, Radio, TrendingUp, Users, Briefcase, DollarSign, Building2 } from 'lucide-react';
+import { Radio, TrendingUp, Users, Briefcase, DollarSign, Building2, Github } from 'lucide-react';
 
 export const metadata = {
   title: 'Signal-Based Selling | GTM Skills',
@@ -151,14 +151,14 @@ export default function SignalsPage() {
         </div>
 
         <div className="text-center bg-zinc-900/50 rounded-xl p-8 border border-zinc-800">
-          <h2 className="text-2xl font-bold mb-3">Find Signals Automatically</h2>
+          <h2 className="text-2xl font-bold mb-3">Want More Signal-Based Prompts?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            Prospeda monitors buying signals and triggers personalized outreach automatically. No more manual research.
+            Star the repo to save these prompts for later and help others discover GTM Skills.
           </p>
-          <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
             <Button className="gap-2">
-              Learn About Prospeda
-              <ArrowRight className="h-4 w-4" />
+              <Github className="h-4 w-4" />
+              Star on GitHub
             </Button>
           </a>
         </div>

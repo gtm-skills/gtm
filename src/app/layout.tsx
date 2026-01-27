@@ -27,13 +27,11 @@ const websiteJsonLd = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Prospeda',
-  url: 'https://prospeda.com',
-  logo: 'https://prospeda.com/logo.png',
+  name: 'GTM Skills',
+  url: 'https://gtm-skills.com',
+  logo: 'https://gtm-skills.com/logo.svg',
   sameAs: [
-    'https://twitter.com/prospeda',
-    'https://linkedin.com/company/prospeda',
-    'https://github.com/Prospeda',
+    'https://github.com/Prospeda/gtm-skills',
   ],
 };
 

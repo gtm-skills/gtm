@@ -160,15 +160,15 @@ export default function FreeToolsPage() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-4">
-            Want AI that uses these tools automatically?
+            Love these free tools? Help others discover them.
           </p>
           <a
-            href="https://prospeda.com"
+            href="https://github.com/Prospeda/gtm-skills"
             target="_blank"
             rel="noopener noreferrer"
             className="text-orange-400 hover:text-orange-300 font-medium inline-flex items-center gap-2"
           >
-            Try Prospeda free
+            Star on GitHub
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Zap, Target, MessageSquare, FileText, Flame, Swords, DollarSign, Users, Search, ClipboardCheck, HelpCircle, Lightbulb, Scale, TrendingUp, Compass, PenTool, RotateCcw, GitCompare, ShieldOff, Crosshair, Repeat, Building2, RotateCw, Lock } from 'lucide-react';
+import { ArrowRight, Zap, Target, MessageSquare, FileText, Flame, Swords, DollarSign, Users, Search, ClipboardCheck, HelpCircle, Lightbulb, Scale, TrendingUp, Compass, PenTool, RotateCcw, GitCompare, ShieldOff, Crosshair, Repeat, Building2, RotateCw, Lock, Github } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'GTM Tonality Skills | 24 Sales Writing Styles & Methodologies',
@@ -423,30 +423,20 @@ export default function TonalitiesPage() {
         {/* CTA */}
         <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-8 md:p-12 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Need a fully agentic sales team?
+            Love these tonalities?
           </h2>
           <p className="text-orange-100 mb-6 max-w-xl mx-auto">
-            Prospeda is an AI BDR that runs these workflows for you—research, outreach, and follow-up on autopilot.
+            Star the repo to save it for later and help others discover GTM Skills.
           </p>
-          <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-white text-teal-700 hover:bg-zinc-100">
-              Learn About Prospeda
-              <ArrowRight className="ml-2 h-4 w-4" />
+          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
+              <Github className="mr-2 h-4 w-4" />
+              Star on GitHub
             </Button>
           </a>
         </div>
       </main>
 
-      <footer className="border-t border-border mt-16">
-        <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-muted-foreground text-sm">© {new Date().getFullYear()} Prospeda</div>
-          <div className="flex gap-6 text-sm">
-            <Link href="/free-tools" className="text-muted-foreground hover:text-foreground">More Free Tools</Link>
-            <Link href="/pricing" className="text-muted-foreground hover:text-foreground">Pricing</Link>
-            <a href="https://github.com/Prospeda/claude-gtm-skills" className="text-muted-foreground hover:text-foreground">GitHub</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

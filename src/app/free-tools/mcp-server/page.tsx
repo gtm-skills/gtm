@@ -537,7 +537,7 @@ export default function MCPServerPage() {
             Prospeda provides the same AI-powered sales tools with CRM integration,
             lead enrichment, and automated sequences. No setup required.
           </p>
-          <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
             <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
               Try Prospeda Free
             </Button>

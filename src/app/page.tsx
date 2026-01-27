@@ -630,7 +630,7 @@ Rules:
         </div>
       </section>
 
-      {/* Prospeda CTA */}
+      {/* GitHub CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-orange-500/10 via-red-500/10 to-transparent border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-zinc-900 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
@@ -640,18 +640,18 @@ Rules:
 
             <div className="relative">
               <Badge className="mb-4 bg-orange-500/20 text-orange-400 border-orange-500/30">
-                Done-For-You
+                Open Source
               </Badge>
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Want AI That Runs These Prompts For You?
+                Built by the Community, For the Community
               </h2>
               <p className="text-zinc-400 max-w-xl mx-auto mb-8">
-                Prospeda is an AI sales team that finds leads, runs research, and writes personalized outreach—automatically.
+                GTM Skills is 100% free and open source. Star the repo, contribute your prompts, and help us build the best GTM resource on the internet.
               </p>
-              <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="h-12 px-8 gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
-                  Learn About Prospeda
-                  <ArrowRight className="h-4 w-4" />
+                  <Github className="h-5 w-5" />
+                  Star on GitHub
                 </Button>
               </a>
             </div>

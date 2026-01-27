@@ -51,23 +51,3 @@ export function TrackedLink({
     </Link>
   );
 }
-
-// Specialized Prospeda CTA link
-interface ProspedaLinkProps {
-  children: React.ReactNode;
-  className?: string;
-  location?: string;
-}
-
-export function ProspedaLink({ children, className, location = 'unknown' }: ProspedaLinkProps) {
-  return (
-    <TrackedLink
-      href="https://prospeda.com"
-      eventName="prospeda_cta_clicked"
-      eventData={{ location }}
-      className={className}
-    >
-      {children}
-    </TrackedLink>
-  );
-}

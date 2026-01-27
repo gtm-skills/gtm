@@ -286,7 +286,7 @@ export default function SalesforcePage() {
             Prospeda already integrates with Salesforce. Sync your CRM, enrich leads with AI,
             and automate outreach - all connected to your Salesforce instance.
           </p>
-          <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
             <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
               Try Prospeda Free
             </Button>

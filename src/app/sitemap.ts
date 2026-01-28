@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const corePages = [
     '',
     '/agentic-bdr',
+    '/tutorials',
+    '/tutorials/moltbot-agentic-sdr',
     '/industry',
     '/industry/saas',
     '/industry/financial-services',

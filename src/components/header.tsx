@@ -7,12 +7,12 @@ import { Menu, X, Github, Download } from 'lucide-react';
 
 const navigation = [
   { name: 'Agentic BDR', href: '/agentic-bdr', highlight: true },
+  { name: 'Tutorials', href: '/tutorials', highlight: false },
   { name: 'Industry', href: '/industry' },
   { name: 'Role', href: '/role' },
-  { name: 'Workflow', href: '/workflow' },
   { name: 'Methodology', href: '/methodology' },
   { name: 'Tonality', href: '/free-tools/tonalities' },
-  { name: 'Free Tools', href: '/free-tools' },
+  { name: 'Tools', href: '/free-tools' },
 ];
 
 export function Header() {

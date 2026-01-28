@@ -48,8 +48,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'GTM Skills | 2,500+ AI Prompts for B2B Sales',
   description: 'The most comprehensive GTM prompt library for Claude, ChatGPT, and any LLM. Industry packs, role playbooks, workflows, and methodologies. Free and open source.',
-  keywords: 'gtm skills, gtm prompts, sales prompts, ai sales, b2b sales prompts, chatgpt sales, claude prompts, llm prompts, meddic prompts, spin selling prompts',
+  keywords: 'gtm skills, gtm prompts, sales prompts, ai sales, b2b sales prompts, chatgpt sales, claude prompts, llm prompts, meddic prompts, spin selling prompts, agentic bdr, ai sdr, agentic sales',
   authors: [{ name: 'Prospeda' }],
+  manifest: '/manifest.json',
   openGraph: {
     title: 'GTM Skills | 2,500+ AI Prompts for B2B Sales',
     description: 'The most comprehensive GTM prompt library. Industry packs, role playbooks, workflows, and methodologies.',

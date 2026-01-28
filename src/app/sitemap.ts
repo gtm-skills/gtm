@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Core pages
   const corePages = [
     '',
+    '/agentic-bdr',
     '/industry',
     '/industry/saas',
     '/industry/financial-services',

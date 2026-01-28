@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Github, Download } from 'lucide-react';
 
 const navigation = [
+  { name: 'Agentic BDR', href: '/agentic-bdr', highlight: true },
   { name: 'Industry', href: '/industry' },
   { name: 'Role', href: '/role' },
   { name: 'Workflow', href: '/workflow' },
@@ -34,7 +35,11 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className={`text-sm transition-colors ${
+                item.highlight
+                  ? 'text-cyan-400 hover:text-cyan-300 font-medium'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
             >
               {item.name}
             </Link>

@@ -5,7 +5,7 @@
 <h1 align="center">GTM Skills</h1>
 
 <p align="center">
-  <strong>2,000+ AI prompts for B2B sales & marketing</strong>
+  <strong>2,500+ AI prompts for B2B sales & marketing</strong>
 </p>
 
 <p align="center">
@@ -34,7 +34,7 @@
 
 | Challenge | Solution |
 |-----------|----------|
-| Generic AI prompts don't understand sales | **2,000+ prompts** built specifically for B2B GTM |
+| Generic AI prompts don't understand sales | **2,500+ prompts** built specifically for B2B GTM |
 | Scattered resources across the web | **One organized library** by role, industry, workflow |
 | Prompts that sound robotic | **Battle-tested templates** that actually convert |
 | No structure for complex workflows | **End-to-end playbooks** from cold outreach to close |
@@ -43,6 +43,7 @@
 
 ## Features
 
+- **Agentic BDR Guide** - Learn to build autonomous AI agents for research, personalization, and outbound
 - **Role-Based Playbooks** - Tailored prompts for SDRs, AEs, Sales Managers, RevOps, CSMs, and Founders
 - **Industry Packs** - Specialized templates for SaaS, FinTech, Healthcare, Manufacturing, and 10+ more
 - **Sales Methodologies** - MEDDPICC, SPIN, Challenger, Gap Selling, Value Selling, Sandler frameworks
@@ -190,7 +191,7 @@ Help me build a competitive displacement strategy:
 Be specific and tactical, not generic.
 ```
 
-[**Browse 2,000+ more prompts**](https://gtm-skills.com)
+[**Browse 2,500+ more prompts**](https://gtm-skills.com)
 
 ---
 

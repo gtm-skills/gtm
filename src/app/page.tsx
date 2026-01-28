@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { EmailSignup } from '@/components/email-signup';
 import { FeedbackWidget } from '@/components/feedback-widget';
 import { GitHubStars } from '@/components/github-stars';
 import { AnimatedChatDemo } from '@/components/animated-chat-demo';
@@ -25,13 +24,17 @@ import {
   TrendingUp,
   Shield,
   HelpCircle,
+  Bot,
+  Target,
+  MessageSquare,
+  BarChart3,
 } from 'lucide-react';
 
 // FAQ data for SEO and LLM optimization
 const faqs = [
   {
     question: 'What is GTM Skills?',
-    answer: 'GTM Skills is a free, open-source library of 2,000+ AI prompts for B2B sales and marketing. It includes prompts organized by industry (SaaS, FinTech, Healthcare), role (SDR, AE, CSM), workflow (prospecting, discovery, closing), and methodology (MEDDPICC, SPIN, Challenger). All prompts work with Claude, ChatGPT, Gemini, and any LLM.',
+    answer: 'GTM Skills is a free, open-source library of 2,500+ AI prompts for B2B sales and marketing. It includes prompts organized by industry (SaaS, FinTech, Healthcare), role (SDR, AE, CSM), workflow (prospecting, discovery, closing), and methodology (MEDDPICC, SPIN, Challenger). All prompts work with Claude, ChatGPT, Gemini, and any LLM.',
   },
   {
     question: 'How do I use GTM Skills with Claude or ChatGPT?',
@@ -138,7 +141,7 @@ const categories = [
 ];
 
 const stats = [
-  { label: 'AI Prompts', value: '2,000+', icon: FileText },
+  { label: 'AI Prompts', value: '2,500+', icon: FileText },
   { label: 'MCP Tools', value: '10', icon: Zap },
   { label: 'Interactive UIs', value: '6', icon: Sparkles },
   { label: 'Industries', value: '8', icon: Building2 },
@@ -183,7 +186,7 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              2,000+ GTM Prompts for
+              2,500+ GTM Prompts for
               <span className="block bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
                 B2B Sales & Marketing
               </span>
@@ -570,27 +573,115 @@ Rules:
         </div>
       </section>
 
-      {/* Newsletter CTA */}
+      {/* Agentic BDR Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-purple-500/5 border-y border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge variant="outline" className="mb-4 border-cyan-500/30 text-cyan-400">
+                <Bot className="h-3 w-3 mr-1" />
+                The Future of Outbound
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                What is an Agentic BDR?
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                Agentic BDRs are AI agents that autonomously research accounts, personalize messaging,
+                and execute multi-step outbound sequences—with human oversight, not replacement.
+              </p>
+              <div className="space-y-4 mb-6">
+                {[
+                  { icon: Target, title: 'Research Agents', desc: 'Gather 10-K data, news, and buying signals automatically' },
+                  { icon: MessageSquare, title: 'Personalization Agents', desc: 'Craft 1:1 messaging based on real context' },
+                  { icon: BarChart3, title: 'Execution Agents', desc: 'Orchestrate sequences across email, LinkedIn, and more' },
+                ].map((item) => (
+                  <div key={item.title} className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="h-4 w-4 text-cyan-400" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-sm">{item.title}</div>
+                      <div className="text-xs text-muted-foreground">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/agentic-bdr">
+                  <Button className="gap-2">
+                    Learn About Agentic BDRs
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="gap-2">
+                    See It In Action
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="bg-zinc-900 rounded-xl p-6 border border-zinc-800">
+                <div className="space-y-4 font-mono text-sm">
+                  <div className="flex items-start gap-3">
+                    <Bot className="h-5 w-5 text-cyan-400 mt-0.5" />
+                    <div>
+                      <div className="text-cyan-400 text-xs mb-1">Research Agent</div>
+                      <div className="text-zinc-300">Found 3 buying signals for Acme Corp...</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Bot className="h-5 w-5 text-purple-400 mt-0.5" />
+                    <div>
+                      <div className="text-purple-400 text-xs mb-1">Personalization Agent</div>
+                      <div className="text-zinc-300">Drafted email referencing their Series B...</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Bot className="h-5 w-5 text-green-400 mt-0.5" />
+                    <div>
+                      <div className="text-green-400 text-xs mb-1">Execution Agent</div>
+                      <div className="text-zinc-300">Queued for review → Approved → Sent</div>
+                    </div>
+                  </div>
+                  <div className="pt-2 border-t border-zinc-800">
+                    <div className="text-xs text-zinc-500">Human approved • 47 emails sent today • 12% reply rate</div>
+                  </div>
+                </div>
+              </div>
+              {/* Decorative glow */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 rounded-xl blur-xl -z-10" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Support the Project CTA */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center">
             <Badge variant="outline" className="mb-4 border-zinc-700 text-zinc-400">
-              Weekly Updates
+              <Star className="h-3 w-3 mr-1 text-yellow-400" />
+              Support Open Source
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Get New Prompts Weekly
+              Help Us Reach More Sales Teams
             </h2>
             <p className="text-muted-foreground mb-8">
-              Join 1,000+ GTM professionals. New prompts, templates, and workflows delivered every week.
+              Star us on GitHub to help other sales professionals discover these resources.
+              Every star helps us grow the community.
             </p>
-            <EmailSignup
-              variant="hero"
-              source="homepage"
-              placeholder="you@company.com"
-              buttonText="Subscribe Free"
-            />
+            <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="h-12 px-8 gap-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700">
+                <Github className="h-5 w-5" />
+                <Star className="h-4 w-4 text-yellow-400" />
+                Star on GitHub
+                <GitHubStars repo="Prospeda/gtm-skills" className="text-sm text-zinc-400 ml-1" />
+              </Button>
+            </a>
             <p className="text-xs text-muted-foreground mt-4">
-              No spam. Unsubscribe anytime. We respect your inbox.
+              100% free • MIT licensed • Community maintained
             </p>
           </div>
         </div>

@@ -1,25 +1,26 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { EmailSignup } from '@/components/email-signup';
+import { GitHubStarGate } from '@/components/github-star-gate';
 import {
   Download,
   FileText,
   Package,
   Zap,
   CheckCircle2,
+  Github,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Download All Prompts | GTM Skills',
-  description: 'Download 2,000+ AI prompts for sales and marketing. Industry packs, role playbooks, methodology guides, and more.',
+  description: 'Download 2,500+ AI prompts for sales and marketing. Industry packs, role playbooks, methodology guides, and more.',
 };
 
 const downloadPacks = [
   {
     name: 'Complete Library',
-    description: 'All 2,000+ prompts in one download',
-    prompts: '2,000+',
+    description: 'All 2,500+ prompts in one download',
+    prompts: '2,500+',
     format: 'Notion + Markdown',
     popular: true,
   },
@@ -68,7 +69,7 @@ export default function DownloadPage() {
             Download the Complete Library
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            2,000+ AI prompts for sales and marketing. Organized, searchable,
+            2,500+ AI prompts for sales and marketing. Organized, searchable,
             and ready to use. No signup required for individual prompts - but
             subscribe for the full download and weekly updates.
           </p>
@@ -128,21 +129,16 @@ export default function DownloadPage() {
           </div>
         </div>
 
-        {/* Email Signup */}
+        {/* GitHub Star Gate */}
         <div className="p-8 rounded-xl bg-zinc-900 text-center mb-12">
           <h2 className="text-2xl font-bold text-white mb-4">
             Get the Full Download
           </h2>
           <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
-            Enter your email to get instant access to the complete library.
-            Plus weekly updates with new prompts.
+            Star us on GitHub to unlock the complete library. Help us build the
+            biggest GTM prompt resource on the internet.
           </p>
-          <div className="max-w-md mx-auto">
-            <EmailSignup source="download-page" buttonText="Get Free Access" />
-          </div>
-          <p className="text-xs text-zinc-500 mt-4">
-            No spam. Unsubscribe anytime. We respect your inbox.
-          </p>
+          <GitHubStarGate variant="hero" />
         </div>
 
         {/* Preview */}

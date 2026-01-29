@@ -16,8 +16,11 @@ import {
   Brain,
   GitBranch,
   Play,
+  Building2,
+  Workflow,
 } from 'lucide-react';
 import type { Metadata } from 'next';
+import { agentTypes, industryAgents, workflowAgents } from '@/data/agentic';
 
 export const metadata: Metadata = {
   title: 'Agentic BDR Guide | What is an AI Sales Agent? | GTM Skills',
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
-const agentTypes = [
+const heroAgentTypes = [
   {
     name: 'Research Agents',
     description: 'Autonomously gather account intelligence, identify buying signals, and build prospect profiles.',
@@ -178,7 +181,7 @@ export default function AgenticBDRPage() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6">
-            {agentTypes.map((agent) => (
+            {heroAgentTypes.map((agent) => (
               <div
                 key={agent.name}
                 className="p-6 rounded-xl bg-card border border-border hover:border-cyan-500/30 transition-colors"
@@ -288,6 +291,118 @@ export default function AgenticBDRPage() {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Deep Dive: Agent Types */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <Badge variant="outline" className="mb-4 border-cyan-500/30 text-cyan-400">
+              <Bot className="h-3 w-3 mr-1" />
+              Agent Guides
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Learn to Build Each Agent Type
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Deep-dive guides with ready-to-use prompts for every type of sales agent.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {agentTypes.slice(0, 6).map((agent) => (
+              <Link
+                key={agent.slug}
+                href={`/agentic-bdr/${agent.slug}`}
+                className="p-4 rounded-xl border border-border bg-card hover:border-cyan-500/30 transition-colors"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                    <Bot className="h-5 w-5 text-cyan-400" />
+                  </div>
+                  <div>
+                    <div className="font-semibold mb-1">{agent.shortName}</div>
+                    <div className="text-xs text-muted-foreground line-clamp-2">
+                      {agent.description.substring(0, 80)}...
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <details className="inline-block text-left">
+              <summary className="cursor-pointer text-sm text-cyan-400 hover:text-cyan-300">
+                View all {agentTypes.length} agent type guides →
+              </summary>
+              <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-2">
+                {agentTypes.slice(6).map((agent) => (
+                  <Link
+                    key={agent.slug}
+                    href={`/agentic-bdr/${agent.slug}`}
+                    className="p-2 text-sm rounded border border-border hover:border-cyan-500/30 transition-colors text-center"
+                  >
+                    {agent.shortName}
+                  </Link>
+                ))}
+              </div>
+            </details>
+          </div>
+        </div>
+
+        {/* Industry-Specific Agents */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-6">
+            <Building2 className="h-6 w-6 text-blue-400" />
+            <h2 className="text-2xl font-bold">Industry-Specific Agents</h2>
+            <Badge variant="secondary">{industryAgents.length} Industries</Badge>
+          </div>
+          <p className="text-muted-foreground mb-6">
+            Agents pre-configured with industry knowledge, compliance requirements, and buying patterns.
+          </p>
+          <div className="grid md:grid-cols-4 gap-3">
+            {industryAgents.map((agent) => (
+              <Link
+                key={agent.slug}
+                href={`/agentic-bdr/${agent.slug}`}
+                className="p-4 rounded-lg border border-border bg-card hover:border-blue-500/30 transition-colors text-center"
+              >
+                <div className="font-semibold mb-1">{agent.industry}</div>
+                <div className="text-xs text-muted-foreground">{agent.prompts.length} prompts</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Workflow Agents */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-6">
+            <Workflow className="h-6 w-6 text-purple-400" />
+            <h2 className="text-2xl font-bold">Workflow-Specific Agents</h2>
+            <Badge variant="secondary">{workflowAgents.length} Workflows</Badge>
+          </div>
+          <p className="text-muted-foreground mb-6">
+            Agents optimized for each stage of the sales process.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {workflowAgents.map((agent) => (
+              <Link
+                key={agent.slug}
+                href={`/agentic-bdr/${agent.slug}`}
+                className="p-4 rounded-xl border border-border bg-card hover:border-purple-500/30 transition-colors"
+              >
+                <div className="font-semibold mb-2">{agent.name}</div>
+                <div className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                  {agent.description}
+                </div>
+                <div className="flex items-center gap-2 text-xs text-purple-400">
+                  <span>{agent.prompts.length} prompts</span>
+                  <span>•</span>
+                  <span>{agent.steps.length} steps</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { getAllPromptSlugs } from '@/data/pseo';
+import { getAllAgentSlugs } from '@/data/agentic';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://gtm-skills.com';
@@ -85,12 +86,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const promptSlugs = getAllPromptSlugs();
   const promptPages = promptSlugs.map((slug) => `/prompts/${slug.join('/')}`);
 
-  const allPages = [...corePages, ...tonalityPages, ...promptPages];
+  // Agentic BDR pages (Tier 8)
+  const agentSlugs = getAllAgentSlugs();
+  const agentPages = agentSlugs.map((slug) => `/agentic-bdr/${slug}`);
+
+  const allPages = [...corePages, ...tonalityPages, ...promptPages, ...agentPages];
 
   return allPages.map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: path === '' ? 'daily' : 'weekly',
-    priority: path === '' ? 1 : path.startsWith('/prompts/') ? 0.8 : path.includes('tonalities') ? 0.7 : 0.8,
+    priority: path === '' ? 1 : path.startsWith('/prompts/') ? 0.8 : path.startsWith('/agentic-bdr/') ? 0.85 : path.includes('tonalities') ? 0.7 : 0.8,
   }));
 }

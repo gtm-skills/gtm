@@ -1,5 +1,5 @@
 -- GTM Skills Contributor System Schema
--- Week 7: Revenue sharing, attribution, contributor profiles
+-- Week 7: Recognition-based contributor profiles
 
 -- Contributors table
 CREATE TABLE IF NOT EXISTS contributors (
@@ -22,18 +22,11 @@ CREATE TABLE IF NOT EXISTS contributors (
   total_prompts INTEGER DEFAULT 0,
   total_copies INTEGER DEFAULT 0,
   total_outcomes INTEGER DEFAULT 0,
-  total_revenue_influenced DECIMAL(12,2) DEFAULT 0,
+  total_votes INTEGER DEFAULT 0,
 
-  -- Earnings
-  total_earnings DECIMAL(10,2) DEFAULT 0,
-  pending_payout DECIMAL(10,2) DEFAULT 0,
-  lifetime_payouts DECIMAL(10,2) DEFAULT 0,
-
-  -- Revenue share settings
-  revenue_share_percent DECIMAL(4,2) DEFAULT 10.00, -- 10% default
-  payout_threshold DECIMAL(10,2) DEFAULT 50.00, -- Min $50 to request payout
-  payout_method TEXT, -- paypal, stripe, bank
-  payout_details JSONB, -- Encrypted payout info
+  -- Rank & Recognition
+  rank INTEGER, -- Leaderboard position
+  badge TEXT, -- 'top10', 'top50', 'rising', 'verified'
 
   -- Status
   status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'suspended')),
@@ -81,69 +74,6 @@ CREATE TABLE IF NOT EXISTS attributions (
   expires_at TIMESTAMPTZ DEFAULT NOW() + INTERVAL '30 days' -- 30-day cookie window
 );
 
--- Contributor earnings ledger
-CREATE TABLE IF NOT EXISTS contributor_earnings (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
-  contributor_id UUID NOT NULL REFERENCES contributors(id) ON DELETE CASCADE,
-
-  -- Source of earning
-  attribution_id UUID REFERENCES attributions(id) ON DELETE SET NULL,
-  prompt_id UUID REFERENCES leaderboard_prompts(id) ON DELETE SET NULL,
-  outcome_id UUID REFERENCES prompt_outcomes(id) ON DELETE SET NULL,
-
-  -- Earning details
-  earning_type TEXT NOT NULL CHECK (earning_type IN (
-    'outcome_share', -- % of reported outcome value
-    'referral_bonus', -- Bonus for referring new contributors
-    'featured_bonus', -- Bonus for featured prompts
-    'manual_adjustment' -- Admin adjustments
-  )),
-
-  gross_amount DECIMAL(10,2) NOT NULL,
-  platform_fee DECIMAL(10,2) DEFAULT 0,
-  net_amount DECIMAL(10,2) NOT NULL,
-
-  -- Status
-  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'paid', 'reversed')),
-
-  -- Notes
-  description TEXT,
-
-  -- Timestamps
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  approved_at TIMESTAMPTZ,
-  paid_at TIMESTAMPTZ
-);
-
--- Payouts table
-CREATE TABLE IF NOT EXISTS contributor_payouts (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
-  contributor_id UUID NOT NULL REFERENCES contributors(id) ON DELETE CASCADE,
-
-  -- Payout details
-  amount DECIMAL(10,2) NOT NULL,
-  currency TEXT DEFAULT 'USD',
-  payout_method TEXT NOT NULL,
-
-  -- Status
-  status TEXT DEFAULT 'pending' CHECK (status IN (
-    'pending', 'processing', 'completed', 'failed', 'cancelled'
-  )),
-
-  -- External reference
-  external_id TEXT, -- PayPal/Stripe transaction ID
-
-  -- Notes
-  notes TEXT,
-  failure_reason TEXT,
-
-  -- Timestamps
-  requested_at TIMESTAMPTZ DEFAULT NOW(),
-  processed_at TIMESTAMPTZ,
-  completed_at TIMESTAMPTZ
-);
 
 -- Link prompts to contributors
 ALTER TABLE leaderboard_prompts
@@ -159,11 +89,6 @@ CREATE INDEX IF NOT EXISTS idx_attributions_fingerprint ON attributions(visitor_
 CREATE INDEX IF NOT EXISTS idx_attributions_created ON attributions(created_at);
 CREATE INDEX IF NOT EXISTS idx_attributions_expires ON attributions(expires_at);
 
-CREATE INDEX IF NOT EXISTS idx_earnings_contributor ON contributor_earnings(contributor_id);
-CREATE INDEX IF NOT EXISTS idx_earnings_status ON contributor_earnings(status);
-
-CREATE INDEX IF NOT EXISTS idx_payouts_contributor ON contributor_payouts(contributor_id);
-CREATE INDEX IF NOT EXISTS idx_payouts_status ON contributor_payouts(status);
 
 -- Function to update contributor stats
 CREATE OR REPLACE FUNCTION update_contributor_stats()
@@ -191,20 +116,12 @@ AFTER INSERT OR UPDATE ON leaderboard_prompts
 FOR EACH ROW
 EXECUTE FUNCTION update_contributor_stats();
 
--- Function to calculate earnings from outcomes
-CREATE OR REPLACE FUNCTION calculate_outcome_earning()
+-- Function to update contributor stats from outcomes
+CREATE OR REPLACE FUNCTION update_contributor_outcome_stats()
 RETURNS TRIGGER AS $$
 DECLARE
   v_contributor_id UUID;
-  v_share_percent DECIMAL;
-  v_gross_amount DECIMAL;
-  v_net_amount DECIMAL;
 BEGIN
-  -- Only process if outcome has a value
-  IF NEW.outcome_value IS NULL OR NEW.outcome_value <= 0 THEN
-    RETURN NEW;
-  END IF;
-
   -- Get contributor for this prompt
   SELECT lp.contributor_id INTO v_contributor_id
   FROM leaderboard_prompts lp
@@ -214,40 +131,9 @@ BEGIN
     RETURN NEW;
   END IF;
 
-  -- Get contributor's revenue share percentage
-  SELECT revenue_share_percent INTO v_share_percent
-  FROM contributors
-  WHERE id = v_contributor_id;
-
-  -- Calculate earnings (default 10% of outcome value, capped at $1000 per outcome)
-  v_gross_amount := LEAST(NEW.outcome_value * (COALESCE(v_share_percent, 10) / 100), 1000);
-  v_net_amount := v_gross_amount; -- No platform fee for now
-
-  -- Insert earning record
-  INSERT INTO contributor_earnings (
-    contributor_id,
-    prompt_id,
-    outcome_id,
-    earning_type,
-    gross_amount,
-    net_amount,
-    status,
-    description
-  ) VALUES (
-    v_contributor_id,
-    NEW.prompt_id,
-    NEW.id,
-    'outcome_share',
-    v_gross_amount,
-    v_net_amount,
-    'pending',
-    'Revenue share from outcome: ' || NEW.outcome_type
-  );
-
-  -- Update contributor pending payout
+  -- Update contributor outcome count
   UPDATE contributors SET
-    pending_payout = pending_payout + v_net_amount,
-    total_revenue_influenced = total_revenue_influenced + NEW.outcome_value,
+    total_outcomes = total_outcomes + 1,
     updated_at = NOW()
   WHERE id = v_contributor_id;
 
@@ -255,9 +141,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Trigger for outcome earnings
-DROP TRIGGER IF EXISTS trigger_calculate_outcome_earning ON prompt_outcomes;
-CREATE TRIGGER trigger_calculate_outcome_earning
+-- Trigger for outcome stats
+DROP TRIGGER IF EXISTS trigger_update_contributor_outcome_stats ON prompt_outcomes;
+CREATE TRIGGER trigger_update_contributor_outcome_stats
 AFTER INSERT ON prompt_outcomes
 FOR EACH ROW
-EXECUTE FUNCTION calculate_outcome_earning();
+EXECUTE FUNCTION update_contributor_outcome_stats();

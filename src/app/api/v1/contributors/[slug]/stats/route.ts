@@ -38,10 +38,8 @@ export async function GET(
     total_prompts: stats.total_prompts,
     total_copies: stats.total_copies,
     total_outcomes: stats.total_outcomes,
-    total_revenue_influenced: stats.total_revenue_influenced,
-    total_earnings: stats.total_earnings,
-    pending_payout: stats.pending_payout,
-    this_month_earnings: stats.this_month_earnings,
+    total_votes: stats.total_votes,
+    rank: stats.rank,
     top_prompt: stats.top_prompt,
   });
 }

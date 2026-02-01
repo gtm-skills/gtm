@@ -15,13 +15,13 @@ export async function GET(request: NextRequest) {
   const limit = parseInt(searchParams.get('limit') || '20');
   const offset = parseInt(searchParams.get('offset') || '0');
   const featured = searchParams.get('featured');
-  const sort = searchParams.get('sort') as 'earnings' | 'prompts' | 'revenue' | 'recent' | undefined;
+  const sort = searchParams.get('sort') as 'votes' | 'prompts' | 'copies' | 'recent' | undefined;
 
   const { data, total } = await getContributors({
     limit,
     offset,
     featured: featured === 'true' ? true : featured === 'false' ? false : undefined,
-    sort: sort || 'earnings',
+    sort: sort || 'votes',
   });
 
   return NextResponse.json({
@@ -36,7 +36,9 @@ export async function GET(request: NextRequest) {
       total_prompts: c.total_prompts,
       total_copies: c.total_copies,
       total_outcomes: c.total_outcomes,
-      total_revenue_influenced: c.total_revenue_influenced,
+      total_votes: c.total_votes,
+      rank: c.rank,
+      badge: c.badge,
       verified: c.verified,
       featured: c.featured,
     })),

@@ -106,7 +106,7 @@ export async function trackPromptCopy(promptId: string) {
 /**
  * Track an outcome logged event
  */
-export async function trackOutcomeLogged(promptId: string, outcomeValue: number) {
+export async function trackOutcomeLogged(promptId: string) {
   const attribution = getStoredAttribution();
   const fingerprint = getFingerprint();
 
@@ -119,7 +119,6 @@ export async function trackOutcomeLogged(promptId: string, outcomeValue: number)
         prompt_id: promptId,
         visitor_fingerprint: fingerprint,
         event_type: 'outcome_logged',
-        event_value: outcomeValue,
       }),
     }).catch(console.error);
   }

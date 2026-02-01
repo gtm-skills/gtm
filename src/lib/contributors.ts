@@ -1,7 +1,7 @@
 /**
  * GTM Skills Contributor System
  *
- * Handles contributor profiles, earnings, and attribution tracking.
+ * Recognition-based contributor profiles and attribution tracking.
  */
 
 import { createClient } from '@supabase/supabase-js';
@@ -21,9 +21,9 @@ export interface Contributor {
   total_prompts: number;
   total_copies: number;
   total_outcomes: number;
-  total_revenue_influenced: number;
-  total_earnings: number;
-  pending_payout: number;
+  total_votes: number;
+  rank?: number;
+  badge?: 'top10' | 'top50' | 'rising' | 'verified';
   status: 'pending' | 'approved' | 'suspended';
   verified: boolean;
   featured: boolean;
@@ -34,15 +34,13 @@ export interface ContributorStats {
   total_prompts: number;
   total_copies: number;
   total_outcomes: number;
-  total_revenue_influenced: number;
-  total_earnings: number;
-  pending_payout: number;
-  this_month_earnings: number;
+  total_votes: number;
+  rank?: number;
   top_prompt?: {
     id: string;
     title: string;
     copies: number;
-    revenue: number;
+    votes: number;
   };
 }
 
@@ -50,25 +48,12 @@ export interface Attribution {
   contributor_id: string;
   prompt_id?: string;
   visitor_fingerprint: string;
-  event_type: 'visit' | 'prompt_view' | 'prompt_copy' | 'outcome_logged' | 'signup' | 'upgrade';
-  event_value?: number;
+  event_type: 'visit' | 'prompt_view' | 'prompt_copy' | 'outcome_logged';
   referrer_url?: string;
   landing_page?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
-}
-
-export interface Earning {
-  id: string;
-  contributor_id: string;
-  prompt_id?: string;
-  earning_type: 'outcome_share' | 'referral_bonus' | 'featured_bonus' | 'manual_adjustment';
-  gross_amount: number;
-  net_amount: number;
-  status: 'pending' | 'approved' | 'paid' | 'reversed';
-  description?: string;
-  created_at: string;
 }
 
 // Helper to get Supabase client
@@ -90,7 +75,7 @@ export async function getContributors(options: {
   limit?: number;
   offset?: number;
   featured?: boolean;
-  sort?: 'earnings' | 'prompts' | 'revenue' | 'recent';
+  sort?: 'votes' | 'prompts' | 'copies' | 'recent';
 }): Promise<{ data: Contributor[]; total: number }> {
   const supabase = getSupabase();
 
@@ -109,9 +94,9 @@ export async function getContributors(options: {
           total_prompts: 12,
           total_copies: 4523,
           total_outcomes: 47,
-          total_revenue_influenced: 892000,
-          total_earnings: 8920,
-          pending_payout: 450,
+          total_votes: 892,
+          rank: 1,
+          badge: 'top10',
           status: 'approved',
           verified: true,
           featured: true,
@@ -126,9 +111,9 @@ export async function getContributors(options: {
           total_prompts: 8,
           total_copies: 3201,
           total_outcomes: 89,
-          total_revenue_influenced: 654000,
-          total_earnings: 6540,
-          pending_payout: 320,
+          total_votes: 654,
+          rank: 2,
+          badge: 'top10',
           status: 'approved',
           verified: true,
           featured: true,
@@ -143,9 +128,9 @@ export async function getContributors(options: {
           total_prompts: 6,
           total_copies: 2156,
           total_outcomes: 34,
-          total_revenue_influenced: 445000,
-          total_earnings: 4450,
-          pending_payout: 0,
+          total_votes: 445,
+          rank: 3,
+          badge: 'top50',
           status: 'approved',
           verified: true,
           featured: false,
@@ -156,7 +141,7 @@ export async function getContributors(options: {
     };
   }
 
-  const { limit = 20, offset = 0, featured, sort = 'earnings' } = options;
+  const { limit = 20, offset = 0, featured, sort = 'votes' } = options;
 
   let query = supabase
     .from('contributors')
@@ -169,14 +154,14 @@ export async function getContributors(options: {
 
   // Sort
   switch (sort) {
-    case 'earnings':
-      query = query.order('total_earnings', { ascending: false });
+    case 'votes':
+      query = query.order('total_votes', { ascending: false });
       break;
     case 'prompts':
       query = query.order('total_prompts', { ascending: false });
       break;
-    case 'revenue':
-      query = query.order('total_revenue_influenced', { ascending: false });
+    case 'copies':
+      query = query.order('total_copies', { ascending: false });
       break;
     case 'recent':
       query = query.order('created_at', { ascending: false });
@@ -202,7 +187,28 @@ export async function getContributorBySlug(slug: string): Promise<Contributor | 
   const supabase = getSupabase();
 
   if (!supabase) {
-    return null;
+    // Return mock for known slugs
+    const mockContributors: Record<string, Contributor> = {
+      'sarah-chen': {
+        id: '1',
+        email: 'sarah@example.com',
+        name: 'Sarah Chen',
+        slug: 'sarah-chen',
+        bio: 'Enterprise AE | MEDDPICC enthusiast | 10+ years in B2B SaaS',
+        twitter_handle: 'sarahsells',
+        total_prompts: 12,
+        total_copies: 4523,
+        total_outcomes: 47,
+        total_votes: 892,
+        rank: 1,
+        badge: 'top10',
+        status: 'approved',
+        verified: true,
+        featured: true,
+        created_at: '2026-01-15',
+      },
+    };
+    return mockContributors[slug] || null;
   }
 
   const { data, error } = await supabase
@@ -231,15 +237,13 @@ export async function getContributorStats(contributorId: string): Promise<Contri
       total_prompts: 12,
       total_copies: 4523,
       total_outcomes: 47,
-      total_revenue_influenced: 892000,
-      total_earnings: 8920,
-      pending_payout: 450,
-      this_month_earnings: 1250,
+      total_votes: 892,
+      rank: 1,
       top_prompt: {
         id: '1',
         title: 'MEDDPICC Discovery Framework',
         copies: 1847,
-        revenue: 324000,
+        votes: 324,
       },
     };
   }
@@ -253,25 +257,12 @@ export async function getContributorStats(contributorId: string): Promise<Contri
 
   if (!contributor) return null;
 
-  // Get this month's earnings
-  const startOfMonth = new Date();
-  startOfMonth.setDate(1);
-  startOfMonth.setHours(0, 0, 0, 0);
-
-  const { data: monthEarnings } = await supabase
-    .from('contributor_earnings')
-    .select('net_amount')
-    .eq('contributor_id', contributorId)
-    .gte('created_at', startOfMonth.toISOString());
-
-  const thisMonthEarnings = monthEarnings?.reduce((sum, e) => sum + (e.net_amount || 0), 0) || 0;
-
   // Get top prompt
   const { data: topPrompt } = await supabase
     .from('leaderboard_prompts')
-    .select('id, title, copy_count')
+    .select('id, title, copy_count, vote_count')
     .eq('contributor_id', contributorId)
-    .order('copy_count', { ascending: false })
+    .order('vote_count', { ascending: false })
     .limit(1)
     .single();
 
@@ -279,15 +270,13 @@ export async function getContributorStats(contributorId: string): Promise<Contri
     total_prompts: contributor.total_prompts,
     total_copies: contributor.total_copies,
     total_outcomes: contributor.total_outcomes,
-    total_revenue_influenced: contributor.total_revenue_influenced,
-    total_earnings: contributor.total_earnings,
-    pending_payout: contributor.pending_payout,
-    this_month_earnings: thisMonthEarnings,
+    total_votes: contributor.total_votes,
+    rank: contributor.rank,
     top_prompt: topPrompt ? {
       id: topPrompt.id,
       title: topPrompt.title,
       copies: topPrompt.copy_count,
-      revenue: 0, // Would need to calculate from outcomes
+      votes: topPrompt.vote_count,
     } : undefined,
   };
 }
@@ -360,7 +349,6 @@ export async function trackAttribution(data: Attribution): Promise<{ success: bo
     prompt_id: data.prompt_id,
     visitor_fingerprint: data.visitor_fingerprint,
     event_type: data.event_type,
-    event_value: data.event_value,
     referrer_url: data.referrer_url,
     landing_page: data.landing_page,
     utm_source: data.utm_source,
@@ -377,70 +365,18 @@ export async function trackAttribution(data: Attribution): Promise<{ success: bo
 }
 
 /**
- * Get earnings for a contributor
- */
-export async function getContributorEarnings(
-  contributorId: string,
-  options: { limit?: number; offset?: number; status?: string }
-): Promise<{ data: Earning[]; total: number }> {
-  const supabase = getSupabase();
-
-  if (!supabase) {
-    return {
-      data: [
-        {
-          id: '1',
-          contributor_id: contributorId,
-          prompt_id: '1',
-          earning_type: 'outcome_share',
-          gross_amount: 125,
-          net_amount: 125,
-          status: 'approved',
-          description: 'Revenue share from outcome: deal_won',
-          created_at: '2026-01-28',
-        },
-      ],
-      total: 1,
-    };
-  }
-
-  const { limit = 20, offset = 0, status } = options;
-
-  let query = supabase
-    .from('contributor_earnings')
-    .select('*', { count: 'exact' })
-    .eq('contributor_id', contributorId)
-    .order('created_at', { ascending: false });
-
-  if (status) {
-    query = query.eq('status', status);
-  }
-
-  query = query.range(offset, offset + limit - 1);
-
-  const { data, error, count } = await query;
-
-  if (error) {
-    console.error('Error fetching earnings:', error);
-    return { data: [], total: 0 };
-  }
-
-  return { data: data || [], total: count || 0 };
-}
-
-/**
  * Get leaderboard stats for contributors
  */
 export async function getContributorLeaderboard(): Promise<{
-  topByEarnings: Contributor[];
-  topByRevenue: Contributor[];
+  topByVotes: Contributor[];
+  topByCopies: Contributor[];
   topByPrompts: Contributor[];
 }> {
   const supabase = getSupabase();
 
   const defaultData = {
-    topByEarnings: [],
-    topByRevenue: [],
+    topByVotes: [],
+    topByCopies: [],
     topByPrompts: [],
   };
 
@@ -448,18 +384,18 @@ export async function getContributorLeaderboard(): Promise<{
     return defaultData;
   }
 
-  const [byEarnings, byRevenue, byPrompts] = await Promise.all([
+  const [byVotes, byCopies, byPrompts] = await Promise.all([
     supabase
       .from('contributors')
       .select('*')
       .eq('status', 'approved')
-      .order('total_earnings', { ascending: false })
+      .order('total_votes', { ascending: false })
       .limit(5),
     supabase
       .from('contributors')
       .select('*')
       .eq('status', 'approved')
-      .order('total_revenue_influenced', { ascending: false })
+      .order('total_copies', { ascending: false })
       .limit(5),
     supabase
       .from('contributors')
@@ -470,8 +406,8 @@ export async function getContributorLeaderboard(): Promise<{
   ]);
 
   return {
-    topByEarnings: byEarnings.data || [],
-    topByRevenue: byRevenue.data || [],
+    topByVotes: byVotes.data || [],
+    topByCopies: byCopies.data || [],
     topByPrompts: byPrompts.data || [],
   };
 }

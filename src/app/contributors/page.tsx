@@ -1,25 +1,16 @@
 /**
  * Contributors Page
- * Lists all approved contributors with earnings and stats
+ * Lists all approved contributors with recognition stats
  */
 
 import Link from 'next/link';
-import { Users, Trophy, DollarSign, TrendingUp, BadgeCheck, Star } from 'lucide-react';
+import { Users, Trophy, ThumbsUp, Copy, BadgeCheck, Star, Award } from 'lucide-react';
 import { getContributors, getContributorLeaderboard } from '@/lib/contributors';
 
 export const metadata = {
   title: 'Contributors | GTM Skills',
-  description: 'Meet the top contributors powering the GTM Skills community. Earn revenue share by submitting prompts that drive real sales outcomes.',
+  description: 'Meet the top contributors powering the GTM Skills community. Submit prompts, earn recognition, and climb the leaderboard.',
 };
-
-function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
 
 function formatNumber(num: number): string {
   if (num >= 1000000) {
@@ -33,12 +24,12 @@ function formatNumber(num: number): string {
 
 export default async function ContributorsPage() {
   const [{ data: contributors }, leaderboard] = await Promise.all([
-    getContributors({ limit: 50, sort: 'earnings' }),
+    getContributors({ limit: 50, sort: 'votes' }),
     getContributorLeaderboard(),
   ]);
 
-  const topEarner = leaderboard.topByEarnings[0];
-  const topRevenue = leaderboard.topByRevenue[0];
+  const topVotes = leaderboard.topByVotes[0];
+  const topCopies = leaderboard.topByCopies[0];
   const topPrompts = leaderboard.topByPrompts[0];
 
   return (
@@ -57,35 +48,35 @@ export default async function ContributorsPage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500"> GTM Skills</span>
             </h1>
             <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-              Our contributors earn revenue share when their prompts drive real sales outcomes.
-              Join the community and start earning.
+              Our contributors share battle-tested prompts that help sales teams close more deals.
+              Join the community and earn recognition.
             </p>
           </div>
 
           {/* Top Contributors Cards */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {/* Top Earner */}
+            {/* Most Voted */}
             <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-amber-500/50 transition-colors">
               <div className="flex items-center gap-2 text-amber-400 mb-4">
                 <Trophy className="w-5 h-5" />
-                <span className="text-sm font-medium">Top Earner</span>
+                <span className="text-sm font-medium">Most Voted</span>
               </div>
-              {topEarner ? (
-                <Link href={`/contributors/${topEarner.slug}`} className="block group">
+              {topVotes ? (
+                <Link href={`/contributors/${topVotes.slug}`} className="block group">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold text-lg">
-                      {topEarner.name.charAt(0)}
+                      {topVotes.name.charAt(0)}
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-white font-semibold group-hover:text-amber-400 transition-colors">{topEarner.name}</span>
-                        {topEarner.verified && <BadgeCheck className="w-4 h-4 text-amber-400" />}
+                        <span className="text-white font-semibold group-hover:text-amber-400 transition-colors">{topVotes.name}</span>
+                        {topVotes.verified && <BadgeCheck className="w-4 h-4 text-amber-400" />}
                       </div>
-                      <span className="text-zinc-500 text-sm">{topEarner.total_prompts} prompts</span>
+                      <span className="text-zinc-500 text-sm">{topVotes.total_prompts} prompts</span>
                     </div>
                   </div>
                   <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-                    {formatCurrency(topEarner.total_earnings)}
+                    {formatNumber(topVotes.total_votes)} votes
                   </div>
                 </Link>
               ) : (
@@ -93,28 +84,28 @@ export default async function ContributorsPage() {
               )}
             </div>
 
-            {/* Top Revenue Influenced */}
+            {/* Most Copied */}
             <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-emerald-500/50 transition-colors">
               <div className="flex items-center gap-2 text-emerald-400 mb-4">
-                <DollarSign className="w-5 h-5" />
-                <span className="text-sm font-medium">Most Revenue Influenced</span>
+                <Copy className="w-5 h-5" />
+                <span className="text-sm font-medium">Most Copied</span>
               </div>
-              {topRevenue ? (
-                <Link href={`/contributors/${topRevenue.slug}`} className="block group">
+              {topCopies ? (
+                <Link href={`/contributors/${topCopies.slug}`} className="block group">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold text-lg">
-                      {topRevenue.name.charAt(0)}
+                      {topCopies.name.charAt(0)}
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-white font-semibold group-hover:text-emerald-400 transition-colors">{topRevenue.name}</span>
-                        {topRevenue.verified && <BadgeCheck className="w-4 h-4 text-emerald-400" />}
+                        <span className="text-white font-semibold group-hover:text-emerald-400 transition-colors">{topCopies.name}</span>
+                        {topCopies.verified && <BadgeCheck className="w-4 h-4 text-emerald-400" />}
                       </div>
-                      <span className="text-zinc-500 text-sm">{topRevenue.total_prompts} prompts</span>
+                      <span className="text-zinc-500 text-sm">{topCopies.total_prompts} prompts</span>
                     </div>
                   </div>
                   <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500">
-                    {formatCurrency(topRevenue.total_revenue_influenced)}
+                    {formatNumber(topCopies.total_copies)} copies
                   </div>
                 </Link>
               ) : (
@@ -125,8 +116,8 @@ export default async function ContributorsPage() {
             {/* Most Prompts */}
             <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-violet-500/50 transition-colors">
               <div className="flex items-center gap-2 text-violet-400 mb-4">
-                <TrendingUp className="w-5 h-5" />
-                <span className="text-sm font-medium">Most Prompts</span>
+                <Award className="w-5 h-5" />
+                <span className="text-sm font-medium">Most Prolific</span>
               </div>
               {topPrompts ? (
                 <Link href={`/contributors/${topPrompts.slug}`} className="block group">
@@ -139,7 +130,7 @@ export default async function ContributorsPage() {
                         <span className="text-white font-semibold group-hover:text-violet-400 transition-colors">{topPrompts.name}</span>
                         {topPrompts.verified && <BadgeCheck className="w-4 h-4 text-violet-400" />}
                       </div>
-                      <span className="text-zinc-500 text-sm">{formatNumber(topPrompts.total_copies || 0)} copies</span>
+                      <span className="text-zinc-500 text-sm">{formatNumber(topPrompts.total_copies)} copies</span>
                     </div>
                   </div>
                   <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-500">
@@ -216,9 +207,9 @@ export default async function ContributorsPage() {
                         <span className="text-white ml-1 font-medium">{contributor.total_prompts}</span>
                       </div>
                       <div>
-                        <span className="text-zinc-500">Revenue</span>
-                        <span className="text-emerald-400 ml-1 font-medium">
-                          {formatCurrency(contributor.total_revenue_influenced)}
+                        <span className="text-zinc-500">Votes</span>
+                        <span className="text-amber-400 ml-1 font-medium">
+                          {formatNumber(contributor.total_votes)}
                         </span>
                       </div>
                     </div>
@@ -232,7 +223,7 @@ export default async function ContributorsPage() {
             <div className="text-center py-16">
               <Users className="w-16 h-16 text-zinc-700 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">No Contributors Yet</h3>
-              <p className="text-zinc-400 mb-6">Be the first to contribute prompts and earn revenue share.</p>
+              <p className="text-zinc-400 mb-6">Be the first to contribute prompts and earn recognition.</p>
               <Link
                 href="/leaderboard/submit"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 text-black font-semibold rounded-lg hover:bg-amber-400 transition-colors"
@@ -247,7 +238,7 @@ export default async function ContributorsPage() {
       {/* How It Works */}
       <section className="py-16 border-t border-zinc-800 bg-zinc-900/30">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">How Contributors Earn</h2>
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">How Contributors Earn Recognition</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
@@ -264,9 +255,9 @@ export default async function ContributorsPage() {
               <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
                 <span className="text-xl font-bold text-emerald-400">2</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Track Outcomes</h3>
+              <h3 className="text-lg font-semibold text-white mb-2">Get Votes & Copies</h3>
               <p className="text-zinc-400 text-sm">
-                Users report wins when your prompts help close deals. We track revenue influenced.
+                The community votes on prompts. Popular prompts get copied and used by thousands.
               </p>
             </div>
 
@@ -274,9 +265,9 @@ export default async function ContributorsPage() {
               <div className="w-12 h-12 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mx-auto mb-4">
                 <span className="text-xl font-bold text-violet-400">3</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Earn Revenue Share</h3>
+              <h3 className="text-lg font-semibold text-white mb-2">Earn Badges & Rank</h3>
               <p className="text-zinc-400 text-sm">
-                Earn 10% of reported outcome value, capped at $1,000 per outcome. Paid monthly.
+                Top contributors earn badges, get featured, and build their reputation in the GTM community.
               </p>
             </div>
           </div>

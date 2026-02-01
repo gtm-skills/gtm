@@ -4,7 +4,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getContributorBySlug, getContributorStats, getContributorEarnings } from '@/lib/contributors';
+import { getContributorBySlug, getContributorStats } from '@/lib/contributors';
 
 export const runtime = 'edge';
 
@@ -15,7 +15,6 @@ export async function GET(
   const { slug } = await params;
   const { searchParams } = new URL(request.url);
   const includeStats = searchParams.get('stats') === 'true';
-  const includeEarnings = searchParams.get('earnings') === 'true';
 
   const contributor = await getContributorBySlug(slug);
 
@@ -39,7 +38,9 @@ export async function GET(
     total_prompts: contributor.total_prompts,
     total_copies: contributor.total_copies,
     total_outcomes: contributor.total_outcomes,
-    total_revenue_influenced: contributor.total_revenue_influenced,
+    total_votes: contributor.total_votes,
+    rank: contributor.rank,
+    badge: contributor.badge,
     verified: contributor.verified,
     featured: contributor.featured,
     created_at: contributor.created_at,
@@ -50,31 +51,11 @@ export async function GET(
     const stats = await getContributorStats(contributor.id);
     if (stats) {
       response.stats = {
-        total_earnings: stats.total_earnings,
-        pending_payout: stats.pending_payout,
-        this_month_earnings: stats.this_month_earnings,
+        total_votes: stats.total_votes,
+        rank: stats.rank,
         top_prompt: stats.top_prompt,
       };
     }
-  }
-
-  // Include earnings history if requested (only for authenticated contributor)
-  if (includeEarnings) {
-    const { data: earnings, total } = await getContributorEarnings(contributor.id, {
-      limit: 10,
-    });
-    response.recent_earnings = {
-      data: earnings.map((e) => ({
-        id: e.id,
-        type: e.earning_type,
-        gross_amount: e.gross_amount,
-        net_amount: e.net_amount,
-        status: e.status,
-        description: e.description,
-        created_at: e.created_at,
-      })),
-      total,
-    };
   }
 
   return NextResponse.json(response);

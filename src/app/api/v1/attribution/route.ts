@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate event type
-    const validEventTypes = ['visit', 'prompt_view', 'prompt_copy', 'outcome_logged', 'signup', 'upgrade'];
+    const validEventTypes = ['visit', 'prompt_view', 'prompt_copy', 'outcome_logged'];
     if (!validEventTypes.includes(body.event_type)) {
       return NextResponse.json(
         { error: `Invalid event_type. Must be one of: ${validEventTypes.join(', ')}` },
@@ -34,7 +34,6 @@ export async function POST(request: NextRequest) {
       prompt_id: body.prompt_id,
       visitor_fingerprint: body.visitor_fingerprint,
       event_type: body.event_type,
-      event_value: body.event_value,
       referrer_url: body.referrer_url,
       landing_page: body.landing_page,
       utm_source: body.utm_source,

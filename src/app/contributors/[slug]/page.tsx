@@ -5,10 +5,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
-  Users, Trophy, DollarSign, Copy, Target, BadgeCheck,
-  Twitter, Linkedin, Github, Globe, ArrowLeft, TrendingUp
+  Users, Trophy, Copy, Target, BadgeCheck,
+  Twitter, Linkedin, Github, Globe, ArrowLeft, ThumbsUp, Award
 } from 'lucide-react';
-import { getContributorBySlug, getContributorStats, getContributorEarnings } from '@/lib/contributors';
+import { getContributorBySlug, getContributorStats } from '@/lib/contributors';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -24,17 +24,8 @@ export async function generateMetadata({ params }: PageProps) {
 
   return {
     title: `${contributor.name} | GTM Skills Contributor`,
-    description: contributor.bio || `View ${contributor.name}'s GTM Skills contributions, earnings, and impact.`,
+    description: contributor.bio || `View ${contributor.name}'s GTM Skills contributions and community impact.`,
   };
-}
-
-function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
 }
 
 function formatNumber(num: number): string {
@@ -47,6 +38,21 @@ function formatNumber(num: number): string {
   return num.toString();
 }
 
+function getBadgeInfo(badge?: string): { label: string; color: string } | null {
+  switch (badge) {
+    case 'top10':
+      return { label: 'Top 10', color: 'amber' };
+    case 'top50':
+      return { label: 'Top 50', color: 'violet' };
+    case 'rising':
+      return { label: 'Rising Star', color: 'emerald' };
+    case 'verified':
+      return { label: 'Verified', color: 'blue' };
+    default:
+      return null;
+  }
+}
+
 export default async function ContributorProfilePage({ params }: PageProps) {
   const { slug } = await params;
   const contributor = await getContributorBySlug(slug);
@@ -55,10 +61,8 @@ export default async function ContributorProfilePage({ params }: PageProps) {
     notFound();
   }
 
-  const [stats, { data: earnings }] = await Promise.all([
-    getContributorStats(contributor.id),
-    getContributorEarnings(contributor.id, { limit: 5 }),
-  ]);
+  const stats = await getContributorStats(contributor.id);
+  const badgeInfo = getBadgeInfo(contributor.badge);
 
   return (
     <main className="min-h-screen bg-black">
@@ -98,10 +102,15 @@ export default async function ContributorProfilePage({ params }: PageProps) {
 
             {/* Info */}
             <div className="flex-1">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-2 flex-wrap">
                 <h1 className="text-3xl font-bold text-white">{contributor.name}</h1>
                 {contributor.verified && (
                   <BadgeCheck className="w-6 h-6 text-amber-400" />
+                )}
+                {badgeInfo && (
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium bg-${badgeInfo.color}-500/10 text-${badgeInfo.color}-400 border border-${badgeInfo.color}-500/20`}>
+                    {badgeInfo.label}
+                  </span>
                 )}
               </div>
 
@@ -173,6 +182,16 @@ export default async function ContributorProfilePage({ params }: PageProps) {
 
             <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
               <div className="flex items-center gap-2 text-zinc-500 mb-2">
+                <ThumbsUp className="w-4 h-4" />
+                <span className="text-sm">Votes</span>
+              </div>
+              <div className="text-2xl font-bold text-amber-400">
+                {formatNumber(stats?.total_votes || contributor.total_votes)}
+              </div>
+            </div>
+
+            <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
+              <div className="flex items-center gap-2 text-zinc-500 mb-2">
                 <Copy className="w-4 h-4" />
                 <span className="text-sm">Copies</span>
               </div>
@@ -190,113 +209,65 @@ export default async function ContributorProfilePage({ params }: PageProps) {
                 {stats?.total_outcomes || contributor.total_outcomes}
               </div>
             </div>
-
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-emerald-500 mb-2">
-                <DollarSign className="w-4 h-4" />
-                <span className="text-sm">Revenue Influenced</span>
-              </div>
-              <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500">
-                {formatCurrency(stats?.total_revenue_influenced || contributor.total_revenue_influenced)}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Earnings Section */}
-      {stats && (
+      {/* Rank & Recognition */}
+      {(stats?.rank || contributor.rank) && (
         <section className="py-8 border-t border-zinc-800">
           <div className="max-w-4xl mx-auto px-6">
             <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-amber-400" />
-              Earnings Summary
+              <Award className="w-5 h-5 text-amber-400" />
+              Recognition
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-xl p-6">
-                <div className="text-zinc-400 text-sm mb-1">Total Earnings</div>
-                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-                  {formatCurrency(stats.total_earnings)}
+            <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-xl p-6">
+              <div className="flex items-center gap-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">#{stats?.rank || contributor.rank}</span>
                 </div>
-              </div>
-
-              <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-                <div className="text-zinc-400 text-sm mb-1">This Month</div>
-                <div className="text-3xl font-bold text-white">
-                  {formatCurrency(stats.this_month_earnings)}
-                </div>
-              </div>
-
-              <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-                <div className="text-zinc-400 text-sm mb-1">Pending Payout</div>
-                <div className="text-3xl font-bold text-white">
-                  {formatCurrency(stats.pending_payout)}
+                <div>
+                  <div className="text-lg font-semibold text-white">Contributor Rank</div>
+                  <div className="text-zinc-400">
+                    {(stats?.rank || contributor.rank || 0) <= 10 && 'Top 10 contributor - Elite status'}
+                    {(stats?.rank || contributor.rank || 0) > 10 && (stats?.rank || contributor.rank || 0) <= 50 && 'Top 50 contributor - Rising star'}
+                    {(stats?.rank || contributor.rank || 0) > 50 && 'Active community contributor'}
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+      )}
 
-            {/* Top Prompt */}
-            {stats.top_prompt && (
-              <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 mb-8">
-                <div className="text-zinc-400 text-sm mb-2">Top Performing Prompt</div>
-                <Link
-                  href={`/leaderboard?prompt=${stats.top_prompt.id}`}
-                  className="text-lg font-semibold text-white hover:text-amber-400 transition-colors"
-                >
-                  {stats.top_prompt.title}
-                </Link>
-                <div className="flex items-center gap-4 mt-2 text-sm">
-                  <span className="text-zinc-500">
-                    <Copy className="w-4 h-4 inline mr-1" />
-                    {formatNumber(stats.top_prompt.copies)} copies
-                  </span>
-                  {stats.top_prompt.revenue > 0 && (
-                    <span className="text-emerald-400">
-                      <DollarSign className="w-4 h-4 inline mr-1" />
-                      {formatCurrency(stats.top_prompt.revenue)} influenced
-                    </span>
-                  )}
-                </div>
-              </div>
-            )}
+      {/* Top Prompt */}
+      {stats?.top_prompt && (
+        <section className="py-8 border-t border-zinc-800">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <Trophy className="w-5 h-5 text-amber-400" />
+              Top Performing Prompt
+            </h2>
 
-            {/* Recent Earnings */}
-            {earnings.length > 0 && (
-              <div>
-                <h3 className="text-lg font-semibold text-white mb-4">Recent Earnings</h3>
-                <div className="space-y-3">
-                  {earnings.map((earning) => (
-                    <div
-                      key={earning.id}
-                      className="flex items-center justify-between bg-zinc-900/30 border border-zinc-800 rounded-lg p-4"
-                    >
-                      <div>
-                        <div className="text-white font-medium">
-                          {earning.earning_type === 'outcome_share' && 'Revenue Share'}
-                          {earning.earning_type === 'referral_bonus' && 'Referral Bonus'}
-                          {earning.earning_type === 'featured_bonus' && 'Featured Bonus'}
-                          {earning.earning_type === 'manual_adjustment' && 'Adjustment'}
-                        </div>
-                        {earning.description && (
-                          <div className="text-zinc-500 text-sm">{earning.description}</div>
-                        )}
-                      </div>
-                      <div className="text-right">
-                        <div className={`font-semibold ${earning.net_amount >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                          {earning.net_amount >= 0 ? '+' : ''}{formatCurrency(earning.net_amount)}
-                        </div>
-                        <div className="text-zinc-500 text-xs">
-                          {earning.status === 'pending' && '⏳ Pending'}
-                          {earning.status === 'approved' && '✓ Approved'}
-                          {earning.status === 'paid' && '💰 Paid'}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+              <Link
+                href={`/leaderboard?prompt=${stats.top_prompt.id}`}
+                className="text-lg font-semibold text-white hover:text-amber-400 transition-colors"
+              >
+                {stats.top_prompt.title}
+              </Link>
+              <div className="flex items-center gap-6 mt-3 text-sm">
+                <span className="flex items-center gap-1 text-zinc-400">
+                  <ThumbsUp className="w-4 h-4" />
+                  {formatNumber(stats.top_prompt.votes)} votes
+                </span>
+                <span className="flex items-center gap-1 text-zinc-400">
+                  <Copy className="w-4 h-4" />
+                  {formatNumber(stats.top_prompt.copies)} copies
+                </span>
               </div>
-            )}
+            </div>
           </div>
         </section>
       )}

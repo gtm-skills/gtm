@@ -12,21 +12,21 @@ export async function GET() {
   const leaderboard = await getContributorLeaderboard();
 
   return NextResponse.json({
-    top_by_earnings: leaderboard.topByEarnings.map((c) => ({
+    top_by_votes: leaderboard.topByVotes.map((c) => ({
       id: c.id,
       name: c.name,
       slug: c.slug,
       avatar_url: c.avatar_url,
-      total_earnings: c.total_earnings,
+      total_votes: c.total_votes,
       total_prompts: c.total_prompts,
       verified: c.verified,
     })),
-    top_by_revenue: leaderboard.topByRevenue.map((c) => ({
+    top_by_copies: leaderboard.topByCopies.map((c) => ({
       id: c.id,
       name: c.name,
       slug: c.slug,
       avatar_url: c.avatar_url,
-      total_revenue_influenced: c.total_revenue_influenced,
+      total_copies: c.total_copies,
       total_prompts: c.total_prompts,
       verified: c.verified,
     })),

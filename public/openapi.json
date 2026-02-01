@@ -254,6 +254,183 @@
           }
         }
       }
+    },
+    "/contributors": {
+      "get": {
+        "summary": "List contributors",
+        "description": "Retrieve a list of approved contributors with their stats",
+        "operationId": "listContributors",
+        "tags": ["Contributors"],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results (max 50)",
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "maximum": 50
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Pagination offset",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "featured",
+            "in": "query",
+            "description": "Filter to featured contributors only",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order",
+            "schema": {
+              "type": "string",
+              "enum": ["earnings", "prompts", "revenue", "recent"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorsListResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Register as contributor",
+        "description": "Submit an application to become a contributor",
+        "operationId": "registerContributor",
+        "tags": ["Contributors"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorRegistration"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Registration submitted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorRegistrationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        }
+      }
+    },
+    "/contributors/{slug}": {
+      "get": {
+        "summary": "Get contributor by slug",
+        "description": "Retrieve a single contributor's public profile",
+        "operationId": "getContributor",
+        "tags": ["Contributors"],
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "The contributor's URL slug",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stats",
+            "in": "query",
+            "description": "Include detailed statistics",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contributor not found"
+          }
+        }
+      }
+    },
+    "/contributors/leaderboard": {
+      "get": {
+        "summary": "Get contributor leaderboard",
+        "description": "Get top contributors by earnings, revenue influenced, and prompts",
+        "operationId": "getContributorLeaderboard",
+        "tags": ["Contributors"],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorLeaderboardResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attribution": {
+      "post": {
+        "summary": "Track attribution event",
+        "description": "Track a contributor attribution event (visit, prompt view, copy, outcome)",
+        "operationId": "trackAttribution",
+        "tags": ["Attribution"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributionEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Attribution tracked successfully"
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -434,6 +611,249 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "Contributor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique contributor identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Contributor's display name"
+          },
+          "slug": {
+            "type": "string",
+            "description": "URL-friendly identifier"
+          },
+          "avatar_url": {
+            "type": "string",
+            "description": "Profile image URL"
+          },
+          "bio": {
+            "type": "string",
+            "description": "Contributor bio"
+          },
+          "twitter_handle": {
+            "type": "string"
+          },
+          "linkedin_url": {
+            "type": "string"
+          },
+          "total_prompts": {
+            "type": "integer",
+            "description": "Number of approved prompts"
+          },
+          "total_copies": {
+            "type": "integer",
+            "description": "Total prompt copies"
+          },
+          "total_outcomes": {
+            "type": "integer",
+            "description": "Total outcomes reported"
+          },
+          "total_revenue_influenced": {
+            "type": "number",
+            "description": "Total revenue influenced in USD"
+          },
+          "verified": {
+            "type": "boolean",
+            "description": "Whether contributor is verified"
+          },
+          "featured": {
+            "type": "boolean",
+            "description": "Whether contributor is featured"
+          }
+        }
+      },
+      "ContributorsListResponse": {
+        "type": "object",
+        "properties": {
+          "contributors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contributor"
+            }
+          },
+          "total": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          }
+        }
+      },
+      "ContributorResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Contributor"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "github_handle": {
+                "type": "string"
+              },
+              "website_url": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "stats": {
+                "type": "object",
+                "properties": {
+                  "total_earnings": {
+                    "type": "number"
+                  },
+                  "pending_payout": {
+                    "type": "number"
+                  },
+                  "this_month_earnings": {
+                    "type": "number"
+                  },
+                  "top_prompt": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "copies": {
+                        "type": "integer"
+                      },
+                      "revenue": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ContributorRegistration": {
+        "type": "object",
+        "required": ["email", "name"],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": "string"
+          },
+          "bio": {
+            "type": "string"
+          },
+          "twitter_handle": {
+            "type": "string"
+          },
+          "linkedin_url": {
+            "type": "string"
+          }
+        }
+      },
+      "ContributorRegistrationResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "contributor": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            }
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ContributorLeaderboardResponse": {
+        "type": "object",
+        "properties": {
+          "top_by_earnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contributor"
+            }
+          },
+          "top_by_revenue": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contributor"
+            }
+          },
+          "top_by_prompts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contributor"
+            }
+          }
+        }
+      },
+      "AttributionEvent": {
+        "type": "object",
+        "required": ["contributor_id", "visitor_fingerprint", "event_type"],
+        "properties": {
+          "contributor_id": {
+            "type": "string",
+            "description": "ID of the contributor to credit"
+          },
+          "prompt_id": {
+            "type": "string",
+            "description": "ID of the prompt if applicable"
+          },
+          "visitor_fingerprint": {
+            "type": "string",
+            "description": "Unique visitor identifier"
+          },
+          "event_type": {
+            "type": "string",
+            "enum": ["visit", "prompt_view", "prompt_copy", "outcome_logged", "signup", "upgrade"],
+            "description": "Type of attribution event"
+          },
+          "event_value": {
+            "type": "number",
+            "description": "Dollar value if applicable"
+          },
+          "referrer_url": {
+            "type": "string"
+          },
+          "landing_page": {
+            "type": "string"
+          },
+          "utm_source": {
+            "type": "string"
+          },
+          "utm_medium": {
+            "type": "string"
+          },
+          "utm_campaign": {
+            "type": "string"
           }
         }
       }

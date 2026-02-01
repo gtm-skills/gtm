@@ -2,6 +2,8 @@
 
 > Weekly progress log tracking execution against [PLAN.md](./PLAN.md)
 
+> **IMPORTANT:** Detailed build plans, PRDs, and implementation strategies should ALWAYS be kept in a private repo (prospeda-backend/docs/). This public progress file tracks high-level milestones only. Never expose competitive strategy publicly.
+
 ---
 
 ## Current Sprint: Week 1 (Jan 27 - Feb 2, 2025)

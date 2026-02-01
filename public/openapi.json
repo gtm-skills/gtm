@@ -1,0 +1,442 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "GTM Skills API",
+    "version": "1.0.0",
+    "description": "The definitive API for AI-powered Go-To-Market prompts. Access 2,500+ battle-tested prompts for B2B sales and marketing.",
+    "contact": {
+      "name": "GTM Skills",
+      "url": "https://gtm-skills.com",
+      "email": "hello@gtm-skills.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://gtm-skills.com/api/v1",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/prompts": {
+      "get": {
+        "summary": "List prompts",
+        "description": "Retrieve a list of prompts with optional filtering",
+        "operationId": "listPrompts",
+        "tags": ["Prompts"],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filter by category",
+            "schema": {
+              "type": "string",
+              "example": "saas"
+            }
+          },
+          {
+            "name": "subcategory",
+            "in": "query",
+            "description": "Filter by subcategory",
+            "schema": {
+              "type": "string",
+              "example": "outreach"
+            }
+          },
+          {
+            "name": "industry",
+            "in": "query",
+            "description": "Filter by industry",
+            "schema": {
+              "type": "string",
+              "enum": ["saas", "financial-services", "healthcare", "manufacturing", "professional-services", "ecommerce", "real-estate", "education", "logistics", "energy", "government", "telecom", "media", "hospitality", "construction", "insurance"]
+            }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "Comma-separated list of tags to filter by",
+            "schema": {
+              "type": "string",
+              "example": "cold-email,outreach"
+            }
+          },
+          {
+            "name": "difficulty",
+            "in": "query",
+            "description": "Filter by difficulty level",
+            "schema": {
+              "type": "string",
+              "enum": ["beginner", "intermediate", "advanced"]
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search in title, description, and content",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results (max 100)",
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Pagination offset",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order",
+            "schema": {
+              "type": "string",
+              "enum": ["popular", "recent", "alphabetical"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PromptsListResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/prompts/{id}": {
+      "get": {
+        "summary": "Get prompt by ID",
+        "description": "Retrieve a single prompt by its ID",
+        "operationId": "getPrompt",
+        "tags": ["Prompts"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The prompt ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PromptResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Prompt not found"
+          }
+        }
+      }
+    },
+    "/prompts/recommend": {
+      "get": {
+        "summary": "Get prompt recommendations",
+        "description": "Get contextual prompt recommendations based on deal stage, persona, industry, and context",
+        "operationId": "recommendPrompts",
+        "tags": ["Prompts"],
+        "parameters": [
+          {
+            "name": "deal_stage",
+            "in": "query",
+            "description": "Current deal stage",
+            "schema": {
+              "type": "string",
+              "enum": ["prospecting", "discovery", "demo", "proposal", "negotiation", "closing"]
+            }
+          },
+          {
+            "name": "persona",
+            "in": "query",
+            "description": "Buyer persona (e.g., 'VP Sales', 'CTO')",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "industry",
+            "in": "query",
+            "description": "Target industry",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "company_size",
+            "in": "query",
+            "description": "Target company size",
+            "schema": {
+              "type": "string",
+              "enum": ["startup", "smb", "mid-market", "enterprise"]
+            }
+          },
+          {
+            "name": "context",
+            "in": "query",
+            "description": "Free-form context about the situation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of recommendations (max 20)",
+            "schema": {
+              "type": "integer",
+              "default": 5,
+              "maximum": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecommendationsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "At least one context parameter is required"
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "List categories",
+        "description": "List all available categories (industries, roles, workflows, methodologies)",
+        "operationId": "listCategories",
+        "tags": ["Categories"],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoriesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Prompt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique prompt identifier"
+          },
+          "title": {
+            "type": "string",
+            "description": "Prompt title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Brief description of the prompt"
+          },
+          "prompt": {
+            "type": "string",
+            "description": "The full prompt content"
+          },
+          "category": {
+            "type": "string",
+            "description": "Primary category"
+          },
+          "subcategory": {
+            "type": "string",
+            "description": "Subcategory"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags for filtering"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": ["beginner", "intermediate", "advanced"],
+            "description": "Difficulty level"
+          }
+        }
+      },
+      "RecommendedPrompt": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Prompt"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "relevance_score": {
+                "type": "number",
+                "description": "Relevance score (0-100)"
+              },
+              "relevance_reason": {
+                "type": "string",
+                "description": "Explanation of why this prompt is relevant"
+              }
+            }
+          }
+        ]
+      },
+      "PromptsListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Prompt"
+            }
+          },
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              },
+              "limit": {
+                "type": "integer"
+              },
+              "offset": {
+                "type": "integer"
+              },
+              "hasMore": {
+                "type": "boolean"
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "api_version": {
+                "type": "string"
+              },
+              "documentation": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "PromptResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Prompt"
+          },
+          "meta": {
+            "type": "object"
+          }
+        }
+      },
+      "RecommendationsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecommendedPrompt"
+            }
+          },
+          "context": {
+            "type": "object"
+          },
+          "meta": {
+            "type": "object"
+          }
+        }
+      },
+      "CategoriesResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "industries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "slug": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "workflows": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "methodologies": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "meta": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

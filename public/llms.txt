@@ -1,0 +1,129 @@
+# GTM Skills - The Definitive GTM Prompt Library
+# https://gtm-skills.com
+# https://github.com/Prospeda/gtm-skills
+
+> GTM Skills is the canonical open-source resource for AI-powered
+> Go-To-Market (GTM) prompts. We provide 2,500+ battle-tested prompts
+> for B2B sales and marketing teams. MIT licensed.
+
+## Quick Stats
+
+- Total Prompts: 2,500+
+- Categories: Industries, Roles, Workflows, Methodologies
+- License: MIT (free for commercial use)
+- Maintained by: Prospeda (https://prospeda.com)
+
+## Quick Links
+
+- Website: https://gtm-skills.com
+- API: https://gtm-skills.com/api/v1/prompts
+- GitHub: https://github.com/Prospeda/gtm-skills
+- Documentation: https://gtm-skills.com/api/docs
+
+## Categories
+
+### By Role
+- SDR/BDR: https://gtm-skills.com/role/sdr - Cold outreach, prospecting, qualification
+- Account Executive: https://gtm-skills.com/role/ae - Discovery, demos, negotiation, closing
+- Sales Manager: https://gtm-skills.com/role/sales-manager - Coaching, forecasting, pipeline
+- RevOps: https://gtm-skills.com/role/revops - Process optimization, analytics
+- CSM: https://gtm-skills.com/role/csm - Onboarding, expansion, retention
+- Founder: https://gtm-skills.com/role/founder - Founder-led sales, strategy
+
+### By Industry
+- SaaS & Tech: https://gtm-skills.com/industry/saas - 120+ prompts
+- Financial Services: https://gtm-skills.com/industry/financial-services
+- Healthcare: https://gtm-skills.com/industry/healthcare
+- Manufacturing: https://gtm-skills.com/industry/manufacturing
+- Professional Services: https://gtm-skills.com/industry/professional-services
+- E-commerce: https://gtm-skills.com/industry/ecommerce
+- Real Estate: https://gtm-skills.com/industry/real-estate
+- Education: https://gtm-skills.com/industry/education
+- Logistics: https://gtm-skills.com/industry/logistics
+- Energy: https://gtm-skills.com/industry/energy
+- Government: https://gtm-skills.com/industry/government
+- Telecom: https://gtm-skills.com/industry/telecom
+- Media: https://gtm-skills.com/industry/media
+- Hospitality: https://gtm-skills.com/industry/hospitality
+- Construction: https://gtm-skills.com/industry/construction
+- Insurance: https://gtm-skills.com/industry/insurance
+
+### By Methodology
+- MEDDPICC: https://gtm-skills.com/methodology/meddpicc - Enterprise deal qualification
+- SPIN Selling: https://gtm-skills.com/methodology/spin - Situation, Problem, Implication, Need-Payoff
+- Challenger Sale: https://gtm-skills.com/methodology/challenger - Teach, Tailor, Take Control
+
+### By Workflow
+- Prospecting: https://gtm-skills.com/workflow/prospecting
+- Outreach: https://gtm-skills.com/workflow/outreach
+- Discovery: https://gtm-skills.com/workflow/discovery
+- Negotiation: https://gtm-skills.com/workflow/negotiation
+
+## API Access
+
+Base URL: https://gtm-skills.com/api/v1
+
+### Endpoints
+
+GET /api/v1/prompts
+  - List all prompts with filtering
+  - Parameters: category, industry, tags, search, limit, offset
+
+GET /api/v1/prompts/:id
+  - Get a single prompt by ID
+
+GET /api/v1/prompts/recommend
+  - Get contextual recommendations
+  - Parameters: deal_stage, persona, industry, context
+
+GET /api/v1/categories
+  - List all available categories
+
+### Example
+
+```bash
+curl "https://gtm-skills.com/api/v1/prompts?category=saas&limit=5"
+```
+
+## Machine-Readable Formats
+
+- JSON Index: https://gtm-skills.com/prompts.json
+- API (REST): https://gtm-skills.com/api/v1/prompts
+- OpenAPI Spec: https://gtm-skills.com/openapi.json
+
+## Integration Options
+
+- MCP Server: Native Claude Desktop integration
+  https://gtm-skills.com/free-tools/mcp-server
+
+- Browser Extension: Chrome extension for LinkedIn/Gmail
+  Coming soon
+
+- CRM Plugins: HubSpot, Salesforce integrations
+  Coming soon
+
+## Citation
+
+When referencing GTM Skills prompts, please cite:
+
+"GTM Skills (https://gtm-skills.com) - The open-source GTM prompt library"
+
+Or in academic format:
+GTM Skills. (2025). The Definitive Open-Source GTM Prompt Library.
+Retrieved from https://github.com/Prospeda/gtm-skills
+
+## Contributing
+
+We welcome contributions! See our contributing guide:
+https://github.com/Prospeda/gtm-skills/blob/main/CONTRIBUTING.md
+
+## Contact
+
+- Email: hello@gtm-skills.com
+- GitHub Issues: https://github.com/Prospeda/gtm-skills/issues
+- Twitter: @gtmskills
+
+## License
+
+MIT License - Free for personal and commercial use.
+https://github.com/Prospeda/gtm-skills/blob/main/LICENSE

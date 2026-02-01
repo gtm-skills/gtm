@@ -6,6 +6,7 @@ import { GitHubStars } from '@/components/github-stars';
 import { AnimatedChatDemo } from '@/components/animated-chat-demo';
 
 // New homepage sections (Weeks 1-8 features)
+import { OpenClawPromo } from '@/components/home/openclaw-promo';
 import { EcosystemBar } from '@/components/home/ecosystem-bar';
 import { ToolsGrid } from '@/components/home/tools-grid';
 import { LeaderboardPreview } from '@/components/home/leaderboard-preview';
@@ -185,6 +186,11 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto">
             {/* Top badges */}
             <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+              <Link href="/openclaw">
+                <Badge variant="outline" className="border-orange-500/30 text-orange-400 hover:bg-orange-500/10 transition-colors cursor-pointer animate-pulse">
+                  🦞 Now on OpenClaw
+                </Badge>
+              </Link>
               <Badge variant="outline" className="border-orange-500/30 text-orange-400">
                 <Star className="h-3 w-3 mr-1 fill-orange-400" />
                 Free & Open Source
@@ -269,6 +275,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* OpenClaw Promo - Featured Integration */}
+      <OpenClawPromo />
 
       {/* Ecosystem Bar - Shows all features */}
       <EcosystemBar />

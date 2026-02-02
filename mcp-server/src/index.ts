@@ -15,6 +15,9 @@ import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
+// Integrations
+import { hubspotTools, handleHubSpotTool, isHubSpotConfigured } from "./integrations/hubspot.js";
+
 // Get current directory for loading UI files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -204,8 +207,8 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
 
 // List available tools
 server.setRequestHandler(ListToolsRequestSchema, async () => {
-  return {
-    tools: [
+  // Base GTM content generation tools
+  const gtmTools = [
       {
         name: "research_company",
         description: "Research a company for sales outreach - finds key info, news, pain points, and outreach angles",
@@ -359,8 +362,14 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           required: ["competitor", "yourProduct"],
         },
       },
-    ],
-  };
+    ];
+
+  // Add HubSpot tools if configured
+  const allTools = isHubSpotConfigured()
+    ? [...gtmTools, ...hubspotTools]
+    : gtmTools;
+
+  return { tools: allTools };
 });
 
 // Handle tool calls
@@ -489,6 +498,18 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
 
     default:
+      // Check if it's a HubSpot tool
+      if (name.startsWith("hubspot_") && isHubSpotConfigured()) {
+        const result = await handleHubSpotTool(name, args);
+        return {
+          content: [
+            {
+              type: "text",
+              text: result,
+            },
+          ],
+        };
+      }
       throw new Error(`Unknown tool: ${name}`);
   }
 });

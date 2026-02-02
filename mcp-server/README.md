@@ -20,7 +20,7 @@ When used with Claude Desktop or other MCP Apps-compatible hosts, these tools di
 | `create_follow_up_sequence` | Visual timeline of follow-up emails |
 
 
-### Tools
+### Content Generation Tools
 
 | Tool | Description |
 |------|-------------|
@@ -34,6 +34,21 @@ When used with Claude Desktop or other MCP Apps-compatible hosts, these tools di
 | `create_follow_up_sequence` | Create follow-up sequences |
 | `build_value_proposition` | Build tailored value props |
 | `analyze_competitor` | Generate competitive positioning |
+
+### HubSpot CRM Tools (Real API Integration)
+
+Set `HUBSPOT_API_KEY` to enable these tools:
+
+| Tool | Description |
+|------|-------------|
+| `hubspot_create_contact` | Create a new contact in HubSpot |
+| `hubspot_update_contact` | Update an existing contact |
+| `hubspot_get_contact` | Get contact by ID or email |
+| `hubspot_search_contacts` | Search for contacts |
+| `hubspot_create_deal` | Create a new deal |
+| `hubspot_update_deal` | Update deal stage, amount, etc. |
+| `hubspot_log_activity` | Log email, call, meeting, or note |
+| `hubspot_get_pipelines` | Get deal pipelines and stages |
 
 ### Prompts (Basic)
 
@@ -72,6 +87,19 @@ npm run build
 ```
 
 ## Configuration
+
+### Environment Variables
+
+```bash
+# HubSpot CRM Integration (optional - enables HubSpot tools)
+export HUBSPOT_API_KEY=pat-na1-xxxxxxxx
+
+# Get your API key:
+# 1. Go to HubSpot Settings > Integrations > Private Apps
+# 2. Create a new private app
+# 3. Grant scopes: crm.objects.contacts, crm.objects.deals, crm.objects.companies
+# 4. Copy the access token
+```
 
 ### For Claude Desktop
 

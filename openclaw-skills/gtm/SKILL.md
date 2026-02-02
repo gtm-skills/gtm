@@ -1,8 +1,8 @@
 ---
 name: gtm
-description: Complete GTM toolkit. Research, write, send, book, and track — all from OpenClaw.
-homepage: https://gtm-skills.com/openclaw
-metadata: {"openclaw":{"emoji":"🚀","requires":{"bins":["curl"]},"config":{"optionalEnv":["APOLLO_API_KEY","CLAY_API_KEY","CLEARBIT_API_KEY","HUBSPOT_API_KEY","SALESFORCE_TOKEN","CALENDLY_URL","CALCOM_URL","GMAIL_ENABLED","OUTLOOK_ENABLED"]}}}
+description: GTM toolkit for AI agents. Research, intel, outreach, CRM. Raw sales automation.
+homepage: https://gtm-skills.com
+metadata: {"openclaw":{"emoji":"🎯","config":{"optionalEnv":["APOLLO_API_KEY","CLAY_API_KEY","CLEARBIT_API_KEY","HUBSPOT_API_KEY","SALESFORCE_TOKEN","CALENDLY_URL","CALCOM_URL","GMAIL_ENABLED","OUTLOOK_ENABLED"]}}}
 ---
 
 # GTM Skills
@@ -69,6 +69,24 @@ calendly.com/you/15min
 | `gtm research [company]` | Deep company intel |
 | `gtm signals [company]` | Buying signals |
 | `gtm battlecard [competitor]` | Competitive intel |
+
+### Intel
+
+Competitive surveillance. The stuff that makes money.
+
+| Command | What it does |
+|---------|--------------|
+| `gtm sitemap [domain]` | Fetch sitemap.xml, diff against last check, surface new pages |
+| `gtm sitemap --watch [domain]` | Monitor daily, alert on new URLs |
+| `gtm pricing [domain]` | Snapshot /pricing page, alert on changes |
+| `gtm jobs [company]` | Pull job postings - hiring SDRs = budget, hiring AI = pivot |
+| `gtm techstack [domain]` | Detect stack via headers, scripts, DNS |
+| `gtm reddit [subreddit] [query]` | Fetch threads as JSON, extract pain points + leads |
+| `gtm hn [thread-id]` | Pull HN thread, identify buyers in comments |
+| `gtm producthunt [launch]` | Commenters = early adopters with budget |
+| `gtm g2 [product]` | Scrape reviews - pain points + reviewer companies |
+| `gtm funding [industry]` | Recent raises in your ICP - money to spend |
+| `gtm github [repo] --contributors` | Who's building with it = potential customers |
 
 ### Execute
 
@@ -431,16 +449,104 @@ Worth a 15-min comparison?"
 
 ---
 
+## Intel Examples
+
+### Reddit Lead Mining
+
+```
+gtm reddit /r/salesforce "frustrated with"
+
+Found 23 pain point threads (last 30 days):
+
+1. "Frustrated with Salesforce reporting" - u/revops_mike
+   Company: Likely mid-market (mentions 50 reps)
+   Pain: Report builder, dashboard limitations
+   Thread: reddit.com/r/salesforce/abc123
+
+2. "Anyone else frustrated with CPQ?" - u/sales_ops_sarah
+   Company: Mentions "Series B startup"
+   Pain: Quote approval workflow
+   Thread: reddit.com/r/salesforce/def456
+
+[Export CSV] [Enrich All] [Draft Outreach]
+```
+
+Pro tip: Add `/.json` to any Reddit URL to get the full thread as structured data.
+
+### Sitemap Surveillance
+
+```
+gtm sitemap --watch competitor.com
+
+Monitoring competitor.com/sitemap.xml
+
+Changes detected (Jan 28):
+
+NEW PAGES:
++ /products/enterprise-plan      <- moving upmarket
++ /integrations/snowflake        <- partnership incoming
++ /customers/fortune-500         <- case study prep
++ /careers/ai-engineer           <- building AI team
+
+REMOVED:
+- /pricing/startup-plan          <- killing lower tier?
+
+[Slack alert] [Deep research] [Draft battlecard]
+```
+
+Every company leaks their roadmap in sitemap.xml before they announce it.
+
+### Job Signal Analysis
+
+```
+gtm jobs Acme Corp
+
+Acme Corp - 47 open roles
+
+SIGNALS:
+12 SDR roles this month     -> scaling outbound, has budget
+3 AI/ML Engineer roles      -> building AI, potential buyer
+1 VP RevOps role            -> leadership change, process overhaul
+0 CS roles                  -> not focused on retention
+
+VERDICT: Hot. New RevOps VP = 90-day mandate to buy tools.
+
+[Research deeper] [Find VP RevOps] [Draft outreach]
+```
+
+### Funding Intel
+
+```
+gtm funding "sales tech" --raised "last 30 days"
+
+12 companies raised in Sales Tech (last 30 days):
+
+1. ScaleAI - $50M Series C
+   Signal: Will need sales tools to spend that $$$
+
+2. Ramp - $25M Series B
+   Signal: Hiring 8 AEs right now
+
+3. Groove - $15M Series A
+   Signal: Just hired VP Sales from Gong
+
+[Export list] [Enrich all] [Build sequence]
+```
+
+Fresh funding = budget unlocked. Hit them in the first 90 days.
+
+---
+
 ## Links
 
 - [gtm-skills.com](https://gtm-skills.com)
 - [API Docs](https://gtm-skills.com/developers)
-- [GitHub](https://github.com/Prospeda/gtm-skills)
+- [GitHub](https://github.com/gtm-skills/gtm)
 
 ---
 
 ## Support
 
 Questions? Issues?
-- GitHub: github.com/Prospeda/gtm-skills/issues
+- GitHub: github.com/gtm-skills/gtm/issues
 - Email: hello@gtm-skills.com

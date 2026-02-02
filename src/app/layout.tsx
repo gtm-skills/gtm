@@ -57,11 +57,20 @@ export const metadata: Metadata = {
     url: 'https://gtm-skills.com',
     siteName: 'GTM Skills',
     type: 'website',
+    images: [
+      {
+        url: 'https://gtm-skills.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'GTM Skills - 2,500+ AI Prompts for B2B Sales',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'GTM Skills | 2,500+ AI Prompts for B2B Sales',
     description: 'The most comprehensive GTM prompt library. Industry packs, role playbooks, workflows, and methodologies.',
+    images: ['https://gtm-skills.com/og-image.png'],
   },
   metadataBase: new URL('https://gtm-skills.com'),
 };

@@ -13,10 +13,6 @@ import {
   Mic,
   Link2,
   Bot,
-  Trophy,
-  Users,
-  Plus,
-  Award,
   BookOpen,
   Code,
   FileCode,
@@ -47,19 +43,9 @@ const navigation: NavItem[] = [
     ],
   },
   {
-    name: 'Community',
-    href: '/leaderboard',
-    children: [
-      { name: 'Leaderboard', href: '/leaderboard', icon: Trophy, description: 'Top prompts & votes' },
-      { name: 'Contributors', href: '/contributors', icon: Users, description: 'Community leaders' },
-      { name: 'Submit Prompt', href: '/leaderboard/submit', icon: Plus, description: 'Share your prompts' },
-    ],
-  },
-  {
     name: 'Learn',
-    href: '/certifications',
+    href: '/tutorials',
     children: [
-      { name: 'Certifications', href: '/certifications', icon: Award, description: 'Get certified free' },
       { name: 'Tutorials', href: '/tutorials', icon: BookOpen, description: 'Step-by-step guides' },
       { name: 'Agentic BDR', href: '/agentic-bdr', icon: Bot, description: 'Future of outbound' },
     ],

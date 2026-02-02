@@ -14,11 +14,10 @@ const footerLinks = {
     { name: 'HubSpot', href: '/integrations/hubspot' },
     { name: 'MCP Server', href: '/free-tools/mcp-server' },
   ],
-  Community: [
-    { name: 'Leaderboard', href: '/leaderboard' },
-    { name: 'Contributors', href: '/contributors' },
-    { name: 'Certifications', href: '/certifications' },
-    { name: 'Submit Prompt', href: '/leaderboard/submit' },
+  Learn: [
+    { name: 'Tutorials', href: '/tutorials' },
+    { name: 'Agentic BDR', href: '/agentic-bdr' },
+    { name: 'OpenClaw Skills', href: '/openclaw' },
   ],
   Developers: [
     { name: 'API Docs', href: '/developers' },
@@ -102,7 +101,7 @@ export function Footer() {
             © {new Date().getFullYear()} GTM Skills. MIT License.
           </p>
           <p className="text-sm text-muted-foreground">
-            Made with <span className="text-red-400">♥</span> by{' '}
+            Made by{' '}
             <a
               href="https://prospeda.com"
               target="_blank"
@@ -110,13 +109,6 @@ export function Footer() {
               className="text-foreground hover:underline"
             >
               Prospeda
-            </a>
-            {' '}and the{' '}
-            <a
-              href="/contributors"
-              className="text-foreground hover:underline"
-            >
-              community
             </a>
           </p>
         </div>

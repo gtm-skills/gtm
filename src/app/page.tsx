@@ -5,14 +5,11 @@ import { FeedbackWidget } from '@/components/feedback-widget';
 import { GitHubStars } from '@/components/github-stars';
 import { AnimatedChatDemo } from '@/components/animated-chat-demo';
 
-// New homepage sections (Weeks 1-8 features)
+// New homepage sections
 import { EcosystemBar } from '@/components/home/ecosystem-bar';
 import { ToolsGrid } from '@/components/home/tools-grid';
-import { LeaderboardPreview } from '@/components/home/leaderboard-preview';
 import { VoiceShowcase } from '@/components/home/voice-showcase';
 import { DevelopersSection } from '@/components/home/developers-section';
-import { CertificationPromo } from '@/components/home/certification-promo';
-import { ContributorsSpotlight } from '@/components/home/contributors-spotlight';
 
 import {
   ArrowRight,
@@ -52,7 +49,7 @@ const faqs = [
   },
   {
     question: 'Is GTM Skills really free?',
-    answer: 'Yes, GTM Skills is 100% free and open source under the MIT license. There are no paywalls, no signup required to copy prompts, and no usage limits. You can use it commercially or personally. The project is maintained by Prospeda and the community.',
+    answer: 'Yes, GTM Skills is 100% free and open source under the MIT license. There are no paywalls, no signup required to copy prompts, and no usage limits. You can use it commercially or personally. The project is maintained by Prospeda.',
   },
   {
     question: 'What makes these prompts different from generic AI prompts?',
@@ -60,7 +57,7 @@ const faqs = [
   },
   {
     question: 'Can I contribute my own prompts?',
-    answer: 'Absolutely! GTM Skills is community-driven. Fork the GitHub repository, add your prompts following our template, and submit a pull request. We review contributions within 48 hours. Check our CONTRIBUTING.md guide for detailed instructions.',
+    answer: 'Yes! Fork the GitHub repository, add your prompts following our template, and submit a pull request. We review contributions within 48 hours. Check our CONTRIBUTING.md guide for detailed instructions.',
   },
   {
     question: 'What is the MCP Server?',
@@ -488,9 +485,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Leaderboard Preview - NEW */}
-      <LeaderboardPreview />
-
       {/* How It Works */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
@@ -697,13 +691,8 @@ Rules:
       <VoiceShowcase />
 
       {/* Certification Promo - NEW */}
-      <CertificationPromo />
-
-      {/* Developers Section - NEW */}
+      {/* Developers Section */}
       <DevelopersSection />
-
-      {/* Contributors Spotlight - NEW */}
-      <ContributorsSpotlight />
 
       {/* Support the Project CTA */}
       <section className="py-16 md:py-24">
@@ -718,7 +707,6 @@ Rules:
             </h2>
             <p className="text-muted-foreground mb-8">
               Star us on GitHub to help other sales professionals discover these resources.
-              Every star helps us grow the community.
             </p>
             <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="h-12 px-8 gap-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700">
@@ -729,7 +717,7 @@ Rules:
               </Button>
             </a>
             <p className="text-xs text-muted-foreground mt-4">
-              100% free • MIT licensed • Community maintained
+              100% free • MIT licensed • Open source
             </p>
           </div>
         </div>
@@ -782,10 +770,10 @@ Rules:
                 Open Source
               </Badge>
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Built by the Community, For the Community
+                Free Forever. Open Source.
               </h2>
               <p className="text-zinc-400 max-w-xl mx-auto mb-8">
-                GTM Skills is 100% free and open source. Star the repo, contribute your prompts, and help us build the best GTM resource on the internet.
+                GTM Skills is 100% free and open source under the MIT license. Star the repo to help other sales teams discover it.
               </p>
               <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="h-12 px-8 gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">

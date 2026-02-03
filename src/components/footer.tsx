@@ -23,7 +23,7 @@ const footerLinks = {
     { name: 'API Docs', href: '/developers' },
     { name: 'OpenAPI Spec', href: '/openapi.json' },
     { name: 'llms.txt', href: '/llms.txt' },
-    { name: 'GitHub', href: 'https://github.com/Prospeda/gtm-skills' },
+    { name: 'GitHub', href: 'https://github.com/gtm-skills/gtm' },
   ],
 };
 
@@ -45,7 +45,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://github.com/Prospeda/gtm-skills"
+                href="https://github.com/gtm-skills/gtm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"

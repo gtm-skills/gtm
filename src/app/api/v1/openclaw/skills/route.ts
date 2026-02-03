@@ -20,7 +20,7 @@ const openclawSkills = [
     description: 'Complete GTM toolkit. Research, write, send, book, and track — all from OpenClaw.',
     install: 'npx clawdhub install gtm-skills/gtm',
     homepage: 'https://gtm-skills.com/openclaw',
-    github: 'https://github.com/Prospeda/gtm-skills/tree/main/openclaw-skills/gtm',
+    github: 'https://github.com/gtm-skills/gtm/tree/main/openclaw-skills/gtm',
     commands: [
       { cmd: 'gtm prospect [person] at [company]', desc: 'Full flow: enrich → draft → send' },
       { cmd: 'gtm email', desc: 'Cold email' },

@@ -122,7 +122,7 @@ const resources = [
   {
     title: 'GitHub Repository',
     description: 'Source code, examples, and contributions',
-    href: 'https://github.com/Prospeda/gtm-skills',
+    href: 'https://github.com/gtm-skills/gtm',
     icon: Github,
     badge: 'MIT',
   },
@@ -176,7 +176,7 @@ export default function DevelopersPage() {
                   Download OpenAPI Spec
                 </Button>
               </a>
-              <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="gap-2">
                   <Github className="h-4 w-4" />
                   View on GitHub
@@ -436,7 +436,7 @@ export default function DevelopersPage() {
           <p className="text-muted-foreground mb-6">
             Official SDKs for TypeScript and Python are in development. Star the repo to get notified.
           </p>
-          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
             <Button variant="outline" className="gap-2">
               <Github className="h-4 w-4" />
               Watch on GitHub

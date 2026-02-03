@@ -15,19 +15,20 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Tutorials | Build Agentic Sales Workflows | GTM Skills',
   description: 'Step-by-step tutorials for building agentic SDRs, MCP servers, and automated sales workflows. Learn to build your own AI-powered sales tools.',
-  keywords: 'moltbot tutorial, agentic sdr tutorial, mcp server tutorial, ai sales automation, build ai sdr, sales bot tutorial',
+  keywords: 'openclaw tutorial, agentic sdr tutorial, mcp server tutorial, ai sales automation, build ai sdr, sales agent tutorial',
 };
 
 const tutorials = [
   {
-    slug: 'moltbot-agentic-sdr',
-    title: 'Build an Agentic SDR with Moltbot',
-    description: 'Turn the open-source Moltbot into your personal sales assistant. Research companies, draft emails, and automate follow-ups—all from WhatsApp or Slack.',
+    slug: 'openclaw-sales-agents',
+    title: 'Build an Agentic Sales Team with OpenClaw',
+    description: 'Install the GTM Skills agents and start running AI-powered research, outreach, and deal strategy—all from your terminal.',
     icon: Bot,
     difficulty: 'Beginner',
-    time: '30 min',
-    tags: ['Moltbot', 'Agentic', 'Open Source'],
+    time: '15 min',
+    tags: ['OpenClaw', 'Agentic', 'Open Source'],
     featured: true,
+    comingSoon: true,
   },
   {
     slug: 'mcp-server-sales',

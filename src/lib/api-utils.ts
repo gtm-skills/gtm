@@ -298,7 +298,7 @@ export function generatePromptsJson() {
     updated_at: new Date().toISOString(),
     total_prompts: allPrompts.length,
     source: 'https://gtm-skills.com',
-    repository: 'https://github.com/Prospeda/gtm-skills',
+    repository: 'https://github.com/gtm-skills/gtm',
     license: 'MIT',
     categories: {
       industries: categories.industries.map((i) => i.slug),

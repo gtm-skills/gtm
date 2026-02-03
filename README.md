@@ -9,9 +9,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Prospeda/gtm-skills/stargazers"><img src="https://img.shields.io/github/stars/Prospeda/gtm-skills?style=for-the-badge&logo=github&color=yellow" alt="GitHub Stars"></a>
+  <a href="https://github.com/gtm-skills/gtm/stargazers"><img src="https://img.shields.io/github/stars/gtm-skills/gtm?style=for-the-badge&logo=github&color=yellow" alt="GitHub Stars"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License: MIT"></a>
-  <a href="https://github.com/Prospeda/gtm-skills/blob/main/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge" alt="PRs Welcome"></a>
+  <a href="https://github.com/gtm-skills/gtm/blob/main/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge" alt="PRs Welcome"></a>
   <a href="https://gtm-skills.com"><img src="https://img.shields.io/badge/Website-gtm--skills.com-purple?style=for-the-badge" alt="Website"></a>
 </p>
 
@@ -112,7 +112,7 @@ Visit **[gtm-skills.com](https://gtm-skills.com)** to search, filter, and copy p
 ### Option 2: Clone the Repo
 
 ```bash
-git clone https://github.com/Prospeda/gtm-skills.git
+git clone https://github.com/gtm-skills/gtm.git
 cd gtm-skills
 
 # Browse markdown files directly
@@ -371,7 +371,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for full guidelines.
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Prospeda/gtm-skills&type=Date)](https://star-history.com/#Prospeda/gtm-skills&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=gtm-skills/gtm&type=Date)](https://star-history.com/#gtm-skills/gtm&Date)
 
 ---
 
@@ -398,8 +398,8 @@ See [LICENSE](./LICENSE) for details.
 <p align="center">
   <strong>If GTM Skills helps you close deals, give it a star!</strong>
   <br><br>
-  <a href="https://github.com/Prospeda/gtm-skills/stargazers">
-    <img src="https://img.shields.io/github/stars/Prospeda/gtm-skills?style=social" alt="Star on GitHub">
+  <a href="https://github.com/gtm-skills/gtm/stargazers">
+    <img src="https://img.shields.io/github/stars/gtm-skills/gtm?style=social" alt="Star on GitHub">
   </a>
   <br><br>
   Built with care by <a href="https://prospeda.com">Prospeda</a>

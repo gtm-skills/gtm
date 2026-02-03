@@ -123,8 +123,8 @@ The model was trained on:
 ## Links
 
 - [GTM Skills](https://gtm-skills.com) - The GTM Operating System
-- [GitHub](https://github.com/Prospeda/gtm-skills) - Source code and training scripts
-- [Training Guide](https://github.com/Prospeda/gtm-skills/tree/main/training) - Train your own
+- [GitHub](https://github.com/gtm-skills/gtm) - Source code and training scripts
+- [Training Guide](https://github.com/gtm-skills/gtm/tree/main/training) - Train your own
 
 ---
 

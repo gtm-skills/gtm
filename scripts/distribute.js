@@ -47,18 +47,18 @@ const CONFIG = {
 const DRAFTS = {
   twitter: {
     3: {
-      name: "Moltbot Memory for GTM",
+      name: "openclaw Memory for GTM",
       thread: [
-        "Most AI sales tools forget everything the moment you close the chat.\n\nI've been running sales agents that remember every prospect, every deal, every conversation—permanently.\n\nHere's how Moltbot's memory system works for GTM: 🧵",
+        "Most AI sales tools forget everything the moment you close the chat.\n\nI've been running sales agents that remember every prospect, every deal, every conversation—permanently.\n\nHere's how openclaw's memory system works for GTM: 🧵",
         "The problem with AI for sales:\n\nYou talk to a prospect on Monday.\nBy Wednesday, the AI has zero context.\nYou're starting from scratch every time.\n\nThat's not augmentation. That's a liability.",
-        "Moltbot (formerly Clawdbot) solves this with persistent memory.\n\nNot RAM. Not session storage.\n\nPlain Markdown files that persist forever:\n- MEMORY.md → long-term prospect facts\n- memory/YYYY-MM-DD.md → daily context\n\nYour agent remembers like a human would.",
+        "openclaw (formerly Clawdbot) solves this with persistent memory.\n\nNot RAM. Not session storage.\n\nPlain Markdown files that persist forever:\n- MEMORY.md → long-term prospect facts\n- memory/YYYY-MM-DD.md → daily context\n\nYour agent remembers like a human would.",
         "How I use it for sales:\n\nMEMORY.md stores:\n- Prospect company context\n- Key pain points they mentioned\n- Deal stage and timeline\n- Objections they raised\n- What resonated with them\n\nEvery conversation builds on the last.",
         "The magic: multi-channel memory.\n\nStart a deal conversation on WhatsApp.\nContinue on Telegram.\nReference it from Discord.\n\nSame memory. Same context. One unified agent.\n\nSession scope = \"per-sender\" means each prospect has their own persistent brain.",
-        "Before context compaction (when memory fills up), Moltbot does something clever:\n\nIt triggers an automatic \"memory flush\"—prompting the model to save important facts before summarizing.\n\nYour prospect details never get lost.",
+        "Before context compaction (when memory fills up), openclaw does something clever:\n\nIt triggers an automatic \"memory flush\"—prompting the model to save important facts before summarizing.\n\nYour prospect details never get lost.",
         "Key settings for GTM agents:\n\nsession.scope: \"per-sender\"\n→ Each prospect gets own context\n\ncompaction.memoryFlush.enabled: true\n→ Auto-save before summarization\n\ncontextPruning.mode: \"adaptive\"\n→ Preserve important context intelligently",
         "The result:\n\n\"Hey John, last time we talked you mentioned the CFO needed to sign off and budget was tight until Q2. Did that change after the board meeting?\"\n\nThat's not scripted. That's remembered.",
-        "I wrote up a full explainer on using Moltbot for GTM agents:\n\ngtm-skills.com/free-tools/moltbot\n\nCovers:\n- Memory architecture\n- Multi-channel setup\n- Config for sales agents\n- Sample moltbot.json",
-        "If you're building AI sales agents, memory isn't a nice-to-have.\n\nIt's the difference between a novelty and a real tool.\n\nMoltbot: molt.bot\nFull guide: gtm-skills.com/free-tools/moltbot"
+        "I wrote up a full explainer on using openclaw for GTM agents:\n\ngtm-skills.com/free-tools/openclaw\n\nCovers:\n- Memory architecture\n- Multi-channel setup\n- Config for sales agents\n- Sample openclaw.json",
+        "If you're building AI sales agents, memory isn't a nice-to-have.\n\nIt's the difference between a novelty and a real tool.\n\nopenclaw: molt.bot\nFull guide: gtm-skills.com/free-tools/openclaw"
       ]
     },
     1: {
@@ -72,7 +72,7 @@ const DRAFTS = {
         "The prompts behind these agents?\n\nI packaged all of them.\n\n2,500+ prompts organized by:\n- Industry (SaaS, FinTech, Healthcare...)\n- Role (SDR, AE, CSM...)\n- Workflow (Research, Outreach, Discovery...)\n\nEvery combination has specific prompts.",
         "Examples:\n\n\"SaaS AE Discovery Questions\" - 15 prompts\n\"FinTech Objection Handling\" - 12 prompts\n\"Healthcare MEDDPICC Qualification\" - 10 prompts\n\nNot generic. Industry + role + workflow specific.",
         "Why open source this?\n\nBecause the prompts aren't the moat.\n\nThe moat is:\n- Your ICP knowledge\n- Your use cases\n- Your iteration speed\n\nThe prompts are just the starting point.",
-        "Grab them here:\n\ngithub.com/Prospeda/gtm-skills\n\nOr browse the site:\ngtm-skills.com/prompts\n\nMIT license. Copy, modify, build on top.\n\nIf you use them, tell me what works.",
+        "Grab them here:\n\ngithub.com/gtm-skills/gtm\n\nOr browse the site:\ngtm-skills.com/prompts\n\nMIT license. Copy, modify, build on top.\n\nIf you use them, tell me what works.",
         "Building something similar?\n\nReply with your stack. Curious what others are running.\n\nEspecially interested in:\n- What research sources you use\n- How you handle human-in-the-loop\n- Your biggest automation wins"
       ]
     },
@@ -85,14 +85,14 @@ const DRAFTS = {
         "The stack:\n\n- Next.js 16 with App Router\n- generateStaticParams() for all combinations\n- Dynamic sitemap generation\n- Vercel for hosting\n\nBuild time: 44 seconds for 500+ pages.",
         "SEO mechanics:\n\nEach page has:\n- Unique title: \"{Industry} {Role} {Workflow} Prompts\"\n- Meta description with keywords\n- Schema markup\n- Internal links to adjacent combinations\n\nGoogle sees 420 unique, indexable pages.",
         "Early results (2 weeks in):\n\n- 421 pages indexed\n- Ranking for 50+ long-tail keywords\n- 0 paid promotion\n\nWaiting to see if Google keeps them indexed or flags as programmatic.",
-        "The whole thing is open source:\n\ngithub.com/Prospeda/gtm-skills\n\n/src/data/pseo.ts - all the data\n/src/app/prompts/[...slug] - the dynamic route\n\nFork it. Build your own pSEO system.",
+        "The whole thing is open source:\n\ngithub.com/gtm-skills/gtm\n\n/src/data/pseo.ts - all the data\n/src/app/prompts/[...slug] - the dynamic route\n\nFork it. Build your own pSEO system.",
         "What's next:\n\n- Tracking which pages rank\n- Doubling down on winners\n- Adding more combinations\n\nWill share results in 30 days.\n\nFollow if you want the update."
       ]
     }
   },
   linkedin: {
     3: {
-      name: "Moltbot Memory for Sales",
+      name: "openclaw Memory for Sales",
       content: `The biggest problem with AI for sales isn't intelligence.
 
 It's amnesia.
@@ -111,7 +111,7 @@ That's not augmentation. That's a liability.
 
 I've been running sales agents differently.
 
-Using Moltbot (formerly Clawdbot), my agents have persistent memory that survives across:
+Using openclaw (formerly Clawdbot), my agents have persistent memory that survives across:
 • Sessions
 • Days
 • Weeks
@@ -147,7 +147,7 @@ No more "remind me what we discussed." The agent knows.
 
 —
 
-Before the AI's context window fills up, Moltbot does something clever:
+Before the AI's context window fills up, openclaw does something clever:
 
 It triggers an automatic "memory flush"—prompting the model to save important facts before summarizing old context.
 
@@ -155,9 +155,9 @@ Your prospect details are never lost.
 
 —
 
-I wrote up a full guide on configuring Moltbot for GTM agents:
+I wrote up a full guide on configuring openclaw for GTM agents:
 
-gtm-skills.com/free-tools/moltbot
+gtm-skills.com/free-tools/openclaw
 
 Covers:
 • Memory architecture deep dive
@@ -237,7 +237,7 @@ If you're building agentic sales workflows, grab them:
 
 gtm-skills.com/prompts
 
-GitHub: github.com/Prospeda/gtm-skills
+GitHub: github.com/gtm-skills/gtm
 
 MIT license. Use however you want.
 
@@ -317,14 +317,14 @@ Genuine question - trying to learn from what others are testing.`
   },
   reddit: {
     3: {
-      name: "Moltbot Memory for Sales",
+      name: "openclaw Memory for Sales",
       subreddit: "sales",
-      title: "How I'm using persistent AI memory to actually remember prospects (Moltbot setup)",
+      title: "How I'm using persistent AI memory to actually remember prospects (openclaw setup)",
       content: `Been experimenting with AI for sales workflows and the biggest limitation I kept hitting: memory.
 
 Every tool forgets everything the moment you close the chat. Talk to a prospect Monday, by Wednesday the AI has zero context. You're basically starting fresh every time.
 
-**The Solution: Moltbot (formerly Clawdbot)**
+**The Solution: openclaw (formerly Clawdbot)**
 
 It's a messaging gateway that connects WhatsApp/Telegram/Discord/Slack to Claude (or other models), but the killer feature is persistent memory.
 
@@ -362,29 +362,29 @@ Both files persist forever and auto-load at session start.
 
 **I wrote up a full guide:**
 
-gtm-skills.com/free-tools/moltbot
+gtm-skills.com/free-tools/openclaw
 
 Covers memory architecture, multi-channel setup, sample config for sales agents.
 
 **The project itself:**
 
-molt.bot (install: \`npm install -g moltbot@latest\`)
+molt.bot (install: \`npm install -g openclaw@latest\`)
 
 ---
 
 Curious if anyone else is running AI with persistent memory for sales. What's your setup?`
     },
     4: {
-      name: "Moltbot Memory Technical",
+      name: "openclaw Memory Technical",
       subreddit: "ChatGPT",
-      title: "Deep dive: How Moltbot's persistent memory system works (Markdown-based, semantic search, multi-channel)",
-      content: `I've been digging into Moltbot's memory architecture and wanted to share how it works for anyone building AI agents that need to remember things long-term.
+      title: "Deep dive: How openclaw's persistent memory system works (Markdown-based, semantic search, multi-channel)",
+      content: `I've been digging into openclaw's memory architecture and wanted to share how it works for anyone building AI agents that need to remember things long-term.
 
-**The Problem Moltbot Solves:**
+**The Problem openclaw Solves:**
 
 Most AI tools have session-based memory that disappears when you close the chat. For use cases like sales, support, or personal assistants, you need persistence across days/weeks/months.
 
-**How Moltbot Does Memory:**
+**How openclaw Does Memory:**
 
 **1. File-based storage (not RAM)**
 
@@ -411,7 +411,7 @@ You can search for concepts even if the wording is different.
 
 **3. Auto memory flush before compaction**
 
-When context approaches token limits, Moltbot triggers a silent turn prompting the model to save important memories before summarizing. Critical details don't get lost.
+When context approaches token limits, openclaw triggers a silent turn prompting the model to save important memories before summarizing. Critical details don't get lost.
 
 **4. Multi-channel persistence**
 
@@ -422,7 +422,7 @@ Memory is shared across WhatsApp, Telegram, Discord, Slack, etc. Session scope c
 
 **Full docs:** docs.molt.bot
 
-**I wrote a guide on using this for sales/GTM agents specifically:** gtm-skills.com/free-tools/moltbot
+**I wrote a guide on using this for sales/GTM agents specifically:** gtm-skills.com/free-tools/openclaw
 
 Anyone else using file-based memory for AI agents? Curious about other approaches.`
     },
@@ -459,7 +459,7 @@ So I built prompts that account for industry pain points, buyer personas, and wo
 **How to use it:**
 
 Browse: gtm-skills.com/prompts
-GitHub: github.com/Prospeda/gtm-skills
+GitHub: github.com/gtm-skills/gtm
 
 MIT license - copy, modify, use however you want.
 
@@ -509,7 +509,7 @@ Next.js with dynamic routes + generateStaticParams().
 
 **Links:**
 
-Open source: github.com/Prospeda/gtm-skills
+Open source: github.com/gtm-skills/gtm
 Browse: gtm-skills.com/prompts
 
 If you're building something similar, happy to answer questions about the architecture.`

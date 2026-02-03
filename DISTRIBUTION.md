@@ -131,7 +131,7 @@ Don't say "AI" — it's vague and overused. Be precise:
 
 ---
 
-### TWITTER: Moltbot Memory for GTM (Thread)
+### TWITTER: openclaw Memory for GTM (Thread)
 
 ```
 HOOK (Tweet 1):
@@ -139,7 +139,7 @@ Most AI sales tools forget everything the moment you close the chat.
 
 I've been running sales agents that remember every prospect, every deal, every conversation—permanently.
 
-Here's how Moltbot's memory system works for GTM: 🧵
+Here's how openclaw's memory system works for GTM: 🧵
 
 ---
 
@@ -155,7 +155,7 @@ That's not augmentation. That's a liability.
 ---
 
 Tweet 3:
-Moltbot (formerly Clawdbot) solves this with persistent memory.
+openclaw (formerly Clawdbot) solves this with persistent memory.
 
 Not RAM. Not session storage.
 
@@ -195,7 +195,7 @@ Session scope = "per-sender" means each prospect has their own persistent brain.
 ---
 
 Tweet 6:
-Before context compaction (when memory fills up), Moltbot does something clever:
+Before context compaction (when memory fills up), openclaw does something clever:
 
 It triggers an automatic "memory flush"—prompting the model to save important facts before summarizing.
 
@@ -227,15 +227,15 @@ That's not scripted. That's remembered.
 ---
 
 Tweet 9:
-I wrote up a full explainer on using Moltbot for GTM agents:
+I wrote up a full explainer on using openclaw for GTM agents:
 
-gtm-skills.com/free-tools/moltbot
+gtm-skills.com/free-tools/openclaw
 
 Covers:
 - Memory architecture
 - Multi-channel setup
 - Config for sales agents
-- Sample moltbot.json
+- Sample openclaw.json
 
 ---
 
@@ -244,8 +244,8 @@ If you're building AI sales agents, memory isn't a nice-to-have.
 
 It's the difference between a novelty and a real tool.
 
-Moltbot: molt.bot
-Full guide: gtm-skills.com/free-tools/moltbot
+openclaw: molt.bot
+Full guide: gtm-skills.com/free-tools/openclaw
 ```
 
 ---
@@ -358,7 +358,7 @@ The prompts are just the starting point.
 Tweet 9:
 Grab them here:
 
-github.com/Prospeda/gtm-skills
+github.com/gtm-skills/gtm
 
 Or browse the site:
 gtm-skills.com/prompts
@@ -473,7 +473,7 @@ Waiting to see if Google keeps them indexed or flags as programmatic.
 Tweet 8:
 The whole thing is open source:
 
-github.com/Prospeda/gtm-skills
+github.com/gtm-skills/gtm
 
 /src/data/pseo.ts - all the data
 /src/app/prompts/[...slug] - the dynamic route
@@ -502,9 +502,9 @@ Follow if you want the update.
 **Style:** lowercase sentence starts for casual twitter-native feel
 
 ```
-the moltbot debate misses the point: speed to lead is everything
+the openclaw debate misses the point: speed to lead is everything
 
-everyone's arguing about whether moltbot (formerly clawdbot) is revolutionary or risky. 60,000 github stars. andrej karpathy calling it the future. heather adkins saying "don't run it." david sacks investing.
+everyone's arguing about whether openclaw (formerly clawdbot) is revolutionary or risky. 60,000 github stars. andrej karpathy calling it the future. heather adkins saying "don't run it." david sacks investing.
 
 here's what nobody's talking about: this might be the most important tool for sales teams in a decade.
 
@@ -538,21 +538,21 @@ you wake up, check your messages, start your day, and finally get to that lead 9
 
 ---
 
-what makes moltbot different for sales
+what makes openclaw different for sales
 
 three things matter:
 
 1. proactive engagement
 
-moltbot can message *you* first. it's not waiting for you to ask—it's watching signals and flagging opportunities.
+openclaw can message *you* first. it's not waiting for you to ask—it's watching signals and flagging opportunities.
 
-lead comes in from a company that matches your ICP? moltbot can alert you instantly, pre-research the account, and draft your outreach before you even know they exist.
+lead comes in from a company that matches your ICP? openclaw can alert you instantly, pre-research the account, and draft your outreach before you even know they exist.
 
 this isn't AI as a tool you use. it's AI as a teammate watching your back.
 
 2. persistent memory
 
-most AI forgets everything between sessions. moltbot remembers.
+most AI forgets everything between sessions. openclaw remembers.
 
 every interaction with a lead, every piece of context you've gathered, every preference they've mentioned—it's stored and searchable. when that lead resurfaces 6 months later, you have instant context.
 
@@ -562,7 +562,7 @@ no more "let me check my notes." no more CRM archaeology. the context is just...
 
 leads don't care about your preferred channel. they message on linkedin, email, twitter, slack—wherever's convenient for them.
 
-moltbot works across all of them. same memory. same context. same speed.
+openclaw works across all of them. same memory. same context. same speed.
 
 a lead DMs you on twitter at 11 PM? your agentic BDR can acknowledge within seconds, gather intel, and tee up a warm handoff for the morning.
 
@@ -572,7 +572,7 @@ the agentic BDR reality
 
 here's where it gets interesting.
 
-an agentic BDR powered by moltbot doesn't sleep. doesn't take weekends. doesn't need coffee breaks. doesn't context-switch.
+an agentic BDR powered by openclaw doesn't sleep. doesn't take weekends. doesn't need coffee breaks. doesn't context-switch.
 
 it's monitoring signals 24/7:
 - pricing page visits
@@ -603,7 +603,7 @@ sandbox it. limit permissions. audit actions. start with low-risk use cases like
 
 the bottom line
 
-the debate about moltbot's significance misses the most practical application.
+the debate about openclaw's significance misses the most practical application.
 
 forget autonomous coding for a second. forget AI agents running your whole company.
 
@@ -611,7 +611,7 @@ focus on this: an AI that can respond to leads in seconds instead of hours.
 
 that alone is worth the github stars.
 
-speed to lead is everything. timing is the unfair advantage nobody talks about. and moltbot might be the first tool that actually solves the response time problem at scale.
+speed to lead is everything. timing is the unfair advantage nobody talks about. and openclaw might be the first tool that actually solves the response time problem at scale.
 
 while everyone argues about whether it's revolutionary or dangerous, the smart sales teams are quietly deploying it and watching their connect rates skyrocket.
 
@@ -619,7 +619,7 @@ the leads don't wait for the debate to settle.
 
 ---
 
-building agentic BDR workflows with moltbot? check out gtm-skills.com/free-tools/moltbot for the full implementation guide.
+building agentic BDR workflows with openclaw? check out gtm-skills.com/free-tools/openclaw for the full implementation guide.
 ```
 
 ---
@@ -630,7 +630,7 @@ building agentic BDR workflows with moltbot? check out gtm-skills.com/free-tools
 **Style:** lowercase, raw, hardcore GTM operator voice, aggressive confidence
 
 ```
-the moltbot debate is missing the point. here's how i actually use it.
+the openclaw debate is missing the point. here's how i actually use it.
 
 i've closed millions in deals. sat across from CFOs who wanted to watch me sweat. walked out of boardrooms where the wrong word meant walking away empty.
 
@@ -656,7 +656,7 @@ so i stopped letting that happen.
 
 ---
 
-moltbot is my bdr bitch boy
+openclaw is my bdr bitch boy
 
 i'm not being cute. that's what he is.
 
@@ -703,7 +703,7 @@ he remembers everything
 
 had a conversation with a prospect 6 months ago? they went dark? suddenly they're back?
 
-moltbot remembers every detail.
+openclaw remembers every detail.
 
 "hey john, last time we talked you said the CFO needed to sign off and budget was tight until Q2. you also mentioned your daughter's soccer tournament was that weekend. how'd that go? and more importantly—did Q2 budget come through?"
 
@@ -719,7 +719,7 @@ the workflow
 
 here's how my day actually works now:
 
-morning: check telegram. moltbot has 3-5 warm leads queued with research briefs and draft outreach. i approve, tweak, or kill each one in under 2 minutes.
+morning: check telegram. openclaw has 3-5 warm leads queued with research briefs and draft outreach. i approve, tweak, or kill each one in under 2 minutes.
 
 during the day: he monitors. new signal comes in—job posting, funding announcement, linkedin engagement—he flags it. i get a ping. "worth pursuing?" yes or no.
 
@@ -747,13 +747,13 @@ but i'm also not sitting on the sidelines while my competitors move faster.
 
 the bottom line
 
-everyone's debating whether moltbot is revolutionary or dangerous. 60k github stars. VCs investing. security people freaking out.
+everyone's debating whether openclaw is revolutionary or dangerous. 60k github stars. VCs investing. security people freaking out.
 
 here's what i know:
 
 i haven't missed a hot lead in 4 months. my response time is under 3 minutes. my pipeline is fuller than it's ever been.
 
-moltbot isn't replacing me. he's multiplying me.
+openclaw isn't replacing me. he's multiplying me.
 
 he handles the grind. i handle the close.
 
@@ -762,7 +762,7 @@ that's the game now.
 ---
 
 if you want to see how i configured this:
-gtm-skills.com/free-tools/moltbot
+gtm-skills.com/free-tools/openclaw
 
 or keep doing it the old way. more leads for me.
 ```
@@ -811,7 +811,7 @@ Comment "tonalities" and I'll drop the link.
 
 ---
 
-### LINKEDIN: Moltbot Memory System (Persistent Context)
+### LINKEDIN: openclaw Memory System (Persistent Context)
 
 ```
 The biggest problem with AI for sales isn't intelligence.
@@ -832,7 +832,7 @@ That's not augmentation. That's a liability.
 
 I've been running sales agents differently.
 
-Using Moltbot (formerly Clawdbot), my agents have persistent memory that survives across:
+Using openclaw (formerly Clawdbot), my agents have persistent memory that survives across:
 • Sessions
 • Days
 • Weeks
@@ -868,7 +868,7 @@ No more "remind me what we discussed." The agent knows.
 
 —
 
-Before the AI's context window fills up, Moltbot does something clever:
+Before the AI's context window fills up, openclaw does something clever:
 
 It triggers an automatic "memory flush"—prompting the model to save important facts before summarizing old context.
 
@@ -876,9 +876,9 @@ Your prospect details are never lost.
 
 —
 
-I wrote up a full guide on configuring Moltbot for GTM agents:
+I wrote up a full guide on configuring openclaw for GTM agents:
 
-gtm-skills.com/free-tools/moltbot
+gtm-skills.com/free-tools/openclaw
 
 Covers:
 • Memory architecture deep dive
@@ -962,7 +962,7 @@ If you're building agentic sales workflows, grab them:
 
 gtm-skills.com/prompts
 
-GitHub: github.com/Prospeda/gtm-skills
+GitHub: github.com/gtm-skills/gtm
 
 MIT license. Use however you want.
 
@@ -1124,10 +1124,10 @@ Comment "prompts" and I'll drop the link.
 
 ---
 
-### REDDIT r/sales: Moltbot Persistent Memory Setup
+### REDDIT r/sales: openclaw Persistent Memory Setup
 
 ```
-TITLE: How I'm using persistent AI memory to actually remember prospects (Moltbot setup)
+TITLE: How I'm using persistent AI memory to actually remember prospects (openclaw setup)
 
 ---
 
@@ -1135,7 +1135,7 @@ Been experimenting with AI for sales workflows and the biggest limitation I kept
 
 Every tool forgets everything the moment you close the chat. Talk to a prospect Monday, by Wednesday the AI has zero context. You're basically starting fresh every time.
 
-**The Solution: Moltbot (formerly Clawdbot)**
+**The Solution: openclaw (formerly Clawdbot)**
 
 It's a messaging gateway that connects WhatsApp/Telegram/Discord/Slack to Claude (or other models), but the killer feature is persistent memory.
 
@@ -1173,13 +1173,13 @@ Both files persist forever and auto-load at session start.
 
 **I wrote up a full guide:**
 
-gtm-skills.com/free-tools/moltbot
+gtm-skills.com/free-tools/openclaw
 
 Covers memory architecture, multi-channel setup, sample config for sales agents.
 
 **The project itself:**
 
-molt.bot (install: `npm install -g moltbot@latest`)
+molt.bot (install: `npm install -g openclaw@latest`)
 
 ---
 
@@ -1188,20 +1188,20 @@ Curious if anyone else is running AI with persistent memory for sales. What's yo
 
 ---
 
-### REDDIT r/ChatGPT: Moltbot Memory Architecture Deep Dive
+### REDDIT r/ChatGPT: openclaw Memory Architecture Deep Dive
 
 ```
-TITLE: Deep dive: How Moltbot's persistent memory system works (Markdown-based, semantic search, multi-channel)
+TITLE: Deep dive: How openclaw's persistent memory system works (Markdown-based, semantic search, multi-channel)
 
 ---
 
-I've been digging into Moltbot's memory architecture and wanted to share how it works for anyone building AI agents that need to remember things long-term.
+I've been digging into openclaw's memory architecture and wanted to share how it works for anyone building AI agents that need to remember things long-term.
 
-**The Problem Moltbot Solves:**
+**The Problem openclaw Solves:**
 
 Most AI tools have session-based memory that disappears when you close the chat. For use cases like sales, support, or personal assistants, you need persistence across days/weeks/months.
 
-**How Moltbot Does Memory:**
+**How openclaw Does Memory:**
 
 **1. File-based storage (not RAM)**
 
@@ -1228,7 +1228,7 @@ You can search for concepts even if the wording is different.
 
 **3. Auto memory flush before compaction**
 
-When context approaches token limits, Moltbot triggers a silent turn prompting the model to save important memories before summarizing. Critical details don't get lost.
+When context approaches token limits, openclaw triggers a silent turn prompting the model to save important memories before summarizing. Critical details don't get lost.
 
 **4. Multi-channel persistence**
 
@@ -1261,7 +1261,7 @@ Memory is shared across WhatsApp, Telegram, Discord, Slack, etc. Session scope c
 
 **Full docs:** docs.molt.bot
 
-**I wrote a guide on using this for sales/GTM agents specifically:** gtm-skills.com/free-tools/moltbot
+**I wrote a guide on using this for sales/GTM agents specifically:** gtm-skills.com/free-tools/openclaw
 
 Anyone else using file-based memory for AI agents? Curious about other approaches.
 ```
@@ -1304,7 +1304,7 @@ So I built prompts that account for industry pain points, buyer personas, and wo
 **How to use it:**
 
 Browse: gtm-skills.com/prompts
-GitHub: github.com/Prospeda/gtm-skills
+GitHub: github.com/gtm-skills/gtm
 
 MIT license - copy, modify, use however you want.
 
@@ -1359,7 +1359,7 @@ Instead of "Write a discovery question," you get:
 
 gtm-skills.com/prompts
 
-Or the GitHub: github.com/Prospeda/gtm-skills
+Or the GitHub: github.com/gtm-skills/gtm
 
 No signup, no email capture, no catch. MIT license.
 
@@ -1422,7 +1422,7 @@ The `generateStaticParams()` function creates all combinations at build time.
 
 **The prompts themselves:**
 
-Open source: github.com/Prospeda/gtm-skills
+Open source: github.com/gtm-skills/gtm
 Browse: gtm-skills.com/prompts
 
 If you're building something similar (prompt libraries, pSEO systems), happy to answer questions about the architecture.

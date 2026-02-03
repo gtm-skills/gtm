@@ -44,11 +44,11 @@ The most valuable contribution! Share prompts that have worked for you in real s
 
 ### Report Issues
 
-Found a typo? Broken link? Outdated information? Prompt that doesn't work well? [Open an issue](https://github.com/Prospeda/gtm-skills/issues/new/choose).
+Found a typo? Broken link? Outdated information? Prompt that doesn't work well? [Open an issue](https://github.com/gtm-skills/gtm/issues/new/choose).
 
 ### Suggest Improvements
 
-Have ideas for new categories, better organization, or missing use cases? We want to hear them. Open a [feature request](https://github.com/Prospeda/gtm-skills/issues/new?template=feature_request.md).
+Have ideas for new categories, better organization, or missing use cases? We want to hear them. Open a [feature request](https://github.com/gtm-skills/gtm/issues/new?template=feature_request.md).
 
 ### Improve Documentation
 
@@ -364,7 +364,7 @@ Active contributors may receive:
 
 ### Questions About Contributing
 
-- Open a [GitHub Discussion](https://github.com/Prospeda/gtm-skills/discussions)
+- Open a [GitHub Discussion](https://github.com/gtm-skills/gtm/discussions)
 - Email: hello@gtm-skills.com
 - Twitter: [@prospaboricua](https://twitter.com/prospaboricua)
 

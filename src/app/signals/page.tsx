@@ -155,7 +155,7 @@ export default function SignalsPage() {
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Star the repo to save these prompts for later and help others discover GTM Skills.
           </p>
-          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
             <Button className="gap-2">
               <Github className="h-4 w-4" />
               Star on GitHub

@@ -70,7 +70,7 @@ const navigation: NavItem[] = [
       { name: 'API Docs', href: '/developers', icon: Code, description: 'REST API reference' },
       { name: 'Agents API', href: '/developers#agents-api', icon: Users, description: 'Agent skills & orchestrator' },
       { name: 'OpenAPI Spec', href: '/openapi.json', icon: FileCode, description: 'Download spec' },
-      { name: 'GitHub', href: 'https://github.com/Prospeda/gtm-skills', icon: Github, description: 'Source code' },
+      { name: 'GitHub', href: 'https://github.com/gtm-skills/gtm', icon: Github, description: 'Source code' },
     ],
   },
 ];
@@ -177,7 +177,7 @@ export function Header() {
         <div className="hidden md:flex md:items-center md:gap-3">
           <ThemeToggle />
           <a
-            href="https://github.com/Prospeda/gtm-skills"
+            href="https://github.com/gtm-skills/gtm"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -261,7 +261,7 @@ export function Header() {
             ))}
             <div className="pt-4 space-y-3 border-t border-border mt-4">
               <a
-                href="https://github.com/Prospeda/gtm-skills"
+                href="https://github.com/gtm-skills/gtm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"

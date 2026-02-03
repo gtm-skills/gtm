@@ -18,9 +18,9 @@ const mcpData = {
     name: 'gtm-mcp-server',
     version: '1.0.0',
     description: 'GTM MCP Server with real API integrations for sales workflows',
-    github: 'https://github.com/Prospeda/gtm-skills/tree/main/mcp-server',
+    github: 'https://github.com/gtm-skills/gtm/tree/main/mcp-server',
     install: {
-      clone: 'git clone https://github.com/Prospeda/gtm-skills.git && cd gtm-skills/mcp-server && npm install && npm run build',
+      clone: 'git clone https://github.com/gtm-skills/gtm.git && cd gtm-skills/mcp-server && npm install && npm run build',
       npm: 'npm install -g gtm-mcp-server (coming soon)',
     },
   },

@@ -80,7 +80,7 @@ npm install -g gtm-mcp-server
 ### Option 2: From source
 
 ```bash
-git clone https://github.com/Prospeda/gtm-skills.git
+git clone https://github.com/gtm-skills/gtm.git
 cd gtm-skills/mcp-server
 npm install
 npm run build

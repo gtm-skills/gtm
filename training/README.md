@@ -176,8 +176,8 @@ python scripts/export.py \
 
 ## Support
 
-- Issues: [github.com/Prospeda/gtm-skills/issues](https://github.com/Prospeda/gtm-skills/issues)
-- Discussions: [github.com/Prospeda/gtm-skills/discussions](https://github.com/Prospeda/gtm-skills/discussions)
+- Issues: [github.com/gtm-skills/gtm/issues](https://github.com/gtm-skills/gtm/issues)
+- Discussions: [github.com/gtm-skills/gtm/discussions](https://github.com/gtm-skills/gtm/discussions)
 
 ---
 

@@ -23,7 +23,7 @@ const resources = [
   { label: 'API Docs', href: '/developers', icon: Code },
   { label: 'OpenAPI Spec', href: '/openapi.json', icon: FileCode },
   { label: 'llms.txt', href: '/llms.txt', icon: Bot },
-  { label: 'GitHub', href: 'https://github.com/Prospeda/gtm-skills', icon: Github, external: true },
+  { label: 'GitHub', href: 'https://github.com/gtm-skills/gtm', icon: Github, external: true },
 ];
 
 export function DevelopersSection() {

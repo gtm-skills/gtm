@@ -289,7 +289,7 @@ export default function OpenClawPage() {
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a
-              href="https://github.com/Prospeda/gtm-skills/tree/main/openclaw-skills"
+              href="https://github.com/gtm-skills/gtm/tree/main/openclaw-skills"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-zinc-800 border border-zinc-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-700 transition-colors"

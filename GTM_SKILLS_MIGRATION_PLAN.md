@@ -136,7 +136,7 @@ Create `github.com/gtm-skills` org with repo `gtm`
 
 ### Option B: Keep Prospeda Org
 
-Keep at `github.com/Prospeda/gtm-skills`
+Keep at `github.com/gtm-skills/gtm`
 
 **Pros:**
 - Already exists

@@ -14,14 +14,14 @@ interface GitHubStarGateProps {
 export function GitHubStarGate({
   onUnlock,
   variant = 'default',
-  downloadUrl = 'https://github.com/Prospeda/gtm-skills'
+  downloadUrl = 'https://github.com/gtm-skills/gtm'
 }: GitHubStarGateProps) {
   const [hasStarred, setHasStarred] = useState(false);
   const [showDownload, setShowDownload] = useState(false);
 
   const handleStarClick = () => {
     track('github_star_clicked', { variant, location: 'star_gate' });
-    window.open('https://github.com/Prospeda/gtm-skills', '_blank');
+    window.open('https://github.com/gtm-skills/gtm', '_blank');
 
     // After a short delay, show the "I've starred" option
     setTimeout(() => {

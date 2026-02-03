@@ -369,7 +369,7 @@ When coaching, consider our specific sales methodology.\`;`}</pre>
             Prospeda includes a pre-built AI assistant that integrates with your CRM,
             enriches leads automatically, and writes outreach at scale.
           </p>
-          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
             <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
               Try Prospeda Free
             </Button>

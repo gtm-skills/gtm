@@ -25,7 +25,7 @@ export function SoftwareSourceCodeJsonLd({
     name,
     description: `${promptCount}+ AI prompts. ${description}`,
     url,
-    codeRepository: 'https://github.com/Prospeda/gtm-skills',
+    codeRepository: 'https://github.com/gtm-skills/gtm',
     programmingLanguage: 'Markdown',
     license: 'https://opensource.org/licenses/MIT',
     author: {

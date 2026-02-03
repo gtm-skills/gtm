@@ -520,7 +520,7 @@ export default function SalesWorkflowsPage() {
             Prospeda combines all these workflows into one platform. No setup required -
             just connect your tools and start selling with AI.
           </p>
-          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
             <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
               Try Prospeda Free
             </Button>

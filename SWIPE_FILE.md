@@ -34,7 +34,7 @@ Weekly collection of viral posts to analyze, templatize, and rewrite with our ag
 
 #### Viral AI/Automation Posts
 ```
-(Claude OR ChatGPT OR "AI agent" OR moltbot OR clawdbot) min_faves:1000 -filter:replies lang:en
+(Claude OR ChatGPT OR "AI agent" OR openclaw OR clawdbot) min_faves:1000 -filter:replies lang:en
 ```
 
 ```

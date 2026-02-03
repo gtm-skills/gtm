@@ -400,7 +400,7 @@ export default function ExpansionUpsellTonalityPage() {
           <p className="text-orange-100 mb-6 max-w-xl mx-auto">
             Star the repo to help others discover GTM Skills and save it for later.
           </p>
-          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-white text-teal-700 hover:bg-zinc-100">
               Star on GitHub
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -415,7 +415,7 @@ export default function ExpansionUpsellTonalityPage() {
           <div className="flex gap-6 text-sm">
             <Link href="/free-tools/tonalities" className="text-muted-foreground hover:text-foreground">All Tonalities</Link>
             <Link href="/free-tools" className="text-muted-foreground hover:text-foreground">Free Tools</Link>
-            <a href="https://github.com/Prospeda/claude-gtm-skills" className="text-muted-foreground hover:text-foreground">GitHub</a>
+            <a href="https://github.com/gtm-skills/gtm" className="text-muted-foreground hover:text-foreground">GitHub</a>
           </div>
         </div>
       </footer>

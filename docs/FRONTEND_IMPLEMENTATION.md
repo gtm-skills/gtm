@@ -208,7 +208,7 @@ const navItems = [
       { label: 'API Docs', href: '/developers', icon: Code },
       { label: 'OpenAPI Spec', href: '/openapi.json', icon: FileCode },
       { label: 'llms.txt', href: '/llms.txt', icon: Bot },
-      { label: 'GitHub', href: 'https://github.com/Prospeda/gtm-skills', icon: Github },
+      { label: 'GitHub', href: 'https://github.com/gtm-skills/gtm', icon: Github },
     ]
   },
 ];
@@ -266,7 +266,7 @@ const footerSections = [
       { label: 'API Docs', href: '/developers' },
       { label: 'OpenAPI Spec', href: '/openapi.json' },
       { label: 'llms.txt', href: '/llms.txt' },
-      { label: 'GitHub', href: 'https://github.com/Prospeda/gtm-skills' },
+      { label: 'GitHub', href: 'https://github.com/gtm-skills/gtm' },
     ]
   },
 ];

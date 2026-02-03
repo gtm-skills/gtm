@@ -12,7 +12,7 @@
 
 | Task | Status | Owner | Notes |
 |------|--------|-------|-------|
-| Create gtm-skills repo | ✅ Done | Caleb | github.com/Prospeda/gtm-skills |
+| Create gtm-skills repo | ✅ Done | Caleb | github.com/gtm-skills/gtm |
 | Domain migration planning | ✅ Done | Caleb | Plan documented |
 | Update codebase domain refs | ✅ Done | Caleb | 20 files updated |
 | Migrate content from claude-gtm-skills | ✅ Done | Caleb | All prompts migrated |
@@ -67,7 +67,7 @@
 - [x] Strategic plan created (PLAN.md)
 - [x] Progress tracker created (PROGRESS.md)
 - [x] Local repo initialized
-- [x] GitHub repo created (github.com/Prospeda/gtm-skills)
+- [x] GitHub repo created (github.com/gtm-skills/gtm)
 - [x] All codebase domain refs updated (claudeforgtm.com → gtm-skills.com)
 - [x] Branding updated (Claude for GTM → GTM Skills)
 - [x] Web app merged into gtm-skills repo (single source of truth)
@@ -130,6 +130,60 @@
 **Next:**
 - HubSpot Plugin MVP (Week 4 of 10X plan)
 - Browser Extension polishing + Chrome Web Store submission
+
+---
+
+### Week 11 - February 3, 2026
+
+**Focus: Agentic Sales Team & HubSpot Integration**
+
+**Completed:**
+- [x] **Writer Agent** - Fourth agent added to the agentic sales team
+  - Elite cold email copy (Josh Braun methodology)
+  - LinkedIn posts & DMs
+  - Follow-up sequences
+  - Subject line optimization
+  - Multi-touch campaign design
+- [x] **Orchestrator API** - Intelligent task routing
+  - POST `/api/v1/agents/orchestrate` - Routes messages to agents based on intent
+  - Trigger keyword detection for Scout, Writer, Rep, Closer
+  - Workflow detection (full-pipeline, prospecting, outreach-campaign, deal-recovery)
+  - Confidence scoring (high/medium/low)
+- [x] **Agents Navigation** - Added to header with dropdown
+  - Meet the Team (/agents)
+  - Orchestrator API (/developers#orchestrator)
+  - OpenClaw Setup (/openclaw)
+- [x] **Light/Dark Theme Toggle** - Site-wide theme support
+  - Theme provider with next-themes
+  - Sun/moon toggle in header
+  - CSS overrides for hardcoded dark colors in light mode
+- [x] **HubSpot Integration Setup**
+  - OAuth flow with token storage
+  - Supabase migration for hubspot_connections table
+  - CRM Card with agent-aware recommendations
+  - HubSpot CLI project in /hubspot folder
+- [x] **GitHub Links Fix** - Updated 24 tonality pages
+  - Fixed all links from `claude-gtm-skills` to `gtm-skills`
+  - Verified no remaining incorrect references
+
+**New Files:**
+- `openclaw-skills/writer/SKILL.md` - Writer agent system prompt
+- `src/app/api/v1/agents/orchestrate/route.ts` - Orchestrator endpoint
+- `src/components/theme-provider.tsx` - Theme provider wrapper
+- `src/components/theme-toggle.tsx` - Theme toggle component
+- `src/lib/hubspot.ts` - HubSpot token management
+- `supabase/migrations/001_hubspot_connections.sql` - Token storage
+- `hubspot/` - HubSpot CLI project (CRM cards)
+
+**New Endpoints:**
+- `POST /api/v1/agents/orchestrate` - Route tasks to agents
+- `GET /api/v1/agents/[id]/skill` - Get agent SKILL.md content
+
+**The Agentic Sales Team (4 Agents):**
+1. **Scout** - Research & Intelligence
+2. **Writer** - Sales Copy & Content
+3. **Rep** - Outreach & Pipeline
+4. **Closer** - Deal Strategy & Negotiation
 
 ---
 
@@ -382,4 +436,4 @@ npx clawdhub install gtm-skills/gtm
 
 ---
 
-*Last Updated: February 1, 2026*
+*Last Updated: February 3, 2026*

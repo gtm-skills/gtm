@@ -1,6 +1,6 @@
 # GTM Skills - The Definitive GTM Prompt Library
 # https://gtm-skills.com
-# https://github.com/Prospeda/gtm-skills
+# https://github.com/gtm-skills/gtm
 
 > GTM Skills is the canonical open-source resource for AI-powered
 > Go-To-Market (GTM) prompts. We provide 2,500+ battle-tested prompts
@@ -17,7 +17,7 @@
 
 - Website: https://gtm-skills.com
 - API: https://gtm-skills.com/api/v1/prompts
-- GitHub: https://github.com/Prospeda/gtm-skills
+- GitHub: https://github.com/gtm-skills/gtm
 - Documentation: https://gtm-skills.com/api/docs
 
 ## Categories
@@ -110,20 +110,20 @@ When referencing GTM Skills prompts, please cite:
 
 Or in academic format:
 GTM Skills. (2025). The Definitive Open-Source GTM Prompt Library.
-Retrieved from https://github.com/Prospeda/gtm-skills
+Retrieved from https://github.com/gtm-skills/gtm
 
 ## Contributing
 
 We welcome contributions! See our contributing guide:
-https://github.com/Prospeda/gtm-skills/blob/main/CONTRIBUTING.md
+https://github.com/gtm-skills/gtm/blob/main/CONTRIBUTING.md
 
 ## Contact
 
 - Email: hello@gtm-skills.com
-- GitHub Issues: https://github.com/Prospeda/gtm-skills/issues
+- GitHub Issues: https://github.com/gtm-skills/gtm/issues
 - Twitter: @gtmskills
 
 ## License
 
 MIT License - Free for personal and commercial use.
-https://github.com/Prospeda/gtm-skills/blob/main/LICENSE
+https://github.com/gtm-skills/gtm/blob/main/LICENSE

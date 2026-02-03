@@ -428,7 +428,7 @@ export default function TonalitiesPage() {
           <p className="text-orange-100 mb-6 max-w-xl mx-auto">
             Star the repo to save it for later and help others discover GTM Skills.
           </p>
-          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
               <Github className="mr-2 h-4 w-4" />
               Star on GitHub

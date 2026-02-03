@@ -22,7 +22,7 @@ const DISTRIBUTION_FILE = path.join(__dirname, '..', 'DISTRIBUTION.md');
 const OUR_ANGLE = {
   persona: 'hardcore GTM operator who has closed millions in deals',
   tone: 'raw, confident, no corporate speak',
-  frame: 'moltbot is my bdr bitch boy — does all the annoying parts of GTM 24/7',
+  frame: 'openclaw is my bdr bitch boy — does all the annoying parts of GTM 24/7',
   keyThemes: [
     'speed to lead is everything',
     'agentic BDRs that never sleep',
@@ -61,7 +61,7 @@ const SEARCH_PROMPTS = {
       '("speed to lead" OR "response time" OR "first to respond") min_faves:100 lang:en',
     ],
     'Viral AI/Automation': [
-      '(Claude OR ChatGPT OR "AI agent" OR moltbot OR clawdbot) min_faves:1000 -filter:replies lang:en',
+      '(Claude OR ChatGPT OR "AI agent" OR openclaw OR clawdbot) min_faves:1000 -filter:replies lang:en',
       '("built with AI" OR "AI workflow" OR "automated" OR "replaced") min_faves:500 lang:en',
     ],
     'Story Bangers': [
@@ -250,7 +250,7 @@ ${OUR_ANGLE.style.map(s => `- ${s}`).join('\n')}
 
 ## Examples of Our Voice:
 
-"moltbot is my bdr bitch boy. i'm not being cute. that's what he is."
+"openclaw is my bdr bitch boy. i'm not being cute. that's what he is."
 
 "telegram ping at 2 AM: 'found a VP of Sales at a series B fintech. they just posted a job for 3 SDRs. budget is moving. here's the angle.' i wake up, glance at my phone, approve the outreach. go back to sleep. by 9 AM the meeting's booked."
 
@@ -258,14 +258,14 @@ ${OUR_ANGLE.style.map(s => `- ${s}`).join('\n')}
 
 ## Task:
 
-Take each template and create a ready-to-post piece about agentic BDRs/moltbot.
+Take each template and create a ready-to-post piece about agentic BDRs/openclaw.
 
 Requirements:
 - Apply our voice exactly
 - Include specific examples/scenarios
-- Reference our tools: moltbot, gtm-skills.com
+- Reference our tools: openclaw, gtm-skills.com
 - Make it feel like someone typing fast, thinking out loud
-- End with soft CTA to gtm-skills.com/free-tools/moltbot
+- End with soft CTA to gtm-skills.com/free-tools/openclaw
 
 ---
 

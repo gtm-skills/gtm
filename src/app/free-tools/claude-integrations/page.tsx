@@ -322,7 +322,7 @@ export default function ClaudeIntegrationsPage() {
             Prospeda combines all these integrations into one platform. CRM sync, lead enrichment,
             AI outreach, and analytics - ready to use.
           </p>
-          <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
             <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
               Try Prospeda Free
             </Button>

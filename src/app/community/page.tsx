@@ -111,7 +111,7 @@ export default function CommunityPage() {
                   Submit a Prompt
                 </Button>
               </Link>
-              <a href="https://github.com/Prospeda/gtm-skills" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="gap-2">
                   <Star className="h-4 w-4" />
                   Star on GitHub

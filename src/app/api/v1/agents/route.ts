@@ -35,7 +35,7 @@ const agents = [
     ],
     install: 'npx clawdhub install gtm-skills/scout',
     skill_url: 'https://gtm-skills.com/api/v1/agents/scout/skill',
-    github: 'https://github.com/Prospeda/gtm-skills/blob/main/openclaw-skills/scout/SKILL.md',
+    github: 'https://github.com/gtm-skills/gtm/blob/main/openclaw-skills/scout/SKILL.md',
   },
   {
     id: 'writer',
@@ -58,7 +58,7 @@ const agents = [
     ],
     install: 'npx clawdhub install gtm-skills/writer',
     skill_url: 'https://gtm-skills.com/api/v1/agents/writer/skill',
-    github: 'https://github.com/Prospeda/gtm-skills/blob/main/openclaw-skills/writer/SKILL.md',
+    github: 'https://github.com/gtm-skills/gtm/blob/main/openclaw-skills/writer/SKILL.md',
   },
   {
     id: 'rep',
@@ -81,7 +81,7 @@ const agents = [
     ],
     install: 'npx clawdhub install gtm-skills/rep',
     skill_url: 'https://gtm-skills.com/api/v1/agents/rep/skill',
-    github: 'https://github.com/Prospeda/gtm-skills/blob/main/openclaw-skills/rep/SKILL.md',
+    github: 'https://github.com/gtm-skills/gtm/blob/main/openclaw-skills/rep/SKILL.md',
   },
   {
     id: 'closer',
@@ -104,7 +104,7 @@ const agents = [
     ],
     install: 'npx clawdhub install gtm-skills/closer',
     skill_url: 'https://gtm-skills.com/api/v1/agents/closer/skill',
-    github: 'https://github.com/Prospeda/gtm-skills/blob/main/openclaw-skills/closer/SKILL.md',
+    github: 'https://github.com/gtm-skills/gtm/blob/main/openclaw-skills/closer/SKILL.md',
   },
 ];
 

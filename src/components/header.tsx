@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/theme-toggle';
 import {
   Menu,
   X,
@@ -174,6 +175,7 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex md:items-center md:gap-3">
+          <ThemeToggle />
           <a
             href="https://github.com/Prospeda/gtm-skills"
             target="_blank"
@@ -193,17 +195,20 @@ export function Header() {
         </div>
 
         {/* Mobile menu button */}
-        <button
-          type="button"
-          className="md:hidden p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}

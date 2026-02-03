@@ -1,130 +1,89 @@
-# GTM Skills for OpenClaw
+# GTM Skills Agents
 
-> Research. Write. Send. Book. Track.
+3 agents. 3 channels. Talk to them like teammates.
 
-```bash
-npx clawdhub install gtm-skills/gtm
-```
+## The Team
 
----
+| Agent | Job | Talk to them about |
+|-------|-----|-------------------|
+| **Scout** | Research | "Find me prospects", "Research Acme", "Who's hiring?" |
+| **Rep** | Outreach | "Email Sarah", "She said not interested", "Follow up" |
+| **Closer** | Deals | "Send proposal", "They want a discount", "Invoice $500" |
 
-## The Full Flow
+## They Use GTM Skills
 
-```
-gtm prospect Sarah Chen at Acme Corp
-```
+All agents pull from **gtm-skills.com**:
 
-```
-🔍 ENRICHING...
-Sarah Chen | VP of Sales | Acme Corp
-- Series B, $25M raised, 80 employees
-- Hiring: 5 SDRs this week
-- Tech: Salesforce, Outreach, Gong
-
-📧 DRAFT:
-Subject: SDR ramp time
-
-Sarah - saw you're hiring 5 SDRs.
-
-Question: how are you thinking about ramp time as you scale?
-
-We helped Datadog cut theirs from 6 months to 3.
-
-15 min to see if relevant?
-→ calendly.com/you/15min
-
-[Send Now] [Edit] [Schedule] [Log to CRM]
-```
-
----
-
-## Commands
-
-### Generate
-```
-gtm email [person] at [company]    # Cold email
-gtm reply [objection]              # Handle objection
-gtm questions [persona]            # Discovery questions
-gtm linkedin [person]              # Connection request
-gtm prep [company]                 # Meeting brief
-gtm call [persona]                 # Cold call script
-gtm sequence [type]                # Multi-touch cadence
-```
-
-### Research
-```
-gtm enrich [person/company]        # Get prospect data
-gtm research [company]             # Deep company intel
-gtm signals [company]              # Buying signals
-gtm battlecard [competitor]        # Competitive intel
-```
-
-### Execute
-```
-gtm send                           # Send email
-gtm send --schedule "tomorrow 8am" # Schedule send
-gtm book                           # Generate booking link
-gtm log [activity]                 # Log to CRM
-gtm remind [task] in [time]        # Set reminder
-gtm track [deal] --stage [stage]   # Update pipeline
-```
-
-### Combo
-```
-gtm prospect [person] at [company] # Enrich → Draft → Send
-gtm followup [person]              # History → Draft → Send
-```
-
----
+- 420+ prompts by industry/role/workflow
+- 24 tonalities (writing styles)
+- Voice templates
+- Methodology frameworks (MEDDPICC, SPIN, Challenger, etc.)
+- MCP server for HubSpot integration
 
 ## Setup
 
+### Option 1: OpenClaw Skills
 ```bash
-# Enrichment (pick one)
-export APOLLO_API_KEY=your_key
-export CLAY_API_KEY=your_key
-export CLEARBIT_API_KEY=your_key
-
-# Booking
-export CALENDLY_URL=calendly.com/you/15min
-export CALCOM_URL=cal.com/you/15min
-
-# CRM
-export HUBSPOT_API_KEY=your_key
-export SALESFORCE_TOKEN=your_token
-
-# Email
-export GMAIL_ENABLED=true
-export OUTLOOK_ENABLED=true
+npx clawdhub install gtm-skills/scout
+npx clawdhub install gtm-skills/rep
+npx clawdhub install gtm-skills/closer
 ```
 
----
+### Option 2: Claude Projects
+Create 3 Claude projects, paste each SKILL.md as the system prompt:
+- Project "Scout" → `scout/SKILL.md`
+- Project "Rep" → `rep/SKILL.md`
+- Project "Closer" → `closer/SKILL.md`
 
-## Tonalities
+### Option 3: Slack/Telegram Channels
+Deploy as bots to 3 channels:
+- #scout
+- #rep
+- #closer
 
-| Flag | Style |
-|------|-------|
-| `--direct` | No fluff (default) |
-| `--blunt` | Shortest possible |
-| `--challenger` | Push back, teach |
-| `--exec` | C-suite brevity |
-| `--friendly` | Add warmth |
+(See `bots/telegram/` for bot code)
 
----
+## Example Workflow
 
-## Frameworks
+**You → Scout:**
+> "Find me SaaS companies that raised Series B in the last 3 months and are hiring SDRs"
 
-```
-gtm questions --meddpicc [persona]
-gtm questions --spin [persona]
-gtm questions --challenger [persona]
-```
+**Scout:**
+> Here are 10 prospects... Top pick: Sarah Chen, VP Sales at Acme Corp.
+> Angle: SDR ramp time.
+> Tell Rep: "email sarah@acme.com"
 
----
+**You → Rep:**
+> "Email sarah@acme.com - she's hiring 5 SDRs, angle is ramp time"
+
+**Rep:**
+> [Drafts email using gtm-skills.com/prompts/saas/sdr]
+> Subject: SDR ramp
+> [Body]
+> Want a different tone? Try "make it more challenger"
+
+**Sarah replies: "We're using a competitor"**
+
+**You → Rep:**
+> "She said they're using a competitor"
+
+**Rep:**
+> [Objection handling response]
+> Chris Voss approach: gtm-skills.com/free-tools/tonalities/chris-voss
+
+**Meeting happens, goes well**
+
+**You → Closer:**
+> "Send proposal to Acme - $1500/mo, they care about ramp time"
+
+**Closer:**
+> [Proposal with their pain points and ROI]
+> Next: "Invoice sarah@acme.com $1500"
 
 ## Links
 
-- [gtm-skills.com/openclaw](https://gtm-skills.com/openclaw)
-- [GitHub](https://github.com/Prospeda/gtm-skills)
-
-MIT License
+- **GTM Skills**: gtm-skills.com
+- **Prompts**: gtm-skills.com/prompts
+- **Tonalities**: gtm-skills.com/free-tools/tonalities
+- **MCP Server**: gtm-skills.com/free-tools/mcp-server
+- **Agentic BDR**: gtm-skills.com/agentic-bdr

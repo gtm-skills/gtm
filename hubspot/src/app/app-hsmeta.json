@@ -1,0 +1,41 @@
+{
+  "uid": "gtm_skills_crm_card_app",
+  "type": "app",
+  "config": {
+    "description": "GTM Skills - Your agentic sales team. Get contextual prompts and agent recommendations in HubSpot.",
+    "name": "GTM Skills",
+    "distribution": "private",
+    "auth": {
+      "type": "oauth",
+      "redirectUrls": [
+        "https://gtm-skills.com/api/hubspot/callback"
+      ],
+      "requiredScopes": [
+        "oauth",
+        "crm.objects.contacts.read",
+        "crm.objects.deals.read",
+        "crm.objects.companies.read"
+      ],
+      "optionalScopes": [],
+      "conditionallyRequiredScopes": []
+    },
+    "permittedUrls": {
+      "fetch": [
+        "https://api.hubapi.com",
+        "https://gtm-skills.com"
+      ],
+      "iframe": [
+        "https://gtm-skills.com"
+      ],
+      "img": [
+        "https://gtm-skills.com"
+      ]
+    },
+    "support": {
+      "supportEmail": "hello@gtm-skills.com",
+      "documentationUrl": "https://gtm-skills.com/developers",
+      "supportUrl": "https://gtm-skills.com/integrations/hubspot",
+      "supportPhone": ""
+    }
+  }
+}

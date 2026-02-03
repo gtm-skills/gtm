@@ -1,0 +1,10 @@
+{
+  "uid": "gtm_skills_card",
+  "type": "card",
+  "config": {
+    "name": "GTM Skills",
+    "location": "crm.record.sidebar",
+    "objectTypes": ["contacts", "deals", "companies"],
+    "entrypoint": "GtmSkillsCard.jsx"
+  }
+}

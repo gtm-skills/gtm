@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Github, Twitter, Linkedin } from 'lucide-react';
+import { NewsletterSignup } from '@/components/newsletter-signup';
 
 const footerLinks = {
   Prompts: [
@@ -31,7 +32,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-zinc-900/50">
       <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center mb-4">
@@ -91,23 +92,36 @@ export function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Newsletter */}
+          <div className="col-span-2 md:col-span-1">
+            <NewsletterSignup />
+          </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} GTM Skills. MIT License.
           </p>
-          <p className="text-sm text-muted-foreground">
-            Made by{' '}
-            <a
-              href="https://prospeda.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground hover:underline"
-            >
-              Prospeda
-            </a>
-          </p>
+          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+            <Link href="/privacy" className="hover:text-foreground transition-colors">
+              Privacy
+            </Link>
+            <Link href="/terms" className="hover:text-foreground transition-colors">
+              Terms
+            </Link>
+            <span>
+              Made by{' '}
+              <a
+                href="https://prospeda.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:underline"
+              >
+                Prospeda
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </footer>

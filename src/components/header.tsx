@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { GitHubStars } from '@/components/github-stars';
 import {
   Menu,
   X,
@@ -181,6 +182,7 @@ export function Header() {
             <Button variant="outline" size="sm" className="gap-2">
               <Github className="h-4 w-4" />
               Star
+              <GitHubStars repo="gtm-skills/gtm" className="text-xs" />
             </Button>
           </a>
           <Link href="/download">

@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ========================================
+   Theme Configuration
+   ======================================== */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -46,8 +50,14 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+/* ========================================
+   Light Mode (Default)
+   ======================================== */
+
 :root {
   --radius: 0.625rem;
+
+  /* Core colors */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -59,18 +69,22 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.45 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
   --ring: oklch(0.708 0 0);
+
+  /* Chart colors */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Sidebar */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -79,7 +93,37 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Surface colors (for components) */
+  --surface-1: #ffffff;
+  --surface-2: #f8fafc;
+  --surface-3: #f1f5f9;
+  --surface-4: #e2e8f0;
+  --surface-elevated: #ffffff;
+
+  /* Text colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverted: #ffffff;
+
+  /* Border colors */
+  --border-default: #e2e8f0;
+  --border-muted: #f1f5f9;
+
+  /* Accent text (darkened for light mode contrast) */
+  --accent-blue: #2563eb;
+  --accent-green: #16a34a;
+  --accent-yellow: #ca8a04;
+  --accent-purple: #9333ea;
+  --accent-orange: #ea580c;
+  --accent-emerald: #059669;
+  --accent-violet: #7c3aed;
 }
+
+/* ========================================
+   Dark Mode
+   ======================================== */
 
 .dark {
   --background: oklch(0.145 0 0);
@@ -100,11 +144,15 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
+
+  /* Chart colors */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+
+  /* Sidebar */
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -113,7 +161,37 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Surface colors (for components) */
+  --surface-1: #000000;
+  --surface-2: #0a0a0a;
+  --surface-3: #18181b;
+  --surface-4: #27272a;
+  --surface-elevated: #18181b;
+
+  /* Text colors */
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-inverted: #0f172a;
+
+  /* Border colors */
+  --border-default: #27272a;
+  --border-muted: #18181b;
+
+  /* Accent text (lighter for dark mode) */
+  --accent-blue: #60a5fa;
+  --accent-green: #4ade80;
+  --accent-yellow: #facc15;
+  --accent-purple: #c084fc;
+  --accent-orange: #fb923c;
+  --accent-emerald: #34d399;
+  --accent-violet: #a78bfa;
 }
+
+/* ========================================
+   Base Styles
+   ======================================== */
 
 @layer base {
   * {
@@ -124,255 +202,55 @@
   }
 }
 
-/* Light mode overrides for dark-first components */
-:root {
-  /* Surface colors for light mode */
-  --surface-1: #ffffff;
-  --surface-2: #f8fafc;
-  --surface-3: #f1f5f9;
-  --surface-4: #e2e8f0;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --border-light: #e2e8f0;
-}
-
-.dark {
-  --surface-1: #000000;
-  --surface-2: #0a0a0a;
-  --surface-3: #18181b;
-  --surface-4: #27272a;
-  --text-primary: #fafafa;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --border-light: #27272a;
-}
-
-/* Override hardcoded dark backgrounds in light mode */
-@media (prefers-color-scheme: light) {
-  :root:not(.dark) {
-    color-scheme: light;
-  }
-}
+/* ========================================
+   Light Mode Component Overrides
+   These fix dark-first components in light mode.
+   TODO: Gradually migrate components to use theme variables.
+   ======================================== */
 
 :root:not(.dark) {
-  /* Fix black backgrounds */
-  .bg-black {
-    background-color: var(--surface-1) !important;
-  }
+  /* Surface overrides */
+  .bg-black { background-color: var(--surface-1); }
+  .bg-zinc-900 { background-color: var(--surface-2); }
+  .bg-zinc-900\/50, .bg-zinc-900\/30, .bg-zinc-900\/80 { background-color: var(--surface-3); }
+  .bg-zinc-800 { background-color: var(--surface-3); }
+  .bg-zinc-700 { background-color: var(--surface-4); }
+  .bg-black\/50, .bg-black\/30 { background-color: var(--surface-3); }
 
-  /* Fix zinc backgrounds */
-  .bg-zinc-900 {
-    background-color: var(--surface-2) !important;
-  }
+  /* Text overrides */
+  .text-white { color: var(--text-primary); }
+  .text-zinc-100 { color: var(--text-primary); }
+  .text-zinc-200, .text-zinc-300 { color: var(--text-primary); }
+  .text-zinc-400, .text-zinc-500 { color: var(--text-secondary); }
+  .text-zinc-600 { color: var(--text-muted); }
 
-  .bg-zinc-900\/50, .bg-zinc-900\/30 {
-    background-color: var(--surface-3) !important;
-  }
+  /* Border overrides */
+  .border-zinc-800, .border-zinc-800\/50 { border-color: var(--border-default); }
+  .border-zinc-700, .border-zinc-700\/50 { border-color: var(--border-default); }
 
-  .bg-zinc-800 {
-    background-color: var(--surface-3) !important;
-  }
+  /* Accent text */
+  .text-blue-400 { color: var(--accent-blue); }
+  .text-green-400 { color: var(--accent-green); }
+  .text-yellow-400 { color: var(--accent-yellow); }
+  .text-purple-400 { color: var(--accent-purple); }
+  .text-orange-400 { color: var(--accent-orange); }
+  .text-emerald-400 { color: var(--accent-emerald); }
+  .text-violet-400 { color: var(--accent-violet); }
 
-  /* Fix borders */
-  .border-zinc-800 {
-    border-color: var(--border-light) !important;
-  }
+  /* Hover states */
+  .hover\:bg-zinc-800:hover { background-color: var(--surface-3); }
+  .hover\:bg-zinc-700:hover { background-color: var(--surface-4); }
+  .hover\:bg-zinc-600:hover { background-color: var(--surface-4); }
+  .hover\:bg-black\/10:hover { background-color: var(--surface-3); }
 
-  .border-zinc-700 {
-    border-color: #cbd5e1 !important;
-  }
+  /* Group hover */
+  .group:hover .group-hover\:text-orange-400 { color: var(--accent-orange); }
+  .group:hover .group-hover\:text-emerald-400 { color: var(--accent-emerald); }
 
-  /* Fix text colors */
-  .text-zinc-400, .text-zinc-500 {
-    color: var(--text-secondary) !important;
-  }
-
-  .text-zinc-300 {
-    color: var(--text-primary) !important;
-  }
-
-  .text-zinc-600 {
-    color: var(--text-muted) !important;
-  }
-
-  .text-white {
-    color: var(--text-primary) !important;
-  }
-
-  /* Fix code blocks */
-  .bg-black\/50, .bg-black\/30 {
-    background-color: #f1f5f9 !important;
-  }
-
-  /* Fix gradients */
-  .from-orange-500\/10 {
-    --tw-gradient-from: rgb(249 115 22 / 0.15) !important;
-  }
-
-  .to-red-500\/10 {
-    --tw-gradient-to: rgb(239 68 68 / 0.15) !important;
-  }
-
-  /* Fix agent card backgrounds */
-  .bg-blue-500\/10 {
-    background-color: rgb(59 130 246 / 0.1) !important;
-  }
-
-  .bg-yellow-500\/10 {
-    background-color: rgb(234 179 8 / 0.1) !important;
-  }
-
-  .bg-green-500\/10 {
-    background-color: rgb(34 197 94 / 0.1) !important;
-  }
-
-  .bg-purple-500\/10 {
-    background-color: rgb(168 85 247 / 0.1) !important;
-  }
-
-  /* Fix header dropdown */
+  /* Dropdown fix */
   .bg-zinc-900.border-zinc-800 {
-    background-color: white !important;
-    border-color: #e2e8f0 !important;
+    background-color: var(--surface-1);
+    border-color: var(--border-default);
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  }
-
-  /* Improve contrast for muted text */
-  .text-muted-foreground {
-    color: #475569 !important;
-  }
-
-  /* Fix personality badges */
-  .bg-black\/30 {
-    background-color: #e2e8f0 !important;
-  }
-
-  /* Agent colored text - darken for light mode */
-  .text-blue-400 {
-    color: #2563eb !important;
-  }
-
-  .text-yellow-400 {
-    color: #ca8a04 !important;
-  }
-
-  .text-green-400 {
-    color: #16a34a !important;
-  }
-
-  .text-purple-400 {
-    color: #9333ea !important;
-  }
-
-  .text-orange-400 {
-    color: #ea580c !important;
-  }
-
-  /* Fix secondary backgrounds */
-  .bg-secondary\/50 {
-    background-color: #f1f5f9 !important;
-  }
-
-  /* Fix footer */
-  footer.bg-zinc-900\/50,
-  .bg-zinc-900\/50 {
-    background-color: #f8fafc !important;
-  }
-
-  /* Fix emerald colors for developers page */
-  .text-emerald-400 {
-    color: #059669 !important;
-  }
-
-  .bg-emerald-500\/10 {
-    background-color: rgb(16 185 129 / 0.1) !important;
-  }
-
-  /* Fix violet colors */
-  .text-violet-400 {
-    color: #7c3aed !important;
-  }
-
-  .bg-violet-500\/10, .bg-violet-500\/20 {
-    background-color: rgb(139 92 246 / 0.1) !important;
-  }
-
-  /* Border color fixes */
-  .border-orange-500\/30, .border-orange-500\/20 {
-    border-color: rgb(249 115 22 / 0.4) !important;
-  }
-
-  .border-emerald-500\/30 {
-    border-color: rgb(16 185 129 / 0.4) !important;
-  }
-
-  .border-violet-500\/20 {
-    border-color: rgb(139 92 246 / 0.3) !important;
-  }
-
-  .border-blue-500\/30 {
-    border-color: rgb(59 130 246 / 0.4) !important;
-  }
-
-  .border-yellow-500\/30 {
-    border-color: rgb(234 179 8 / 0.4) !important;
-  }
-
-  .border-green-500\/30 {
-    border-color: rgb(34 197 94 / 0.4) !important;
-  }
-
-  .border-purple-500\/30 {
-    border-color: rgb(168 85 247 / 0.4) !important;
-  }
-
-  /* Fix dropdown hover states */
-  .hover\:bg-zinc-800:hover {
-    background-color: #f1f5f9 !important;
-  }
-
-  .hover\:bg-zinc-700:hover {
-    background-color: #e2e8f0 !important;
-  }
-
-  .hover\:bg-black\/10:hover {
-    background-color: #f1f5f9 !important;
-  }
-
-  /* Fix group hover text colors */
-  .group:hover .group-hover\:text-orange-400 {
-    color: #ea580c !important;
-  }
-
-  .group:hover .group-hover\:text-emerald-400 {
-    color: #059669 !important;
-  }
-
-  /* Fix terminal/code demo component */
-  .bg-zinc-900\/80 {
-    background-color: #f8fafc !important;
-    border-color: #e2e8f0 !important;
-  }
-
-  .border-zinc-700\/50 {
-    border-color: #e2e8f0 !important;
-  }
-
-  .border-zinc-800\/50 {
-    border-color: #e2e8f0 !important;
-  }
-
-  /* Fix terminal text in light mode */
-  .text-zinc-100 {
-    color: #1e293b !important;
-  }
-
-  .bg-zinc-700 {
-    background-color: #cbd5e1 !important;
-  }
-
-  .hover\:bg-zinc-600:hover {
-    background-color: #94a3b8 !important;
   }
 }

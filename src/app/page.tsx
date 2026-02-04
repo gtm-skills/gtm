@@ -25,10 +25,8 @@ import {
   Github,
   Star,
   Copy,
-  Clock,
   CheckCircle2,
   Sparkles,
-  TrendingUp,
   Shield,
   HelpCircle,
   Bot,
@@ -147,21 +145,6 @@ const categories = [
   },
 ];
 
-const stats = [
-  { label: 'AI Prompts', value: '2,500+', icon: FileText },
-  { label: 'MCP Tools', value: '10', icon: Zap },
-  { label: 'Interactive UIs', value: '6', icon: Sparkles },
-  { label: 'Industries', value: '8', icon: Building2 },
-];
-
-const trustLogos = [
-  'SaaS Teams',
-  'Sales Agencies',
-  'RevOps Teams',
-  'Founders',
-  'SDRs & AEs',
-];
-
 export default function Home() {
   return (
     <div className="flex flex-col">
@@ -186,98 +169,76 @@ export default function Home() {
       </Link>
 
       {/* Hero */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 via-transparent to-transparent" />
 
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
-
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto">
-            {/* Top badges */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
-              <Badge variant="outline" className="border-orange-500/30 text-orange-400">
-                <Star className="h-3 w-3 mr-1 fill-orange-400" />
-                Free & Open Source
-              </Badge>
-              <Badge variant="outline" className="border-green-500/30 text-green-400">
-                <Clock className="h-3 w-3 mr-1" />
-                Updated Feb 2026
-              </Badge>
-            </div>
+            {/* Single badge */}
+            <Badge variant="outline" className="mb-6 border-orange-500/30 text-orange-400">
+              <Star className="h-3 w-3 mr-1 fill-orange-400" />
+              Free & Open Source
+            </Badge>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              The GTM Operating System
-              <br className="hidden sm:block" />
-              <span className="sm:inline"> for </span>
+              AI Prompts for{' '}
               <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-                Agentic Sales
+                Sales Teams
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-              2,500+ prompts, voice templates, browser extension, API, certifications, and more.
-              Everything you need to build agentic sales workflows.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+              2,500+ copy-paste prompts for prospecting, outreach, discovery, and closing.
+              Works with Claude, ChatGPT, and any LLM.
             </p>
 
-            {/* Value prop callout */}
-            <p className="text-sm text-orange-400/80 mb-6 flex items-center justify-center gap-2">
-              <TrendingUp className="h-4 w-4" />
-              Save 5+ hours per week on research, emails, and call prep
-            </p>
-
-            {/* Animated Command Demo */}
-            <div className="mb-12">
-              <AnimatedChatDemo />
-            </div>
-
+            {/* Primary CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link href="/industry">
-                <Button size="lg" className="h-12 px-6 gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
-                  Browse Prompts
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
               <a
                 href="https://github.com/gtm-skills/gtm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" size="lg" className="h-12 px-6 gap-2">
-                  <Github className="h-4 w-4" />
+                <Button size="lg" className="h-12 px-8 gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+                  <Star className="h-4 w-4" />
                   Star on GitHub
-                  <GitHubStars repo="gtm-skills/gtm" className="text-xs text-muted-foreground ml-1" />
+                  <GitHubStars repo="gtm-skills/gtm" className="text-sm ml-1" />
                 </Button>
               </a>
+              <Link href="/prompts">
+                <Button variant="outline" size="lg" className="h-12 px-8 gap-2">
+                  Browse Prompts
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-12">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="relative p-4 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-colors"
-                >
-                  <stat.icon className="h-5 w-5 text-orange-500 mb-2 mx-auto" />
-                  <div className="text-2xl md:text-3xl font-bold text-foreground">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-muted-foreground">{stat.label}</div>
-                </div>
-              ))}
+            {/* Animated Command Demo */}
+            <div className="mb-16">
+              <AnimatedChatDemo />
             </div>
 
-            {/* Trust indicators */}
-            <div className="flex flex-col items-center gap-3">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider">Used by</p>
-              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-zinc-500">
-                {trustLogos.map((name) => (
-                  <span key={name} className="flex items-center gap-1.5">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-green-500/70" />
-                    {name}
-                  </span>
-                ))}
+            {/* Compact stats row */}
+            <div className="flex flex-wrap justify-center gap-8 text-center">
+              <div>
+                <div className="text-2xl md:text-3xl font-bold text-foreground">2,500+</div>
+                <div className="text-sm text-muted-foreground">Prompts</div>
+              </div>
+              <div className="hidden sm:block w-px bg-border" />
+              <div>
+                <div className="text-2xl md:text-3xl font-bold text-foreground">8</div>
+                <div className="text-sm text-muted-foreground">Industries</div>
+              </div>
+              <div className="hidden sm:block w-px bg-border" />
+              <div>
+                <div className="text-2xl md:text-3xl font-bold text-foreground">24</div>
+                <div className="text-sm text-muted-foreground">Writing Styles</div>
+              </div>
+              <div className="hidden sm:block w-px bg-border" />
+              <div>
+                <div className="text-2xl md:text-3xl font-bold text-foreground">MIT</div>
+                <div className="text-sm text-muted-foreground">Licensed</div>
               </div>
             </div>
           </div>

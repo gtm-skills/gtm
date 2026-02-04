@@ -182,15 +182,16 @@ export default function Home() {
             </Badge>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              AI Prompts for{' '}
+              The GTM Operating System
+              <br className="hidden sm:block" />
+              <span className="sm:inline"> for </span>
               <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-                Sales Teams
+                Agentic Sales
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              2,500+ copy-paste prompts for prospecting, outreach, discovery, and closing.
-              Works with Claude, ChatGPT, and any LLM.
+              2,500+ prompts, agent workflows, and tools for prospecting, outreach, discovery, and closing.
             </p>
 
             {/* Primary CTAs */}

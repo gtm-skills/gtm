@@ -1,13 +1,12 @@
+import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { GitHubStarGate } from '@/components/github-star-gate';
 import {
-  Download,
   FileText,
   Package,
   Zap,
   CheckCircle2,
-  Github,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -148,27 +147,27 @@ export default function DownloadPage() {
             Browse and copy individual prompts right now - no download needed.
           </p>
           <div className="grid md:grid-cols-3 gap-4">
-            <a
+            <Link
               href="/industry"
               className="p-4 rounded-lg border border-border bg-card hover:border-orange-500/50 transition-colors text-center"
             >
               <h3 className="font-semibold mb-1">Industry Packs</h3>
               <p className="text-sm text-muted-foreground">8 industries</p>
-            </a>
-            <a
+            </Link>
+            <Link
               href="/role"
               className="p-4 rounded-lg border border-border bg-card hover:border-orange-500/50 transition-colors text-center"
             >
               <h3 className="font-semibold mb-1">Role Playbooks</h3>
               <p className="text-sm text-muted-foreground">6 roles</p>
-            </a>
-            <a
+            </Link>
+            <Link
               href="/methodology"
               className="p-4 rounded-lg border border-border bg-card hover:border-orange-500/50 transition-colors text-center"
             >
               <h3 className="font-semibold mb-1">Methodologies</h3>
               <p className="text-sm text-muted-foreground">6 frameworks</p>
-            </a>
+            </Link>
           </div>
         </div>
 

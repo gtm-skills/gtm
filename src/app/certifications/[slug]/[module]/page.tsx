@@ -15,24 +15,24 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
   const { slug, module: moduleSlug } = await params;
   const level = getCertificationLevel(slug);
-  const module = getModule(slug, moduleSlug);
+  const certModule = getModule(slug, moduleSlug);
 
-  if (!level || !module) {
+  if (!level || !certModule) {
     return { title: 'Module Not Found | GTM Skills' };
   }
 
   return {
-    title: `${module.title} | ${level.name}`,
-    description: module.description,
+    title: `${certModule.title} | ${level.name}`,
+    description: certModule.description,
   };
 }
 
 export default async function ModulePage({ params }: PageProps) {
   const { slug, module: moduleSlug } = await params;
   const level = getCertificationLevel(slug);
-  const module = getModule(slug, moduleSlug);
+  const certModule = getModule(slug, moduleSlug);
 
-  if (!level || !module) {
+  if (!level || !certModule) {
     notFound();
   }
 
@@ -41,7 +41,7 @@ export default async function ModulePage({ params }: PageProps) {
   const prevModule = currentIndex > 0 ? allModules[currentIndex - 1] : null;
   const nextModule = currentIndex < allModules.length - 1 ? allModules[currentIndex + 1] : null;
 
-  const isQuiz = module.content_type === 'quiz';
+  const isQuiz = certModule.content_type === 'quiz';
 
   return (
     <main className="min-h-screen bg-black">
@@ -58,10 +58,10 @@ export default async function ModulePage({ params }: PageProps) {
             </Link>
 
             <div className="flex items-center gap-2 text-sm text-zinc-500">
-              <span>Module {module.module_number} of {allModules.length}</span>
+              <span>Module {certModule.module_number} of {allModules.length}</span>
               <span className="text-zinc-700">•</span>
               <Clock className="w-4 h-4" />
-              <span>{module.estimated_minutes} min</span>
+              <span>{certModule.estimated_minutes} min</span>
             </div>
           </div>
         </div>
@@ -81,16 +81,16 @@ export default async function ModulePage({ params }: PageProps) {
                 }}
               >
                 <span className="text-sm font-medium" style={{ color: isQuiz ? level.badge_color : '#a1a1aa' }}>
-                  {module.module_number}
+                  {certModule.module_number}
                 </span>
               </div>
-              <h1 className="text-2xl font-bold text-white">{module.title}</h1>
+              <h1 className="text-2xl font-bold text-white">{certModule.title}</h1>
             </div>
-            <p className="text-zinc-400">{module.description}</p>
+            <p className="text-zinc-400">{certModule.description}</p>
           </div>
 
           {/* Lesson Content */}
-          {module.content_type === 'lesson' && module.content.markdown && (
+          {certModule.content_type === 'lesson' && certModule.content.markdown && (
             <div className="prose prose-invert prose-zinc max-w-none mb-12">
               <div
                 className="[&>h1]:text-2xl [&>h1]:font-bold [&>h1]:text-white [&>h1]:mb-4 [&>h1]:mt-8
@@ -106,7 +106,7 @@ export default async function ModulePage({ params }: PageProps) {
                            [&>table>thead>tr>th]:text-left [&>table>thead>tr>th]:text-zinc-300 [&>table>thead>tr>th]:pb-2 [&>table>thead>tr>th]:border-b [&>table>thead>tr>th]:border-zinc-800
                            [&>table>tbody>tr>td]:py-2 [&>table>tbody>tr>td]:text-zinc-400 [&>table>tbody>tr>td]:border-b [&>table>tbody>tr>td]:border-zinc-800/50"
                 dangerouslySetInnerHTML={{
-                  __html: module.content.markdown
+                  __html: certModule.content.markdown
                     .replace(/^# /gm, '<h1>')
                     .replace(/^## /gm, '<h2>')
                     .replace(/^### /gm, '<h3>')
@@ -125,18 +125,18 @@ export default async function ModulePage({ params }: PageProps) {
           )}
 
           {/* Quiz Content */}
-          {module.content_type === 'quiz' && module.content.quiz && (
+          {certModule.content_type === 'quiz' && certModule.content.quiz && (
             <div className="mb-12">
               <div className="bg-violet-500/10 border border-violet-500/20 rounded-xl p-6 mb-8">
                 <h2 className="text-lg font-semibold text-white mb-2">Assessment Instructions</h2>
                 <p className="text-zinc-400 text-sm">
-                  Answer all {module.content.quiz.length} questions below. You need {level.assessment_pass_score}% to pass.
+                  Answer all {certModule.content.quiz.length} questions below. You need {level.assessment_pass_score}% to pass.
                   You can retake the assessment if needed.
                 </p>
               </div>
 
               <div className="space-y-8">
-                {module.content.quiz.map((question, qIndex) => (
+                {certModule.content.quiz.map((question, qIndex) => (
                   <div key={question.id} className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <div className="flex items-start gap-3 mb-4">
                       <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center flex-shrink-0">
@@ -179,11 +179,11 @@ export default async function ModulePage({ params }: PageProps) {
           )}
 
           {/* Resources */}
-          {module.resources && module.resources.length > 0 && (
+          {certModule.resources && certModule.resources.length > 0 && (
             <div className="mb-12">
               <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
               <div className="grid gap-3">
-                {module.resources.map((resource, index) => (
+                {certModule.resources.map((resource, index) => (
                   <Link
                     key={index}
                     href={resource.url}

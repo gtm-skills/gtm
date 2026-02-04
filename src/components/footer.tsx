@@ -34,11 +34,8 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-red-500">
-                <span className="text-sm font-bold text-white">G</span>
-              </div>
-              <span className="font-semibold text-foreground">GTM Skills</span>
+            <Link href="/" className="flex items-center mb-4">
+              <span className="text-lg font-bold text-foreground">GTM Skills</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
               The GTM Operating System for Agentic Sales.

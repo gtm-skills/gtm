@@ -159,11 +159,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-red-500">
-            <span className="text-sm font-bold text-white">G</span>
-          </div>
-          <span className="font-semibold text-foreground">GTM Skills</span>
+        <Link href="/" className="flex items-center">
+          <span className="text-lg font-bold text-foreground">GTM Skills</span>
         </Link>
 
         {/* Desktop Nav */}

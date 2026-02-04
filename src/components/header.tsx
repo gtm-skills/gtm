@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { GitHubStars } from '@/components/github-stars';
+import { SearchButton } from '@/components/command-menu';
 import {
   Menu,
   X,
@@ -173,6 +174,7 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex md:items-center md:gap-3">
+          <SearchButton />
           <ThemeToggle />
           <a
             href="https://github.com/gtm-skills/gtm"

@@ -6,6 +6,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from '@/components/theme-provider';
+import { CommandMenu } from '@/components/command-menu';
 import './globals.css';
 
 // JSON-LD structured data for SEO
@@ -102,6 +103,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <CommandMenu />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

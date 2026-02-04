@@ -5,7 +5,7 @@
 <h1 align="center">GTM Skills</h1>
 
 <p align="center">
-  <strong>2,500+ AI prompts for B2B sales & marketing</strong>
+  <strong>The Open-Source Operating System for Agentic GTM</strong>
 </p>
 
 <p align="center">
@@ -16,8 +16,8 @@
 </p>
 
 <p align="center">
-  The most comprehensive open-source library of AI prompts for sales development, account executives, revenue operations, and GTM leaders.<br/>
-  <strong>Works with Claude, ChatGPT, Gemini, and any LLM.</strong>
+  Prompts, agent workflows, browser extension, MCP server, voice templates, and API — everything you need to build agentic sales workflows.<br/>
+  <strong>Free. Open source. MIT licensed.</strong>
 </p>
 
 <p align="center">
@@ -34,9 +34,9 @@
 
 | Challenge | Solution |
 |-----------|----------|
-| Generic AI prompts don't understand sales | **2,500+ prompts** built specifically for B2B GTM |
-| Scattered resources across the web | **One organized library** by role, industry, workflow |
-| Prompts that sound robotic | **Battle-tested templates** that actually convert |
+| Generic tools don't understand sales | **Purpose-built ecosystem** for B2B GTM workflows |
+| Scattered tools across the web | **One integrated platform** — prompts, agents, tools, API |
+| Manual outbound doesn't scale | **Agentic workflows** that research, write, and execute |
 | No structure for complex workflows | **End-to-end playbooks** from cold outreach to close |
 
 ---

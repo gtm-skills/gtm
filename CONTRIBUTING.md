@@ -1,6 +1,6 @@
 # Contributing to GTM Skills
 
-First off, **thank you** for considering contributing to GTM Skills! It's people like you that make this the best GTM prompt library on the internet.
+First off, **thank you** for considering contributing to GTM Skills! It's people like you that make GTM Skills the best open-source ecosystem for agentic GTM.
 
 Whether you're submitting your first prompt or your fiftieth, fixing a typo, or suggesting a whole new category - every contribution matters. This guide will help you get started.
 

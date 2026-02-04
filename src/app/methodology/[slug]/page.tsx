@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${methodology.name} Prompts | GTM Skills`,
-    description: `AI prompts for ${methodology.name}. ${methodology.description}`,
+    description: `Prompts for ${methodology.name}. ${methodology.description}`,
   };
 }
 

@@ -15,7 +15,7 @@ const websiteJsonLd = {
   '@type': 'WebSite',
   name: 'GTM Skills',
   url: 'https://gtm-skills.com',
-  description: 'The most comprehensive GTM prompt library for Claude, ChatGPT, and any LLM. Industry packs, role playbooks, workflows, and methodologies. Free and open source.',
+  description: 'The open-source operating system for agentic GTM. Prompts, agent workflows, tools, browser extension, and API. Free and MIT licensed.',
   potentialAction: {
     '@type': 'SearchAction',
     target: {
@@ -48,14 +48,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'GTM Skills | 2,500+ AI Prompts for B2B Sales',
-  description: 'The most comprehensive GTM prompt library for Claude, ChatGPT, and any LLM. Industry packs, role playbooks, workflows, and methodologies. Free and open source.',
-  keywords: 'gtm skills, gtm prompts, sales prompts, ai sales, b2b sales prompts, chatgpt sales, claude prompts, llm prompts, meddic prompts, spin selling prompts, agentic bdr, ai sdr, agentic sales',
+  title: 'GTM Skills | The Agentic GTM Operating System',
+  description: 'The open-source operating system for agentic GTM. Prompts, agent workflows, tools, browser extension, and API for B2B sales teams. Free and MIT licensed.',
+  keywords: 'gtm skills, agentic gtm, agentic sales, agentic bdr, gtm operating system, sales agents, b2b sales tools, mcp server, openclaw, sales workflows',
   authors: [{ name: 'Prospeda' }],
   manifest: '/manifest.json',
   openGraph: {
-    title: 'GTM Skills | 2,500+ AI Prompts for B2B Sales',
-    description: 'The most comprehensive GTM prompt library. Industry packs, role playbooks, workflows, and methodologies.',
+    title: 'GTM Skills | The Agentic GTM Operating System',
+    description: 'The open-source operating system for agentic GTM. Prompts, agent workflows, tools, and API for B2B sales.',
     url: 'https://gtm-skills.com',
     siteName: 'GTM Skills',
     type: 'website',
@@ -64,14 +64,14 @@ export const metadata: Metadata = {
         url: 'https://gtm-skills.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'GTM Skills - 2,500+ AI Prompts for B2B Sales',
+        alt: 'GTM Skills - The Agentic GTM Operating System',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTM Skills | 2,500+ AI Prompts for B2B Sales',
-    description: 'The most comprehensive GTM prompt library. Industry packs, role playbooks, workflows, and methodologies.',
+    title: 'GTM Skills | The Agentic GTM Operating System',
+    description: 'The open-source operating system for agentic GTM. Prompts, agent workflows, tools, and API for B2B sales.',
     images: ['https://gtm-skills.com/og-image.png'],
   },
   metadataBase: new URL('https://gtm-skills.com'),

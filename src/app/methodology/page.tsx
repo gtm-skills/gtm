@@ -14,7 +14,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Sales Methodologies | GTM Skills',
-  description: 'AI prompts for MEDDPICC, SPIN, Challenger, Sandler, Value Selling, and Gap Selling. Apply proven frameworks with AI.',
+  description: 'Prompts for MEDDPICC, SPIN, Challenger, Sandler, Value Selling, and Gap Selling. Apply proven frameworks with agentic workflows.',
 };
 
 const iconMap: Record<string, React.ElementType> = {

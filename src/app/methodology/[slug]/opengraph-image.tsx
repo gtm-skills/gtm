@@ -27,7 +27,7 @@ export default async function Image({ params }: Props) {
   const methodology = methodologies[slug];
 
   const title = methodology?.name || 'Sales Methodology';
-  const description = methodology?.description || 'AI prompts for proven sales frameworks';
+  const description = methodology?.description || 'Prompts for proven sales frameworks';
 
   return new ImageResponse(
     (

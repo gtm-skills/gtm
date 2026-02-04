@@ -23,7 +23,7 @@ export function SoftwareSourceCodeJsonLd({
     '@context': 'https://schema.org',
     '@type': 'SoftwareSourceCode',
     name,
-    description: `${promptCount}+ AI prompts. ${description}`,
+    description: `${promptCount}+ prompts. ${description}`,
     url,
     codeRepository: 'https://github.com/gtm-skills/gtm',
     programmingLanguage: 'Markdown',

@@ -24,7 +24,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Industry Prompts | GTM Skills',
-  description: '1600+ AI prompts tailored to 16 industries. SaaS, Financial Services, Healthcare, Manufacturing, Logistics, Energy, and more.',
+  description: '1600+ prompts tailored to 16 industries. SaaS, Financial Services, Healthcare, Manufacturing, Logistics, Energy, and more.',
 };
 
 const iconMap: Record<string, React.ElementType> = {

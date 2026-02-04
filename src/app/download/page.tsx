@@ -12,7 +12,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Download All Prompts | GTM Skills',
-  description: 'Download 2,500+ AI prompts for sales and marketing. Industry packs, role playbooks, methodology guides, and more.',
+  description: 'Download the complete GTM Skills toolkit. Prompts, templates, and methodology guides.',
 };
 
 const downloadPacks = [
@@ -68,7 +68,7 @@ export default function DownloadPage() {
             Download the Complete Library
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            2,500+ AI prompts for sales and marketing. Organized, searchable,
+            2,500+ prompts, templates, and tools for sales and marketing. Organized, searchable,
             and ready to use. No signup required for individual prompts - but
             subscribe for the full download and weekly updates.
           </p>
@@ -135,7 +135,7 @@ export default function DownloadPage() {
           </h2>
           <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
             Star us on GitHub to unlock the complete library. Help us build the
-            biggest GTM prompt resource on the internet.
+            biggest agentic GTM ecosystem on the internet.
           </p>
           <GitHubStarGate variant="hero" />
         </div>

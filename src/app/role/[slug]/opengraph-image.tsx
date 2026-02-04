@@ -27,7 +27,7 @@ export default async function Image({ params }: Props) {
   const role = roles[slug];
 
   const title = role?.name || 'Role Playbook';
-  const description = role?.description || 'AI prompts for your sales role';
+  const description = role?.description || 'Prompts for your sales role';
   const count = role?.count || 30;
 
   return new ImageResponse(
@@ -112,7 +112,7 @@ export default async function Image({ params }: Props) {
             {count}+
           </span>
           <span style={{ fontSize: '24px', color: '#a1a1aa' }}>
-            AI Prompts
+            Prompts
           </span>
         </div>
 

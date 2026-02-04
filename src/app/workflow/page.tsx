@@ -15,7 +15,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Sales Workflows | GTM Skills',
-  description: '125+ AI prompts organized by sales workflow stage. From prospecting to close to expansion.',
+  description: '125+ prompts organized by sales workflow stage. From prospecting to close to expansion.',
 };
 
 const iconMap: Record<string, React.ElementType> = {

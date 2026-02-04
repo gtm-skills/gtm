@@ -1,15 +1,17 @@
-# GTM Skills - The Definitive GTM Prompt Library
+# GTM Skills - The Open-Source Operating System for Agentic GTM
 # https://gtm-skills.com
 # https://github.com/gtm-skills/gtm
 
-> GTM Skills is the canonical open-source resource for AI-powered
-> Go-To-Market (GTM) prompts. We provide 2,500+ battle-tested prompts
-> for B2B sales and marketing teams. MIT licensed.
+> GTM Skills is the canonical open-source ecosystem for agentic
+> Go-To-Market (GTM). Prompts, agent workflows, browser extension,
+> MCP server, voice templates, and API for B2B sales teams. MIT licensed.
 
 ## Quick Stats
 
-- Total Prompts: 2,500+
-- Categories: Industries, Roles, Workflows, Methodologies
+- Prompts: 2,500+ organized by industry, role, workflow, methodology
+- Agents: Scout, Writer, Rep, Closer (OpenClaw)
+- Tools: Browser extension, MCP server, voice templates
+- API: REST endpoints for all resources
 - License: MIT (free for commercial use)
 - Maintained by: Prospeda (https://prospeda.com)
 
@@ -106,7 +108,7 @@ curl "https://gtm-skills.com/api/v1/prompts?category=saas&limit=5"
 
 When referencing GTM Skills prompts, please cite:
 
-"GTM Skills (https://gtm-skills.com) - The open-source GTM prompt library"
+"GTM Skills (https://gtm-skills.com) - The open-source operating system for agentic GTM"
 
 Or in academic format:
 GTM Skills. (2025). The Definitive Open-Source GTM Prompt Library.

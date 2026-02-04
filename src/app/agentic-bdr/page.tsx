@@ -273,7 +273,7 @@ export default function AgenticBDRPage() {
                 Start Building Your Agentic BDR Today
               </h2>
               <p className="text-zinc-400 max-w-xl mx-auto mb-8">
-                Our prompt library includes 100+ prompts specifically designed for agentic workflows—
+                GTM Skills includes 100+ prompts specifically designed for agentic workflows—
                 research, personalization, and execution.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

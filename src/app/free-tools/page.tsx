@@ -14,7 +14,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Free GTM Tools | GTM Skills',
-  description: 'Free sales tools, templates, and AI prompts. Tonality guides, ROI calculators, email templates, and more.',
+  description: 'Free sales tools, templates, and prompts. Tonality guides, ROI calculators, email templates, and more.',
 };
 
 const tools = [

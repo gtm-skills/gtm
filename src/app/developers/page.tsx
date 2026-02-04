@@ -114,7 +114,7 @@ const resources = [
   },
   {
     title: 'prompts.json',
-    description: 'Full prompt library as JSON',
+    description: 'Full prompt catalog as JSON',
     href: '/prompts.json',
     icon: Code,
     badge: 'JSON',

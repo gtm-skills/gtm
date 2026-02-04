@@ -14,7 +14,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Role Playbooks | GTM Skills',
-  description: '200+ AI prompts organized by sales role. SDR, AE, Sales Manager, RevOps, CSM, and Founder playbooks.',
+  description: '200+ prompts organized by sales role. SDR, AE, Sales Manager, RevOps, CSM, and Founder playbooks.',
 };
 
 const iconMap: Record<string, React.ElementType> = {

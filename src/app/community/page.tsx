@@ -182,7 +182,7 @@ export default function CommunityPage() {
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold mb-4">How to Contribute</h2>
             <p className="text-muted-foreground">
-              Three ways to help build the best GTM prompt library
+              Three ways to help build the best agentic GTM ecosystem
             </p>
           </div>
 

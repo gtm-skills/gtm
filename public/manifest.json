@@ -1,7 +1,7 @@
 {
   "name": "GTM Skills",
   "short_name": "GTM Skills",
-  "description": "2,500+ AI prompts for B2B sales and marketing. Free and open source.",
+  "description": "The open-source operating system for agentic GTM. Prompts, agents, tools, and API.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#09090b",

@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${workflow.name} Prompts | GTM Skills`,
-    description: `${workflow.count}+ AI prompts for ${workflow.name.toLowerCase()}. ${workflow.description}`,
+    description: `${workflow.count}+ prompts for ${workflow.name.toLowerCase()}. ${workflow.description}`,
   };
 }
 

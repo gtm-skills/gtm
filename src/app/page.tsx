@@ -39,19 +39,19 @@ import {
 const faqs = [
   {
     question: 'What is GTM Skills?',
-    answer: 'GTM Skills is a free, open-source library of 2,500+ AI prompts for B2B sales and marketing. It includes prompts organized by industry (SaaS, FinTech, Healthcare), role (SDR, AE, CSM), workflow (prospecting, discovery, closing), and methodology (MEDDPICC, SPIN, Challenger). All prompts work with Claude, ChatGPT, Gemini, and any LLM.',
+    answer: 'GTM Skills is the open-source operating system for agentic GTM. It includes 2,500+ prompts, agent workflows, a browser extension, MCP server, voice templates, and a full API — organized by industry, role, workflow, and methodology. Everything you need to build agentic sales workflows.',
   },
   {
-    question: 'How do I use GTM Skills with Claude or ChatGPT?',
-    answer: 'Simply browse the library, find a prompt that fits your use case, click the Copy button, and paste it into Claude, ChatGPT, or any AI assistant. Replace the bracketed placeholders [LIKE THIS] with your specific context. For power users, install our MCP Server to access prompts directly inside Claude Desktop.',
+    question: 'How do I use GTM Skills?',
+    answer: 'Browse prompts, use the browser extension on LinkedIn and Gmail, install the MCP Server for Claude Desktop, or deploy the full OpenClaw agent team. Everything works together as an integrated GTM workflow.',
   },
   {
     question: 'Is GTM Skills really free?',
     answer: 'Yes, GTM Skills is 100% free and open source under the MIT license. There are no paywalls, no signup required to copy prompts, and no usage limits. You can use it commercially or personally. The project is maintained by Prospeda.',
   },
   {
-    question: 'What makes these prompts different from generic AI prompts?',
-    answer: 'Every prompt in GTM Skills is specifically designed for B2B sales and marketing workflows. They include proper context-setting, output formatting, and sales-specific terminology. The prompts are battle-tested by sales professionals and optimized for real scenarios like cold outreach, discovery calls, objection handling, and proposal writing.',
+    question: 'What makes GTM Skills different?',
+    answer: 'GTM Skills is purpose-built for B2B sales workflows, not generic prompts. Every tool, template, and agent is designed for real sales scenarios — prospecting, discovery, objection handling, proposals, and closing. The entire ecosystem works together: prompts feed agents, agents use tools, tools integrate with your stack.',
   },
   {
     question: 'Can I contribute my own prompts?',

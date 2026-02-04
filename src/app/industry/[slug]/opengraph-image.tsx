@@ -19,7 +19,7 @@ export default async function Image({ params }: Props) {
   const industry = industries.find((i) => i.slug === slug);
 
   const title = industry?.name || 'Industry Pack';
-  const description = industry?.description || 'AI prompts for B2B sales';
+  const description = industry?.description || 'Prompts for B2B sales';
   const count = industry?.count || 100;
 
   return new ImageResponse(
@@ -104,7 +104,7 @@ export default async function Image({ params }: Props) {
             {count}+
           </span>
           <span style={{ fontSize: '24px', color: '#a1a1aa' }}>
-            AI Prompts
+            Prompts
           </span>
         </div>
 

@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${industry.name} Prompts | GTM Skills`,
-    description: `${industry.count}+ AI prompts for ${industry.name}. ${industry.description}`,
+    description: `${industry.count}+ prompts for ${industry.name}. ${industry.description}`,
   };
 }
 
@@ -45,12 +45,12 @@ export default async function IndustryDetailPage({ params }: Props) {
   return (
     <>
       <SoftwareSourceCodeJsonLd
-        name={`${industry.name} AI Prompts - GTM Skills`}
+        name={`${industry.name} Prompts - GTM Skills`}
         description={industry.description}
         url={`https://gtm-skills.com/industry/${slug}`}
         category={industry.name}
         promptCount={industry.count}
-        keywords={['sales prompts', industry.name.toLowerCase(), 'AI prompts', 'B2B']}
+        keywords={['sales prompts', industry.name.toLowerCase(), 'GTM prompts', 'B2B']}
       />
       <BreadcrumbJsonLd
         items={[

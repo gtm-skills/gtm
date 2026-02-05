@@ -13,8 +13,6 @@ import {
   Download,
   ChevronDown,
   Globe,
-  Mic,
-  Link2,
   Bot,
   BookOpen,
   Code,
@@ -23,6 +21,7 @@ import {
   Palette,
   Users,
   Workflow,
+  Star,
 } from 'lucide-react';
 
 interface NavItem {
@@ -157,6 +156,18 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -200,8 +211,9 @@ export function Header() {
           <ThemeToggle />
           <button
             type="button"
-            className="p-2"
+            className="p-2 rounded-lg hover:bg-zinc-800/50 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -212,69 +224,87 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - full screen overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background">
-          <div className="px-6 py-4 space-y-1">
-            {navigation.map((item) => (
-              <div key={item.name}>
-                {item.children ? (
-                  <div>
-                    <button
-                      onClick={() => setExpandedMobileItem(
-                        expandedMobileItem === item.name ? null : item.name
-                      )}
-                      className="flex items-center justify-between w-full py-2 text-sm text-muted-foreground"
-                    >
-                      <span>{item.name}</span>
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${
-                          expandedMobileItem === item.name ? 'rotate-180' : ''
+        <div className="md:hidden fixed inset-0 top-[65px] z-50 bg-background/98 backdrop-blur-sm overflow-y-auto">
+          <div className="px-6 py-6">
+            {/* Mobile search */}
+            <SearchButton variant="mobile" onOpen={() => setMobileMenuOpen(false)} />
+
+            {/* Navigation */}
+            <nav className="mt-6 space-y-1">
+              {navigation.map((item) => (
+                <div key={item.name}>
+                  {item.children ? (
+                    <div>
+                      <button
+                        onClick={() => setExpandedMobileItem(
+                          expandedMobileItem === item.name ? null : item.name
+                        )}
+                        className="flex items-center justify-between w-full py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-zinc-800/50 transition-colors"
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDown
+                          className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
+                            expandedMobileItem === item.name ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      <div
+                        className={`overflow-hidden transition-all duration-200 ${
+                          expandedMobileItem === item.name ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                         }`}
-                      />
-                    </button>
-                    {expandedMobileItem === item.name && (
-                      <div className="pl-4 space-y-1 pb-2">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.name}
-                            href={child.href}
-                            className="flex items-center gap-2 py-2 text-sm text-zinc-500 hover:text-white"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            <child.icon className="h-4 w-4" />
-                            {child.name}
-                          </Link>
-                        ))}
+                      >
+                        <div className="pl-3 pb-2 space-y-0.5">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.name}
+                              href={child.href}
+                              className="flex items-center gap-3 py-3 px-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-zinc-800/30 transition-colors"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <child.icon className="h-5 w-5 text-zinc-500" />
+                              <div>
+                                <div className="text-sm font-medium">{child.name}</div>
+                                {child.description && (
+                                  <div className="text-xs text-zinc-500">{child.description}</div>
+                                )}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="block py-2 text-sm text-muted-foreground hover:text-foreground"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                )}
-              </div>
-            ))}
-            <div className="pt-4 space-y-3 border-t border-border mt-4">
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-zinc-800/50 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </nav>
+
+            {/* Mobile CTAs */}
+            <div className="mt-8 pt-6 border-t border-border space-y-3">
               <a
                 href="https://github.com/gtm-skills/gtm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Button variant="outline" size="sm" className="w-full gap-2">
-                  <Github className="h-4 w-4" />
+                <Button variant="outline" className="w-full h-12 gap-2 text-base">
+                  <Star className="h-5 w-5 text-yellow-400" />
                   Star on GitHub
+                  <GitHubStars repo="gtm-skills/gtm" className="text-sm ml-auto" />
                 </Button>
               </a>
-              <Link href="/download" className="block">
-                <Button size="sm" className="w-full gap-2 bg-gradient-to-r from-orange-500 to-red-500">
-                  <Download className="h-4 w-4" />
+              <Link href="/download" className="block" onClick={() => setMobileMenuOpen(false)}>
+                <Button className="w-full h-12 gap-2 text-base bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+                  <Download className="h-5 w-5" />
                   Get Extension
                 </Button>
               </Link>

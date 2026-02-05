@@ -227,10 +227,8 @@ export function CommandMenu() {
   );
 }
 
-// Button to trigger search (for header)
-export function SearchButton() {
-  const [, setForceUpdate] = useState(0);
-
+// Button to trigger search (for header and mobile)
+export function SearchButton({ variant = 'desktop', onOpen }: { variant?: 'desktop' | 'mobile'; onOpen?: () => void } = {}) {
   const handleClick = () => {
     // Dispatch a keyboard event to trigger the command menu
     const event = new KeyboardEvent('keydown', {
@@ -239,8 +237,21 @@ export function SearchButton() {
       bubbles: true,
     });
     document.dispatchEvent(event);
-    setForceUpdate((n) => n + 1);
+    onOpen?.();
   };
+
+  if (variant === 'mobile') {
+    return (
+      <button
+        onClick={handleClick}
+        className="flex items-center gap-3 w-full px-4 py-3 text-sm text-muted-foreground bg-card hover:bg-zinc-800/50 rounded-xl border border-border transition-colors"
+      >
+        <Search className="h-5 w-5" />
+        <span className="flex-1 text-left">Search prompts, tools, docs...</span>
+        <kbd className="px-2 py-0.5 text-[10px] bg-background rounded border border-border">⌘K</kbd>
+      </button>
+    );
+  }
 
   return (
     <button

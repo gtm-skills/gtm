@@ -7,6 +7,7 @@ import { AnimatedChatDemo } from '@/components/animated-chat-demo';
 
 // New homepage sections
 import { EcosystemBar } from '@/components/home/ecosystem-bar';
+import { SocialProof } from '@/components/home/social-proof';
 import { ToolsGrid } from '@/components/home/tools-grid';
 import { VoiceShowcase } from '@/components/home/voice-showcase';
 import { DevelopersSection } from '@/components/home/developers-section';
@@ -245,6 +246,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Social Proof */}
+      <SocialProof />
 
       {/* Ecosystem Bar - Shows all features */}
       <EcosystemBar />

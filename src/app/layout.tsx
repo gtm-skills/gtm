@@ -70,9 +70,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTM Skills | The Agentic GTM Operating System',
-    description: 'The open-source operating system for agentic GTM. Prompts, agent workflows, tools, and API for B2B sales.',
-    images: ['https://gtm-skills.com/og-image.png'],
   },
   metadataBase: new URL('https://gtm-skills.com'),
 };

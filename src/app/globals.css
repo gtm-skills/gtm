@@ -3,6 +3,74 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ========================================================================
+   COMPONENT MIGRATION MAP  (read this before touching any component)
+   ========================================================================
+   The brand (orange -> red gradient) and a full light/dark token system
+   now live in this file as real CSS variables + Tailwind v4 `@theme`
+   utilities (see below). Many older components still hardcode dark-mode
+   Tailwind classes (bg-black, bg-zinc-900, text-zinc-400, etc.) instead of
+   using those tokens. A ~80-line `:root:not(.dark) { .bg-black {...} }`
+   patch used to paper over this in light mode -- it has been removed, since
+   the fix belongs in the token layer, not in a CSS override hack.
+
+   This means: any component still using the raw classes on the left below
+   will now render literally black/zinc/white in BOTH light and dark mode
+   (no more light-mode patch). That is expected — fixing it is a mechanical
+   find/replace pass across components (Phase 2), not part of this change.
+   Use this table to do that pass. Counts are approximate occurrences in
+   src/ at the time this table was written (`grep -rn` over *.tsx/*.ts).
+
+   SURFACES (backgrounds)
+     bg-black                                  -> bg-background
+     bg-black/30, bg-black/50, bg-black/60      -> bg-background/30, /50, /60
+     bg-zinc-900                                -> bg-card
+     bg-zinc-900/30, /50, /70, /80              -> bg-card/30, /50, /70, /80
+     bg-zinc-800                                -> bg-muted   (or bg-accent for hover states)
+     bg-zinc-700                                -> bg-muted
+     hover:bg-zinc-800, hover:bg-zinc-700/600   -> hover:bg-muted  (or hover:bg-accent)
+     hover:bg-black/10                          -> hover:bg-accent
+     bg-zinc-900.border-zinc-800 (dropdown/menu combo) -> bg-popover border-border
+
+   TEXT
+     text-white                                 -> text-foreground
+     text-zinc-100, text-zinc-200, text-zinc-300 -> text-foreground
+     text-zinc-400, text-zinc-500                -> text-muted-foreground
+     text-zinc-600                                -> text-muted-foreground
+
+   BORDERS
+     border-zinc-800, border-zinc-800/50         -> border-border
+     border-zinc-700, border-zinc-700/50         -> border-border
+
+   BRAND GRADIENT (the orange -> red brand mark, currently inlined ad hoc
+   as `bg-gradient-to-r from-orange-500 to-red-500` / `hover:from-orange-600
+   hover:to-red-600` across 25+ files, e.g. header.tsx CTA buttons)
+     bg-gradient-to-r from-orange-500 to-red-500 -> .brand-gradient
+     bg-gradient-to-r ... bg-clip-text text-transparent (gradient text)
+                                                  -> .brand-gradient-text
+     Hover variants (from-orange-600 to-red-600) are baked into
+     .brand-gradient:hover — drop the manual hover:from-... / hover:to-... classes.
+
+   DECORATIVE ACCENT TEXT (icons/badges using e.g. text-blue-400,
+   text-orange-400, text-emerald-400, group-hover:text-orange-400, etc.)
+   These are intentionally multi-color (not brand, not neutral) and were
+   darkened for light-mode contrast by the old hack blocks
+   accent color vars (blue/green/yellow/purple/orange/emerald/violet). Those
+   vars were removed along with the hack (nothing outside globals.css
+   referenced them). Phase 2 should either accept the lighter *-400 shade in
+   light mode or reintroduce light-mode-safe accent tokens if contrast turns
+   out to be a real problem, not addressed here.
+
+   USING THE BRAND TOKENS DIRECTLY
+   brand-primary and brand-secondary are real theme colors, so standard
+   Tailwind utilities work too: bg-brand-primary, text-brand-secondary,
+   border-brand-primary, from-brand-primary, to-brand-secondary, etc.
+   The primary token itself is now brand-rooted (see below), so plain
+   bg-primary, text-primary, the default Button variant, and focus rings
+   already carry the brand color; prefer those over the gradient utilities
+   unless you specifically want the two-tone gradient.
+   ======================================================================== */
+
 /* ========================================
    Theme Configuration
    ======================================== */
@@ -41,6 +109,8 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -57,6 +127,14 @@
 :root {
   --radius: 0.625rem;
 
+  /* Brand (orange -> red). Fixed across light/dark -- the brand hue itself
+     does not invert, only the neutral surfaces around it do. Values are
+     Tailwinds orange-500 / red-500 oklch equivalents. */
+  --brand-primary: oklch(0.705 0.213 47.604); /* orange-500 */
+  --brand-secondary: oklch(0.637 0.237 25.331); /* red-500 */
+  --brand-primary-hover: oklch(0.646 0.222 41.116); /* orange-600 */
+  --brand-secondary-hover: oklch(0.577 0.245 27.325); /* red-600 */
+
   /* Core colors */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -64,7 +142,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: var(--brand-primary);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -75,7 +153,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.9 0 0);
   --input: oklch(0.9 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: var(--brand-primary);
 
   /* Chart colors */
   --chart-1: oklch(0.646 0.222 41.116);
@@ -93,32 +171,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-
-  /* Surface colors (for components) */
-  --surface-1: #ffffff;
-  --surface-2: #f8fafc;
-  --surface-3: #f1f5f9;
-  --surface-4: #e2e8f0;
-  --surface-elevated: #ffffff;
-
-  /* Text colors */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --text-inverted: #ffffff;
-
-  /* Border colors */
-  --border-default: #e2e8f0;
-  --border-muted: #f1f5f9;
-
-  /* Accent text (darkened for light mode contrast) */
-  --accent-blue: #2563eb;
-  --accent-green: #16a34a;
-  --accent-yellow: #ca8a04;
-  --accent-purple: #9333ea;
-  --accent-orange: #ea580c;
-  --accent-emerald: #059669;
-  --accent-violet: #7c3aed;
 }
 
 /* ========================================
@@ -132,8 +184,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: var(--brand-primary);
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -143,7 +195,7 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: var(--brand-primary);
 
   /* Chart colors */
   --chart-1: oklch(0.488 0.243 264.376);
@@ -161,32 +213,6 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-
-  /* Surface colors (for components) */
-  --surface-1: #000000;
-  --surface-2: #0a0a0a;
-  --surface-3: #18181b;
-  --surface-4: #27272a;
-  --surface-elevated: #18181b;
-
-  /* Text colors */
-  --text-primary: #fafafa;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --text-inverted: #0f172a;
-
-  /* Border colors */
-  --border-default: #27272a;
-  --border-muted: #18181b;
-
-  /* Accent text (lighter for dark mode) */
-  --accent-blue: #60a5fa;
-  --accent-green: #4ade80;
-  --accent-yellow: #facc15;
-  --accent-purple: #c084fc;
-  --accent-orange: #fb923c;
-  --accent-emerald: #34d399;
-  --accent-violet: #a78bfa;
 }
 
 /* ========================================
@@ -203,54 +229,20 @@
 }
 
 /* ========================================
-   Light Mode Component Overrides
-   These fix dark-first components in light mode.
-   TODO: Gradually migrate components to use theme variables.
+   Brand Utilities
    ======================================== */
 
-:root:not(.dark) {
-  /* Surface overrides */
-  .bg-black { background-color: var(--surface-1); }
-  .bg-zinc-900 { background-color: var(--surface-2); }
-  .bg-zinc-900\/50, .bg-zinc-900\/30, .bg-zinc-900\/80 { background-color: var(--surface-3); }
-  .bg-zinc-800 { background-color: var(--surface-3); }
-  .bg-zinc-700 { background-color: var(--surface-4); }
-  .bg-black\/50, .bg-black\/30 { background-color: var(--surface-3); }
-
-  /* Text overrides */
-  .text-white { color: var(--text-primary); }
-  .text-zinc-100 { color: var(--text-primary); }
-  .text-zinc-200, .text-zinc-300 { color: var(--text-primary); }
-  .text-zinc-400, .text-zinc-500 { color: var(--text-secondary); }
-  .text-zinc-600 { color: var(--text-muted); }
-
-  /* Border overrides */
-  .border-zinc-800, .border-zinc-800\/50 { border-color: var(--border-default); }
-  .border-zinc-700, .border-zinc-700\/50 { border-color: var(--border-default); }
-
-  /* Accent text */
-  .text-blue-400 { color: var(--accent-blue); }
-  .text-green-400 { color: var(--accent-green); }
-  .text-yellow-400 { color: var(--accent-yellow); }
-  .text-purple-400 { color: var(--accent-purple); }
-  .text-orange-400 { color: var(--accent-orange); }
-  .text-emerald-400 { color: var(--accent-emerald); }
-  .text-violet-400 { color: var(--accent-violet); }
-
-  /* Hover states */
-  .hover\:bg-zinc-800:hover { background-color: var(--surface-3); }
-  .hover\:bg-zinc-700:hover { background-color: var(--surface-4); }
-  .hover\:bg-zinc-600:hover { background-color: var(--surface-4); }
-  .hover\:bg-black\/10:hover { background-color: var(--surface-3); }
-
-  /* Group hover */
-  .group:hover .group-hover\:text-orange-400 { color: var(--accent-orange); }
-  .group:hover .group-hover\:text-emerald-400 { color: var(--accent-emerald); }
-
-  /* Dropdown fix */
-  .bg-zinc-900.border-zinc-800 {
-    background-color: var(--surface-1);
-    border-color: var(--border-default);
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+@layer utilities {
+  .brand-gradient {
+    background-image: linear-gradient(to right, var(--brand-primary), var(--brand-secondary));
+  }
+  .brand-gradient:hover {
+    background-image: linear-gradient(to right, var(--brand-primary-hover), var(--brand-secondary-hover));
+  }
+  .brand-gradient-text {
+    background-image: linear-gradient(to right, var(--brand-primary), var(--brand-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 }

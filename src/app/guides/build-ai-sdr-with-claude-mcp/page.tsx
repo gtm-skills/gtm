@@ -381,7 +381,7 @@ export default function BuildAiSdrWithClaudeMcpPage() {
                     <CopyButton text={step.copyable} label={step.title} />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">{step.description}</p>
-                  <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono bg-zinc-900 rounded-lg p-4">
+                  <pre className="text-sm text-foreground whitespace-pre-wrap font-mono bg-card rounded-lg p-4">
                     {step.content}
                   </pre>
                 </div>
@@ -407,7 +407,7 @@ export default function BuildAiSdrWithClaudeMcpPage() {
                   real path where you cloned the repo — Claude Desktop does not run from your
                   project folder, so relative paths silently fail here.
                 </p>
-                <pre className="text-sm text-zinc-300 whitespace-pre font-mono bg-zinc-900 rounded-lg p-4 overflow-x-auto">
+                <pre className="text-sm text-foreground whitespace-pre font-mono bg-card rounded-lg p-4 overflow-x-auto">
                   {claudeDesktopConfig}
                 </pre>
                 <p className="text-sm text-muted-foreground mt-3">
@@ -419,7 +419,7 @@ export default function BuildAiSdrWithClaudeMcpPage() {
                   <span className="text-xs text-muted-foreground">Claude Code config</span>
                   <CopyButton text={claudeCodeConfig} label="Claude Code config" />
                 </div>
-                <pre className="text-sm text-zinc-300 whitespace-pre font-mono bg-zinc-900 rounded-lg p-4 overflow-x-auto">
+                <pre className="text-sm text-foreground whitespace-pre font-mono bg-card rounded-lg p-4 overflow-x-auto">
                   {claudeCodeConfig}
                 </pre>
               </div>
@@ -442,7 +442,7 @@ export default function BuildAiSdrWithClaudeMcpPage() {
                   Fully quit Claude Desktop (not just close the window) and relaunch it, since the
                   config is only read on startup. Then start a new conversation and try:
                 </p>
-                <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono bg-zinc-900 rounded-lg p-4">
+                <pre className="text-sm text-foreground whitespace-pre-wrap font-mono bg-card rounded-lg p-4">
                   Use the research_company tool to research Stripe for potential outreach.
                 </pre>
               </div>
@@ -479,7 +479,7 @@ export default function BuildAiSdrWithClaudeMcpPage() {
                       <span className="text-xs text-muted-foreground">Example prompt:</span>
                       <CopyButton text={step.prompt} label={step.tool} />
                     </div>
-                    <pre className="text-xs text-zinc-400 whitespace-pre-wrap font-mono bg-zinc-900 rounded-lg p-3">
+                    <pre className="text-xs text-muted-foreground whitespace-pre-wrap font-mono bg-card rounded-lg p-3">
                       {step.prompt}
                     </pre>
                   </div>
@@ -487,7 +487,7 @@ export default function BuildAiSdrWithClaudeMcpPage() {
               </div>
             ))}
           </div>
-          <div className="mt-6 p-4 rounded-lg bg-zinc-900 border border-zinc-800">
+          <div className="mt-6 p-4 rounded-lg bg-card border border-border">
             <div className="flex items-start gap-3">
               <Workflow className="h-5 w-5 text-cyan-400 mt-0.5" />
               <div>
@@ -565,14 +565,14 @@ export default function BuildAiSdrWithClaudeMcpPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">Want This Running in Minutes, Not Hours?</h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Want This Running in Minutes, Not Hours?</h2>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Prospeda ships the same AI-powered sales workflows with CRM integration and enrichment
             already connected — no cloning, building, or config editing required.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Try Prospeda Free
               <ArrowRight className="h-4 w-4 ml-2" />
             </Button>

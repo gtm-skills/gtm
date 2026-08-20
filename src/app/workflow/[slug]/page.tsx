@@ -99,8 +99,8 @@ export default async function WorkflowDetailPage({ params }: Props) {
                   </div>
                   <CopyButton text={prompt.prompt} />
                 </div>
-                <div className="bg-zinc-900 rounded-lg p-4 font-mono text-sm">
-                  <pre className="text-zinc-300 whitespace-pre-wrap overflow-x-auto">
+                <div className="bg-card rounded-lg p-4 font-mono text-sm">
+                  <pre className="text-foreground whitespace-pre-wrap overflow-x-auto">
                     {prompt.prompt}
                   </pre>
                 </div>
@@ -142,16 +142,16 @@ export default async function WorkflowDetailPage({ params }: Props) {
         )}
 
         {/* Bottom CTA */}
-        <div className="mt-16 p-8 rounded-xl bg-zinc-900 text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">
+        <div className="mt-16 p-8 rounded-xl bg-card text-center">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Want AI That Handles This Workflow Automatically?
           </h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Prospeda automates {workflow.name.toLowerCase()} with AI agents that
             research, write, and execute at scale.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Try Prospeda Free
             </Button>
           </a>

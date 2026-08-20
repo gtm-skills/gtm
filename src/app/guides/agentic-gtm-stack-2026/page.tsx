@@ -439,8 +439,8 @@ export default function AgenticGtmStack2026Page() {
                 lives in Claude - if you&apos;re standardized on a different assistant or a
                 dedicated AI SDR platform, the same layer-by-layer approach applies there too.
               </p>
-              <div className="flex items-center justify-between gap-4 p-4 rounded-lg bg-zinc-900">
-                <code className="text-sm text-zinc-300 font-mono overflow-x-auto">
+              <div className="flex items-center justify-between gap-4 p-4 rounded-lg bg-card">
+                <code className="text-sm text-foreground font-mono overflow-x-auto">
                   npx clawdhub install gtm-skills/scout gtm-skills/writer gtm-skills/rep gtm-skills/closer
                 </code>
                 <CopyButton
@@ -466,43 +466,43 @@ export default function AgenticGtmStack2026Page() {
           </div>
 
           {/* Related reading */}
-          <div className="p-8 rounded-xl bg-zinc-900">
-            <h2 className="text-xl font-bold text-white mb-4">Go Deeper</h2>
+          <div className="p-8 rounded-xl bg-card">
+            <h2 className="text-xl font-bold text-foreground mb-4">Go Deeper</h2>
             <div className="grid sm:grid-cols-2 gap-3">
               <Link
                 href="/agentic-bdr"
-                className="flex items-center justify-between p-4 rounded-lg bg-zinc-800 hover:bg-zinc-700/70 transition-colors text-sm text-zinc-200"
+                className="flex items-center justify-between p-4 rounded-lg bg-muted hover:bg-accent transition-colors text-sm text-foreground"
               >
                 Agentic BDR Guide
-                <ArrowRight className="h-4 w-4 text-zinc-500" />
+                <ArrowRight className="h-4 w-4 text-muted-foreground" />
               </Link>
               <Link
                 href="/free-tools/mcp-server"
-                className="flex items-center justify-between p-4 rounded-lg bg-zinc-800 hover:bg-zinc-700/70 transition-colors text-sm text-zinc-200"
+                className="flex items-center justify-between p-4 rounded-lg bg-muted hover:bg-accent transition-colors text-sm text-foreground"
               >
                 GTM MCP Server
-                <ArrowRight className="h-4 w-4 text-zinc-500" />
+                <ArrowRight className="h-4 w-4 text-muted-foreground" />
               </Link>
               <Link
                 href="/openclaw"
-                className="flex items-center justify-between p-4 rounded-lg bg-zinc-800 hover:bg-zinc-700/70 transition-colors text-sm text-zinc-200"
+                className="flex items-center justify-between p-4 rounded-lg bg-muted hover:bg-accent transition-colors text-sm text-foreground"
               >
                 OpenClaw Agent Team
-                <ArrowRight className="h-4 w-4 text-zinc-500" />
+                <ArrowRight className="h-4 w-4 text-muted-foreground" />
               </Link>
               <Link
                 href="/role"
-                className="flex items-center justify-between p-4 rounded-lg bg-zinc-800 hover:bg-zinc-700/70 transition-colors text-sm text-zinc-200"
+                className="flex items-center justify-between p-4 rounded-lg bg-muted hover:bg-accent transition-colors text-sm text-foreground"
               >
                 Role Playbooks
-                <ArrowRight className="h-4 w-4 text-zinc-500" />
+                <ArrowRight className="h-4 w-4 text-muted-foreground" />
               </Link>
               <Link
                 href="/tools"
-                className="flex items-center justify-between p-4 rounded-lg bg-zinc-800 hover:bg-zinc-700/70 transition-colors text-sm text-zinc-200 sm:col-span-2"
+                className="flex items-center justify-between p-4 rounded-lg bg-muted hover:bg-accent transition-colors text-sm text-foreground sm:col-span-2"
               >
                 Tools & Integrations
-                <ArrowRight className="h-4 w-4 text-zinc-500" />
+                <ArrowRight className="h-4 w-4 text-muted-foreground" />
               </Link>
             </div>
           </div>

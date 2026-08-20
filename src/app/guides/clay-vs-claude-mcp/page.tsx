@@ -335,8 +335,8 @@ export default function ClayVsClaudeMcpPage() {
                   label="clay-first-prompt"
                 />
               </div>
-              <div className="bg-zinc-900 rounded-lg p-4">
-                <pre className="text-sm text-zinc-400 whitespace-pre-wrap font-mono">
+              <div className="bg-card rounded-lg p-4">
+                <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono">
 {`"Use Clay to enrich Stripe: company size, funding stage,
 tech stack, and the top 3 contacts in engineering
 leadership with verified emails."`}
@@ -359,8 +359,8 @@ leadership with verified emails."`}
                   label="mcp-only-prompt"
                 />
               </div>
-              <div className="bg-zinc-900 rounded-lg p-4">
-                <pre className="text-sm text-zinc-400 whitespace-pre-wrap font-mono">
+              <div className="bg-card rounded-lg p-4">
+                <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono">
 {`"Research Stripe for a cold outreach campaign. I'm
 selling developer tools. Give me a company overview,
 likely pain points for their engineering leadership,
@@ -385,8 +385,8 @@ hook for a cold email."`}
                   label="combined-prompt"
                 />
               </div>
-              <div className="bg-zinc-900 rounded-lg p-4">
-                <pre className="text-sm text-zinc-400 whitespace-pre-wrap font-mono">
+              <div className="bg-card rounded-lg p-4">
+                <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono">
 {`"Use Clay to pull firmographic and contact data for
 Stripe, then use that data to write a research brief
 on why they're a good fit for developer tools, and
@@ -457,14 +457,14 @@ contact."`}
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">Want the Full GTM Prompt Library?</h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Want the Full GTM Prompt Library?</h2>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             GTM Skills is a free, open-source library of sales prompts and an MCP server that
             plugs straight into Claude — no new platform to learn.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Explore GTM Skills Free
             </Button>
           </a>

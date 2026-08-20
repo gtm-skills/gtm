@@ -140,7 +140,7 @@ export default function SalesMethodologyForAIAgentsPage() {
           <div className="overflow-x-auto rounded-xl border border-border">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border bg-zinc-900 text-left">
+                <tr className="border-b border-border bg-card text-left">
                   <th className="px-4 py-3 font-semibold">Methodology</th>
                   <th className="px-4 py-3 font-semibold">Stages</th>
                   <th className="px-4 py-3 font-semibold">Best fit</th>
@@ -207,8 +207,8 @@ For each element, output: status (confirmed / unconfirmed / no evidence), eviden
 If 3+ fields are "no evidence" after two touches, flag this deal for human review instead of advancing it automatically.`}
               />
             </div>
-            <div className="bg-zinc-900 rounded-lg p-4">
-              <pre className="text-xs text-zinc-400 whitespace-pre-wrap font-mono">
+            <div className="bg-card rounded-lg p-4">
+              <pre className="text-xs text-muted-foreground whitespace-pre-wrap font-mono">
 {`You are a deal qualification agent applying MEDDPICC. After every call
 transcript or email thread for a SaaS deal, update the deal record using
 this exact structure. Do not skip a field, and do not infer a field from
@@ -284,8 +284,8 @@ Before every message, output your current stage and the one fact or quote that j
 If the prospect states a Need-Payoff answer unprompted, skip ahead and log it, but do not skip stages for the agent's own convenience.`}
               />
             </div>
-            <div className="bg-zinc-900 rounded-lg p-4">
-              <pre className="text-xs text-zinc-400 whitespace-pre-wrap font-mono">
+            <div className="bg-card rounded-lg p-4">
+              <pre className="text-xs text-muted-foreground whitespace-pre-wrap font-mono">
 {`You are running SPIN-based discovery in an ongoing chat or email thread
 with a SaaS prospect. Track which stage the conversation is in and only
 advance one stage at a time.
@@ -362,8 +362,8 @@ Then Tailor the same insight per stakeholder:
 If the prospect pushes back on the reframe, Take Control by: (1) acknowledging their view in one sentence, (2) bridging back to the original insight without repeating it verbatim, (3) asking a question that advances the conversation. Never concede the reframe just to reduce friction — if you cannot defend it with a cited data point, do not deploy it.`}
               />
             </div>
-            <div className="bg-zinc-900 rounded-lg p-4">
-              <pre className="text-xs text-zinc-400 whitespace-pre-wrap font-mono">
+            <div className="bg-card rounded-lg p-4">
+              <pre className="text-xs text-muted-foreground whitespace-pre-wrap font-mono">
 {`You are delivering a Challenger-style "Teach" moment to a SaaS buyer.
 You may only use insights supplied in your knowledge base — do not
 invent statistics or generalize from a single anecdote.
@@ -499,14 +499,14 @@ conversation. Never concede the reframe just to reduce friction.`}
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">Want This Logic Running Automatically?</h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Want This Logic Running Automatically?</h2>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Prospeda applies methodology-based qualification logic to every deal automatically —
             structured extraction, escalation rules, and human handoff built in.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Try Prospeda Free
             </Button>
           </a>

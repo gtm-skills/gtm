@@ -195,7 +195,7 @@ export default function OpenClawVsAiSdrPlatformsPage() {
             {agents.map((agent) => (
               <div key={agent.id} className="p-6 rounded-xl border border-border bg-card">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
                     <agent.icon className={`h-5 w-5 ${agent.color}`} />
                   </div>
                   <div className="flex-1">
@@ -216,7 +216,7 @@ export default function OpenClawVsAiSdrPlatformsPage() {
             needs to approve it. The agents are built to behave like proactive teammates handing work
             to each other, not like a form you fill out and a report that comes back.
           </p>
-          <div className="p-4 rounded-lg bg-zinc-900 flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="p-4 rounded-lg bg-card flex flex-col sm:flex-row sm:items-center gap-4">
             <code className="text-sm text-orange-400 font-mono flex-1 break-all">
               {installCommand}
             </code>
@@ -295,13 +295,13 @@ export default function OpenClawVsAiSdrPlatformsPage() {
             </div>
             <div className="p-6 rounded-xl border border-border bg-card">
               <div className="flex items-center gap-2 mb-4">
-                <XCircle className="h-5 w-5 text-zinc-500" />
+                <XCircle className="h-5 w-5 text-muted-foreground" />
                 <h3 className="font-semibold">A managed platform is a better fit if...</h3>
               </div>
               <ul className="space-y-2">
                 {managedFitFor.map((item) => (
                   <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
-                    <span className="text-zinc-500 mt-1">•</span>
+                    <span className="text-muted-foreground mt-1">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -324,29 +324,29 @@ export default function OpenClawVsAiSdrPlatformsPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">See OpenClaw&apos;s Agent Roster</h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">See OpenClaw&apos;s Agent Roster</h2>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Read the full SOUL and playbook for each agent, or explore how OpenClaw fits into a
             broader agentic BDR motion.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/openclaw">
-              <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+              <Button className="brand-gradient">
                 Explore OpenClaw
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link
               href="/agents"
-              className="inline-flex items-center gap-2 text-sm text-zinc-300 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Full Agent Details
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/agentic-bdr"
-              className="inline-flex items-center gap-2 text-sm text-zinc-300 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Agentic BDR Guide
               <ArrowRight className="h-4 w-4" />

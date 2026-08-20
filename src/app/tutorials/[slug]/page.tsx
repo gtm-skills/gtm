@@ -118,7 +118,7 @@ export default async function TutorialPage({ params }: Props) {
           </div>
 
           {/* Intro */}
-          <div className="mb-12 p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div className="mb-12 p-6 rounded-xl bg-card border border-border">
             <p className="text-sm text-foreground leading-relaxed">{tutorial.intro}</p>
           </div>
 
@@ -132,7 +132,7 @@ export default async function TutorialPage({ params }: Props) {
               {tutorial.prerequisites.map((prereq, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-2 p-3 rounded-lg bg-zinc-900/50 border border-zinc-800"
+                  className="flex items-start gap-2 p-3 rounded-lg bg-card border border-border"
                 >
                   <CheckCircle2 className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
                   <span className="text-sm">{prereq}</span>
@@ -151,7 +151,7 @@ export default async function TutorialPage({ params }: Props) {
               {tutorial.steps.map((step, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-xl bg-card border border-border hover:border-zinc-700 transition-colors"
+                  className="p-6 rounded-xl bg-card border border-border hover:border-border transition-colors"
                 >
                   <div className="flex items-start gap-4 mb-4">
                     <span className="w-8 h-8 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-sm font-bold flex-shrink-0">
@@ -178,7 +178,7 @@ export default async function TutorialPage({ params }: Props) {
                               className="ml-auto"
                             />
                           </div>
-                          <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-zinc-900/50 p-4 rounded-lg overflow-x-auto">
+                          <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-card/50 p-4 rounded-lg overflow-x-auto">
                             {block.code}
                           </pre>
                         </div>
@@ -191,7 +191,7 @@ export default async function TutorialPage({ params }: Props) {
           </div>
 
           {/* Wrap up */}
-          <div className="mb-12 p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div className="mb-12 p-6 rounded-xl bg-card border border-border">
             <h2 className="text-lg font-semibold mb-2">Wrap-Up</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">{tutorial.wrapUp}</p>
           </div>

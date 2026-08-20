@@ -191,7 +191,7 @@ export default function AgentsPage() {
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <code className="bg-black/50 rounded-lg px-4 py-2 text-orange-400 font-mono text-sm">
+              <code className="bg-background/50 rounded-lg px-4 py-2 text-orange-400 font-mono text-sm">
                 npx clawdhub install gtm-skills/scout gtm-skills/writer gtm-skills/rep gtm-skills/closer
               </code>
               <Button
@@ -243,7 +243,7 @@ export default function AgentsPage() {
                 {/* Agent Header */}
                 <div className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-lg bg-black/30 ${agent.color}`}>
+                    <div className={`p-3 rounded-lg bg-background/30 ${agent.color}`}>
                       <Icon className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
@@ -264,7 +264,7 @@ export default function AgentsPage() {
                         {agent.personality.map((trait) => (
                           <span
                             key={trait}
-                            className="text-xs bg-black/30 px-2 py-1 rounded"
+                            className="text-xs bg-background/30 px-2 py-1 rounded"
                           >
                             {trait}
                           </span>
@@ -283,7 +283,7 @@ export default function AgentsPage() {
 
                       {/* Install Command */}
                       <div className="flex items-center gap-2 mb-4">
-                        <code className="bg-black/50 rounded px-3 py-1.5 text-sm font-mono">
+                        <code className="bg-background/50 rounded px-3 py-1.5 text-sm font-mono">
                           {agent.install}
                         </code>
                         <Button
@@ -316,7 +316,7 @@ export default function AgentsPage() {
                 {/* Expand/Collapse Button */}
                 <button
                   onClick={() => setExpandedAgent(isExpanded ? null : agent.id)}
-                  className="w-full px-6 py-3 flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground border-t border-black/20 hover:bg-black/10 transition-colors"
+                  className="w-full px-6 py-3 flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground border-t border-background/20 hover:bg-accent transition-colors"
                 >
                   {isExpanded ? (
                     <>
@@ -333,9 +333,9 @@ export default function AgentsPage() {
 
                 {/* Expanded Content */}
                 {isExpanded && (
-                  <div className="px-6 pb-6 border-t border-black/20">
-                    <div className="bg-black/30 rounded-lg p-4 mt-4 font-mono text-sm">
-                      <pre className="whitespace-pre-wrap text-zinc-300">{agent.example}</pre>
+                  <div className="px-6 pb-6 border-t border-background/20">
+                    <div className="bg-background/30 rounded-lg p-4 mt-4 font-mono text-sm">
+                      <pre className="whitespace-pre-wrap text-foreground">{agent.example}</pre>
                     </div>
                   </div>
                 )}

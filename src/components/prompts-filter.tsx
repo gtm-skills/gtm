@@ -133,7 +133,7 @@ export function PromptsFilter({ industries, roles, methodologies, workflows }: P
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                 activeDimension === chip.key
                   ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30'
-                  : 'bg-card border border-border text-muted-foreground hover:text-foreground hover:border-zinc-600'
+                  : 'bg-card border border-border text-muted-foreground hover:text-foreground hover:border-border'
               }`}
             >
               <chip.icon className="h-3 w-3" />
@@ -331,7 +331,7 @@ export function PromptsFilter({ industries, roles, methodologies, workflows }: P
       {!search && activeDimension === 'all' && (
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-5 h-5 rounded bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
+            <div className="w-5 h-5 rounded brand-gradient flex items-center justify-center">
               <span className="text-white text-[10px] font-bold">3</span>
             </div>
             <h2 className="text-xl font-bold">Industry + Role + Workflow</h2>

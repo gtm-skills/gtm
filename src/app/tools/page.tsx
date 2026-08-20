@@ -61,7 +61,7 @@ const comingSoon = [
 
 export default function ToolsPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-background">
       {/* Hero */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent" />
@@ -82,32 +82,32 @@ export default function ToolsPage() {
       </section>
 
       {/* Tools Grid */}
-      <section className="py-12 border-t border-zinc-800">
+      <section className="py-12 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-6">
             {tools.map((tool) => (
               <div
                 key={tool.title}
-                className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors"
+                className="bg-card/50 border border-border rounded-xl p-6 hover:border-border transition-colors"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div
                     className={`w-12 h-12 rounded-lg bg-gradient-to-br ${tool.gradient} flex items-center justify-center`}
                   >
-                    <tool.icon className="h-6 w-6 text-white" />
+                    <tool.icon className="h-6 w-6 text-foreground" />
                   </div>
-                  <Badge className="bg-zinc-800 text-zinc-400 border-zinc-700">
+                  <Badge className="bg-muted text-muted-foreground border-border">
                     {tool.badge}
                   </Badge>
                 </div>
 
-                <h2 className="text-xl font-semibold text-white mb-2">{tool.title}</h2>
-                <p className="text-zinc-400 text-sm mb-4">{tool.description}</p>
+                <h2 className="text-xl font-semibold text-foreground mb-2">{tool.title}</h2>
+                <p className="text-muted-foreground text-sm mb-4">{tool.description}</p>
 
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   {tool.features.map((feature) => (
-                    <div key={feature} className="flex items-center gap-2 text-xs text-zinc-500">
-                      <div className="w-1 h-1 rounded-full bg-zinc-600" />
+                    <div key={feature} className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <div className="w-1 h-1 rounded-full bg-muted" />
                       {feature}
                     </div>
                   ))}
@@ -126,10 +126,10 @@ export default function ToolsPage() {
       </section>
 
       {/* Coming Soon */}
-      <section className="py-16 border-t border-zinc-800 bg-zinc-900/30">
+      <section className="py-16 border-t border-border bg-card/30">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
-            <Badge variant="outline" className="mb-4 border-zinc-700 text-zinc-400">
+            <Badge variant="outline" className="mb-4 border-border text-muted-foreground">
               <Clock className="h-3 w-3 mr-1" />
               Coming Soon
             </Badge>
@@ -140,11 +140,11 @@ export default function ToolsPage() {
             {comingSoon.map((item) => (
               <div
                 key={item.name}
-                className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4 text-center"
+                className="bg-card/50 border border-border rounded-lg p-4 text-center"
               >
-                <item.icon className="h-6 w-6 text-zinc-600 mx-auto mb-2" />
-                <div className="text-sm font-medium text-zinc-400">{item.name}</div>
-                <div className="text-xs text-zinc-600">{item.description}</div>
+                <item.icon className="h-6 w-6 text-muted-foreground mx-auto mb-2" />
+                <div className="text-sm font-medium text-muted-foreground">{item.name}</div>
+                <div className="text-xs text-muted-foreground">{item.description}</div>
               </div>
             ))}
           </div>
@@ -152,7 +152,7 @@ export default function ToolsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 border-t border-zinc-800">
+      <section className="py-16 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-2xl font-bold mb-4">Can't Find What You Need?</h2>
           <p className="text-muted-foreground mb-6">

@@ -904,14 +904,14 @@ export default function AgenticGtmPromptChainsPage() {
         </div>
 
         {/* Chain navigation */}
-        <div className="mb-12 p-4 rounded-xl bg-zinc-900">
+        <div className="mb-12 p-4 rounded-xl bg-card">
           <h3 className="font-semibold mb-3">Jump to a chain:</h3>
           <div className="flex flex-wrap gap-2">
             {chains.map((chain) => (
               <a
                 key={chain.id}
                 href={`#${chain.id}`}
-                className="px-3 py-1.5 rounded-lg bg-zinc-800 text-sm hover:bg-zinc-700 transition-colors"
+                className="px-3 py-1.5 rounded-lg bg-muted text-sm hover:bg-accent transition-colors"
               >
                 {chain.title}
               </a>
@@ -954,8 +954,8 @@ export default function AgenticGtmPromptChainsPage() {
                             <span className="text-xs text-muted-foreground">Prompt:</span>
                             <CopyButton text={step.prompt} label={`${chain.id}-step-${step.step}`} />
                           </div>
-                          <div className="bg-zinc-900 rounded-lg p-3">
-                            <pre className="text-xs text-zinc-400 whitespace-pre-wrap font-mono">
+                          <div className="bg-card rounded-lg p-3">
+                            <pre className="text-xs text-muted-foreground whitespace-pre-wrap font-mono">
                               {step.prompt}
                             </pre>
                           </div>
@@ -964,7 +964,7 @@ export default function AgenticGtmPromptChainsPage() {
                     </div>
                     {step.step < chain.steps.length && (
                       <div className="flex justify-center mt-3">
-                        <ArrowRight className="h-4 w-4 text-zinc-600 rotate-90" />
+                        <ArrowRight className="h-4 w-4 text-muted-foreground rotate-90" />
                       </div>
                     )}
                   </div>

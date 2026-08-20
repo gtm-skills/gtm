@@ -47,7 +47,7 @@ export function ToolsGrid() {
     <section className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <Badge variant="outline" className="mb-4 border-zinc-700 text-zinc-400">
+          <Badge variant="outline" className="mb-4 border-border text-muted-foreground">
             Tools & Integrations
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -63,9 +63,9 @@ export function ToolsGrid() {
             <Link
               key={tool.title}
               href={tool.href}
-              className="group relative p-6 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-zinc-700 transition-all duration-300"
+              className="group relative p-6 rounded-xl border border-border bg-card/50 hover:border-border transition-all duration-300"
             >
-              <Badge className="absolute top-4 right-4 text-[10px] bg-zinc-800 text-zinc-400 border-zinc-700">
+              <Badge className="absolute top-4 right-4 text-[10px] bg-muted text-muted-foreground border-border">
                 {tool.badge}
               </Badge>
 
@@ -75,14 +75,14 @@ export function ToolsGrid() {
                 <tool.icon className="h-6 w-6 text-white" />
               </div>
 
-              <h3 className="font-semibold text-white mb-2 group-hover:text-orange-400 transition-colors">
+              <h3 className="font-semibold text-foreground mb-2 group-hover:text-orange-400 transition-colors">
                 {tool.title}
               </h3>
-              <p className="text-sm text-zinc-500 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 {tool.description}
               </p>
 
-              <div className="flex items-center gap-1 text-sm text-zinc-500 group-hover:text-orange-400 transition-colors">
+              <div className="flex items-center gap-1 text-sm text-muted-foreground group-hover:text-orange-400 transition-colors">
                 <span>Learn more</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </div>

@@ -309,8 +309,8 @@ Output a structured research brief I can use for personalized outreach.`}
                     label="research-agent-brief"
                   />
                 </div>
-                <div className="bg-zinc-900 rounded-lg p-4 font-mono text-xs overflow-x-auto">
-                  <pre className="text-zinc-400 whitespace-pre-wrap">
+                <div className="bg-card rounded-lg p-4 font-mono text-xs overflow-x-auto">
+                  <pre className="text-muted-foreground whitespace-pre-wrap">
 {`You are a Research Agent for B2B sales. Given a company name
 and domain, compile a research brief.
 
@@ -349,8 +349,8 @@ Generate 3 variations with different angles.`}
                     label="personalization-agent-opening"
                   />
                 </div>
-                <div className="bg-zinc-900 rounded-lg p-4 font-mono text-xs overflow-x-auto">
-                  <pre className="text-zinc-400 whitespace-pre-wrap">
+                <div className="bg-card rounded-lg p-4 font-mono text-xs overflow-x-auto">
+                  <pre className="text-muted-foreground whitespace-pre-wrap">
 {`You are a Personalization Agent. Transform this research into
 a cold email opening line.
 
@@ -386,8 +386,8 @@ Include subject lines for emails and connection note for LinkedIn.`}
                     label="outreach-agent-sequence"
                   />
                 </div>
-                <div className="bg-zinc-900 rounded-lg p-4 font-mono text-xs overflow-x-auto">
-                  <pre className="text-zinc-400 whitespace-pre-wrap">
+                <div className="bg-card rounded-lg p-4 font-mono text-xs overflow-x-auto">
+                  <pre className="text-muted-foreground whitespace-pre-wrap">
 {`Design a multi-channel sequence for this prospect across a
 2-week window: Day 1, 3, 5, 8, 12 - channel + message brief
 for each, with subject lines and a LinkedIn connection note.`}
@@ -490,7 +490,7 @@ for each, with subject lines and a LinkedIn connection note.`}
             <div className="grid sm:grid-cols-3 gap-4">
               <Link
                 href="/role/sdr"
-                className="flex items-center justify-between p-4 rounded-lg bg-zinc-900 hover:bg-zinc-800 transition-colors group"
+                className="flex items-center justify-between p-4 rounded-lg bg-muted hover:bg-accent transition-colors group"
               >
                 <div>
                   <p className="font-medium text-sm mb-1">SDR / BDR Prompt Pack</p>
@@ -500,7 +500,7 @@ for each, with subject lines and a LinkedIn connection note.`}
               </Link>
               <Link
                 href="/agentic-bdr"
-                className="flex items-center justify-between p-4 rounded-lg bg-zinc-900 hover:bg-zinc-800 transition-colors group"
+                className="flex items-center justify-between p-4 rounded-lg bg-muted hover:bg-accent transition-colors group"
               >
                 <div>
                   <p className="font-medium text-sm mb-1">Agentic BDR Guide</p>
@@ -510,7 +510,7 @@ for each, with subject lines and a LinkedIn connection note.`}
               </Link>
               <Link
                 href="/prompts"
-                className="flex items-center justify-between p-4 rounded-lg bg-zinc-900 hover:bg-zinc-800 transition-colors group"
+                className="flex items-center justify-between p-4 rounded-lg bg-muted hover:bg-accent transition-colors group"
               >
                 <div>
                   <p className="font-medium text-sm mb-1">Full Prompt Library</p>

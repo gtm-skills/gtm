@@ -131,7 +131,7 @@ export function CommandMenu() {
     <div className="fixed inset-0 z-[100]">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className="absolute inset-0 bg-background/50 backdrop-blur-sm"
         onClick={() => {
           setIsOpen(false);
           setQuery('');
@@ -244,7 +244,7 @@ export function SearchButton({ variant = 'desktop', onOpen }: { variant?: 'deskt
     return (
       <button
         onClick={handleClick}
-        className="flex items-center gap-3 w-full px-4 py-3 text-sm text-muted-foreground bg-card hover:bg-zinc-800/50 rounded-xl border border-border transition-colors"
+        className="flex items-center gap-3 w-full px-4 py-3 text-sm text-muted-foreground bg-card hover:bg-accent rounded-xl border border-border transition-colors"
       >
         <Search className="h-5 w-5" />
         <span className="flex-1 text-left">Search prompts, tools, docs...</span>

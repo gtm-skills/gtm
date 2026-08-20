@@ -222,8 +222,8 @@ export default function MeddicPage() {
         </div>
 
         {/* Real Example Quote */}
-        <div className="bg-zinc-950 rounded-xl p-6 mb-12 border-l-4 border-orange-500">
-          <div className="text-zinc-300 space-y-4">
+        <div className="bg-card rounded-xl p-6 mb-12 border-l-4 border-orange-500">
+          <div className="text-foreground space-y-4">
             {realExample.split('\n\n').map((para, i) => (
               <p key={i}>{para}</p>
             ))}
@@ -243,35 +243,35 @@ export default function MeddicPage() {
 
           <h3 className="text-lg font-semibold text-foreground mt-8 mb-4">MEDDPICC Elements</h3>
           <div className="grid gap-4">
-            <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <span className="font-bold text-orange-600 dark:text-orange-400">M - Metrics:</span>
               <span className="text-muted-foreground ml-2">What quantified outcomes are they trying to achieve?</span>
             </div>
-            <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <span className="font-bold text-orange-600 dark:text-orange-400">E - Economic Buyer:</span>
               <span className="text-muted-foreground ml-2">Who has the authority and budget to sign off?</span>
             </div>
-            <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <span className="font-bold text-orange-600 dark:text-orange-400">D - Decision Criteria:</span>
               <span className="text-muted-foreground ml-2">What will they evaluate vendors against?</span>
             </div>
-            <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <span className="font-bold text-orange-600 dark:text-orange-400">D - Decision Process:</span>
               <span className="text-muted-foreground ml-2">What's the timeline and approval workflow?</span>
             </div>
-            <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <span className="font-bold text-orange-600 dark:text-orange-400">P - Paper Process:</span>
               <span className="text-muted-foreground ml-2">What's required for procurement and legal?</span>
             </div>
-            <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <span className="font-bold text-orange-600 dark:text-orange-400">I - Identify Pain:</span>
               <span className="text-muted-foreground ml-2">What's the core problem driving this initiative?</span>
             </div>
-            <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <span className="font-bold text-orange-600 dark:text-orange-400">C - Champion:</span>
               <span className="text-muted-foreground ml-2">Who is selling for you when you're not there?</span>
             </div>
-            <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <span className="font-bold text-orange-600 dark:text-orange-400">C - Competition:</span>
               <span className="text-muted-foreground ml-2">Who else are they evaluating? Where do you stand?</span>
             </div>
@@ -308,8 +308,8 @@ export default function MeddicPage() {
               <h3 className="text-lg font-semibold text-foreground">Full MEDDPICC Deal Analysis</h3>
               <CopyButton text={qualificationPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{qualificationPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{qualificationPrompt}</pre>
             </div>
           </div>
 
@@ -318,8 +318,8 @@ export default function MeddicPage() {
               <h3 className="text-lg font-semibold text-foreground">Metrics Discovery (M)</h3>
               <CopyButton text={metricsPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{metricsPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{metricsPrompt}</pre>
             </div>
           </div>
 
@@ -328,8 +328,8 @@ export default function MeddicPage() {
               <h3 className="text-lg font-semibold text-foreground">Economic Buyer Strategy (E)</h3>
               <CopyButton text={economicBuyerPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{economicBuyerPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{economicBuyerPrompt}</pre>
             </div>
           </div>
 
@@ -338,8 +338,8 @@ export default function MeddicPage() {
               <h3 className="text-lg font-semibold text-foreground">Champion Evaluation (C)</h3>
               <CopyButton text={championPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{championPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{championPrompt}</pre>
             </div>
           </div>
 
@@ -348,8 +348,8 @@ export default function MeddicPage() {
               <h3 className="text-lg font-semibold text-foreground">Competition Analysis (C)</h3>
               <CopyButton text={competitionPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{competitionPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{competitionPrompt}</pre>
             </div>
           </div>
         </div>

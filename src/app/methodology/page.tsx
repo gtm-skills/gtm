@@ -115,7 +115,7 @@ export default function MethodologyPage() {
                   {methodology.description}
                 </p>
                 {details && (
-                  <p className="text-xs text-zinc-500 italic mb-4">
+                  <p className="text-xs text-muted-foreground italic mb-4">
                     Best for: {details.bestFor}
                   </p>
                 )}
@@ -158,21 +158,21 @@ export default function MethodologyPage() {
             Here are common combinations:
           </p>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="p-4 rounded-lg bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <h3 className="font-semibold mb-2">Enterprise SaaS</h3>
               <p className="text-sm text-yellow-400 mb-2">MEDDPICC + Challenger</p>
               <p className="text-xs text-muted-foreground">
                 Qualify with MEDDPICC, differentiate with Challenger insights
               </p>
             </div>
-            <div className="p-4 rounded-lg bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <h3 className="font-semibold mb-2">SMB / Velocity Sales</h3>
               <p className="text-sm text-yellow-400 mb-2">Sandler + Gap Selling</p>
               <p className="text-xs text-muted-foreground">
                 Disqualify fast with Sandler, create urgency with Gap
               </p>
             </div>
-            <div className="p-4 rounded-lg bg-zinc-900">
+            <div className="p-4 rounded-lg bg-card">
               <h3 className="font-semibold mb-2">Technical Sales</h3>
               <p className="text-sm text-yellow-400 mb-2">SPIN + Value Selling</p>
               <p className="text-xs text-muted-foreground">

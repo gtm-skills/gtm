@@ -45,7 +45,7 @@ export function TripleWorkflowFilter({
   return (
     <div>
       {/* Workflow filter */}
-      <div className="flex flex-wrap items-center gap-3 mb-6 p-4 rounded-lg bg-zinc-900/50 border border-zinc-800">
+      <div className="flex flex-wrap items-center gap-3 mb-6 p-4 rounded-lg bg-card/50 border border-border">
         <div className="flex items-center gap-2 text-sm text-muted-foreground shrink-0">
           <Workflow className="h-4 w-4" />
           Narrow to a workflow
@@ -77,7 +77,7 @@ export function TripleWorkflowFilter({
         {prompts.map((prompt, index) => (
           <div
             key={`${selectedWorkflow}-${index}`}
-            className="p-6 rounded-xl bg-card border border-border hover:border-zinc-700 transition-colors"
+            className="p-6 rounded-xl bg-card border border-border hover:border-border transition-colors"
           >
             <div className="flex items-start justify-between gap-4 mb-4">
               <div className="text-sm text-muted-foreground">
@@ -85,7 +85,7 @@ export function TripleWorkflowFilter({
               </div>
               <CopyButton text={prompt} label={`${promptLabel} - Prompt ${index + 1}`} />
             </div>
-            <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-zinc-900/50 p-4 rounded-lg overflow-x-auto">
+            <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-card/50 p-4 rounded-lg overflow-x-auto">
               {prompt}
             </pre>
           </div>

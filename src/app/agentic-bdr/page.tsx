@@ -228,7 +228,7 @@ export default function AgenticBDRPage() {
         {/* Building Blocks */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <Badge variant="outline" className="mb-4 border-zinc-700 text-zinc-400">
+            <Badge variant="outline" className="mb-4 border-border text-muted-foreground">
               <GitBranch className="h-3 w-3 mr-1" />
               Implementation Guide
             </Badge>
@@ -260,7 +260,7 @@ export default function AgenticBDRPage() {
 
         {/* Prompts CTA */}
         <div className="mb-20">
-          <div className="bg-zinc-900 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
+          <div className="bg-card rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
             <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
@@ -269,10 +269,10 @@ export default function AgenticBDRPage() {
                 <Zap className="h-3 w-3 mr-1" />
                 Ready-to-Use Prompts
               </Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                 Start Building Your Agentic BDR Today
               </h2>
-              <p className="text-zinc-400 max-w-xl mx-auto mb-8">
+              <p className="text-muted-foreground max-w-xl mx-auto mb-8">
                 GTM Skills includes 100+ prompts specifically designed for agentic workflows—
                 research, personalization, and execution.
               </p>

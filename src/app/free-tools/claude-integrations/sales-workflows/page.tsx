@@ -377,14 +377,14 @@ export default function SalesWorkflowsPage() {
         </div>
 
         {/* Workflow Navigation */}
-        <div className="mb-12 p-4 rounded-xl bg-zinc-900">
+        <div className="mb-12 p-4 rounded-xl bg-card">
           <h3 className="font-semibold mb-3">Jump to Workflow:</h3>
           <div className="flex flex-wrap gap-2">
             {workflows.map((workflow) => (
               <a
                 key={workflow.id}
                 href={`#${workflow.id}`}
-                className="px-3 py-1.5 rounded-lg bg-zinc-800 text-sm hover:bg-zinc-700 transition-colors"
+                className="px-3 py-1.5 rounded-lg bg-muted text-sm hover:bg-accent transition-colors"
               >
                 {workflow.title}
               </a>
@@ -437,8 +437,8 @@ export default function SalesWorkflowsPage() {
                             <span className="text-xs text-muted-foreground">Example prompt:</span>
                             <CopyButton text={step.prompt} />
                           </div>
-                          <div className="bg-zinc-900 rounded-lg p-3">
-                            <pre className="text-xs text-zinc-400 whitespace-pre-wrap font-mono">
+                          <div className="bg-card rounded-lg p-3">
+                            <pre className="text-xs text-muted-foreground whitespace-pre-wrap font-mono">
                               {step.prompt}
                             </pre>
                           </div>
@@ -512,16 +512,16 @@ export default function SalesWorkflowsPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Want This All Pre-Built?
           </h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Prospeda combines all these workflows into one platform. No setup required -
             just connect your tools and start selling with AI.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Try Prospeda Free
             </Button>
           </a>

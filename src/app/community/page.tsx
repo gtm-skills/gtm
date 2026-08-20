@@ -87,7 +87,7 @@ function getColorClasses(color: string) {
 
 export default function CommunityPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-background">
       {/* Hero */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-pink-500/5 via-transparent to-transparent" />
@@ -123,17 +123,17 @@ export default function CommunityPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-8 border-t border-zinc-800">
+      <section className="py-8 border-t border-border">
         <div className="max-w-4xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="text-center p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg"
+                className="text-center p-4 bg-card/50 border border-border rounded-lg"
               >
                 <stat.icon className="h-5 w-5 text-pink-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-xs text-zinc-500">{stat.label}</div>
+                <div className="text-2xl font-bold text-foreground">{stat.value}</div>
+                <div className="text-xs text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -141,7 +141,7 @@ export default function CommunityPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-12 border-t border-zinc-800">
+      <section className="py-12 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-6">
             {features.map((feature) => {
@@ -156,13 +156,13 @@ export default function CommunityPage() {
                     <div
                       className={`w-12 h-12 rounded-lg bg-gradient-to-br ${colors.gradient} flex items-center justify-center flex-shrink-0`}
                     >
-                      <feature.icon className="h-6 w-6 text-white" />
+                      <feature.icon className="h-6 w-6 text-foreground" />
                     </div>
                     <div className="flex-1">
-                      <h2 className="text-xl font-semibold text-white mb-2 group-hover:text-opacity-90">
+                      <h2 className="text-xl font-semibold text-foreground mb-2 group-hover:text-opacity-90">
                         {feature.title}
                       </h2>
-                      <p className="text-zinc-400 text-sm mb-4">{feature.description}</p>
+                      <p className="text-muted-foreground text-sm mb-4">{feature.description}</p>
                       <span className={`inline-flex items-center gap-1 text-sm ${colors.text}`}>
                         {feature.cta}
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -177,7 +177,7 @@ export default function CommunityPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 border-t border-zinc-800 bg-zinc-900/30">
+      <section className="py-16 border-t border-border bg-card/30">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold mb-4">How to Contribute</h2>
@@ -219,7 +219,7 @@ export default function CommunityPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 border-t border-zinc-800">
+      <section className="py-16 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-pink-500/10 border border-pink-500/20 rounded-2xl p-8 md:p-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">

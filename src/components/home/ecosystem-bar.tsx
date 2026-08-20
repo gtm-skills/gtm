@@ -68,14 +68,14 @@ const ecosystemItems = [
 
 export function EcosystemBar() {
   return (
-    <section className="py-4 bg-zinc-900/50 border-y border-zinc-800">
+    <section className="py-4 bg-card/50 border-y border-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
           {ecosystemItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors group"
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
             >
               <item.icon className={`h-4 w-4 ${item.color} group-hover:scale-110 transition-transform`} />
               <span>{item.label}</span>

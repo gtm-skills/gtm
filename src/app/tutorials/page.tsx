@@ -123,12 +123,12 @@ export default function TutorialsPage() {
               } transition-colors`}
             >
               {tutorial.comingSoon && (
-                <Badge className="absolute top-4 right-4 bg-zinc-500/20 text-zinc-400">
+                <Badge className="absolute top-4 right-4 bg-zinc-500/20 text-muted-foreground">
                   Coming Soon
                 </Badge>
               )}
-              <div className="w-12 h-12 rounded-lg bg-zinc-800 flex items-center justify-center mb-4">
-                <tutorial.icon className="h-6 w-6 text-zinc-400" />
+              <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center mb-4">
+                <tutorial.icon className="h-6 w-6 text-muted-foreground" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{tutorial.title}</h3>
               <p className="text-sm text-muted-foreground mb-4">{tutorial.description}</p>

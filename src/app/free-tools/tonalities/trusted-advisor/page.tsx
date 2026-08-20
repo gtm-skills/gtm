@@ -165,8 +165,8 @@ export default function TrustedAdvisorTonalityPage() {
         </div>
 
         {/* Real Example Quote */}
-        <div className="bg-zinc-950 rounded-xl p-6 mb-12 border-l-4 border-orange-500">
-          <div className="text-zinc-300 space-y-4">
+        <div className="bg-card rounded-xl p-6 mb-12 border-l-4 border-orange-500">
+          <div className="text-foreground space-y-4">
             {realExample.split('\n\n').map((para, i) => (
               <p key={i}>{para}</p>
             ))}
@@ -189,7 +189,7 @@ export default function TrustedAdvisorTonalityPage() {
           </div>
 
           <h3 className="text-lg font-semibold text-foreground mt-8 mb-4">The Trust Equation</h3>
-          <div className="bg-zinc-100 dark:bg-zinc-900 rounded-xl p-6 mb-6">
+          <div className="bg-card rounded-xl p-6 mb-6">
             <p className="text-lg font-mono text-foreground text-center">
               Trust = (Credibility + Reliability + Intimacy) / Self-Orientation
             </p>
@@ -246,8 +246,8 @@ export default function TrustedAdvisorTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Cold Email</h3>
               <CopyButton text={coldEmailPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{coldEmailPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{coldEmailPrompt}</pre>
             </div>
           </div>
 
@@ -256,8 +256,8 @@ export default function TrustedAdvisorTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Discovery Call Questions</h3>
               <CopyButton text={discoveryCallPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{discoveryCallPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{discoveryCallPrompt}</pre>
             </div>
           </div>
 
@@ -266,8 +266,8 @@ export default function TrustedAdvisorTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Objection Handling</h3>
               <CopyButton text={objectionPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{objectionPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{objectionPrompt}</pre>
             </div>
           </div>
 
@@ -276,8 +276,8 @@ export default function TrustedAdvisorTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">LinkedIn Message</h3>
               <CopyButton text={linkedinPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{linkedinPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{linkedinPrompt}</pre>
             </div>
           </div>
 
@@ -286,8 +286,8 @@ export default function TrustedAdvisorTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Relationship Follow-Up</h3>
               <CopyButton text={followUpPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{followUpPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{followUpPrompt}</pre>
             </div>
           </div>
         </div>

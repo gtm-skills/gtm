@@ -359,12 +359,12 @@ export default function AISDRAgentsGuidePage() {
               </div>
             ))}
           </div>
-          <div className="p-5 rounded-xl border border-border bg-zinc-900">
+          <div className="p-5 rounded-xl border border-border bg-card">
             <div className="flex items-start gap-3">
               <Shield className="h-5 w-5 text-cyan-400 mt-0.5 flex-shrink-0" />
               <div>
-                <h4 className="font-semibold text-white text-sm mb-1">Why files instead of a database</h4>
-                <p className="text-sm text-zinc-400">
+                <h4 className="font-semibold text-foreground text-sm mb-1">Why files instead of a database</h4>
+                <p className="text-sm text-muted-foreground">
                   Every agent&apos;s memory - who it is, what it has learned, what&apos;s in flight - lives in
                   plain Markdown files: <code className="text-cyan-400">SOUL.md</code> for personality,{' '}
                   <code className="text-cyan-400">MEMORY.md</code> for learned patterns,{' '}
@@ -398,8 +398,8 @@ export default function AISDRAgentsGuidePage() {
               <h3 className="text-sm font-medium">Chained AI SDR Agent Prompt</h3>
               <CopyButton text={chainPrompt} label="ai-sdr-chain-prompt" />
             </div>
-            <div className="bg-zinc-900 rounded-lg p-4">
-              <pre className="text-sm text-zinc-400 whitespace-pre-wrap font-mono">{chainPrompt}</pre>
+            <div className="bg-card rounded-lg p-4">
+              <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono">{chainPrompt}</pre>
             </div>
           </div>
 
@@ -408,8 +408,8 @@ export default function AISDRAgentsGuidePage() {
               <h3 className="text-sm font-medium">MCP Server Config (Claude Code)</h3>
               <CopyButton text={mcpConfig} label="ai-sdr-mcp-config" />
             </div>
-            <div className="bg-zinc-900 rounded-lg p-4">
-              <pre className="text-sm text-zinc-300 whitespace-pre font-mono">{mcpConfig}</pre>
+            <div className="bg-card rounded-lg p-4">
+              <pre className="text-sm text-foreground whitespace-pre font-mono">{mcpConfig}</pre>
             </div>
             <p className="text-sm text-muted-foreground mt-2">
               Full install steps, the HubSpot API key setup, and the complete tool list are on the{' '}
@@ -488,7 +488,7 @@ export default function AISDRAgentsGuidePage() {
 
         {/* Prompts CTA */}
         <div className="mb-16">
-          <div className="bg-zinc-900 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
+          <div className="bg-card rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
             <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
             <div className="relative">
@@ -496,10 +496,10 @@ export default function AISDRAgentsGuidePage() {
                 <GitBranch className="h-3 w-3 mr-1" />
                 Ready-to-Use Prompts
               </Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                 Build Every Stage With Ready-to-Use Prompts
               </h2>
-              <p className="text-zinc-400 max-w-xl mx-auto mb-8">
+              <p className="text-muted-foreground max-w-xl mx-auto mb-8">
                 GTM Skills&apos; prompt library has ready-made prompts for every agent stage in this guide -
                 research, personalization, qualification, and routing.
               </p>

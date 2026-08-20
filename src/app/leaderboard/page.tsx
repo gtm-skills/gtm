@@ -272,7 +272,7 @@ export default function LeaderboardPage() {
                 onClick={() => setSort(option.value)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   sort === option.value
-                    ? 'bg-orange-500 text-white'
+                    ? 'bg-orange-500 text-foreground'
                     : 'bg-secondary text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -402,7 +402,7 @@ export default function LeaderboardPage() {
                       <div className="flex gap-2">
                         <button
                           onClick={() => handleCopy(prompt)}
-                          className="p-2 rounded-lg bg-secondary hover:bg-orange-500 hover:text-white transition-colors"
+                          className="p-2 rounded-lg bg-secondary hover:bg-orange-500 hover:text-foreground transition-colors"
                           title="Copy prompt"
                         >
                           <Copy className="w-4 h-4" />
@@ -420,8 +420,8 @@ export default function LeaderboardPage() {
                     {/* Expanded content */}
                     {expandedId === prompt.id && (
                       <div className="mt-4">
-                        <div className="bg-zinc-900 rounded-lg p-4 font-mono text-sm">
-                          <pre className="text-zinc-300 whitespace-pre-wrap overflow-x-auto">
+                        <div className="bg-card rounded-lg p-4 font-mono text-sm">
+                          <pre className="text-foreground whitespace-pre-wrap overflow-x-auto">
                             {prompt.content}
                           </pre>
                         </div>

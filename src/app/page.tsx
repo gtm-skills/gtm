@@ -160,7 +160,7 @@ export default function Home() {
         <div className="bg-gradient-to-r from-orange-500/20 via-red-500/10 to-orange-500/20 border-b border-orange-500/30 py-3 px-4 hover:from-orange-500/30 hover:via-red-500/20 hover:to-orange-500/30 transition-all cursor-pointer">
           <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-sm">
             <span className="text-xl">🦞</span>
-            <span className="text-white font-medium">
+            <span className="text-foreground font-medium">
               <span className="hidden sm:inline">NEW: </span>OpenClaw GTM Skills
             </span>
             <span className="text-orange-400 hidden sm:inline">Research → Write → Send → Book → Track</span>
@@ -186,7 +186,7 @@ export default function Home() {
               The GTM Operating System
               <br className="hidden sm:block" />
               <span className="sm:inline"> for </span>
-              <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+              <span className="brand-gradient-text">
                 Agentic Sales
               </span>
             </h1>
@@ -202,7 +202,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button size="lg" className="h-12 px-8 gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+                <Button size="lg" className="h-12 px-8 gap-2 brand-gradient">
                   <Star className="h-4 w-4" />
                   Star on GitHub
                   <GitHubStars repo="gtm-skills/gtm" className="text-sm ml-1" />
@@ -284,13 +284,13 @@ export default function Home() {
               <Link
                 key={tonality.name}
                 href="/free-tools/tonalities"
-                className="bg-zinc-900/70 border border-zinc-800 rounded-xl p-3 hover:border-purple-500/50 hover:bg-purple-500/5 transition-all group text-center"
+                className="bg-card/70 border border-border rounded-xl p-3 hover:border-purple-500/50 hover:bg-purple-500/5 transition-all group text-center"
               >
                 <div className="text-2xl mb-1">{tonality.emoji}</div>
-                <div className="font-semibold text-sm text-zinc-200 group-hover:text-purple-400 transition-colors">
+                <div className="font-semibold text-sm text-foreground group-hover:text-purple-400 transition-colors">
                   {tonality.name}
                 </div>
-                <div className="text-[10px] text-zinc-500">{tonality.style}</div>
+                <div className="text-[10px] text-muted-foreground">{tonality.style}</div>
               </Link>
             ))}
           </div>
@@ -302,7 +302,7 @@ export default function Home() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <p className="text-xs text-zinc-500 mt-3">
+            <p className="text-xs text-muted-foreground mt-3">
               + MEDDIC, SPIN, Challenger, Sandler & 15 more methodologies
             </p>
           </div>
@@ -310,9 +310,9 @@ export default function Home() {
       </section>
 
       {/* Social Proof Banner */}
-      <section className="py-4 bg-zinc-900/50 border-y border-zinc-800">
+      <section className="py-4 bg-card/50 border-y border-border">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-sm text-zinc-500">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <Shield className="h-4 w-4 text-green-500" />
               MIT Licensed
@@ -340,7 +340,7 @@ export default function Home() {
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <Badge variant="outline" className="mb-4 border-zinc-700 text-zinc-400">
+            <Badge variant="outline" className="mb-4 border-border text-muted-foreground">
               8 Categories
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -424,23 +424,23 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="bg-zinc-900 rounded-xl p-4 border border-zinc-800">
-                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-zinc-800">
+              <div className="bg-card rounded-xl p-4 border border-border">
+                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
                   <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="text-xs text-zinc-500 ml-2">Claude Desktop</span>
+                  <span className="text-xs text-muted-foreground ml-2">Claude Desktop</span>
                 </div>
                 <div className="space-y-3 text-sm">
-                  <div className="bg-zinc-800/50 rounded-lg p-3">
-                    <span className="text-zinc-500">You:</span> Draft a cold email to Sarah Chen, VP Sales at Acme
+                  <div className="bg-muted/50 rounded-lg p-3">
+                    <span className="text-muted-foreground">You:</span> Draft a cold email to Sarah Chen, VP Sales at Acme
                   </div>
                   <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-lg p-3 border border-amber-500/20">
                     <div className="flex items-center gap-2 text-amber-400 text-xs mb-2">
                       <Sparkles className="h-3 w-3" />
                       Interactive UI
                     </div>
-                    <div className="text-zinc-300">Email Composer loaded with 3 variations...</div>
+                    <div className="text-foreground">Email Composer loaded with 3 variations...</div>
                   </div>
                 </div>
               </div>
@@ -540,15 +540,15 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-zinc-900 rounded-xl p-6 font-mono text-sm">
+            <div className="bg-card rounded-xl p-6 font-mono text-sm">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-zinc-400">Cold Email — Direct Tone</span>
+                <span className="text-muted-foreground">Cold Email — Direct Tone</span>
                 <Button variant="outline" size="sm" className="h-7 text-xs">
                   <Copy className="h-3 w-3 mr-1" />
                   Copy
                 </Button>
               </div>
-              <pre className="text-zinc-300 whitespace-pre-wrap overflow-x-auto">
+              <pre className="text-foreground whitespace-pre-wrap overflow-x-auto">
 {`Write a cold email to [PERSON], [TITLE] at [COMPANY].
 
 Tone: Direct. No fluff. Respect their time.
@@ -618,31 +618,31 @@ Rules:
             </div>
 
             <div className="relative">
-              <div className="bg-zinc-900 rounded-xl p-6 border border-zinc-800">
+              <div className="bg-card rounded-xl p-6 border border-border">
                 <div className="space-y-4 font-mono text-sm">
                   <div className="flex items-start gap-3">
                     <Bot className="h-5 w-5 text-cyan-400 mt-0.5" />
                     <div>
                       <div className="text-cyan-400 text-xs mb-1">Research Agent</div>
-                      <div className="text-zinc-300">Found 3 buying signals for Acme Corp...</div>
+                      <div className="text-foreground">Found 3 buying signals for Acme Corp...</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Bot className="h-5 w-5 text-purple-400 mt-0.5" />
                     <div>
                       <div className="text-purple-400 text-xs mb-1">Personalization Agent</div>
-                      <div className="text-zinc-300">Drafted email referencing their Series B...</div>
+                      <div className="text-foreground">Drafted email referencing their Series B...</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Bot className="h-5 w-5 text-green-400 mt-0.5" />
                     <div>
                       <div className="text-green-400 text-xs mb-1">Execution Agent</div>
-                      <div className="text-zinc-300">Queued for review → Approved → Sent</div>
+                      <div className="text-foreground">Queued for review → Approved → Sent</div>
                     </div>
                   </div>
-                  <div className="pt-2 border-t border-zinc-800">
-                    <div className="text-xs text-zinc-500">Human approved • 47 emails sent today • 12% reply rate</div>
+                  <div className="pt-2 border-t border-border">
+                    <div className="text-xs text-muted-foreground">Human approved • 47 emails sent today • 12% reply rate</div>
                   </div>
                 </div>
               </div>
@@ -664,7 +664,7 @@ Rules:
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center">
-            <Badge variant="outline" className="mb-4 border-zinc-700 text-zinc-400">
+            <Badge variant="outline" className="mb-4 border-border text-muted-foreground">
               <Star className="h-3 w-3 mr-1 text-yellow-400" />
               Support Open Source
             </Badge>
@@ -675,11 +675,11 @@ Rules:
               Star us on GitHub to help other sales professionals discover these resources.
             </p>
             <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="h-12 px-8 gap-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700">
+              <Button size="lg" className="h-12 px-8 gap-2 bg-muted hover:bg-accent border border-border">
                 <Github className="h-5 w-5" />
                 <Star className="h-4 w-4 text-yellow-400" />
                 Star on GitHub
-                <GitHubStars repo="gtm-skills/gtm" className="text-sm text-zinc-400 ml-1" />
+                <GitHubStars repo="gtm-skills/gtm" className="text-sm text-muted-foreground ml-1" />
               </Button>
             </a>
             <p className="text-xs text-muted-foreground mt-4">
@@ -693,7 +693,7 @@ Rules:
       <section className="py-16 md:py-24 bg-card/50 border-y border-border">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
-            <Badge variant="outline" className="mb-4 border-zinc-700 text-zinc-400">
+            <Badge variant="outline" className="mb-4 border-border text-muted-foreground">
               <HelpCircle className="h-3 w-3 mr-1" />
               FAQ
             </Badge>
@@ -709,7 +709,7 @@ Rules:
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors"
+                className="bg-card/50 border border-border rounded-xl p-6 hover:border-border transition-colors"
               >
                 <h3 className="font-semibold text-lg mb-2 text-foreground">
                   {faq.question}
@@ -726,7 +726,7 @@ Rules:
       {/* GitHub CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-orange-500/10 via-red-500/10 to-transparent border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="bg-zinc-900 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
+          <div className="bg-card rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
@@ -735,14 +735,14 @@ Rules:
               <Badge className="mb-4 bg-orange-500/20 text-orange-400 border-orange-500/30">
                 Open Source
               </Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                 Free Forever. Open Source.
               </h2>
-              <p className="text-zinc-400 max-w-xl mx-auto mb-8">
+              <p className="text-muted-foreground max-w-xl mx-auto mb-8">
                 GTM Skills is 100% free and open source under the MIT license. Star the repo to help other sales teams discover it.
               </p>
               <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="h-12 px-8 gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+                <Button size="lg" className="h-12 px-8 gap-2 brand-gradient">
                   <Github className="h-5 w-5" />
                   Star on GitHub
                 </Button>

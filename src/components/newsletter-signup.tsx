@@ -72,7 +72,7 @@ export function NewsletterSignup({ variant = 'default' }: NewsletterSignupProps)
           type="submit"
           size="sm"
           disabled={status === 'loading'}
-          className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+          className="brand-gradient"
         >
           {status === 'loading' ? (
             <Loader2 className="h-4 w-4 animate-spin" />
@@ -103,7 +103,7 @@ export function NewsletterSignup({ variant = 'default' }: NewsletterSignupProps)
           type="submit"
           size="sm"
           disabled={status === 'loading'}
-          className="w-full gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+          className="w-full gap-2 brand-gradient"
         >
           {status === 'loading' ? (
             <Loader2 className="h-4 w-4 animate-spin" />

@@ -74,7 +74,7 @@ export default function TemplatesPage() {
                   <p className="text-muted-foreground text-sm mb-3">{category.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {category.examples.map((example) => (
-                      <span key={example} className="text-xs bg-zinc-800 px-2 py-1 rounded">
+                      <span key={example} className="text-xs bg-muted px-2 py-1 rounded">
                         {example}
                       </span>
                     ))}
@@ -85,7 +85,7 @@ export default function TemplatesPage() {
           ))}
         </div>
 
-        <div className="text-center bg-zinc-900/50 rounded-xl p-8 border border-zinc-800">
+        <div className="text-center bg-card/50 rounded-xl p-8 border border-border">
           <h2 className="text-2xl font-bold mb-3">Templates Are Embedded in Role Playbooks</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             All email templates are organized within our role-based playbooks. Browse by your role to find the most relevant templates.

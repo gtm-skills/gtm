@@ -52,17 +52,17 @@ export function DevelopersSection() {
           </p>
 
           {/* Code Block */}
-          <div className="bg-zinc-900 rounded-xl border border-zinc-800 text-left mb-8 overflow-hidden">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
+          <div className="bg-card rounded-xl border border-border text-left mb-8 overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-border">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="text-xs text-zinc-500 ml-2">terminal</span>
+                <span className="text-xs text-muted-foreground ml-2">terminal</span>
               </div>
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-1 text-xs text-zinc-500 hover:text-white transition-colors"
+                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
                 {copied ? (
                   <>
@@ -78,7 +78,7 @@ export function DevelopersSection() {
               </button>
             </div>
             <pre className="p-4 overflow-x-auto text-sm">
-              <code className="text-zinc-300 font-mono whitespace-pre">{codeExample}</code>
+              <code className="text-foreground font-mono whitespace-pre">{codeExample}</code>
             </pre>
           </div>
 
@@ -91,7 +91,7 @@ export function DevelopersSection() {
                 target={resource.external ? '_blank' : undefined}
                 rel={resource.external ? 'noopener noreferrer' : undefined}
               >
-                <Button variant="outline" size="sm" className="gap-2 border-zinc-700 hover:border-emerald-500/50 hover:text-emerald-400">
+                <Button variant="outline" size="sm" className="gap-2 border-border hover:border-emerald-500/50 hover:text-emerald-400">
                   <resource.icon className="h-4 w-4" />
                   {resource.label}
                   {resource.external && <ExternalLink className="h-3 w-3" />}
@@ -100,7 +100,7 @@ export function DevelopersSection() {
             ))}
           </div>
 
-          <p className="text-sm text-zinc-500">
+          <p className="text-sm text-muted-foreground">
             TypeScript & Python SDKs coming soon
           </p>
         </div>

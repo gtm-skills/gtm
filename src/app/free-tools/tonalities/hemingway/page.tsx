@@ -152,11 +152,11 @@ export default function HemingwayTonalityPage() {
         </div>
 
         {/* Real Example Quote */}
-        <div className="bg-zinc-950 rounded-xl p-6 mb-12 border-l-4 border-orange-500">
-          <blockquote className="text-zinc-300 italic mb-4">
+        <div className="bg-card rounded-xl p-6 mb-12 border-l-4 border-orange-500">
+          <blockquote className="text-foreground italic mb-4">
             {realExample.split('\n\n')[0].replace(/"/g, '')}
           </blockquote>
-          <p className="text-sm text-zinc-500">{realExample.split('\n\n')[1]}</p>
+          <p className="text-sm text-muted-foreground">{realExample.split('\n\n')[1]}</p>
         </div>
 
         {/* The Philosophy */}
@@ -246,8 +246,8 @@ export default function HemingwayTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Cold Email</h3>
               <CopyButton text={coldEmailPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{coldEmailPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{coldEmailPrompt}</pre>
             </div>
           </div>
 
@@ -257,8 +257,8 @@ export default function HemingwayTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Discovery Call Questions</h3>
               <CopyButton text={discoveryCallPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{discoveryCallPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{discoveryCallPrompt}</pre>
             </div>
           </div>
 
@@ -268,8 +268,8 @@ export default function HemingwayTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Objection Handling</h3>
               <CopyButton text={objectionPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{objectionPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{objectionPrompt}</pre>
             </div>
           </div>
 
@@ -279,8 +279,8 @@ export default function HemingwayTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">LinkedIn Message</h3>
               <CopyButton text={linkedinPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{linkedinPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{linkedinPrompt}</pre>
             </div>
           </div>
 
@@ -290,8 +290,8 @@ export default function HemingwayTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Technical Email</h3>
               <CopyButton text={technicalEmailPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{technicalEmailPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{technicalEmailPrompt}</pre>
             </div>
           </div>
         </div>

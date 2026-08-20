@@ -126,7 +126,7 @@ function NavDropdown({ item }: { item: NavItem }) {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-64 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl overflow-hidden z-50">
+        <div className="absolute top-full left-0 mt-2 w-64 bg-popover border border-border rounded-xl shadow-xl overflow-hidden z-50">
           <div className="p-2">
             {item.children.map((child) => (
               <Link
@@ -134,15 +134,15 @@ function NavDropdown({ item }: { item: NavItem }) {
                 href={child.href}
                 target={child.href.startsWith('http') ? '_blank' : undefined}
                 rel={child.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group"
+                className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent transition-colors group"
               >
-                <child.icon className="h-5 w-5 text-zinc-500 group-hover:text-orange-400 transition-colors mt-0.5" />
+                <child.icon className="h-5 w-5 text-muted-foreground group-hover:text-orange-400 transition-colors mt-0.5" />
                 <div>
-                  <div className="text-sm font-medium text-white group-hover:text-orange-400 transition-colors">
+                  <div className="text-sm font-medium text-foreground group-hover:text-orange-400 transition-colors">
                     {child.name}
                   </div>
                   {child.description && (
-                    <div className="text-xs text-zinc-500">{child.description}</div>
+                    <div className="text-xs text-muted-foreground">{child.description}</div>
                   )}
                 </div>
               </Link>
@@ -202,7 +202,7 @@ export function Header() {
             </Button>
           </a>
           <Link href="/download">
-            <Button size="sm" className="gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button size="sm" className="gap-2 brand-gradient">
               <Download className="h-4 w-4" />
               Get Extension
             </Button>
@@ -214,7 +214,7 @@ export function Header() {
           <ThemeToggle />
           <button
             type="button"
-            className="p-2 rounded-lg hover:bg-zinc-800/50 transition-colors"
+            className="p-2 rounded-lg hover:bg-accent transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -244,7 +244,7 @@ export function Header() {
                         onClick={() => setExpandedMobileItem(
                           expandedMobileItem === item.name ? null : item.name
                         )}
-                        className="flex items-center justify-between w-full py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-zinc-800/50 transition-colors"
+                        className="flex items-center justify-between w-full py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-accent transition-colors"
                       >
                         <span>{item.name}</span>
                         <ChevronDown
@@ -263,14 +263,14 @@ export function Header() {
                             <Link
                               key={child.name}
                               href={child.href}
-                              className="flex items-center gap-3 py-3 px-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-zinc-800/30 transition-colors"
+                              className="flex items-center gap-3 py-3 px-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
                               onClick={() => setMobileMenuOpen(false)}
                             >
-                              <child.icon className="h-5 w-5 text-zinc-500" />
+                              <child.icon className="h-5 w-5 text-muted-foreground" />
                               <div>
                                 <div className="text-sm font-medium">{child.name}</div>
                                 {child.description && (
-                                  <div className="text-xs text-zinc-500">{child.description}</div>
+                                  <div className="text-xs text-muted-foreground">{child.description}</div>
                                 )}
                               </div>
                             </Link>
@@ -281,7 +281,7 @@ export function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-zinc-800/50 transition-colors"
+                      className="block py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-accent transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -306,7 +306,7 @@ export function Header() {
                 </Button>
               </a>
               <Link href="/download" className="block" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full h-12 gap-2 text-base bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+                <Button className="w-full h-12 gap-2 text-base brand-gradient">
                   <Download className="h-5 w-5" />
                   Get Extension
                 </Button>

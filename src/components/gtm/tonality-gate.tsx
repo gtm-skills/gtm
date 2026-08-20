@@ -79,7 +79,7 @@ export function TonalityGate({ children, tonalityName }: TonalityGateProps) {
               <Button
                 onClick={handleStarClick}
                 size="lg"
-                className="w-full gap-2 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+                className="w-full gap-2 bg-card hover:bg-accent"
               >
                 <Github className="h-5 w-5" />
                 <Star className="h-4 w-4 text-yellow-400" />
@@ -90,7 +90,7 @@ export function TonalityGate({ children, tonalityName }: TonalityGateProps) {
               <Button
                 onClick={handleConfirm}
                 size="lg"
-                className="w-full gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+                className="w-full gap-2 brand-gradient"
               >
                 <Check className="h-5 w-5" />
                 I've Starred – Unlock Content

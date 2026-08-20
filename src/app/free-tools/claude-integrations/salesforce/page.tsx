@@ -170,7 +170,7 @@ export default function SalesforcePage() {
                       {capability.examples.map((example) => (
                         <span
                           key={example}
-                          className="text-xs bg-zinc-800 text-zinc-400 px-2 py-1 rounded"
+                          className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded"
                         >
                           {example}
                         </span>
@@ -194,8 +194,8 @@ export default function SalesforcePage() {
               >
                 <h3 className="font-semibold mb-2">{useCase.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{useCase.description}</p>
-                <div className="bg-zinc-900 rounded-lg p-4">
-                  <p className="text-sm font-mono text-zinc-400">{useCase.prompt}</p>
+                <div className="bg-card rounded-lg p-4">
+                  <p className="text-sm font-mono text-muted-foreground">{useCase.prompt}</p>
                 </div>
               </div>
             ))}
@@ -227,12 +227,12 @@ export default function SalesforcePage() {
         </div>
 
         {/* Alternative - MCP Server */}
-        <div className="mb-16 p-6 rounded-xl bg-zinc-900">
+        <div className="mb-16 p-6 rounded-xl bg-card">
           <div className="flex items-start gap-4">
             <AlertCircle className="h-6 w-6 text-cyan-400 flex-shrink-0 mt-1" />
             <div>
               <h3 className="font-semibold text-cyan-400 mb-2">Can&apos;t Wait?</h3>
-              <p className="text-sm text-zinc-400 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Our GTM MCP Server provides similar sales automation capabilities today.
                 While it doesn&apos;t directly integrate with Salesforce, it offers research,
                 outreach drafting, objection handling, and deal strategy tools that work
@@ -265,7 +265,7 @@ export default function SalesforcePage() {
             >
               Read the announcement
             </a>
-            <span className="text-zinc-600">|</span>
+            <span className="text-muted-foreground">|</span>
             <a
               href="https://modelcontextprotocol.io"
               target="_blank"
@@ -278,16 +278,16 @@ export default function SalesforcePage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Need Salesforce Integration Now?
           </h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Prospeda already integrates with Salesforce. Sync your CRM, enrich leads with AI,
             and automate outreach - all connected to your Salesforce instance.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Try Prospeda Free
             </Button>
           </a>

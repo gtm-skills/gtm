@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -20,7 +21,6 @@ import {
   Terminal,
   Palette,
   Users,
-  Workflow,
   Star,
 } from 'lucide-react';
 
@@ -39,18 +39,11 @@ interface NavItem {
 const navigation: NavItem[] = [
   { name: 'Prompts', href: '/prompts' },
   {
-    name: 'Agents',
+    name: 'Agents & Tools',
     href: '/agents',
     children: [
       { name: 'Meet the Team', href: '/agents', icon: Users, description: 'Scout, Writer, Rep, Closer' },
-      { name: 'Orchestrator API', href: '/developers#orchestrator', icon: Workflow, description: 'Route tasks to agents' },
       { name: 'OpenClaw Setup', href: '/openclaw', icon: Terminal, description: 'Install the full team' },
-    ],
-  },
-  {
-    name: 'Tools',
-    href: '/free-tools',
-    children: [
       { name: 'MCP Server', href: '/free-tools/mcp-server', icon: Bot, description: 'Claude Desktop tools' },
       { name: 'Browser Extension', href: '/download', icon: Globe, description: 'LinkedIn & Gmail integration' },
       { name: 'Tonalities', href: '/free-tools/tonalities', icon: Palette, description: '24 writing styles' },
@@ -58,8 +51,9 @@ const navigation: NavItem[] = [
   },
   {
     name: 'Learn',
-    href: '/tutorials',
+    href: '/guides',
     children: [
+      { name: 'Guides', href: '/guides', icon: FileCode, description: 'In-depth agentic GTM guides' },
       { name: 'Tutorials', href: '/tutorials', icon: BookOpen, description: 'Step-by-step guides' },
       { name: 'Agentic BDR', href: '/agentic-bdr', icon: Bot, description: 'Future of outbound' },
     ],
@@ -99,9 +93,9 @@ function NavDropdown({ item }: { item: NavItem }) {
     return (
       <Link
         href={item.href}
-        className={`text-sm transition-colors ${
+        className={`label-mono text-xs transition-colors ${
           item.highlight
-            ? 'text-cyan-400 hover:text-cyan-300 font-medium'
+            ? 'text-cyan-400 hover:text-cyan-300'
             : 'text-muted-foreground hover:text-foreground'
         }`}
       >
@@ -117,14 +111,14 @@ function NavDropdown({ item }: { item: NavItem }) {
       onMouseLeave={handleMouseLeave}
     >
       <button
-        className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        className="label-mono flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
       >
         {item.name}
         <ChevronDown className={`h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-64 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl overflow-hidden z-50">
+        <div className="absolute top-full left-0 mt-2 w-64 bg-popover border border-border rounded-xl shadow-xl overflow-hidden z-50">
           <div className="p-2">
             {item.children.map((child) => (
               <Link
@@ -132,15 +126,15 @@ function NavDropdown({ item }: { item: NavItem }) {
                 href={child.href}
                 target={child.href.startsWith('http') ? '_blank' : undefined}
                 rel={child.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group"
+                className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent transition-colors group"
               >
-                <child.icon className="h-5 w-5 text-zinc-500 group-hover:text-orange-400 transition-colors mt-0.5" />
+                <child.icon className="h-5 w-5 text-muted-foreground group-hover:text-orange-400 transition-colors mt-0.5" />
                 <div>
-                  <div className="text-sm font-medium text-white group-hover:text-orange-400 transition-colors">
+                  <div className="text-sm font-medium text-foreground group-hover:text-orange-400 transition-colors">
                     {child.name}
                   </div>
                   {child.description && (
-                    <div className="text-xs text-zinc-500">{child.description}</div>
+                    <div className="text-xs text-muted-foreground">{child.description}</div>
                   )}
                 </div>
               </Link>
@@ -172,7 +166,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center gap-2">
+          <Image src="/logo.svg" alt="" width={28} height={28} className="h-7 w-7" priority />
           <span className="text-lg font-bold text-foreground">GTM Skills</span>
         </Link>
 
@@ -192,14 +187,14 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button variant="outline" size="sm" className="gap-2">
+            <Button variant="outline" size="sm" className="label-mono gap-2 text-xs">
               <Github className="h-4 w-4" />
               Star
               <GitHubStars repo="gtm-skills/gtm" className="text-xs" />
             </Button>
           </a>
           <Link href="/download">
-            <Button size="sm" className="gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button size="sm" className="label-mono gap-2 text-xs brand-gradient">
               <Download className="h-4 w-4" />
               Get Extension
             </Button>
@@ -211,7 +206,7 @@ export function Header() {
           <ThemeToggle />
           <button
             type="button"
-            className="p-2 rounded-lg hover:bg-zinc-800/50 transition-colors"
+            className="p-2 rounded-lg hover:bg-accent transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -241,7 +236,7 @@ export function Header() {
                         onClick={() => setExpandedMobileItem(
                           expandedMobileItem === item.name ? null : item.name
                         )}
-                        className="flex items-center justify-between w-full py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-zinc-800/50 transition-colors"
+                        className="flex items-center justify-between w-full py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-accent transition-colors"
                       >
                         <span>{item.name}</span>
                         <ChevronDown
@@ -260,14 +255,14 @@ export function Header() {
                             <Link
                               key={child.name}
                               href={child.href}
-                              className="flex items-center gap-3 py-3 px-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-zinc-800/30 transition-colors"
+                              className="flex items-center gap-3 py-3 px-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
                               onClick={() => setMobileMenuOpen(false)}
                             >
-                              <child.icon className="h-5 w-5 text-zinc-500" />
+                              <child.icon className="h-5 w-5 text-muted-foreground" />
                               <div>
                                 <div className="text-sm font-medium">{child.name}</div>
                                 {child.description && (
-                                  <div className="text-xs text-zinc-500">{child.description}</div>
+                                  <div className="text-xs text-muted-foreground">{child.description}</div>
                                 )}
                               </div>
                             </Link>
@@ -278,7 +273,7 @@ export function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-zinc-800/50 transition-colors"
+                      className="block py-3 px-3 rounded-lg text-base font-medium text-foreground hover:bg-accent transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -303,7 +298,7 @@ export function Header() {
                 </Button>
               </a>
               <Link href="/download" className="block" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full h-12 gap-2 text-base bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+                <Button className="w-full h-12 gap-2 text-base brand-gradient">
                   <Download className="h-5 w-5" />
                   Get Extension
                 </Button>

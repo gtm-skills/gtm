@@ -43,7 +43,7 @@ export function GitHubStarGate({
           <span className="font-medium">Thanks for your support!</span>
         </div>
         <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
-          <Button className="gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+          <Button className="gap-2 brand-gradient">
             <Download className="h-4 w-4" />
             Download Full Library
             <ExternalLink className="h-3 w-3" />
@@ -66,7 +66,7 @@ export function GitHubStarGate({
             Star to Download
           </Button>
         ) : (
-          <Button onClick={handleConfirmStar} className="gap-2 bg-gradient-to-r from-orange-500 to-red-500">
+          <Button onClick={handleConfirmStar} className="gap-2 brand-gradient">
             <Check className="h-4 w-4" />
             I've Starred - Unlock Download
           </Button>
@@ -83,13 +83,13 @@ export function GitHubStarGate({
             <Button
               onClick={handleStarClick}
               size="lg"
-              className="w-full gap-2 h-12 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700"
+              className="w-full gap-2 h-12 bg-muted hover:bg-accent border border-border"
             >
               <Github className="h-5 w-5" />
               <Star className="h-4 w-4 text-yellow-400" />
               Star on GitHub to Unlock Downloads
             </Button>
-            <p className="text-xs text-zinc-500 mt-3">
+            <p className="text-xs text-muted-foreground mt-3">
               Support the open source project • Takes 2 seconds
             </p>
           </>
@@ -98,12 +98,12 @@ export function GitHubStarGate({
             <Button
               onClick={handleConfirmStar}
               size="lg"
-              className="w-full gap-2 h-12 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+              className="w-full gap-2 h-12 brand-gradient"
             >
               <Check className="h-5 w-5" />
               I've Starred - Unlock Downloads
             </Button>
-            <p className="text-xs text-zinc-500 mt-3">
+            <p className="text-xs text-muted-foreground mt-3">
               Click above to access the full library
             </p>
           </>
@@ -114,7 +114,7 @@ export function GitHubStarGate({
 
   // Default variant
   return (
-    <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 text-center">
+    <div className="p-6 rounded-xl bg-card/50 border border-border text-center">
       <div className="flex items-center justify-center gap-2 mb-4">
         <Github className="h-6 w-6" />
         <Star className="h-5 w-5 text-yellow-400" />
@@ -131,13 +131,13 @@ export function GitHubStarGate({
       ) : (
         <Button
           onClick={handleConfirmStar}
-          className="gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+          className="gap-2 brand-gradient"
         >
           <Check className="h-4 w-4" />
           I've Starred - Unlock
         </Button>
       )}
-      <p className="text-xs text-zinc-500 mt-4">
+      <p className="text-xs text-muted-foreground mt-4">
         100% free • Open source • MIT licensed
       </p>
     </div>

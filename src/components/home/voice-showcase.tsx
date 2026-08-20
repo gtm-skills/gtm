@@ -23,7 +23,7 @@ export function VoiceShowcase() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Waveform Animation */}
           <div className="relative">
-            <div className="bg-zinc-900 rounded-xl border border-violet-500/20 p-8">
+            <div className="bg-card rounded-xl border border-violet-500/20 p-8">
               {/* Waveform */}
               <div className="flex items-center justify-center gap-1 h-32 mb-6">
                 {[...Array(20)].map((_, i) => (
@@ -40,19 +40,19 @@ export function VoiceShowcase() {
               </div>
 
               {/* Script Preview */}
-              <div className="bg-zinc-800/50 rounded-lg p-4 font-mono text-sm">
+              <div className="bg-muted/50 rounded-lg p-4 font-mono text-sm">
                 <div className="text-violet-400 text-xs mb-2">// discovery_call.vapi</div>
-                <div className="text-zinc-300">
-                  <span className="text-zinc-500">"Hi [NAME], this is [REP] from [COMPANY].</span>
+                <div className="text-foreground">
+                  <span className="text-muted-foreground">"Hi [NAME], this is [REP] from [COMPANY].</span>
                   <br />
                   <span className="text-violet-400">I noticed you recently [TRIGGER]...</span>
                   <br />
-                  <span className="text-zinc-500">Quick question about your [PROCESS]..."</span>
+                  <span className="text-muted-foreground">Quick question about your [PROCESS]..."</span>
                 </div>
               </div>
 
               {/* Stats row */}
-              <div className="flex items-center justify-center gap-6 mt-6 text-xs text-zinc-500">
+              <div className="flex items-center justify-center gap-6 mt-6 text-xs text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <Phone className="h-3 w-3 text-violet-400" />
                   10 templates
@@ -90,7 +90,7 @@ export function VoiceShowcase() {
               {features.map((feature) => (
                 <div key={feature} className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 text-violet-400 flex-shrink-0" />
-                  <span className="text-zinc-300">{feature}</span>
+                  <span className="text-foreground">{feature}</span>
                 </div>
               ))}
             </div>

@@ -38,7 +38,7 @@ export default async function CertificationCoursePage({ params }: PageProps) {
   const totalMinutes = modules.reduce((sum, m) => sum + m.estimated_minutes, 0);
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-background">
       {/* Header */}
       <section className="relative py-12 overflow-hidden">
         <div
@@ -48,7 +48,7 @@ export default async function CertificationCoursePage({ params }: PageProps) {
         <div className="relative max-w-4xl mx-auto px-6">
           <Link
             href="/certifications"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>All Certifications</span>
@@ -64,9 +64,9 @@ export default async function CertificationCoursePage({ params }: PageProps) {
               </span>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white mb-2">{level.name}</h1>
-              <p className="text-zinc-400 mb-4">{level.description}</p>
-              <div className="flex items-center gap-4 text-sm text-zinc-500">
+              <h1 className="text-3xl font-bold text-foreground mb-2">{level.name}</h1>
+              <p className="text-muted-foreground mb-4">{level.description}</p>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <BookOpen className="w-4 h-4" />
                   {modules.length} modules
@@ -86,9 +86,9 @@ export default async function CertificationCoursePage({ params }: PageProps) {
       </section>
 
       {/* Modules List */}
-      <section className="py-12 border-t border-zinc-800">
+      <section className="py-12 border-t border-border">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-xl font-bold text-white mb-6">Course Modules</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6">Course Modules</h2>
 
           <div className="space-y-4">
             {modules.map((module, index) => {
@@ -99,7 +99,7 @@ export default async function CertificationCoursePage({ params }: PageProps) {
                 <Link
                   key={module.id}
                   href={`/certifications/${slug}/${module.slug}`}
-                  className="block bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors group"
+                  className="block bg-card/50 border border-border rounded-xl p-6 hover:border-border transition-colors group"
                 >
                   <div className="flex items-start gap-4">
                     <div
@@ -112,13 +112,13 @@ export default async function CertificationCoursePage({ params }: PageProps) {
                       {isQuiz ? (
                         <HelpCircle className="w-5 h-5" style={{ color: level.badge_color }} />
                       ) : (
-                        <span className="text-sm font-medium text-zinc-400">{module.module_number}</span>
+                        <span className="text-sm font-medium text-muted-foreground">{module.module_number}</span>
                       )}
                     </div>
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
+                        <h3 className="text-lg font-semibold text-foreground group-hover:text-amber-400 transition-colors">
                           {module.title}
                         </h3>
                         {isQuiz && (
@@ -130,8 +130,8 @@ export default async function CertificationCoursePage({ params }: PageProps) {
                           </span>
                         )}
                       </div>
-                      <p className="text-zinc-500 text-sm mb-2">{module.description}</p>
-                      <div className="flex items-center gap-4 text-xs text-zinc-600">
+                      <p className="text-muted-foreground text-sm mb-2">{module.description}</p>
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {module.estimated_minutes} min
@@ -140,7 +140,7 @@ export default async function CertificationCoursePage({ params }: PageProps) {
                       </div>
                     </div>
 
-                    <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-amber-400 transition-colors flex-shrink-0" />
                   </div>
                 </Link>
               );
@@ -150,23 +150,23 @@ export default async function CertificationCoursePage({ params }: PageProps) {
       </section>
 
       {/* Requirements */}
-      <section className="py-12 border-t border-zinc-800 bg-zinc-900/30">
+      <section className="py-12 border-t border-border bg-card/30">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-xl font-bold text-white mb-6">Requirements to Earn Badge</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6">Requirements to Earn Badge</h2>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="flex items-center gap-3 bg-zinc-900/50 border border-zinc-800 rounded-lg p-4">
-              <CheckCircle className="w-5 h-5 text-zinc-600" />
-              <span className="text-zinc-300">Complete all {level.modules_required} modules</span>
+            <div className="flex items-center gap-3 bg-card/50 border border-border rounded-lg p-4">
+              <CheckCircle className="w-5 h-5 text-muted-foreground" />
+              <span className="text-foreground">Complete all {level.modules_required} modules</span>
             </div>
-            <div className="flex items-center gap-3 bg-zinc-900/50 border border-zinc-800 rounded-lg p-4">
-              <CheckCircle className="w-5 h-5 text-zinc-600" />
-              <span className="text-zinc-300">Pass assessment with {level.assessment_pass_score}%+</span>
+            <div className="flex items-center gap-3 bg-card/50 border border-border rounded-lg p-4">
+              <CheckCircle className="w-5 h-5 text-muted-foreground" />
+              <span className="text-foreground">Pass assessment with {level.assessment_pass_score}%+</span>
             </div>
             {level.github_star_required && (
-              <div className="flex items-center gap-3 bg-zinc-900/50 border border-zinc-800 rounded-lg p-4">
-                <CheckCircle className="w-5 h-5 text-zinc-600" />
-                <span className="text-zinc-300">Star the GTM Skills GitHub repo</span>
+              <div className="flex items-center gap-3 bg-card/50 border border-border rounded-lg p-4">
+                <CheckCircle className="w-5 h-5 text-muted-foreground" />
+                <span className="text-foreground">Star the GTM Skills GitHub repo</span>
               </div>
             )}
           </div>
@@ -174,7 +174,7 @@ export default async function CertificationCoursePage({ params }: PageProps) {
       </section>
 
       {/* Start CTA */}
-      <section className="py-12 border-t border-zinc-800">
+      <section className="py-12 border-t border-border">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <Link
             href={`/certifications/${slug}/${modules[0]?.slug}`}

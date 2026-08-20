@@ -207,8 +207,8 @@ export default function SubmitPromptPage() {
             </div>
 
             {isPreview ? (
-              <div className="bg-zinc-900 rounded-lg p-4 font-mono text-sm min-h-[200px]">
-                <pre className="text-zinc-300 whitespace-pre-wrap">{content}</pre>
+              <div className="bg-card rounded-lg p-4 font-mono text-sm min-h-[200px]">
+                <pre className="text-foreground whitespace-pre-wrap">{content}</pre>
               </div>
             ) : (
               <textarea

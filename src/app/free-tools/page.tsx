@@ -122,7 +122,7 @@ export default function FreeToolsPage() {
                   </h2>
                   <Badge
                     variant="secondary"
-                    className={`text-xs ${isComingSoon ? 'bg-zinc-800 text-zinc-400' : ''}`}
+                    className={`text-xs ${isComingSoon ? 'bg-muted text-muted-foreground' : ''}`}
                   >
                     {tool.badge}
                   </Badge>

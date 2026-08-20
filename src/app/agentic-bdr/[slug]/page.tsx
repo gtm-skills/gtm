@@ -136,7 +136,7 @@ export default async function AgentPage({ params }: Props) {
             </h2>
             <ul className="grid md:grid-cols-2 gap-3">
               {agent.useCases.map((useCase, i) => (
-                <li key={i} className="flex items-start gap-2 p-3 rounded-lg bg-zinc-900/50 border border-zinc-800">
+                <li key={i} className="flex items-start gap-2 p-3 rounded-lg bg-card border border-border">
                   <CheckCircle2 className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
                   <span className="text-sm">{useCase}</span>
                 </li>
@@ -169,7 +169,7 @@ export default async function AgentPage({ params }: Props) {
               {agent.prompts.map((prompt, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-xl bg-card border border-border hover:border-zinc-700 transition-colors"
+                  className="p-6 rounded-xl bg-card border border-border hover:border-border transition-colors"
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div className="text-sm text-muted-foreground">
@@ -177,7 +177,7 @@ export default async function AgentPage({ params }: Props) {
                     </div>
                     <CopyButton text={prompt} label={`${agent.name} - Prompt ${index + 1}`} />
                   </div>
-                  <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-zinc-900/50 p-4 rounded-lg overflow-x-auto">
+                  <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-card/50 p-4 rounded-lg overflow-x-auto">
                     {prompt}
                   </pre>
                 </div>
@@ -283,7 +283,7 @@ export default async function AgentPage({ params }: Props) {
             </h2>
             <ul className="space-y-3">
               {agent.challenges.map((challenge, i) => (
-                <li key={i} className="flex items-start gap-3 p-3 rounded-lg bg-zinc-900/50 border border-zinc-800">
+                <li key={i} className="flex items-start gap-3 p-3 rounded-lg bg-card border border-border">
                   <span className="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-xs font-bold flex-shrink-0">
                     {i + 1}
                   </span>
@@ -319,7 +319,7 @@ export default async function AgentPage({ params }: Props) {
               {agent.prompts.map((prompt, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-xl bg-card border border-border hover:border-zinc-700 transition-colors"
+                  className="p-6 rounded-xl bg-card border border-border hover:border-border transition-colors"
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div className="text-sm text-muted-foreground">
@@ -327,7 +327,7 @@ export default async function AgentPage({ params }: Props) {
                     </div>
                     <CopyButton text={prompt} label={`${agent.name} - Prompt ${index + 1}`} />
                   </div>
-                  <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-zinc-900/50 p-4 rounded-lg overflow-x-auto">
+                  <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-card/50 p-4 rounded-lg overflow-x-auto">
                     {prompt}
                   </pre>
                 </div>
@@ -433,7 +433,7 @@ export default async function AgentPage({ params }: Props) {
           </h2>
           <div className="space-y-3">
             {agent.steps.map((step, i) => (
-              <div key={i} className="flex items-start gap-4 p-4 rounded-lg bg-zinc-900/50 border border-zinc-800">
+              <div key={i} className="flex items-start gap-4 p-4 rounded-lg bg-card border border-border">
                 <span className="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-sm font-bold flex-shrink-0">
                   {i + 1}
                 </span>
@@ -453,7 +453,7 @@ export default async function AgentPage({ params }: Props) {
             {agent.prompts.map((prompt, index) => (
               <div
                 key={index}
-                className="p-6 rounded-xl bg-card border border-border hover:border-zinc-700 transition-colors"
+                className="p-6 rounded-xl bg-card border border-border hover:border-border transition-colors"
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div className="text-sm text-muted-foreground">
@@ -461,7 +461,7 @@ export default async function AgentPage({ params }: Props) {
                   </div>
                   <CopyButton text={prompt} label={`${agent.name} - Prompt ${index + 1}`} />
                 </div>
-                <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-zinc-900/50 p-4 rounded-lg overflow-x-auto">
+                <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-card/50 p-4 rounded-lg overflow-x-auto">
                   {prompt}
                 </pre>
               </div>

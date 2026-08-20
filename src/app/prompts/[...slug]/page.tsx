@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { CopyButton } from '@/components/copy-button';
+import { TripleWorkflowFilter } from '@/components/triple-workflow-filter';
 import {
   ArrowLeft,
   ArrowRight,
@@ -16,6 +17,7 @@ import type { Metadata } from 'next';
 import {
   getPageFromSlug,
   getAllPromptSlugs,
+  getPromptsForTripleCombination,
   industries,
   roles,
   methodologies,
@@ -34,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Not Found' };
   }
 
-  return {
+  const metadata: Metadata = {
     title: `${page.title} | GTM Skills`,
     description: page.description,
     openGraph: {
@@ -42,6 +44,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: page.description,
     },
   };
+
+  // Triple-combo pages (Industry×Role×Workflow) are thin, mostly-orphaned
+  // pages generated from template substitution. They're still statically
+  // built so no user hits a 404, but they're excluded from indexing and the
+  // sitemap in favor of surfacing the same content via the workflow filter
+  // on the parent Industry×Role page.
+  if (slug.length === 3) {
+    metadata.robots = { index: false, follow: true };
+  }
+
+  return metadata;
 }
 
 export async function generateStaticParams() {
@@ -149,7 +162,7 @@ function getBadgeColor(type: string) {
     case 'industry-role-workflow':
       return 'border-orange-500/30 text-orange-400';
     default:
-      return 'border-zinc-500/30 text-zinc-400';
+      return 'border-zinc-500/30 text-muted-foreground';
   }
 }
 
@@ -178,6 +191,20 @@ export default async function PromptPage({ params }: Props) {
 
   const Icon = getIcon(page.type || '');
   const relatedPages = getRelatedPages(slug);
+
+  // On Industry×Role pages, precompute workflow-scoped prompts (the same
+  // data that powers the /prompts/[industry]/[role]/[workflow] triple-combo
+  // pages) so a client-side filter can surface them in-place instead of
+  // sending users to a separate, thin, noindexed URL.
+  const workflowPrompts: Record<string, string[]> | null =
+    page.type === 'industry-role' && page.industry && page.role
+      ? Object.fromEntries(
+          workflows.map((workflow) => [
+            workflow.slug,
+            getPromptsForTripleCombination(page.industry!, page.role!, workflow),
+          ])
+        )
+      : null;
 
   return (
     <div className="py-12 md:py-20">
@@ -210,7 +237,7 @@ export default async function PromptPage({ params }: Props) {
 
         {/* Context */}
         {page.industry && (
-          <div className="p-4 rounded-lg bg-zinc-900/50 border border-zinc-800 mb-8">
+          <div className="p-4 rounded-lg bg-card/50 border border-border mb-8">
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <div className="text-muted-foreground mb-1">Target Buyers</div>
@@ -225,23 +252,34 @@ export default async function PromptPage({ params }: Props) {
         )}
 
         {/* Prompts */}
-        <div className="space-y-6 mb-12">
-          {page.prompts.map((prompt, index) => (
-            <div
-              key={index}
-              className="p-6 rounded-xl bg-card border border-border hover:border-zinc-700 transition-colors"
-            >
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <div className="text-sm text-muted-foreground">
-                  Prompt {index + 1}
+        <div className="mb-12">
+          {workflowPrompts ? (
+            <TripleWorkflowFilter
+              comboLabel={page.title.replace(/ Prompts$/, '')}
+              basePrompts={page.prompts}
+              workflows={workflows}
+              workflowPrompts={workflowPrompts}
+            />
+          ) : (
+            <div className="space-y-6">
+              {page.prompts.map((prompt, index) => (
+                <div
+                  key={index}
+                  className="p-6 rounded-xl bg-card border border-border hover:border-border transition-colors"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div className="text-sm text-muted-foreground">
+                      Prompt {index + 1}
+                    </div>
+                    <CopyButton text={prompt} label={`${page.title} - Prompt ${index + 1}`} />
+                  </div>
+                  <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-card/50 p-4 rounded-lg overflow-x-auto">
+                    {prompt}
+                  </pre>
                 </div>
-                <CopyButton text={prompt} label={`${page.title} - Prompt ${index + 1}`} />
-              </div>
-              <pre className="whitespace-pre-wrap text-sm text-foreground font-mono bg-zinc-900/50 p-4 rounded-lg overflow-x-auto">
-                {prompt}
-              </pre>
+              ))}
             </div>
-          ))}
+          )}
         </div>
 
         {/* Related Prompts */}
@@ -253,7 +291,7 @@ export default async function PromptPage({ params }: Props) {
                 <Link
                   key={related.href}
                   href={related.href}
-                  className="p-3 rounded-lg border border-border bg-card hover:border-zinc-700 transition-colors text-center text-sm"
+                  className="p-3 rounded-lg border border-border bg-card hover:border-border transition-colors text-center text-sm"
                 >
                   {related.label}
                 </Link>
@@ -263,18 +301,18 @@ export default async function PromptPage({ params }: Props) {
         )}
 
         {/* Browse More */}
-        <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 mb-12">
+        <div className="p-6 rounded-xl bg-card/50 border border-border mb-12">
           <h2 className="font-semibold mb-4">Browse More Prompts</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <Link href="/industry" className="p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-colors text-center">
+            <Link href="/industry" className="p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors text-center">
               <Building2 className="h-5 w-5 mx-auto mb-2 text-blue-400" />
               <div className="text-sm">By Industry</div>
             </Link>
-            <Link href="/role" className="p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-colors text-center">
+            <Link href="/role" className="p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors text-center">
               <Users className="h-5 w-5 mx-auto mb-2 text-purple-400" />
               <div className="text-sm">By Role</div>
             </Link>
-            <Link href="/methodology" className="p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-colors text-center">
+            <Link href="/methodology" className="p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors text-center">
               <BookOpen className="h-5 w-5 mx-auto mb-2 text-green-400" />
               <div className="text-sm">By Methodology</div>
             </Link>
@@ -295,7 +333,7 @@ export default async function PromptPage({ params }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="gap-2 brand-gradient">
               Explore Prospeda
               <ExternalLink className="h-4 w-4" />
             </Button>

@@ -204,30 +204,30 @@ export default function ClaudeIntegrationsPage() {
         </div>
 
         {/* What is MCP */}
-        <div className="mb-20 p-8 rounded-xl bg-zinc-900">
+        <div className="mb-20 p-8 rounded-xl bg-card">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold mb-4">What is MCP?</h2>
-            <p className="text-zinc-400 mb-6">
-              <strong className="text-white">Model Context Protocol (MCP)</strong> is an open standard
+            <p className="text-muted-foreground mb-6">
+              <strong className="text-foreground">Model Context Protocol (MCP)</strong> is an open standard
               that allows AI models like Claude to connect to external tools and data sources. It&apos;s
               how Claude can now interact with Salesforce, Slack, and other platforms directly.
             </p>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="p-4 rounded-lg bg-zinc-800">
+              <div className="p-4 rounded-lg bg-muted">
                 <h4 className="font-semibold mb-2">Native Integrations</h4>
-                <p className="text-sm text-zinc-400">
+                <p className="text-sm text-muted-foreground">
                   Built-in support for popular tools like Salesforce, Slack, and Amplitude
                 </p>
               </div>
-              <div className="p-4 rounded-lg bg-zinc-800">
+              <div className="p-4 rounded-lg bg-muted">
                 <h4 className="font-semibold mb-2">Custom MCP Servers</h4>
-                <p className="text-sm text-zinc-400">
+                <p className="text-sm text-muted-foreground">
                   Build your own integrations with the open MCP protocol
                 </p>
               </div>
-              <div className="p-4 rounded-lg bg-zinc-800">
+              <div className="p-4 rounded-lg bg-muted">
                 <h4 className="font-semibold mb-2">Interactive UIs</h4>
-                <p className="text-sm text-zinc-400">
+                <p className="text-sm text-muted-foreground">
                   MCP Apps enable rich, interactive interfaces inside Claude
                 </p>
               </div>
@@ -314,16 +314,16 @@ export default function ClaudeIntegrationsPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Want All Integrations Pre-Built?
           </h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Prospeda combines all these integrations into one platform. CRM sync, lead enrichment,
             AI outreach, and analytics - ready to use.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Try Prospeda Free
             </Button>
           </a>

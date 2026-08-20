@@ -226,8 +226,8 @@ export default function ClayPage() {
                     <h4 className="text-sm font-medium">Example Prompt:</h4>
                     <CopyButton text={workflow.prompt} />
                   </div>
-                  <div className="bg-zinc-900 rounded-lg p-4">
-                    <pre className="text-sm text-zinc-400 whitespace-pre-wrap font-mono">
+                  <div className="bg-card rounded-lg p-4">
+                    <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono">
                       {workflow.prompt}
                     </pre>
                   </div>
@@ -263,9 +263,9 @@ export default function ClayPage() {
               </tbody>
             </table>
           </div>
-          <div className="mt-4 p-4 rounded-lg bg-zinc-900">
-            <p className="text-sm text-zinc-400">
-              <strong className="text-white">Recommendation:</strong> Use Clay for high-volume
+          <div className="mt-4 p-4 rounded-lg bg-card">
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Recommendation:</strong> Use Clay for high-volume
               prospecting and data enrichment. Use the GTM MCP Server for strategic research,
               outreach drafting, and deal strategy. They complement each other well.
             </p>
@@ -341,16 +341,16 @@ export default function ClayPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Want Automated Lead Enrichment?
           </h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Prospeda combines Clay-style enrichment with AI outreach automation.
             Import leads, enrich automatically, and generate personalized sequences.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Try Prospeda Free
             </Button>
           </a>

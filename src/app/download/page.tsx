@@ -129,11 +129,11 @@ export default function DownloadPage() {
         </div>
 
         {/* GitHub Star Gate */}
-        <div className="p-8 rounded-xl bg-zinc-900 text-center mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">
+        <div className="p-8 rounded-xl bg-card text-center mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Get the Full Download
           </h2>
-          <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
             Star us on GitHub to unlock the complete library. Help us build the
             biggest agentic GTM ecosystem on the internet.
           </p>
@@ -181,7 +181,7 @@ export default function DownloadPage() {
             personalization, and outbound execution with human oversight.
           </p>
           <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Explore Prospeda
             </Button>
           </a>

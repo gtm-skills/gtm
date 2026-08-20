@@ -143,14 +143,14 @@ export default function SignalsPage() {
                   </div>
                 </div>
               </div>
-              <pre className="bg-zinc-900 rounded-lg p-4 text-sm text-zinc-300 whitespace-pre-wrap overflow-x-auto">
+              <pre className="bg-card rounded-lg p-4 text-sm text-foreground whitespace-pre-wrap overflow-x-auto">
                 {signal.prompt}
               </pre>
             </div>
           ))}
         </div>
 
-        <div className="text-center bg-zinc-900/50 rounded-xl p-8 border border-zinc-800">
+        <div className="text-center bg-card/50 rounded-xl p-8 border border-border">
           <h2 className="text-2xl font-bold mb-3">Want More Signal-Based Prompts?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Star the repo to save these prompts for later and help others discover GTM Skills.

@@ -158,10 +158,10 @@ export default function CormacMcCarthyTonalityPage() {
         </div>
 
         {/* Real Example Quote */}
-        <div className="bg-zinc-950 rounded-xl p-6 mb-12 border-l-4 border-orange-500">
-          <div className="text-zinc-300 space-y-4">
+        <div className="bg-card rounded-xl p-6 mb-12 border-l-4 border-orange-500">
+          <div className="text-foreground space-y-4">
             <p className="italic">{realExample.split('\n\n')[0]}</p>
-            <p className="text-zinc-500">{realExample.split('\n\n')[1]}</p>
+            <p className="text-muted-foreground">{realExample.split('\n\n')[1]}</p>
           </div>
         </div>
 
@@ -238,8 +238,8 @@ export default function CormacMcCarthyTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Cold Email</h3>
               <CopyButton text={coldEmailPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{coldEmailPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{coldEmailPrompt}</pre>
             </div>
           </div>
 
@@ -249,8 +249,8 @@ export default function CormacMcCarthyTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Discovery Call Questions</h3>
               <CopyButton text={discoveryCallPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{discoveryCallPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{discoveryCallPrompt}</pre>
             </div>
           </div>
 
@@ -260,8 +260,8 @@ export default function CormacMcCarthyTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Objection Handling</h3>
               <CopyButton text={objectionPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{objectionPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{objectionPrompt}</pre>
             </div>
           </div>
 
@@ -271,8 +271,8 @@ export default function CormacMcCarthyTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">LinkedIn Message</h3>
               <CopyButton text={linkedinPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{linkedinPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{linkedinPrompt}</pre>
             </div>
           </div>
 
@@ -282,8 +282,8 @@ export default function CormacMcCarthyTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Market Disruption Narrative</h3>
               <CopyButton text={narrativePrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{narrativePrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{narrativePrompt}</pre>
             </div>
           </div>
         </div>

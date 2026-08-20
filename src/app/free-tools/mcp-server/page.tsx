@@ -415,7 +415,7 @@ export default function MCPServerPage() {
               </div>
             ))}
           </div>
-          <div className="mt-6 p-4 rounded-lg bg-zinc-900 border border-zinc-800">
+          <div className="mt-6 p-4 rounded-lg bg-popover border border-border">
             <div className="flex items-start gap-3">
               <Palette className="h-5 w-5 text-amber-400 mt-0.5" />
               <div>
@@ -572,7 +572,7 @@ export default function MCPServerPage() {
                     <h3 className="font-semibold text-lg">{step.title}</h3>
                     <CopyButton text={step.copyable} />
                   </div>
-                  <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono bg-zinc-900 rounded-lg p-4">
+                  <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono bg-card rounded-lg p-4">
                     {step.content}
                   </pre>
                 </div>
@@ -594,8 +594,8 @@ export default function MCPServerPage() {
             <p className="text-sm text-muted-foreground mb-4">
               Set your HubSpot API key to enable real CRM tools. Without it, only content generation tools are available.
             </p>
-            <div className="bg-zinc-900 rounded-lg p-4 font-mono text-sm">
-              <div className="text-zinc-500"># Add to your environment</div>
+            <div className="bg-card rounded-lg p-4 font-mono text-sm">
+              <div className="text-muted-foreground"># Add to your environment</div>
               <div className="text-green-400">export HUBSPOT_API_KEY=pat-na1-xxxxxxxx</div>
             </div>
             <p className="text-xs text-muted-foreground mt-3">
@@ -612,8 +612,8 @@ export default function MCPServerPage() {
             <p className="text-sm text-muted-foreground mb-3">
               Add to your project&apos;s <code className="text-cyan-400">.claude/settings.json</code>:
             </p>
-            <div className="bg-zinc-900 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 font-mono whitespace-pre">
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground font-mono whitespace-pre">
                 {claudeCodeConfig}
               </pre>
             </div>
@@ -628,8 +628,8 @@ export default function MCPServerPage() {
             <p className="text-sm text-muted-foreground mb-3">
               Add to <code className="text-cyan-400">~/Library/Application Support/Claude/claude_desktop_config.json</code>:
             </p>
-            <div className="bg-zinc-900 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 font-mono whitespace-pre">
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground font-mono whitespace-pre">
                 {claudeDesktopConfig}
               </pre>
             </div>
@@ -732,16 +732,16 @@ export default function MCPServerPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Want GTM Automation at Scale?
           </h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Prospeda provides the same AI-powered sales tools with CRM integration,
             lead enrichment, and automated sequences. No setup required.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Try Prospeda Free
             </Button>
           </a>

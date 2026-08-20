@@ -252,7 +252,7 @@ export default function ClawdBotPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
-                  <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono bg-zinc-900 rounded-lg p-4">
+                  <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono bg-card rounded-lg p-4">
                     {step.content}
                   </pre>
                 </div>
@@ -267,8 +267,8 @@ export default function ClawdBotPage() {
             <h2 className="text-2xl font-bold">Server Code</h2>
             <CopyButton text={serverCode} />
           </div>
-          <div className="bg-zinc-900 rounded-xl p-6 overflow-x-auto">
-            <pre className="text-sm text-zinc-300 font-mono whitespace-pre">
+          <div className="bg-card rounded-xl p-6 overflow-x-auto">
+            <pre className="text-sm text-foreground font-mono whitespace-pre">
               {serverCode}
             </pre>
           </div>
@@ -340,8 +340,8 @@ export default function ClawdBotPage() {
           <p className="text-muted-foreground mb-4">
             Make ClawdBot smarter by customizing the system prompt with your company context:
           </p>
-          <div className="bg-zinc-900 rounded-xl p-6">
-            <pre className="text-sm text-zinc-300 font-mono whitespace-pre-wrap">{`const SYSTEM_PROMPT = \`You are ClawdBot, the AI sales assistant for [YOUR COMPANY].
+          <div className="bg-card rounded-xl p-6">
+            <pre className="text-sm text-foreground font-mono whitespace-pre-wrap">{`const SYSTEM_PROMPT = \`You are ClawdBot, the AI sales assistant for [YOUR COMPANY].
 
 Our product: [DESCRIBE YOUR PRODUCT]
 Our ICP: [IDEAL CUSTOMER PROFILE]
@@ -361,16 +361,16 @@ When coaching, consider our specific sales methodology.\`;`}</pre>
         </div>
 
         {/* CTA */}
-        <div className="text-center p-8 rounded-xl bg-zinc-900">
-          <h2 className="text-2xl font-bold text-white mb-4">
+        <div className="text-center p-8 rounded-xl bg-card">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Want ClawdBot Without the Setup?
           </h2>
-          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Prospeda includes a pre-built AI assistant that integrates with your CRM,
             enriches leads automatically, and writes outreach at scale.
           </p>
           <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
+            <Button className="brand-gradient">
               Try Prospeda Free
             </Button>
           </a>

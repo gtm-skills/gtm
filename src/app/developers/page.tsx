@@ -152,7 +152,7 @@ const codeExamples = {
 
 export default function DevelopersPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-background">
       {/* Hero */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 via-transparent to-transparent" />
@@ -188,16 +188,16 @@ export default function DevelopersPage() {
       </section>
 
       {/* Quick Start */}
-      <section className="py-12 border-t border-zinc-800">
+      <section className="py-12 border-t border-border">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-2xl font-bold mb-6">Quick Start</h2>
 
           <div className="grid md:grid-cols-2 gap-4">
             {/* Request */}
-            <div className="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
-                <span className="text-xs text-zinc-500">Request</span>
-                <button className="text-xs text-zinc-500 hover:text-white flex items-center gap-1">
+            <div className="bg-card rounded-xl border border-border overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+                <span className="text-xs text-muted-foreground">Request</span>
+                <button className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1">
                   <Copy className="h-3 w-3" />
                   Copy
                 </button>
@@ -208,12 +208,12 @@ export default function DevelopersPage() {
             </div>
 
             {/* Response */}
-            <div className="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
-                <span className="text-xs text-zinc-500">Response</span>
+            <div className="bg-card rounded-xl border border-border overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+                <span className="text-xs text-muted-foreground">Response</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-zinc-300 font-mono">{codeExamples.response}</code>
+                <code className="text-foreground font-mono">{codeExamples.response}</code>
               </pre>
             </div>
           </div>
@@ -221,7 +221,7 @@ export default function DevelopersPage() {
       </section>
 
       {/* Agents API */}
-      <section id="agents-api" className="py-12 border-t border-zinc-800 bg-zinc-900/30">
+      <section id="agents-api" className="py-12 border-t border-border bg-card/30">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex items-center gap-3 mb-6">
             <Users className="h-6 w-6 text-orange-400" />
@@ -229,7 +229,7 @@ export default function DevelopersPage() {
             <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30">NEW</Badge>
           </div>
 
-          <p className="text-zinc-400 mb-6">
+          <p className="text-muted-foreground mb-6">
             Four agents for your sales team: <strong className="text-blue-400">Scout</strong> (research),
             <strong className="text-yellow-400"> Writer</strong> (copy),
             <strong className="text-green-400"> Rep</strong> (outreach),
@@ -238,9 +238,9 @@ export default function DevelopersPage() {
 
           <div className="grid md:grid-cols-2 gap-4 mb-8">
             {/* List Agents */}
-            <div className="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden">
-              <div className="px-4 py-3 border-b border-zinc-800 flex items-center justify-between">
-                <span className="text-xs text-zinc-500">List all agents</span>
+            <div className="bg-card rounded-xl border border-border overflow-hidden">
+              <div className="px-4 py-3 border-b border-border flex items-center justify-between">
+                <span className="text-xs text-muted-foreground">List all agents</span>
                 <Badge className="font-mono text-xs bg-emerald-500/20 text-emerald-400 border-emerald-500/30">GET</Badge>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
@@ -249,9 +249,9 @@ export default function DevelopersPage() {
             </div>
 
             {/* Get Skill */}
-            <div className="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden">
-              <div className="px-4 py-3 border-b border-zinc-800 flex items-center justify-between">
-                <span className="text-xs text-zinc-500">Get agent SKILL.md</span>
+            <div className="bg-card rounded-xl border border-border overflow-hidden">
+              <div className="px-4 py-3 border-b border-border flex items-center justify-between">
+                <span className="text-xs text-muted-foreground">Get agent SKILL.md</span>
                 <Badge className="font-mono text-xs bg-emerald-500/20 text-emerald-400 border-emerald-500/30">GET</Badge>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
@@ -267,21 +267,21 @@ export default function DevelopersPage() {
                 <Workflow className="h-6 w-6 text-orange-400" />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-semibold text-white mb-2">Orchestrator API</h3>
-                <p className="text-zinc-400 text-sm mb-4">
+                <h3 className="text-lg font-semibold text-foreground mb-2">Orchestrator API</h3>
+                <p className="text-muted-foreground text-sm mb-4">
                   Route any message to the right agent automatically. The orchestrator analyzes intent
                   and returns the best agent(s) to handle the task.
                 </p>
-                <div className="bg-black/50 rounded-lg p-4 mb-4 overflow-x-auto">
+                <div className="bg-background/50 rounded-lg p-4 mb-4 overflow-x-auto">
                   <pre className="text-sm">
                     <code className="text-orange-400 font-mono">{`curl -X POST "https://gtm-skills.com/api/v1/agents/orchestrate" \\
   -H "Content-Type: application/json" \\
   -d '{"message": "Find SaaS companies and write cold emails"}'`}</code>
                   </pre>
                 </div>
-                <div className="bg-black/30 rounded-lg p-4 overflow-x-auto">
+                <div className="bg-background/30 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm">
-                    <code className="text-zinc-300 font-mono">{`{
+                    <code className="text-foreground font-mono">{`{
   "routing": {
     "primary": { "name": "Writer", "skill_url": "..." },
     "secondary": { "name": "Scout", "skill_url": "..." },
@@ -311,7 +311,7 @@ export default function DevelopersPage() {
       </section>
 
       {/* API Endpoints */}
-      <section className="py-12 border-t border-zinc-800">
+      <section className="py-12 border-t border-border">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-2xl font-bold mb-6">API Endpoints</h2>
 
@@ -319,8 +319,8 @@ export default function DevelopersPage() {
             {endpoints.map((endpoint) => (
               <div
                 key={endpoint.path}
-                className={`bg-zinc-900/50 border rounded-lg p-4 hover:border-zinc-700 transition-colors ${
-                  endpoint.isNew ? 'border-orange-500/30' : 'border-zinc-800'
+                className={`bg-card/50 border rounded-lg p-4 hover:border-border transition-colors ${
+                  endpoint.isNew ? 'border-orange-500/30' : 'border-border'
                 }`}
               >
                 <div className="flex items-start gap-4">
@@ -335,18 +335,18 @@ export default function DevelopersPage() {
                   </Badge>
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <code className="text-white font-mono text-sm">{endpoint.path}</code>
+                      <code className="text-foreground font-mono text-sm">{endpoint.path}</code>
                       {endpoint.isNew && (
                         <Badge className="text-[10px] bg-orange-500/20 text-orange-400 border-orange-500/30">
                           NEW
                         </Badge>
                       )}
                     </div>
-                    <p className="text-zinc-500 text-sm mt-1">{endpoint.description}</p>
-                    <p className="text-zinc-600 text-xs mt-1">
-                      <span className="text-zinc-700">{endpoint.category}</span>
+                    <p className="text-muted-foreground text-sm mt-1">{endpoint.description}</p>
+                    <p className="text-muted-foreground text-xs mt-1">
+                      <span className="text-muted-foreground">{endpoint.category}</span>
                       {endpoint.params !== 'none' && (
-                        <> • Params: <code className="text-zinc-500">{endpoint.params}</code></>
+                        <> • Params: <code className="text-muted-foreground">{endpoint.params}</code></>
                       )}
                     </p>
                   </div>
@@ -358,7 +358,7 @@ export default function DevelopersPage() {
       </section>
 
       {/* llms.txt Section */}
-      <section className="py-12 border-t border-zinc-800">
+      <section className="py-12 border-t border-border">
         <div className="max-w-4xl mx-auto px-6">
           <div className="bg-violet-500/10 border border-violet-500/20 rounded-xl p-6">
             <div className="flex items-start gap-4">
@@ -366,8 +366,8 @@ export default function DevelopersPage() {
                 <Bot className="h-6 w-6 text-violet-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white mb-2">llms.txt for Agentic Discovery</h3>
-                <p className="text-zinc-400 text-sm mb-4">
+                <h3 className="text-lg font-semibold text-foreground mb-2">llms.txt for Agentic Discovery</h3>
+                <p className="text-muted-foreground text-sm mb-4">
                   GTM Skills includes an llms.txt file that allows AI agents to automatically discover
                   and use our API. This enables agentic workflows where AI can find the right prompts
                   without human intervention.
@@ -380,7 +380,7 @@ export default function DevelopersPage() {
                     </Button>
                   </a>
                   <a href="https://llmstxt.org" target="_blank" rel="noopener noreferrer">
-                    <Button variant="ghost" size="sm" className="gap-2 text-zinc-500">
+                    <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground">
                       Learn about llms.txt
                       <ExternalLink className="h-3 w-3" />
                     </Button>
@@ -393,7 +393,7 @@ export default function DevelopersPage() {
       </section>
 
       {/* Resources */}
-      <section className="py-12 border-t border-zinc-800 bg-zinc-900/30">
+      <section className="py-12 border-t border-border bg-card/30">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-2xl font-bold mb-6">Resources</h2>
 
@@ -404,21 +404,21 @@ export default function DevelopersPage() {
                 href={resource.href}
                 target={resource.href.startsWith('http') ? '_blank' : undefined}
                 rel={resource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="flex items-start gap-4 p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-zinc-700 transition-colors group"
+                className="flex items-start gap-4 p-4 bg-card/50 border border-border rounded-lg hover:border-border transition-colors group"
               >
-                <resource.icon className="h-6 w-6 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
+                <resource.icon className="h-6 w-6 text-muted-foreground group-hover:text-emerald-400 transition-colors" />
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-medium text-white group-hover:text-emerald-400 transition-colors">
+                    <span className="font-medium text-foreground group-hover:text-emerald-400 transition-colors">
                       {resource.title}
                     </span>
-                    <Badge className="text-[10px] bg-zinc-800 text-zinc-400 border-zinc-700">
+                    <Badge className="text-[10px] bg-muted text-muted-foreground border-border">
                       {resource.badge}
                     </Badge>
                   </div>
-                  <p className="text-zinc-500 text-sm">{resource.description}</p>
+                  <p className="text-muted-foreground text-sm">{resource.description}</p>
                 </div>
-                <ExternalLink className="h-4 w-4 text-zinc-600 group-hover:text-emerald-400 transition-colors" />
+                <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-emerald-400 transition-colors" />
               </Link>
             ))}
           </div>
@@ -426,9 +426,9 @@ export default function DevelopersPage() {
       </section>
 
       {/* SDKs Coming Soon */}
-      <section className="py-12 border-t border-zinc-800">
+      <section className="py-12 border-t border-border">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <Badge variant="outline" className="mb-4 border-zinc-700 text-zinc-400">
+          <Badge variant="outline" className="mb-4 border-border text-muted-foreground">
             <Zap className="h-3 w-3 mr-1" />
             Coming Soon
           </Badge>

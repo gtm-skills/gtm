@@ -128,14 +128,14 @@ export default function ProjectsPage() {
                 </div>
                 <CopyButton text={project.prompt} label={project.name} />
               </div>
-              <pre className="bg-zinc-900 rounded-lg p-4 text-sm text-zinc-300 whitespace-pre-wrap overflow-x-auto max-h-48 overflow-y-auto">
+              <pre className="bg-card rounded-lg p-4 text-sm text-foreground whitespace-pre-wrap overflow-x-auto max-h-48 overflow-y-auto">
                 {project.prompt}
               </pre>
             </div>
           ))}
         </div>
 
-        <div className="text-center bg-zinc-900/50 rounded-xl p-8 border border-zinc-800">
+        <div className="text-center bg-card/50 rounded-xl p-8 border border-border">
           <h2 className="text-2xl font-bold mb-3">Want More AI Power?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             Our MCP Server gives you 10 AI tools and 6 interactive UIs that work directly inside Claude Desktop.

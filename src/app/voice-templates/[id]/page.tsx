@@ -220,8 +220,8 @@ export default function VoiceTemplateDetailPage({
               )}
             </Button>
           </div>
-          <div className="bg-zinc-900 rounded-xl p-4 font-mono text-sm">
-            <pre className="text-zinc-300 whitespace-pre-wrap">{template.system_prompt}</pre>
+          <div className="bg-card rounded-xl p-4 font-mono text-sm">
+            <pre className="text-foreground whitespace-pre-wrap">{template.system_prompt}</pre>
           </div>
         </div>
 
@@ -350,7 +350,7 @@ export default function VoiceTemplateDetailPage({
       {showDeployModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-background/60 backdrop-blur-sm"
             onClick={() => setShowDeployModal(false)}
           />
           <div className="relative bg-background border border-border rounded-xl max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto">

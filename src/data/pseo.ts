@@ -1300,6 +1300,15 @@ export function getAllPromptSlugs(): string[][] {
   return slugs;
 }
 
+// Slugs for pages that should be indexed/sitemapped (Industry×Role,
+// Industry×Methodology, Role×Workflow — the 132 well-linked double-combo
+// pages). Excludes the 288 Industry×Role×Workflow triple-combo pages, which
+// are still statically generated (see getAllPromptSlugs) but are thin,
+// mostly-orphaned pages that are noindexed and kept out of the sitemap.
+export function getIndexablePromptSlugs(): string[][] {
+  return getAllPromptSlugs().filter((slug) => slug.length === 2);
+}
+
 // Get page data from slug
 export function getPageFromSlug(slugParts: string[]): {
   type: 'industry-role' | 'industry-methodology' | 'role-workflow' | 'industry-role-workflow' | null;

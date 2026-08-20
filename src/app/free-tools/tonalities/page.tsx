@@ -318,7 +318,7 @@ export default function TonalitiesPage() {
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-2">
             <h2 className="text-2xl font-bold text-foreground">Premium Tonalities</h2>
-            <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0">12 Premium</Badge>
+            <Badge className="brand-gradient text-white border-0">12 Premium</Badge>
           </div>
           <p className="text-muted-foreground mb-6">
             Unlock all 12 premium tonalities with your email. Includes advanced methodologies, situation-specific frameworks, and cult-favorite personalities.
@@ -328,7 +328,7 @@ export default function TonalitiesPage() {
               <Link key={tonality.slug} href={`/free-tools/tonalities/${tonality.slug}`} className="group">
                 <div className="h-full p-6 rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/5 to-red-500/5 hover:border-orange-500/50 hover:shadow-lg transition-all relative">
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 text-xs">
+                    <Badge className="brand-gradient text-white border-0 text-xs">
                       Premium
                     </Badge>
                   </div>
@@ -386,7 +386,7 @@ export default function TonalitiesPage() {
         </div>
 
         {/* How It Works */}
-        <div className="bg-zinc-100 dark:bg-zinc-900 rounded-xl p-8 mb-16">
+        <div className="bg-card rounded-xl p-8 mb-16">
           <h2 className="text-xl font-bold text-foreground mb-6">How These Prompts Work</h2>
           <ol className="space-y-4">
             <li className="flex gap-4">

@@ -65,14 +65,14 @@ export default async function ContributorProfilePage({ params }: PageProps) {
   const badgeInfo = getBadgeInfo(contributor.badge);
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-background">
       {/* Header */}
       <section className="relative py-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-500/10 via-transparent to-transparent" />
         <div className="relative max-w-4xl mx-auto px-6">
           <Link
             href="/contributors"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>All Contributors</span>
@@ -81,7 +81,7 @@ export default async function ContributorProfilePage({ params }: PageProps) {
           <div className="flex flex-col md:flex-row items-start gap-6">
             {/* Avatar */}
             <div className="relative">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold text-3xl">
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-foreground font-bold text-3xl">
                 {contributor.avatar_url ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -103,7 +103,7 @@ export default async function ContributorProfilePage({ params }: PageProps) {
             {/* Info */}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2 flex-wrap">
-                <h1 className="text-3xl font-bold text-white">{contributor.name}</h1>
+                <h1 className="text-3xl font-bold text-foreground">{contributor.name}</h1>
                 {contributor.verified && (
                   <BadgeCheck className="w-6 h-6 text-amber-400" />
                 )}
@@ -115,7 +115,7 @@ export default async function ContributorProfilePage({ params }: PageProps) {
               </div>
 
               {contributor.bio && (
-                <p className="text-zinc-400 mb-4 max-w-xl">{contributor.bio}</p>
+                <p className="text-muted-foreground mb-4 max-w-xl">{contributor.bio}</p>
               )}
 
               {/* Social Links */}
@@ -125,7 +125,7 @@ export default async function ContributorProfilePage({ params }: PageProps) {
                     href={`https://twitter.com/${contributor.twitter_handle}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-500 hover:text-blue-400 transition-colors"
+                    className="text-muted-foreground hover:text-blue-400 transition-colors"
                   >
                     <Twitter className="w-5 h-5" />
                   </a>
@@ -135,7 +135,7 @@ export default async function ContributorProfilePage({ params }: PageProps) {
                     href={contributor.linkedin_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-500 hover:text-blue-500 transition-colors"
+                    className="text-muted-foreground hover:text-blue-500 transition-colors"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
@@ -145,7 +145,7 @@ export default async function ContributorProfilePage({ params }: PageProps) {
                     href={`https://github.com/${contributor.github_handle}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-500 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <Github className="w-5 h-5" />
                   </a>
@@ -155,7 +155,7 @@ export default async function ContributorProfilePage({ params }: PageProps) {
                     href={contributor.website_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-500 hover:text-emerald-400 transition-colors"
+                    className="text-muted-foreground hover:text-emerald-400 transition-colors"
                   >
                     <Globe className="w-5 h-5" />
                   </a>
@@ -167,21 +167,21 @@ export default async function ContributorProfilePage({ params }: PageProps) {
       </section>
 
       {/* Stats Grid */}
-      <section className="py-8 border-t border-zinc-800">
+      <section className="py-8 border-t border-border">
         <div className="max-w-4xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-zinc-500 mb-2">
+            <div className="bg-card/50 border border-border rounded-xl p-4">
+              <div className="flex items-center gap-2 text-muted-foreground mb-2">
                 <Users className="w-4 h-4" />
                 <span className="text-sm">Prompts</span>
               </div>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-2xl font-bold text-foreground">
                 {stats?.total_prompts || contributor.total_prompts}
               </div>
             </div>
 
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-zinc-500 mb-2">
+            <div className="bg-card/50 border border-border rounded-xl p-4">
+              <div className="flex items-center gap-2 text-muted-foreground mb-2">
                 <ThumbsUp className="w-4 h-4" />
                 <span className="text-sm">Votes</span>
               </div>
@@ -190,22 +190,22 @@ export default async function ContributorProfilePage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-zinc-500 mb-2">
+            <div className="bg-card/50 border border-border rounded-xl p-4">
+              <div className="flex items-center gap-2 text-muted-foreground mb-2">
                 <Copy className="w-4 h-4" />
                 <span className="text-sm">Copies</span>
               </div>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-2xl font-bold text-foreground">
                 {formatNumber(stats?.total_copies || contributor.total_copies)}
               </div>
             </div>
 
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-zinc-500 mb-2">
+            <div className="bg-card/50 border border-border rounded-xl p-4">
+              <div className="flex items-center gap-2 text-muted-foreground mb-2">
                 <Target className="w-4 h-4" />
                 <span className="text-sm">Outcomes</span>
               </div>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-2xl font-bold text-foreground">
                 {stats?.total_outcomes || contributor.total_outcomes}
               </div>
             </div>
@@ -215,9 +215,9 @@ export default async function ContributorProfilePage({ params }: PageProps) {
 
       {/* Rank & Recognition */}
       {(stats?.rank || contributor.rank) && (
-        <section className="py-8 border-t border-zinc-800">
+        <section className="py-8 border-t border-border">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
               <Award className="w-5 h-5 text-amber-400" />
               Recognition
             </h2>
@@ -225,11 +225,11 @@ export default async function ContributorProfilePage({ params }: PageProps) {
             <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-xl p-6">
               <div className="flex items-center gap-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">#{stats?.rank || contributor.rank}</span>
+                  <span className="text-2xl font-bold text-foreground">#{stats?.rank || contributor.rank}</span>
                 </div>
                 <div>
-                  <div className="text-lg font-semibold text-white">Contributor Rank</div>
-                  <div className="text-zinc-400">
+                  <div className="text-lg font-semibold text-foreground">Contributor Rank</div>
+                  <div className="text-muted-foreground">
                     {(stats?.rank || contributor.rank || 0) <= 10 && 'Top 10 contributor - Elite status'}
                     {(stats?.rank || contributor.rank || 0) > 10 && (stats?.rank || contributor.rank || 0) <= 50 && 'Top 50 contributor - Rising star'}
                     {(stats?.rank || contributor.rank || 0) > 50 && 'Active community contributor'}
@@ -243,26 +243,26 @@ export default async function ContributorProfilePage({ params }: PageProps) {
 
       {/* Top Prompt */}
       {stats?.top_prompt && (
-        <section className="py-8 border-t border-zinc-800">
+        <section className="py-8 border-t border-border">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
               <Trophy className="w-5 h-5 text-amber-400" />
               Top Performing Prompt
             </h2>
 
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+            <div className="bg-card/50 border border-border rounded-xl p-6">
               <Link
                 href={`/leaderboard?prompt=${stats.top_prompt.id}`}
-                className="text-lg font-semibold text-white hover:text-amber-400 transition-colors"
+                className="text-lg font-semibold text-foreground hover:text-amber-400 transition-colors"
               >
                 {stats.top_prompt.title}
               </Link>
               <div className="flex items-center gap-6 mt-3 text-sm">
-                <span className="flex items-center gap-1 text-zinc-400">
+                <span className="flex items-center gap-1 text-muted-foreground">
                   <ThumbsUp className="w-4 h-4" />
                   {formatNumber(stats.top_prompt.votes)} votes
                 </span>
-                <span className="flex items-center gap-1 text-zinc-400">
+                <span className="flex items-center gap-1 text-muted-foreground">
                   <Copy className="w-4 h-4" />
                   {formatNumber(stats.top_prompt.copies)} copies
                 </span>
@@ -273,8 +273,8 @@ export default async function ContributorProfilePage({ params }: PageProps) {
       )}
 
       {/* Member Since */}
-      <section className="py-8 border-t border-zinc-800">
-        <div className="max-w-4xl mx-auto px-6 text-center text-zinc-500 text-sm">
+      <section className="py-8 border-t border-border">
+        <div className="max-w-4xl mx-auto px-6 text-center text-muted-foreground text-sm">
           Member since {new Date(contributor.created_at).toLocaleDateString('en-US', {
             month: 'long',
             year: 'numeric',

@@ -162,8 +162,8 @@ export default function JeffBezosTonalityPage() {
         </div>
 
         {/* Real Example Quote */}
-        <div className="bg-zinc-950 rounded-xl p-6 mb-12 border-l-4 border-orange-500">
-          <div className="text-zinc-300 mb-4 space-y-4">
+        <div className="bg-card rounded-xl p-6 mb-12 border-l-4 border-orange-500">
+          <div className="text-foreground mb-4 space-y-4">
             {realExample.split('\n\n').map((para, i) => (
               <p key={i} className={i === 0 ? 'italic' : ''}>{para}</p>
             ))}
@@ -242,8 +242,8 @@ export default function JeffBezosTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Cold Email</h3>
               <CopyButton text={coldEmailPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{coldEmailPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{coldEmailPrompt}</pre>
             </div>
           </div>
 
@@ -253,8 +253,8 @@ export default function JeffBezosTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Discovery Call Questions</h3>
               <CopyButton text={discoveryCallPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{discoveryCallPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{discoveryCallPrompt}</pre>
             </div>
           </div>
 
@@ -264,8 +264,8 @@ export default function JeffBezosTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Objection Handling</h3>
               <CopyButton text={objectionPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{objectionPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{objectionPrompt}</pre>
             </div>
           </div>
 
@@ -275,8 +275,8 @@ export default function JeffBezosTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">LinkedIn Message</h3>
               <CopyButton text={linkedinPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{linkedinPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{linkedinPrompt}</pre>
             </div>
           </div>
 
@@ -286,8 +286,8 @@ export default function JeffBezosTonalityPage() {
               <h3 className="text-lg font-semibold text-foreground">Six-Pager Proposal Summary</h3>
               <CopyButton text={proposalPrompt} />
             </div>
-            <div className="bg-zinc-950 rounded-xl p-6 overflow-x-auto">
-              <pre className="text-sm text-zinc-300 whitespace-pre-wrap font-mono">{proposalPrompt}</pre>
+            <div className="bg-card rounded-xl p-6 overflow-x-auto">
+              <pre className="text-sm text-foreground whitespace-pre-wrap font-mono">{proposalPrompt}</pre>
             </div>
           </div>
         </div>

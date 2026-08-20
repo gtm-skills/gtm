@@ -3,6 +3,39 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ========================================================================
+   DESIGN SYSTEM: "BLUEPRINT"
+   ========================================================================
+   Replaces the previous orange/red brand tokens. Light mode is the
+   PRIMARY experience (cool paper canvas, technical/precision-document
+   feel); dark mode is a secondary, equally-considered counterpart
+   (deep ink-blue canvas), not an inversion.
+
+   TOKEN LAYER: `--brand-primary` is now Blueprint's single accent
+   (emerald). There is no second brand hue — `.brand-gradient` /
+   `.brand-gradient-text` (used across ~85 files from the prior brand
+   pass) are kept as class names for compatibility, but now render a
+   FLAT solid fill, not a two-tone gradient — Blueprint's discipline is
+   one accent color, used sparingly, never a gradient.
+
+   RADIUS: base radius dropped to 4px (from 10px). Blueprint favors
+   sharp, table-like structure — most UI sits in the 0-8px range now.
+   Bigger radii (--radius-3xl/4xl) still exist for large feature cards
+   that intentionally want a softer edge, but are no longer the norm.
+
+   TYPE: Geist Mono (already loaded via next/font in layout.tsx) is
+   available as `font-mono` — use it for nav links, eyebrows, buttons,
+   and tabular data/labels, uppercase with letter-spacing, per
+   Blueprint's "spec sheet" voice. Geist Sans (`font-sans`) stays the
+   body/headline face.
+
+   DECORATIVE ACCENT COLORS (icons/badges using e.g. text-blue-400,
+   text-orange-400, etc., left alone by the prior migration pass) were
+   not touched here either — they're incidental, not part of either
+   token system. Revisit only if a specific one visibly clashes with
+   the new paper/emerald palette.
+   ======================================================================== */
+
 /* ========================================
    Theme Configuration
    ======================================== */
@@ -41,6 +74,8 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -55,27 +90,33 @@
    ======================================== */
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.25rem;
 
-  /* Core colors */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0 0);
-  --input: oklch(0.9 0 0);
-  --ring: oklch(0.708 0 0);
+  /* Blueprint accent: Signal Emerald. One hue, used sparingly. */
+  --brand-primary: #0E7A52;
+  --brand-secondary: #0E7A52;
+  --brand-primary-hover: #0B6444;
+  --brand-secondary-hover: #0B6444;
+
+  /* Core colors -- cool paper canvas (primary experience) */
+  --background: #F6F7F4;
+  --foreground: #12140F;
+  --card: #ECEEE8;
+  --card-foreground: #12140F;
+  --popover: #ECEEE8;
+  --popover-foreground: #12140F;
+  --primary: var(--brand-primary);
+  --primary-foreground: #EEF6F0;
+  --secondary: #ECEEE8;
+  --secondary-foreground: #12140F;
+  --muted: #ECEEE8;
+  --muted-foreground: #62655A;
+  --accent: #E3E5DC;
+  --accent-foreground: #12140F;
+  --destructive: #B3261E;
+  --border: #D3D6CB;
+  --input: #D3D6CB;
+  --ring: var(--brand-primary);
 
   /* Chart colors */
   --chart-1: oklch(0.646 0.222 41.116);
@@ -93,32 +134,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-
-  /* Surface colors (for components) */
-  --surface-1: #ffffff;
-  --surface-2: #f8fafc;
-  --surface-3: #f1f5f9;
-  --surface-4: #e2e8f0;
-  --surface-elevated: #ffffff;
-
-  /* Text colors */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --text-inverted: #ffffff;
-
-  /* Border colors */
-  --border-default: #e2e8f0;
-  --border-muted: #f1f5f9;
-
-  /* Accent text (darkened for light mode contrast) */
-  --accent-blue: #2563eb;
-  --accent-green: #16a34a;
-  --accent-yellow: #ca8a04;
-  --accent-purple: #9333ea;
-  --accent-orange: #ea580c;
-  --accent-emerald: #059669;
-  --accent-violet: #7c3aed;
 }
 
 /* ========================================
@@ -126,24 +141,31 @@
    ======================================== */
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  /* Blueprint dark: deep ink-blue canvas, brighter emerald for contrast.
+     A considered counterpart, not an inversion of light mode. */
+  --brand-primary: #1EA872;
+  --brand-secondary: #1EA872;
+  --brand-primary-hover: #29BE81;
+  --brand-secondary-hover: #29BE81;
+
+  --background: #0F1216;
+  --foreground: #E7EAE3;
+  --card: #171B1F;
+  --card-foreground: #E7EAE3;
+  --popover: #171B1F;
+  --popover-foreground: #E7EAE3;
+  --primary: var(--brand-primary);
+  --primary-foreground: #04140D;
+  --secondary: #171B1F;
+  --secondary-foreground: #E7EAE3;
+  --muted: #171B1F;
+  --muted-foreground: #8B9099;
+  --accent: #1D2227;
+  --accent-foreground: #E7EAE3;
+  --destructive: #E0564C;
+  --border: #262B31;
+  --input: #262B31;
+  --ring: var(--brand-primary);
 
   /* Chart colors */
   --chart-1: oklch(0.488 0.243 264.376);
@@ -161,32 +183,6 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-
-  /* Surface colors (for components) */
-  --surface-1: #000000;
-  --surface-2: #0a0a0a;
-  --surface-3: #18181b;
-  --surface-4: #27272a;
-  --surface-elevated: #18181b;
-
-  /* Text colors */
-  --text-primary: #fafafa;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --text-inverted: #0f172a;
-
-  /* Border colors */
-  --border-default: #27272a;
-  --border-muted: #18181b;
-
-  /* Accent text (lighter for dark mode) */
-  --accent-blue: #60a5fa;
-  --accent-green: #4ade80;
-  --accent-yellow: #facc15;
-  --accent-purple: #c084fc;
-  --accent-orange: #fb923c;
-  --accent-emerald: #34d399;
-  --accent-violet: #a78bfa;
 }
 
 /* ========================================
@@ -199,58 +195,38 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 }
 
 /* ========================================
-   Light Mode Component Overrides
-   These fix dark-first components in light mode.
-   TODO: Gradually migrate components to use theme variables.
+   Brand Utilities
    ======================================== */
 
-:root:not(.dark) {
-  /* Surface overrides */
-  .bg-black { background-color: var(--surface-1); }
-  .bg-zinc-900 { background-color: var(--surface-2); }
-  .bg-zinc-900\/50, .bg-zinc-900\/30, .bg-zinc-900\/80 { background-color: var(--surface-3); }
-  .bg-zinc-800 { background-color: var(--surface-3); }
-  .bg-zinc-700 { background-color: var(--surface-4); }
-  .bg-black\/50, .bg-black\/30 { background-color: var(--surface-3); }
+@layer utilities {
+  /* Blueprint: one flat accent, never a gradient. Class names kept as
+     "brand-gradient" for compatibility with ~85 already-migrated files;
+     they now render solid fills. */
+  .brand-gradient {
+    background-color: var(--brand-primary);
+    color: var(--primary-foreground);
+  }
+  .brand-gradient:hover {
+    background-color: var(--brand-primary-hover);
+  }
+  .brand-gradient-text {
+    color: var(--brand-primary);
+  }
 
-  /* Text overrides */
-  .text-white { color: var(--text-primary); }
-  .text-zinc-100 { color: var(--text-primary); }
-  .text-zinc-200, .text-zinc-300 { color: var(--text-primary); }
-  .text-zinc-400, .text-zinc-500 { color: var(--text-secondary); }
-  .text-zinc-600 { color: var(--text-muted); }
-
-  /* Border overrides */
-  .border-zinc-800, .border-zinc-800\/50 { border-color: var(--border-default); }
-  .border-zinc-700, .border-zinc-700\/50 { border-color: var(--border-default); }
-
-  /* Accent text */
-  .text-blue-400 { color: var(--accent-blue); }
-  .text-green-400 { color: var(--accent-green); }
-  .text-yellow-400 { color: var(--accent-yellow); }
-  .text-purple-400 { color: var(--accent-purple); }
-  .text-orange-400 { color: var(--accent-orange); }
-  .text-emerald-400 { color: var(--accent-emerald); }
-  .text-violet-400 { color: var(--accent-violet); }
-
-  /* Hover states */
-  .hover\:bg-zinc-800:hover { background-color: var(--surface-3); }
-  .hover\:bg-zinc-700:hover { background-color: var(--surface-4); }
-  .hover\:bg-zinc-600:hover { background-color: var(--surface-4); }
-  .hover\:bg-black\/10:hover { background-color: var(--surface-3); }
-
-  /* Group hover */
-  .group:hover .group-hover\:text-orange-400 { color: var(--accent-orange); }
-  .group:hover .group-hover\:text-emerald-400 { color: var(--accent-emerald); }
-
-  /* Dropdown fix */
-  .bg-zinc-900.border-zinc-800 {
-    background-color: var(--surface-1);
-    border-color: var(--border-default);
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  /* Blueprint "spec sheet" label voice: mono, uppercase, tracked.
+     Use for eyebrows, nav links, button labels, table headers. */
+  .label-mono {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
   }
 }

@@ -78,7 +78,7 @@ export function ProofInAction() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Intro — condensed "How It Works" */}
         <div className="text-center mb-10">
-          <Badge variant="outline" className="mb-4 border-border text-muted-foreground">
+          <Badge variant="outline" className="label-mono mb-4 text-[11px] border-border text-muted-foreground">
             How It Works
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -123,7 +123,7 @@ export function ProofInAction() {
           <TabsContent value="prompt" className="w-full">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <Badge variant="outline" className="mb-4 border-primary/30 text-primary">
+                <Badge variant="outline" className="label-mono mb-4 text-[11px] border-primary/30 text-primary">
                   Sample Prompt
                 </Badge>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">
@@ -161,7 +161,7 @@ export function ProofInAction() {
           <TabsContent value="mcp" className="w-full">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <Badge variant="outline" className="mb-4 border-primary/30 text-primary">
+                <Badge variant="outline" className="label-mono mb-4 text-[11px] border-primary/30 text-primary">
                   <Sparkles className="h-3 w-3 mr-1" />
                   New: MCP Apps Support
                 </Badge>
@@ -216,7 +216,7 @@ export function ProofInAction() {
           <TabsContent value="agent" className="w-full">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <Badge variant="outline" className="mb-4 border-primary/30 text-primary">
+                <Badge variant="outline" className="label-mono mb-4 text-[11px] border-primary/30 text-primary">
                   <Bot className="h-3 w-3 mr-1" />
                   The Future of Outbound
                 </Badge>

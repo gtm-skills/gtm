@@ -93,9 +93,9 @@ function NavDropdown({ item }: { item: NavItem }) {
     return (
       <Link
         href={item.href}
-        className={`text-sm transition-colors ${
+        className={`label-mono text-xs transition-colors ${
           item.highlight
-            ? 'text-cyan-400 hover:text-cyan-300 font-medium'
+            ? 'text-cyan-400 hover:text-cyan-300'
             : 'text-muted-foreground hover:text-foreground'
         }`}
       >
@@ -111,7 +111,7 @@ function NavDropdown({ item }: { item: NavItem }) {
       onMouseLeave={handleMouseLeave}
     >
       <button
-        className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        className="label-mono flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
       >
         {item.name}
         <ChevronDown className={`h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -187,14 +187,14 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button variant="outline" size="sm" className="gap-2">
+            <Button variant="outline" size="sm" className="label-mono gap-2 text-xs">
               <Github className="h-4 w-4" />
               Star
               <GitHubStars repo="gtm-skills/gtm" className="text-xs" />
             </Button>
           </a>
           <Link href="/download">
-            <Button size="sm" className="gap-2 brand-gradient">
+            <Button size="sm" className="label-mono gap-2 text-xs brand-gradient">
               <Download className="h-4 w-4" />
               Get Extension
             </Button>

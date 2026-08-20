@@ -4,71 +4,36 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ========================================================================
-   COMPONENT MIGRATION MAP  (read this before touching any component)
+   DESIGN SYSTEM: "BLUEPRINT"
    ========================================================================
-   The brand (orange -> red gradient) and a full light/dark token system
-   now live in this file as real CSS variables + Tailwind v4 `@theme`
-   utilities (see below). Many older components still hardcode dark-mode
-   Tailwind classes (bg-black, bg-zinc-900, text-zinc-400, etc.) instead of
-   using those tokens. A ~80-line `:root:not(.dark) { .bg-black {...} }`
-   patch used to paper over this in light mode -- it has been removed, since
-   the fix belongs in the token layer, not in a CSS override hack.
+   Replaces the previous orange/red brand tokens. Light mode is the
+   PRIMARY experience (cool paper canvas, technical/precision-document
+   feel); dark mode is a secondary, equally-considered counterpart
+   (deep ink-blue canvas), not an inversion.
 
-   This means: any component still using the raw classes on the left below
-   will now render literally black/zinc/white in BOTH light and dark mode
-   (no more light-mode patch). That is expected — fixing it is a mechanical
-   find/replace pass across components (Phase 2), not part of this change.
-   Use this table to do that pass. Counts are approximate occurrences in
-   src/ at the time this table was written (`grep -rn` over *.tsx/*.ts).
+   TOKEN LAYER: `--brand-primary` is now Blueprint's single accent
+   (emerald). There is no second brand hue — `.brand-gradient` /
+   `.brand-gradient-text` (used across ~85 files from the prior brand
+   pass) are kept as class names for compatibility, but now render a
+   FLAT solid fill, not a two-tone gradient — Blueprint's discipline is
+   one accent color, used sparingly, never a gradient.
 
-   SURFACES (backgrounds)
-     bg-black                                  -> bg-background
-     bg-black/30, bg-black/50, bg-black/60      -> bg-background/30, /50, /60
-     bg-zinc-900                                -> bg-card
-     bg-zinc-900/30, /50, /70, /80              -> bg-card/30, /50, /70, /80
-     bg-zinc-800                                -> bg-muted   (or bg-accent for hover states)
-     bg-zinc-700                                -> bg-muted
-     hover:bg-zinc-800, hover:bg-zinc-700/600   -> hover:bg-muted  (or hover:bg-accent)
-     hover:bg-black/10                          -> hover:bg-accent
-     bg-zinc-900.border-zinc-800 (dropdown/menu combo) -> bg-popover border-border
+   RADIUS: base radius dropped to 4px (from 10px). Blueprint favors
+   sharp, table-like structure — most UI sits in the 0-8px range now.
+   Bigger radii (--radius-3xl/4xl) still exist for large feature cards
+   that intentionally want a softer edge, but are no longer the norm.
 
-   TEXT
-     text-white                                 -> text-foreground
-     text-zinc-100, text-zinc-200, text-zinc-300 -> text-foreground
-     text-zinc-400, text-zinc-500                -> text-muted-foreground
-     text-zinc-600                                -> text-muted-foreground
+   TYPE: Geist Mono (already loaded via next/font in layout.tsx) is
+   available as `font-mono` — use it for nav links, eyebrows, buttons,
+   and tabular data/labels, uppercase with letter-spacing, per
+   Blueprint's "spec sheet" voice. Geist Sans (`font-sans`) stays the
+   body/headline face.
 
-   BORDERS
-     border-zinc-800, border-zinc-800/50         -> border-border
-     border-zinc-700, border-zinc-700/50         -> border-border
-
-   BRAND GRADIENT (the orange -> red brand mark, currently inlined ad hoc
-   as `bg-gradient-to-r from-orange-500 to-red-500` / `hover:from-orange-600
-   hover:to-red-600` across 25+ files, e.g. header.tsx CTA buttons)
-     bg-gradient-to-r from-orange-500 to-red-500 -> .brand-gradient
-     bg-gradient-to-r ... bg-clip-text text-transparent (gradient text)
-                                                  -> .brand-gradient-text
-     Hover variants (from-orange-600 to-red-600) are baked into
-     .brand-gradient:hover — drop the manual hover:from-... / hover:to-... classes.
-
-   DECORATIVE ACCENT TEXT (icons/badges using e.g. text-blue-400,
-   text-orange-400, text-emerald-400, group-hover:text-orange-400, etc.)
-   These are intentionally multi-color (not brand, not neutral) and were
-   darkened for light-mode contrast by the old hack blocks
-   accent color vars (blue/green/yellow/purple/orange/emerald/violet). Those
-   vars were removed along with the hack (nothing outside globals.css
-   referenced them). Phase 2 should either accept the lighter *-400 shade in
-   light mode or reintroduce light-mode-safe accent tokens if contrast turns
-   out to be a real problem, not addressed here.
-
-   USING THE BRAND TOKENS DIRECTLY
-   brand-primary and brand-secondary are real theme colors, so standard
-   Tailwind utilities work too: bg-brand-primary, text-brand-secondary,
-   border-brand-primary, from-brand-primary, to-brand-secondary, etc.
-   The primary token itself is now brand-rooted (see below), so plain
-   bg-primary, text-primary, the default Button variant, and focus rings
-   already carry the brand color; prefer those over the gradient utilities
-   unless you specifically want the two-tone gradient.
+   DECORATIVE ACCENT COLORS (icons/badges using e.g. text-blue-400,
+   text-orange-400, etc., left alone by the prior migration pass) were
+   not touched here either — they're incidental, not part of either
+   token system. Revisit only if a specific one visibly clashes with
+   the new paper/emerald palette.
    ======================================================================== */
 
 /* ========================================
@@ -125,34 +90,32 @@
    ======================================== */
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.25rem;
 
-  /* Brand (orange -> red). Fixed across light/dark -- the brand hue itself
-     does not invert, only the neutral surfaces around it do. Values are
-     Tailwinds orange-500 / red-500 oklch equivalents. */
-  --brand-primary: oklch(0.705 0.213 47.604); /* orange-500 */
-  --brand-secondary: oklch(0.637 0.237 25.331); /* red-500 */
-  --brand-primary-hover: oklch(0.646 0.222 41.116); /* orange-600 */
-  --brand-secondary-hover: oklch(0.577 0.245 27.325); /* red-600 */
+  /* Blueprint accent: Signal Emerald. One hue, used sparingly. */
+  --brand-primary: #0E7A52;
+  --brand-secondary: #0E7A52;
+  --brand-primary-hover: #0B6444;
+  --brand-secondary-hover: #0B6444;
 
-  /* Core colors */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  /* Core colors -- cool paper canvas (primary experience) */
+  --background: #F6F7F4;
+  --foreground: #12140F;
+  --card: #ECEEE8;
+  --card-foreground: #12140F;
+  --popover: #ECEEE8;
+  --popover-foreground: #12140F;
   --primary: var(--brand-primary);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0 0);
-  --input: oklch(0.9 0 0);
+  --primary-foreground: #EEF6F0;
+  --secondary: #ECEEE8;
+  --secondary-foreground: #12140F;
+  --muted: #ECEEE8;
+  --muted-foreground: #62655A;
+  --accent: #E3E5DC;
+  --accent-foreground: #12140F;
+  --destructive: #B3261E;
+  --border: #D3D6CB;
+  --input: #D3D6CB;
   --ring: var(--brand-primary);
 
   /* Chart colors */
@@ -178,23 +141,30 @@
    ======================================== */
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+  /* Blueprint dark: deep ink-blue canvas, brighter emerald for contrast.
+     A considered counterpart, not an inversion of light mode. */
+  --brand-primary: #1EA872;
+  --brand-secondary: #1EA872;
+  --brand-primary-hover: #29BE81;
+  --brand-secondary-hover: #29BE81;
+
+  --background: #0F1216;
+  --foreground: #E7EAE3;
+  --card: #171B1F;
+  --card-foreground: #E7EAE3;
+  --popover: #171B1F;
+  --popover-foreground: #E7EAE3;
   --primary: var(--brand-primary);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --primary-foreground: #04140D;
+  --secondary: #171B1F;
+  --secondary-foreground: #E7EAE3;
+  --muted: #171B1F;
+  --muted-foreground: #8B9099;
+  --accent: #1D2227;
+  --accent-foreground: #E7EAE3;
+  --destructive: #E0564C;
+  --border: #262B31;
+  --input: #262B31;
   --ring: var(--brand-primary);
 
   /* Chart colors */
@@ -225,6 +195,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 }
 
@@ -233,16 +207,26 @@
    ======================================== */
 
 @layer utilities {
+  /* Blueprint: one flat accent, never a gradient. Class names kept as
+     "brand-gradient" for compatibility with ~85 already-migrated files;
+     they now render solid fills. */
   .brand-gradient {
-    background-image: linear-gradient(to right, var(--brand-primary), var(--brand-secondary));
+    background-color: var(--brand-primary);
+    color: var(--primary-foreground);
   }
   .brand-gradient:hover {
-    background-image: linear-gradient(to right, var(--brand-primary-hover), var(--brand-secondary-hover));
+    background-color: var(--brand-primary-hover);
   }
   .brand-gradient-text {
-    background-image: linear-gradient(to right, var(--brand-primary), var(--brand-secondary));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    color: var(--brand-primary);
+  }
+
+  /* Blueprint "spec sheet" label voice: mono, uppercase, tracked.
+     Use for eyebrows, nav links, button labels, table headers. */
+  .label-mono {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
   }
 }

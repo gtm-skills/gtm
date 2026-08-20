@@ -39,7 +39,7 @@ export function DevelopersSection() {
     <section className="py-16 md:py-24 bg-gradient-to-b from-emerald-500/5 via-transparent to-transparent">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <Badge variant="outline" className="mb-4 border-emerald-500/30 text-emerald-400">
+          <Badge variant="outline" className="label-mono mb-4 text-[11px] border-primary/30 text-primary">
             <Code className="h-3 w-3 mr-1" />
             For Developers
           </Badge>

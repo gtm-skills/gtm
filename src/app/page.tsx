@@ -85,80 +85,77 @@ export default function Home() {
       </Link>
 
       {/* Hero */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 via-transparent to-transparent" />
+      <section className="relative py-20 md:py-24 overflow-hidden border-b border-border">
+        {/* Corner registration marks -- Blueprint's signature motif */}
+        <span className="hidden md:block absolute top-6 left-6 w-3.5 h-3.5 border-t-[1.5px] border-l-[1.5px] border-primary/60" aria-hidden="true" />
+        <span className="hidden md:block absolute top-6 right-6 w-3.5 h-3.5 border-t-[1.5px] border-r-[1.5px] border-primary/60" aria-hidden="true" />
 
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Single badge */}
-            <Badge variant="outline" className="mb-6 border-orange-500/30 text-orange-400">
-              <Star className="h-3 w-3 mr-1 fill-orange-400" />
-              Free & Open Source
-            </Badge>
-
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              The GTM Operating System
-              <br className="hidden sm:block" />
-              <span className="sm:inline"> for </span>
-              <span className="brand-gradient-text">
-                Agentic Sales
-              </span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              2,500+ prompts, agent workflows, and tools for prospecting, outreach, discovery, and closing.
-            </p>
-
-            {/* Primary CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <a
-                href="https://github.com/gtm-skills/gtm"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button size="lg" className="h-12 px-8 gap-2 brand-gradient">
-                  <Star className="h-4 w-4" />
-                  Star on GitHub
-                  <GitHubStars repo="gtm-skills/gtm" className="text-sm ml-1" />
-                </Button>
-              </a>
-              <Link href="/prompts">
-                <Button variant="outline" size="lg" className="h-12 px-8 gap-2">
-                  Browse Prompts
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-
-            {/* Animated Command Demo */}
-            <div className="mb-16">
-              <AnimatedChatDemo />
-            </div>
-
-            {/* Compact stats row */}
-            <div className="flex flex-wrap justify-center gap-8 text-center">
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-foreground">2,500+</div>
-                <div className="text-sm text-muted-foreground">Prompts</div>
-              </div>
-              <div className="hidden sm:block w-px bg-border" />
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-foreground">8</div>
-                <div className="text-sm text-muted-foreground">Industries</div>
-              </div>
-              <div className="hidden sm:block w-px bg-border" />
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-foreground">24</div>
-                <div className="text-sm text-muted-foreground">Writing Styles</div>
-              </div>
-              <div className="hidden sm:block w-px bg-border" />
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-foreground">MIT</div>
-                <div className="text-sm text-muted-foreground">Licensed</div>
-              </div>
-            </div>
+        <div className="relative max-w-5xl mx-auto px-6">
+          <div className="label-mono flex items-center gap-2.5 text-xs text-primary mb-5">
+            <span className="w-5 h-px bg-primary" aria-hidden="true" />
+            Free &amp; Open Source · MIT Licensed
           </div>
+
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 max-w-3xl" style={{ textWrap: 'balance' }}>
+            The GTM operating system for{' '}
+            <span className="brand-gradient-text">Agentic Sales</span>
+          </h1>
+
+          <p className="text-lg text-muted-foreground max-w-2xl mb-8">
+            2,500+ prompts, agent workflows, and tools for prospecting, outreach, discovery, and closing.
+          </p>
+
+          {/* Primary CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 mb-14">
+            <a
+              href="https://github.com/gtm-skills/gtm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="label-mono h-12 px-8 gap-2 text-xs brand-gradient">
+                <Star className="h-4 w-4" />
+                Star on GitHub
+                <GitHubStars repo="gtm-skills/gtm" className="text-xs ml-1" />
+              </Button>
+            </a>
+            <Link href="/prompts">
+              <Button variant="outline" size="lg" className="label-mono h-12 px-8 gap-2 text-xs">
+                Browse Prompts
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+
+          {/* Animated Command Demo */}
+          <div className="mb-14 max-w-3xl">
+            <AnimatedChatDemo />
+          </div>
+
+          {/* Spec table -- Blueprint's stat treatment */}
+          <table className="w-full max-w-2xl border-collapse text-sm">
+            <thead>
+              <tr className="label-mono text-[10px] text-muted-foreground">
+                <th className="text-left font-semibold pb-2 pr-6 border-b border-foreground/70">Spec</th>
+                <th className="text-left font-semibold pb-2 pr-6 border-b border-foreground/70">Value</th>
+                <th className="text-left font-semibold pb-2 pr-6 border-b border-foreground/70">Spec</th>
+                <th className="text-left font-semibold pb-2 border-b border-foreground/70">Value</th>
+              </tr>
+            </thead>
+            <tbody className="[&_td]:py-3 [&_td]:pr-6 [&_td]:border-b [&_td]:border-border [&_td]:tabular-nums">
+              <tr>
+                <td className="text-muted-foreground">Prompts</td>
+                <td className="font-semibold text-primary">2,500+</td>
+                <td className="text-muted-foreground">Writing styles</td>
+                <td className="font-semibold text-primary">24</td>
+              </tr>
+              <tr>
+                <td className="text-muted-foreground">Industries</td>
+                <td className="font-semibold text-primary">8</td>
+                <td className="text-muted-foreground">License</td>
+                <td className="font-semibold text-primary">MIT</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 

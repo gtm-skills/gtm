@@ -19,7 +19,7 @@ export function FinalCta() {
           <div className="absolute bottom-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
           <div className="relative max-w-2xl mx-auto">
-            <Badge variant="outline" className="mb-4 border-border text-muted-foreground">
+            <Badge variant="outline" className="label-mono mb-4 text-[11px] border-border text-muted-foreground">
               <Star className="h-3 w-3 mr-1 text-yellow-400" />
               Support Open Source
             </Badge>

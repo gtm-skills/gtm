@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getIndexablePromptSlugs } from '@/data/pseo';
 import { getAllAgentSlugs } from '@/data/agentic';
+import { getAllTutorialSlugs } from '@/data/tutorials';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://gtm-skills.com';
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/agentic-bdr',
     '/tutorials',
+    '/guides',
     '/prompts',
     '/industry',
     '/industry/saas',
@@ -96,12 +98,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const agentSlugs = getAllAgentSlugs();
   const agentPages = agentSlugs.map((slug) => `/agentic-bdr/${slug}`);
 
-  const allPages = [...corePages, ...tonalityPages, ...promptPages, ...agentPages];
+  // Tutorial detail pages
+  const tutorialSlugs = getAllTutorialSlugs();
+  const tutorialPages = tutorialSlugs.map((slug) => `/tutorials/${slug}`);
+
+  // Guide pages (hand-authored, static folders)
+  const guideSlugs = [
+    'ai-sdr-agents-guide',
+    'ai-sdr-agent-vs-traditional-sdr',
+    'build-ai-sdr-with-claude-mcp',
+    'clay-vs-claude-mcp',
+    'agentic-gtm-prompt-chains',
+    'openclaw-vs-ai-sdr-platforms',
+    'sales-methodology-for-ai-agents',
+    'agentic-gtm-stack-2026',
+  ];
+  const guidePages = guideSlugs.map((slug) => `/guides/${slug}`);
+
+  const allPages = [...corePages, ...tonalityPages, ...promptPages, ...agentPages, ...tutorialPages, ...guidePages];
 
   return allPages.map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: path === '' ? 'daily' : 'weekly',
-    priority: path === '' ? 1 : path.startsWith('/prompts/') ? 0.8 : path.startsWith('/agentic-bdr/') ? 0.85 : path.includes('tonalities') ? 0.7 : 0.8,
+    priority: path === ''
+      ? 1
+      : path.startsWith('/guides/') || path.startsWith('/tutorials/')
+        ? 0.85
+        : path.startsWith('/prompts/')
+          ? 0.8
+          : path.startsWith('/agentic-bdr/')
+            ? 0.85
+            : path.includes('tonalities')
+              ? 0.7
+              : 0.8,
   }));
 }

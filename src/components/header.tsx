@@ -59,8 +59,9 @@ const navigation: NavItem[] = [
   },
   {
     name: 'Learn',
-    href: '/tutorials',
+    href: '/guides',
     children: [
+      { name: 'Guides', href: '/guides', icon: FileCode, description: 'In-depth agentic GTM guides' },
       { name: 'Tutorials', href: '/tutorials', icon: BookOpen, description: 'Step-by-step guides' },
       { name: 'Agentic BDR', href: '/agentic-bdr', icon: Bot, description: 'Future of outbound' },
     ],

@@ -28,7 +28,7 @@ const tutorials = [
     time: '15 min',
     tags: ['OpenClaw', 'Agentic', 'Open Source'],
     featured: true,
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     slug: 'mcp-server-sales',
@@ -39,7 +39,7 @@ const tutorials = [
     time: '45 min',
     tags: ['MCP', 'Claude', 'Developer'],
     featured: false,
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     slug: 'clay-research-agent',
@@ -50,7 +50,7 @@ const tutorials = [
     time: '20 min',
     tags: ['Clay', 'Research', 'Enrichment'],
     featured: false,
-    comingSoon: true,
+    comingSoon: false,
   },
 ];
 

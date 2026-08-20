@@ -21,7 +21,6 @@ import {
   Terminal,
   Palette,
   Users,
-  Workflow,
   Star,
 } from 'lucide-react';
 
@@ -40,18 +39,11 @@ interface NavItem {
 const navigation: NavItem[] = [
   { name: 'Prompts', href: '/prompts' },
   {
-    name: 'Agents',
+    name: 'Agents & Tools',
     href: '/agents',
     children: [
       { name: 'Meet the Team', href: '/agents', icon: Users, description: 'Scout, Writer, Rep, Closer' },
-      { name: 'Orchestrator API', href: '/developers#orchestrator', icon: Workflow, description: 'Route tasks to agents' },
       { name: 'OpenClaw Setup', href: '/openclaw', icon: Terminal, description: 'Install the full team' },
-    ],
-  },
-  {
-    name: 'Tools',
-    href: '/free-tools',
-    children: [
       { name: 'MCP Server', href: '/free-tools/mcp-server', icon: Bot, description: 'Claude Desktop tools' },
       { name: 'Browser Extension', href: '/download', icon: Globe, description: 'LinkedIn & Gmail integration' },
       { name: 'Tonalities', href: '/free-tools/tonalities', icon: Palette, description: '24 writing styles' },

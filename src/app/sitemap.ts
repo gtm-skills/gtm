@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllPromptSlugs } from '@/data/pseo';
+import { getIndexablePromptSlugs } from '@/data/pseo';
 import { getAllAgentSlugs } from '@/data/agentic';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -84,8 +84,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const tonalityPages = ['/free-tools/tonalities', ...tonalities.map((t) => `/free-tools/tonalities/${t}`)];
 
-  // pSEO prompt pages (Industry×Role, Industry×Methodology, Role×Workflow)
-  const promptSlugs = getAllPromptSlugs();
+  // pSEO prompt pages (Industry×Role, Industry×Methodology, Role×Workflow).
+  // Triple-combo pages (Industry×Role×Workflow) are intentionally excluded —
+  // they're thin, mostly-orphaned pages that are noindexed (see
+  // prompts/[...slug]/page.tsx generateMetadata) and still statically built,
+  // but kept out of the sitemap.
+  const promptSlugs = getIndexablePromptSlugs();
   const promptPages = promptSlugs.map((slug) => `/prompts/${slug.join('/')}`);
 
   // Agentic BDR pages (Tier 8)

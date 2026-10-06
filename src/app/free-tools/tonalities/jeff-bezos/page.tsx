@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, FileText } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Jeff Bezos Tonality | Customer-Obsessed Sales Writing | Free GTM Prompts',
+  title: 'Jeff Bezos Tonality | Customer-Obsessed Sales Writing | Free Claude Prompt',
   description: 'Write like Jeff Bezos. Customer-obsessed, data-driven narratives, six-pager philosophy. Copy these Claude/ChatGPT prompts for enterprise proposals and strategic deals.',
   keywords: 'bezos question mark emails, customer obsession sales, six-pager writing, amazon memo format, working backwards method, jeff bezos communication',
   openGraph: {

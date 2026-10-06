@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, DollarSign } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Value-Based Selling | ROI-Focused Sales Writing | Free GTM Prompts',
+  title: 'Value-Based Selling | ROI-Focused Sales Writing | Free Claude Prompt',
   description: 'Master value-based selling. Quantify ROI, build business cases, speak the language of finance. Free prompts for Claude & ChatGPT.',
   keywords: 'value based selling, roi selling, business case sales, value selling methodology, quantified value proposition, value engineering sales',
   openGraph: {

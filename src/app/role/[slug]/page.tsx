@@ -7,6 +7,7 @@ import { SoftwareSourceCodeJsonLd, BreadcrumbJsonLd } from '@/components/json-ld
 import { roles, getRolePrompts } from '@/lib/prompts';
 import { ArrowLeft, Download, ChevronRight } from 'lucide-react';
 import type { Metadata } from 'next';
+import { InlineUpsell } from '@/components/skills/inline-upsell';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -157,6 +158,8 @@ export default async function RoleDetailPage({ params }: Props) {
             </Button>
           </div>
         )}
+
+        <InlineUpsell kit="sdr-kit" />
 
         {/* Bottom CTA */}
         <div className="mt-16 p-8 rounded-xl bg-card text-center">

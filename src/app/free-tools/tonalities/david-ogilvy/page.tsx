@@ -4,11 +4,10 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, PenTool } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'David Ogilvy Tonality | Classic Persuasion Sales Writing | Premium GTM Prompts',
-  description: 'Write like David Ogilvy. Research-backed, headline-driven, benefit-focused. The father of advertising applied to B2B sales. Premium prompts for Claude/ChatGPT.',
+  title: 'David Ogilvy Tonality | Classic Persuasion Sales Writing | Free Claude Prompt',
+  description: 'Write like David Ogilvy. Research-backed, headline-driven, benefit-focused. The father of advertising applied to B2B sales. Free prompt for Claude, ChatGPT and Claude Code.',
   keywords: 'david ogilvy copywriting, ogilvy on advertising, headline writing, benefit focused selling, classic advertising style, direct response copywriting',
   openGraph: {
     title: 'David Ogilvy Tonality | Classic Persuasion Sales Writing',
@@ -248,7 +247,7 @@ export default function DavidOgilvyTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="David Ogilvy">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -315,7 +314,7 @@ export default function DavidOgilvyTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

@@ -4,10 +4,9 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Repeat } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'Competitive Displacement Tonality | Rip & Replace Sales | Premium GTM Prompts',
+  title: 'Competitive Displacement Tonality | Rip & Replace Sales | Free Claude Prompt',
   description: 'Master competitive displacement. Respectful but surgical approaches to unseat incumbents. Premium prompts for rip-and-replace deals.',
   keywords: 'competitive displacement, rip and replace sales, unseat incumbent, competitive selling, vendor switch, competitive takeout',
   openGraph: {
@@ -301,7 +300,7 @@ export default function CompetitiveDisplacementTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Competitive Displacement">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -368,7 +367,7 @@ export default function CompetitiveDisplacementTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

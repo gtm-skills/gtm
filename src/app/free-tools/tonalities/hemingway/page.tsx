@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Target } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Hemingway Tonality | Radically Brief Sales Writing | Free GTM Prompts',
+  title: 'Hemingway Tonality | Radically Brief Sales Writing | Free Claude Prompt',
   description: 'Write like Hemingway. Short sentences, strong verbs, extreme clarity. Copy these Claude/ChatGPT prompts for technical audiences and busy executives.',
   keywords: 'hemingway writing style business, concise sales copy, brevity in business communication, short sentence copywriting, minimalist sales writing',
   openGraph: {

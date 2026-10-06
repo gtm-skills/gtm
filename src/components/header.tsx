@@ -180,7 +180,7 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="" width={28} height={28} className="h-7 w-7" priority />
+          <Image src="/logo.svg" alt="" width={28} height={28} className="h-7 w-7" priority unoptimized />
           <span className="text-lg font-bold text-foreground">GTM Skills</span>
         </Link>
 

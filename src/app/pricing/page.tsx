@@ -34,7 +34,6 @@ export default async function PricingPage() {
     <div className="max-w-6xl mx-auto px-6 py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <div className="text-center mb-12">
-        <p className="label-mono text-xs text-primary mb-3">§ Plans</p>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Buy the kit. Or take everything.</h1>
         <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
           Finished playbooks for the agents you already use. Pay once per kit, or {formatPrice(pro.priceCents)}/month for all of it.

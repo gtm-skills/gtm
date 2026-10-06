@@ -32,7 +32,6 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     <div className="max-w-6xl mx-auto px-6 py-14">
       <div className="flex items-start justify-between gap-4 mb-10">
         <div>
-          <p className="label-mono text-xs text-primary mb-3">§ Account</p>
           <h1 className="text-3xl font-bold tracking-tight">{user.email}</h1>
           <p className="text-sm text-muted-foreground mt-1">Same account works in Claude Code, Cursor, Codex and the ChatGPT plugin.</p>
         </div>

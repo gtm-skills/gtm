@@ -39,7 +39,7 @@ export function Footer() {
               <span className="text-lg font-bold text-foreground">GTM Skills</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
-              The GTM Operating System for Agentic Sales.
+              Agent skills that sell. Open-source core, premium kits.
             </p>
             <div className="flex gap-4">
               <a

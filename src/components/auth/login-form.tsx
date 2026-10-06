@@ -13,12 +13,12 @@ export function LoginForm({ next, presetEmail }: { next: string; presetEmail?: s
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
-  const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
+  const redirectTo = () => `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
 
   const magic = async (e: React.FormEvent) => {
     e.preventDefault();
     setBusy(true); setErr(null);
-    const { error } = await createClient().auth.signInWithOtp({ email, options: { emailRedirectTo: redirectTo } });
+    const { error } = await createClient().auth.signInWithOtp({ email, options: { emailRedirectTo: redirectTo() } });
     setBusy(false);
     if (error) setErr(error.message); else { setSent(true); trackEvent('signup', { provider: 'email' }); }
   };
@@ -26,7 +26,7 @@ export function LoginForm({ next, presetEmail }: { next: string; presetEmail?: s
   const github = async () => {
     setBusy(true); setErr(null);
     trackEvent('signup', { provider: 'github' });
-    const { error } = await createClient().auth.signInWithOAuth({ provider: 'github', options: { redirectTo } });
+    const { error } = await createClient().auth.signInWithOAuth({ provider: 'github', options: { redirectTo: redirectTo() } });
     if (error) { setErr(error.message); setBusy(false); }
   };
 

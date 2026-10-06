@@ -26,7 +26,6 @@ export default async function SkillsPage({ searchParams }: { searchParams: Promi
   return (
     <div className="max-w-7xl mx-auto px-6 py-14">
       <div className="mb-10">
-        <p className="label-mono text-xs text-primary mb-3">§ Skills</p>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Agent skills that sell.</h1>
         <p className="text-muted-foreground mt-3 max-w-2xl">
           {STATS.skills} installable skills for the whole GTM motion. {STATS.freeSkills} are free, run end to end, and are yours to keep.

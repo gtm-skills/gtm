@@ -21,7 +21,6 @@ export default function PluginPage() {
   const pro = kits.find((k) => k.id === 'pro')!;
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
-      <p className="label-mono text-xs text-primary mb-3">§ ChatGPT plugin</p>
       <h1 className="text-4xl md:text-6xl font-bold tracking-tight max-w-3xl">The sales call loop, inside ChatGPT.</h1>
       <p className="text-lg text-muted-foreground mt-4 max-w-2xl">
         Prep, debrief, follow up. Methodology from the GTM Skills library, rendered as cards you can act on. Free every day. Sign in to unlock the Pro playbooks.

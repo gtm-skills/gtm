@@ -3,17 +3,17 @@ import { Github, Twitter, Linkedin } from 'lucide-react';
 import { NewsletterSignup } from '@/components/newsletter-signup';
 
 const footerLinks = {
-  Prompts: [
-    { name: 'By Role', href: '/role' },
-    { name: 'By Industry', href: '/industry' },
-    { name: 'By Methodology', href: '/methodology' },
-    { name: 'All Prompts', href: '/prompts' },
+  Skills: [
+    { name: 'All Skills', href: '/skills' },
+    { name: 'Free Skills', href: '/skills?tier=free' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Account', href: '/account' },
   ],
-  Tools: [
-    { name: 'Browser Extension', href: '/pricing' },
-    { name: 'Voice Templates', href: '/voice-templates' },
-    { name: 'HubSpot', href: '/integrations/hubspot' },
+  Free: [
+    { name: 'Prompts', href: '/prompts' },
+    { name: 'Tonalities', href: '/free-tools/tonalities' },
     { name: 'MCP Server', href: '/free-tools/mcp-server' },
+    { name: 'ChatGPT Plugin', href: '/plugin' },
   ],
   Learn: [
     { name: 'Tutorials', href: '/tutorials' },
@@ -101,7 +101,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} GTM Skills. MIT License.
+            © {new Date().getFullYear()} GTM Skills by Prospeda. Open-source core is MIT.
           </p>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <Link href="/privacy" className="hover:text-foreground transition-colors">

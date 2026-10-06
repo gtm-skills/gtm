@@ -5,23 +5,29 @@ import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { GitHubStars } from '@/components/github-stars';
 import { SearchButton } from '@/components/command-menu';
+import { AuthButton } from '@/components/auth/auth-button';
 import {
   Menu,
   X,
   Github,
-  Download,
   ChevronDown,
   Globe,
   Bot,
   BookOpen,
   Code,
   FileCode,
-  Terminal,
   Palette,
-  Users,
-  Star,
+  Radar,
+  Send,
+  Search,
+  Handshake,
+  BarChart3,
+  Rocket,
+  Orbit,
+  Type,
+  Plug,
+  Sparkles,
 } from 'lucide-react';
 
 interface NavItem {
@@ -37,35 +43,42 @@ interface NavItem {
 }
 
 const navigation: NavItem[] = [
-  { name: 'Prompts', href: '/prompts' },
+  { name: 'Skills', href: '/skills' },
   {
-    name: 'Agents & Tools',
-    href: '/agents',
+    name: 'Categories',
+    href: '/skills',
     children: [
-      { name: 'Meet the Team', href: '/agents', icon: Users, description: 'Scout, Writer, Rep, Closer' },
-      { name: 'OpenClaw Setup', href: '/openclaw', icon: Terminal, description: 'Install the full team' },
-      { name: 'MCP Server', href: '/free-tools/mcp-server', icon: Bot, description: 'Claude Desktop tools' },
-      { name: 'Browser Extension', href: '/pricing', icon: Globe, description: 'LinkedIn & Gmail integration' },
-      { name: 'Tonalities', href: '/free-tools/tonalities', icon: Palette, description: '24 writing styles' },
+      { name: 'Prospecting', href: '/skills/category/prospecting', icon: Radar, description: 'Find and qualify accounts' },
+      { name: 'Outreach', href: '/skills/category/outreach', icon: Send, description: 'Cold email, LinkedIn, sequences' },
+      { name: 'Discovery', href: '/skills/category/discovery', icon: Search, description: 'Calls that surface pain' },
+      { name: 'Closing', href: '/skills/category/closing', icon: Handshake, description: 'Multi-thread, negotiate, sign' },
+      { name: 'RevOps', href: '/skills/category/revops', icon: BarChart3, description: 'Pipeline, forecast, CRM' },
+      { name: 'Founder-led', href: '/skills/category/founder', icon: Rocket, description: 'Sell before a sales team' },
+      { name: 'Agent Fleet', href: '/skills/category/agents', icon: Orbit, description: 'Autonomous teammates' },
+      { name: 'Tonality', href: '/skills/category/tonality', icon: Type, description: 'Write in a voice' },
     ],
   },
+  {
+    name: 'Tools',
+    href: '/free-tools',
+    children: [
+      { name: 'ChatGPT Plugin', href: '/plugin', icon: Sparkles, description: 'Call prep, debrief, follow-up in ChatGPT' },
+      { name: 'MCP Server', href: '/free-tools/mcp-server', icon: Plug, description: '18 sales tools for Claude' },
+      { name: 'Prompts', href: '/prompts', icon: FileCode, description: 'Free prompt library' },
+      { name: 'Tonalities', href: '/free-tools/tonalities', icon: Palette, description: '24 writing styles' },
+      { name: 'Browser Extension', href: '/free-tools', icon: Globe, description: 'LinkedIn & Gmail' },
+      { name: 'API', href: '/developers', icon: Code, description: 'REST reference' },
+    ],
+  },
+  { name: 'Pricing', href: '/pricing' },
   {
     name: 'Learn',
     href: '/guides',
     children: [
       { name: 'Guides', href: '/guides', icon: FileCode, description: 'In-depth agentic GTM guides' },
-      { name: 'Tutorials', href: '/tutorials', icon: BookOpen, description: 'Step-by-step guides' },
-      { name: 'Agentic BDR', href: '/agentic-bdr', icon: Bot, description: 'Future of outbound' },
-    ],
-  },
-  {
-    name: 'Developers',
-    href: '/developers',
-    children: [
-      { name: 'API Docs', href: '/developers', icon: Code, description: 'REST API reference' },
-      { name: 'Agents API', href: '/developers#agents-api', icon: Users, description: 'Agent skills & orchestrator' },
-      { name: 'OpenAPI Spec', href: '/openapi.json', icon: FileCode, description: 'Download spec' },
-      { name: 'GitHub', href: 'https://github.com/gtm-skills/gtm', icon: Github, description: 'Source code' },
+      { name: 'Tutorials', href: '/tutorials', icon: BookOpen, description: 'Step-by-step' },
+      { name: 'Agentic BDR', href: '/agentic-bdr', icon: Bot, description: 'The future of outbound' },
+      { name: 'GitHub', href: 'https://github.com/gtm-skills/gtm', icon: Github, description: 'Open-source core' },
     ],
   },
 ];
@@ -128,9 +141,9 @@ function NavDropdown({ item }: { item: NavItem }) {
                 rel={child.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent transition-colors group"
               >
-                <child.icon className="h-5 w-5 text-muted-foreground group-hover:text-orange-400 transition-colors mt-0.5" />
+                <child.icon className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-0.5" />
                 <div>
-                  <div className="text-sm font-medium text-foreground group-hover:text-orange-400 transition-colors">
+                  <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                     {child.name}
                   </div>
                   {child.description && (
@@ -182,21 +195,10 @@ export function Header() {
         <div className="hidden md:flex md:items-center md:gap-3">
           <SearchButton />
           <ThemeToggle />
-          <a
-            href="https://github.com/gtm-skills/gtm"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button variant="outline" size="sm" className="label-mono gap-2 text-xs">
-              <Github className="h-4 w-4" />
-              Star
-              <GitHubStars repo="gtm-skills/gtm" className="text-xs" />
-            </Button>
-          </a>
+          <AuthButton />
           <Link href="/pricing">
             <Button size="sm" className="label-mono gap-2 text-xs brand-gradient">
-              <Download className="h-4 w-4" />
-              Get Extension
+              Get the Bundle
             </Button>
           </Link>
         </div>
@@ -285,22 +287,10 @@ export function Header() {
 
             {/* Mobile CTAs */}
             <div className="mt-8 pt-6 border-t border-border space-y-3">
-              <a
-                href="https://github.com/gtm-skills/gtm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Button variant="outline" className="w-full h-12 gap-2 text-base">
-                  <Star className="h-5 w-5 text-yellow-400" />
-                  Star on GitHub
-                  <GitHubStars repo="gtm-skills/gtm" className="text-sm ml-auto" />
-                </Button>
-              </a>
+              <AuthButton mobile onNavigate={() => setMobileMenuOpen(false)} />
               <Link href="/pricing" className="block" onClick={() => setMobileMenuOpen(false)}>
                 <Button className="w-full h-12 gap-2 text-base brand-gradient">
-                  <Download className="h-5 w-5" />
-                  Get Extension
+                  Get the Bundle
                 </Button>
               </Link>
             </div>

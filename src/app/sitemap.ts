@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { getIndexablePromptSlugs } from '@/data/pseo';
 import { getAllAgentSlugs } from '@/data/agentic';
 import { getAllTutorialSlugs } from '@/data/tutorials';
+import { getAllSkillSlugs, CATEGORIES } from '@/data/skills';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://gtm-skills.com';
@@ -9,6 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Core pages
   const corePages = [
     '',
+    '/skills',
+    '/pricing',
+    '/plugin',
+    '/privacy',
+    '/terms',
+    ...getAllSkillSlugs().map((s) => `/skills/${s}`),
+    ...Object.keys(CATEGORIES).map((c) => `/skills/category/${c}`),
     '/agentic-bdr',
     '/tutorials',
     '/guides',

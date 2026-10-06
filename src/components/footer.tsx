@@ -10,7 +10,7 @@ const footerLinks = {
     { name: 'All Prompts', href: '/prompts' },
   ],
   Tools: [
-    { name: 'Browser Extension', href: '/download' },
+    { name: 'Browser Extension', href: '/pricing' },
     { name: 'Voice Templates', href: '/voice-templates' },
     { name: 'HubSpot', href: '/integrations/hubspot' },
     { name: 'MCP Server', href: '/free-tools/mcp-server' },

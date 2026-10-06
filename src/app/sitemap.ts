@@ -47,7 +47,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/free-tools/clawdbot',
     '/free-tools/mcp-server',
     '/free-tools/claude-integrations',
-    '/download',
     '/templates',
     '/projects',
     '/signals',

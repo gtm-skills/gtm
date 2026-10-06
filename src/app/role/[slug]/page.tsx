@@ -167,7 +167,7 @@ export default async function RoleDetailPage({ params }: Props) {
             Prospeda is an AI sales team that automates prospecting, research,
             and personalized outreach for {role.name.toLowerCase()}s.
           </p>
-          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
+          <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
             <Button className="brand-gradient">
               Try Prospeda Free
             </Button>

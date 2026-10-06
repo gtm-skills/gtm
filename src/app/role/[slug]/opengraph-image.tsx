@@ -131,7 +131,7 @@ export default async function Image({ params }: Props) {
           </span>
           <span style={{ fontSize: '24px', color: '#52525b' }}>•</span>
           <span style={{ fontSize: '20px', color: '#71717a' }}>
-            Free & Open Source
+            Open Source · MIT
           </span>
         </div>
       </div>

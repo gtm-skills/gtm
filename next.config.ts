@@ -66,6 +66,17 @@ const nextConfig: NextConfig = {
         destination: '/voice-templates',
         permanent: true,
       },
+      // Relaunch: downloads became priced kits; agent team page became a skills category
+      {
+        source: '/download',
+        destination: '/pricing',
+        permanent: true,
+      },
+      {
+        source: '/agents',
+        destination: '/skills/category/agents',
+        permanent: true,
+      },
     ];
   },
 };

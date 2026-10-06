@@ -571,7 +571,7 @@ export default function BuildAiSdrWithClaudeMcpPage() {
             Prospeda ships the same AI-powered sales workflows with CRM integration and enrichment
             already connected — no cloning, building, or config editing required.
           </p>
-          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
+          <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
             <Button className="brand-gradient">
               Try Prospeda Free
               <ArrowRight className="h-4 w-4 ml-2" />

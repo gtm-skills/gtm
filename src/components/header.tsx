@@ -45,7 +45,7 @@ const navigation: NavItem[] = [
       { name: 'Meet the Team', href: '/agents', icon: Users, description: 'Scout, Writer, Rep, Closer' },
       { name: 'OpenClaw Setup', href: '/openclaw', icon: Terminal, description: 'Install the full team' },
       { name: 'MCP Server', href: '/free-tools/mcp-server', icon: Bot, description: 'Claude Desktop tools' },
-      { name: 'Browser Extension', href: '/download', icon: Globe, description: 'LinkedIn & Gmail integration' },
+      { name: 'Browser Extension', href: '/pricing', icon: Globe, description: 'LinkedIn & Gmail integration' },
       { name: 'Tonalities', href: '/free-tools/tonalities', icon: Palette, description: '24 writing styles' },
     ],
   },
@@ -193,7 +193,7 @@ export function Header() {
               <GitHubStars repo="gtm-skills/gtm" className="text-xs" />
             </Button>
           </a>
-          <Link href="/download">
+          <Link href="/pricing">
             <Button size="sm" className="label-mono gap-2 text-xs brand-gradient">
               <Download className="h-4 w-4" />
               Get Extension
@@ -297,7 +297,7 @@ export function Header() {
                   <GitHubStars repo="gtm-skills/gtm" className="text-sm ml-auto" />
                 </Button>
               </a>
-              <Link href="/download" className="block" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/pricing" className="block" onClick={() => setMobileMenuOpen(false)}>
                 <Button className="w-full h-12 gap-2 text-base brand-gradient">
                   <Download className="h-5 w-5" />
                   Get Extension

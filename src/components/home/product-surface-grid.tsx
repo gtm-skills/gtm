@@ -43,7 +43,7 @@ const productSurfaces = [
   {
     name: 'Browser Extension',
     description: 'Get prompts directly in LinkedIn and Gmail. One click to copy, customize, and send.',
-    href: '/download',
+    href: '/pricing',
     icon: Globe,
     spec: 'Chrome',
   },

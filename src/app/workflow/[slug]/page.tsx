@@ -150,7 +150,7 @@ export default async function WorkflowDetailPage({ params }: Props) {
             Prospeda automates {workflow.name.toLowerCase()} with AI agents that
             research, write, and execute at scale.
           </p>
-          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
+          <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
             <Button className="brand-gradient">
               Try Prospeda Free
             </Button>

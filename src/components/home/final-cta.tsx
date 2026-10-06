@@ -37,7 +37,7 @@ export function FinalCta() {
               </Button>
             </a>
             <p className="text-xs text-muted-foreground mt-4">
-              100% free • MIT licensed • Open source
+              Open-source core (MIT) • Premium kits for finished playbooks
             </p>
           </div>
         </div>

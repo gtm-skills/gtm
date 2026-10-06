@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { FeedbackWidget } from '@/components/feedback-widget';
 import { GitHubStars } from '@/components/github-stars';
 import { AnimatedChatDemo } from '@/components/animated-chat-demo';
+import { STATS } from '@/data/skills';
 
 // Homepage sections
 import { SocialProof } from '@/components/home/social-proof';
@@ -23,15 +24,15 @@ import {
 const faqs = [
   {
     question: 'What is GTM Skills?',
-    answer: 'GTM Skills is the open-source operating system for agentic GTM. It includes 2,500+ prompts, agent workflows, a browser extension, MCP server, voice templates, and a full API — organized by industry, role, workflow, and methodology. Everything you need to build agentic sales workflows.',
+    answer: 'GTM Skills is installable sales skills for AI agents — Claude Code, Cursor, Codex, Gemini CLI, OpenClaw and ChatGPT. An open-source core of prompts, an MCP server and agent personas, plus premium skill kits for SDRs, AEs, RevOps and founders.',
   },
   {
     question: 'How do I use GTM Skills?',
     answer: 'Browse prompts, use the browser extension on LinkedIn and Gmail, install the MCP Server for Claude Desktop, or deploy the full OpenClaw agent team. Everything works together as an integrated GTM workflow.',
   },
   {
-    question: 'Is GTM Skills really free?',
-    answer: 'Yes, GTM Skills is 100% free and open source under the MIT license. There are no paywalls, no signup required to copy prompts, and no usage limits. You can use it commercially or personally. The project is maintained by Prospeda.',
+    question: 'What is free and what is paid?',
+    answer: 'The open-source core is free and MIT licensed: every prompt, the MCP server, the 24 tonalities and the base agent personas. Premium skill kits — finished playbooks with references, worked examples and per-agent wiring — are one-time purchases ($79 per kit, or the Full Bundle), or included in Pro at $19/month. 14-day refund, no questions asked.',
   },
   {
     question: 'What makes GTM Skills different?',
@@ -43,7 +44,7 @@ const faqs = [
   },
   {
     question: 'What is the MCP Server?',
-    answer: 'The MCP (Model Context Protocol) Server is a tool that integrates GTM Skills directly into Claude Desktop. It provides 10 AI-powered tools and 6 interactive UIs for tasks like company research, email drafting, objection handling, and more—all accessible without leaving your Claude conversation.',
+    answer: 'The MCP (Model Context Protocol) Server is a tool that integrates GTM Skills directly into Claude Desktop. It provides 18 tools and 6 interactive UIs for tasks like company research, email drafting, objection handling, and more—all accessible without leaving your Claude conversation.',
   },
 ];
 
@@ -93,7 +94,7 @@ export default function Home() {
         <div className="relative max-w-5xl mx-auto px-6">
           <div className="label-mono flex items-center gap-2.5 text-xs text-primary mb-5">
             <span className="w-5 h-px bg-primary" aria-hidden="true" />
-            Free &amp; Open Source · MIT Licensed
+            Open-source core · Premium skill kits
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 max-w-3xl" style={{ textWrap: 'balance' }}>
@@ -102,7 +103,7 @@ export default function Home() {
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-2xl mb-8">
-            2,500+ prompts, agent workflows, and tools for prospecting, outreach, discovery, and closing.
+            Installable skills, prompts and agents for prospecting, outreach, discovery, and closing.
           </p>
 
           {/* Primary CTAs */}
@@ -144,13 +145,13 @@ export default function Home() {
             <tbody className="[&_td]:py-3 [&_td]:pr-6 [&_td]:border-b [&_td]:border-border [&_td]:tabular-nums">
               <tr>
                 <td className="text-muted-foreground">Prompts</td>
-                <td className="font-semibold text-primary">2,500+</td>
+                <td className="font-semibold text-primary">{STATS.prompts}</td>
                 <td className="text-muted-foreground">Writing styles</td>
-                <td className="font-semibold text-primary">24</td>
+                <td className="font-semibold text-primary">{STATS.tonalities}</td>
               </tr>
               <tr>
                 <td className="text-muted-foreground">Industries</td>
-                <td className="font-semibold text-primary">8</td>
+                <td className="font-semibold text-primary">{STATS.industries}</td>
                 <td className="text-muted-foreground">License</td>
                 <td className="font-semibold text-primary">MIT</td>
               </tr>

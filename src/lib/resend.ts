@@ -28,10 +28,10 @@ export async function sendWelcomeEmail(email: string) {
         </p>
 
         <ul style="color: #3f3f46; font-size: 16px; line-height: 1.8;">
-          <li>2,500+ copy-paste prompts for sales and marketing</li>
+          <li>244 copy-paste prompts and installable agent skills</li>
           <li>Industry-specific playbooks</li>
           <li>Weekly new prompts and templates</li>
-          <li>Early access to premium content</li>
+          <li>First look at new premium skills and kits</li>
         </ul>
 
         <a href="https://gtm-skills.com" style="display: inline-block; background: #18181b; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 500; margin-top: 20px;">

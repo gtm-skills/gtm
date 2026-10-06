@@ -152,7 +152,7 @@ Realistic month-3 steady state: 35–50 sales/mo ($5–7.5K) with launch spikes 
 - **Phase 1 — MVP paid (7–9 d):** `004_commerce.sql` + seed; `skills.ts` (5 free + 10 premium); `skill-content.ts`; auth; checkout + webhook + claim; `/skills*`, `/pricing`; `PaywallGate`, `InstallBlock`, API keys; install API; purchase email. **Content for 10 premium skills ≈ 3 of these days (long pole).**
 - **Phase 2 — Skillry homepage + CLI (4–5 d):** new palette via `frontend-design` skill, `home/*`, marquee, header/footer, dark default, per-skill OG, ZIP, `cli/` publish, `/openclaw` upsell, PH/HN assets.
 - **Phase 3 — SEO + Learn + analytics (3–4 d):** title/meta rewrites, `InlineUpsell`, JSON-LD, sitemap lastmod, typed events, `/learn` hub with per-agent install guides.
-- **Phase 4 — roadmap:** `subscriptions` + Stripe Billing, team seats, affiliate, free browser tools (email scorer, ICP builder), `gtm-skills update`.
+- **Phase 4 — roadmap:** team seats, affiliate, free browser tools (email scorer, ICP builder), CLI `npx gtm-skills add` + `update`, **Claude connector** (same `/api/mcp` server listed in the Claude.ai connector directory — OAuth already in place; adds Claude Desktop/Claude.ai users with zero new backend), Cursor/Codex marketplace listings.
 
 ## 10. Verification
 

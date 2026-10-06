@@ -25,4 +25,4 @@ Branch `relaunch/paid`, 6 commits on top of `bdb4780`. Build and typecheck pass.
 - `pro` row has no Stripe ids until step 3; `CheckoutButton` shows a friendly "not live yet" message meanwhile.
 - Reviewer account for OpenAI: create a user, then `insert into entitlements (user_id, product_id, source) values ('<uuid>', 'pro', 'grant')`.
 - Trending section hides until ≥3 skills have installs.
-- Phase 4 (roadmap): CLI `npx gtm-skills add`, ZIP endpoint, team seats, affiliate, Learn hub.
+- Phase 4 (roadmap): Claude connector (list `/api/mcp` in the Claude.ai connector directory — same server, same OAuth), CLI `npx gtm-skills add`, ZIP endpoint, team seats, affiliate, Learn hub.

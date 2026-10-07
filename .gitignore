@@ -35,3 +35,4 @@ tsconfig.tsbuildinfo
 npm-debug.log*
 .vercel
 gtm-repo-export/
+supabase/.temp/

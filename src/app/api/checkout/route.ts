@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     ...(user ? { client_reference_id: user.id } : {}),
     metadata: { product_id: productId, user_id: user?.id ?? '', was_launch_price: wasLaunch ? '1' : '0' },
     ...(isSub ? { subscription_data: { metadata: { product_id: productId, user_id: user?.id ?? '' } } } : {}),
-    success_url: `${SITE_URL}/account?purchased=${productId}&session_id={CHECKOUT_SESSION_ID}`,
+    success_url: `${SITE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${SITE_URL}/pricing?canceled=1`,
     automatic_tax: { enabled: true },
     ...(isSub ? {} : { invoice_creation: { enabled: true } }),

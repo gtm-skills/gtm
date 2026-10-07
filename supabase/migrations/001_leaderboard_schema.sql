@@ -6,7 +6,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- Leaderboard prompts table
 CREATE TABLE IF NOT EXISTS leaderboard_prompts (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   title VARCHAR(255) NOT NULL,
   content TEXT NOT NULL,
   category VARCHAR(100) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS leaderboard_prompts (
 
 -- Votes table
 CREATE TABLE IF NOT EXISTS prompt_votes (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   prompt_id UUID REFERENCES leaderboard_prompts(id) ON DELETE CASCADE,
   user_id UUID,
   voter_fingerprint VARCHAR(255), -- For anonymous voting
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS prompt_votes (
 
 -- Copies/Usage tracking
 CREATE TABLE IF NOT EXISTS prompt_copies (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   prompt_id UUID REFERENCES leaderboard_prompts(id) ON DELETE CASCADE,
   user_id UUID,
   source VARCHAR(100), -- 'website', 'extension', 'api', 'hubspot'
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS prompt_copies (
 
 -- Outcome tracking (for effectiveness score)
 CREATE TABLE IF NOT EXISTS prompt_outcomes (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   prompt_id UUID REFERENCES leaderboard_prompts(id) ON DELETE CASCADE,
   user_id UUID,
   user_email VARCHAR(255),

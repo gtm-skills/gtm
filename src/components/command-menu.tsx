@@ -36,7 +36,7 @@ const searchItems: SearchItem[] = [
 
   // Tools
   { title: 'MCP Server', description: 'Claude Desktop integration', href: '/free-tools/mcp-server', icon: Bot, category: 'Tools' },
-  { title: 'Browser Extension', description: 'LinkedIn & Gmail tools', href: '/download', icon: Download, category: 'Tools' },
+  { title: 'Browser Extension', description: 'LinkedIn & Gmail tools', href: '/pricing', icon: Download, category: 'Tools' },
   { title: 'Tonalities', description: '24 writing styles', href: '/free-tools/tonalities', icon: Palette, category: 'Tools' },
 
   // Learn

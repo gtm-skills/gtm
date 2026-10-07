@@ -4,10 +4,9 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Scale } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'Warren Buffett Tonality | Folksy Authority Sales Writing | Premium GTM Prompts',
+  title: 'Warren Buffett Tonality | Folksy Authority Sales Writing | Free Claude Prompt',
   description: 'Write like Warren Buffett. Simple language, Midwestern humility, long-term thinking. Premium prompts for Claude/ChatGPT to build trust with skeptical buyers.',
   keywords: 'warren buffett communication style, berkshire hathaway letters, simple business writing, trust building sales, long-term relationship selling, folksy sales approach',
   openGraph: {
@@ -236,7 +235,7 @@ export default function WarrenBuffettTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Warren Buffett">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -303,7 +302,7 @@ export default function WarrenBuffettTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

@@ -1,0 +1,9 @@
+{
+  "type": "streamable-http",
+  "url": "https://gtm-skills.com/api/mcp",
+  "auth": {
+    "type": "oauth2",
+    "optional": true,
+    "resourceMetadataUrl": "https://gtm-skills.com/.well-known/oauth-protected-resource"
+  }
+}

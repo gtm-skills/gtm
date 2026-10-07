@@ -4,11 +4,10 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, RotateCcw } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'SPIN Selling Tonality | Situation-Problem-Implication-Need Discovery | Premium GTM Prompts',
-  description: 'Master SPIN Selling. Situation, Problem, Implication, and Need-Payoff questions that guide prospects to their own conclusions. Premium prompts for Claude/ChatGPT.',
+  title: 'SPIN Selling Tonality | Situation-Problem-Implication-Need Discovery | Free Claude Prompt',
+  description: 'Master SPIN Selling. Situation, Problem, Implication, and Need-Payoff questions that guide prospects to their own conclusions. Free prompt for Claude, ChatGPT and Claude Code.',
   keywords: 'spin selling, neil rackham, situation questions, problem questions, implication questions, need payoff questions, consultative selling',
   openGraph: {
     title: 'SPIN Selling Tonality | Structured Discovery Framework',
@@ -290,7 +289,7 @@ export default function SpinSellingTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="SPIN Selling">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -357,7 +356,7 @@ export default function SpinSellingTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

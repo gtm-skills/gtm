@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import { agentTypes, industryAgents, workflowAgents } from '@/data/agentic';
+import { InlineUpsell } from '@/components/skills/inline-upsell';
 
 export const metadata: Metadata = {
   title: 'Agentic BDR Guide | What is an AI Sales Agent? | GTM Skills',
@@ -405,6 +406,8 @@ export default function AgenticBDRPage() {
             ))}
           </div>
         </div>
+
+        <InlineUpsell skill="mission-control-pro" />
 
         {/* See It In Action */}
         <div className="text-center">

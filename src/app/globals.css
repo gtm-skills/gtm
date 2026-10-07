@@ -92,30 +92,31 @@
 :root {
   --radius: 0.25rem;
 
-  /* Blueprint accent: Signal Emerald. One hue, used sparingly. */
-  --brand-primary: #0E7A52;
-  --brand-secondary: #0E7A52;
-  --brand-primary-hover: #0B6444;
-  --brand-secondary-hover: #0B6444;
+  /* Relaunch palette. Amber is for money: prices, seats, premium, the banner.
+     Primary buttons are ink-on-paper (light) / ivory-on-navy (dark). Category
+     color comes from the skill tiles, not from the chrome. */
+  --brand-primary: #A66F00;
+  --brand-secondary: #A66F00;
+  --brand-primary-hover: #8F5F00;
+  --brand-secondary-hover: #8F5F00;
 
-  /* Core colors -- cool paper canvas (primary experience) */
-  --background: #F6F7F4;
-  --foreground: #12140F;
-  --card: #ECEEE8;
-  --card-foreground: #12140F;
-  --popover: #ECEEE8;
-  --popover-foreground: #12140F;
-  --primary: var(--brand-primary);
-  --primary-foreground: #EEF6F0;
-  --secondary: #ECEEE8;
-  --secondary-foreground: #12140F;
-  --muted: #ECEEE8;
-  --muted-foreground: #62655A;
-  --accent: #E3E5DC;
-  --accent-foreground: #12140F;
+  --background: #F7F5F0;
+  --foreground: #141A26;
+  --card: #FFFFFF;
+  --card-foreground: #141A26;
+  --popover: #FFFFFF;
+  --popover-foreground: #141A26;
+  --primary: #141A26;
+  --primary-foreground: #F7F5F0;
+  --secondary: #ECE9E2;
+  --secondary-foreground: #141A26;
+  --muted: #ECE9E2;
+  --muted-foreground: #5F6775;
+  --accent: #E4E0D6;
+  --accent-foreground: #141A26;
   --destructive: #B3261E;
-  --border: #D3D6CB;
-  --input: #D3D6CB;
+  --border: #D9D4C8;
+  --input: #D9D4C8;
   --ring: var(--brand-primary);
 
   /* Chart colors */
@@ -141,30 +142,28 @@
    ======================================== */
 
 .dark {
-  /* Blueprint dark: deep ink-blue canvas, brighter emerald for contrast.
-     A considered counterpart, not an inversion of light mode. */
-  --brand-primary: #1EA872;
-  --brand-secondary: #1EA872;
-  --brand-primary-hover: #29BE81;
-  --brand-secondary-hover: #29BE81;
+  --brand-primary: #F5B942;
+  --brand-secondary: #F5B942;
+  --brand-primary-hover: #FFC95E;
+  --brand-secondary-hover: #FFC95E;
 
-  --background: #0F1216;
-  --foreground: #E7EAE3;
-  --card: #171B1F;
-  --card-foreground: #E7EAE3;
-  --popover: #171B1F;
-  --popover-foreground: #E7EAE3;
-  --primary: var(--brand-primary);
-  --primary-foreground: #04140D;
-  --secondary: #171B1F;
-  --secondary-foreground: #E7EAE3;
-  --muted: #171B1F;
-  --muted-foreground: #8B9099;
-  --accent: #1D2227;
-  --accent-foreground: #E7EAE3;
+  --background: #0F1521;
+  --foreground: #EEF0F4;
+  --card: #161D2B;
+  --card-foreground: #EEF0F4;
+  --popover: #161D2B;
+  --popover-foreground: #EEF0F4;
+  --primary: #EEF0F4;
+  --primary-foreground: #0F1521;
+  --secondary: #1B2333;
+  --secondary-foreground: #EEF0F4;
+  --muted: #1B2333;
+  --muted-foreground: #8E98AA;
+  --accent: #212B3D;
+  --accent-foreground: #EEF0F4;
   --destructive: #E0564C;
-  --border: #262B31;
-  --input: #262B31;
+  --border: #243041;
+  --input: #243041;
   --ring: var(--brand-primary);
 
   /* Chart colors */
@@ -196,11 +195,21 @@
   body {
     @apply bg-background text-foreground;
     background-image:
-      linear-gradient(color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+      linear-gradient(color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 }
+
+/* Hero marquee: two rows, opposite directions, paused on hover, static for reduced motion. */
+@keyframes marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee-track { display: flex; gap: 14px; width: max-content; will-change: transform; }
+.marquee-track[data-dir='left'] { animation: marquee-left 48s linear infinite; }
+.marquee-track[data-dir='right'] { animation: marquee-right 54s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none !important; transform: none !important; } }
 
 /* ========================================
    Brand Utilities
@@ -212,7 +221,7 @@
      they now render solid fills. */
   .brand-gradient {
     background-color: var(--brand-primary);
-    color: var(--primary-foreground);
+    color: #0F1521;
   }
   .brand-gradient:hover {
     background-color: var(--brand-primary-hover);
@@ -225,8 +234,7 @@
      Use for eyebrows, nav links, button labels, table headers. */
   .label-mono {
     font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 600;
+    letter-spacing: 0;
+    font-weight: 500;
   }
 }

@@ -154,7 +154,7 @@ export default function WorkflowPage() {
             Want the complete workflow library?
           </p>
           <Link
-            href="/download"
+            href="/pricing"
             className="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center gap-2"
           >
             Download all workflows

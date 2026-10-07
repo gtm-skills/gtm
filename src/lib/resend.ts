@@ -28,10 +28,10 @@ export async function sendWelcomeEmail(email: string) {
         </p>
 
         <ul style="color: #3f3f46; font-size: 16px; line-height: 1.8;">
-          <li>2,500+ copy-paste prompts for sales and marketing</li>
+          <li>244 copy-paste prompts and installable agent skills</li>
           <li>Industry-specific playbooks</li>
           <li>Weekly new prompts and templates</li>
-          <li>Early access to premium content</li>
+          <li>First look at new premium skills and kits</li>
         </ul>
 
         <a href="https://gtm-skills.com" style="display: inline-block; background: #18181b; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 500; margin-top: 20px;">
@@ -82,4 +82,40 @@ export async function sendNewsletterEmail(
   }
 
   return results;
+}
+
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://gtm-skills.com';
+
+/** Receipt + onboarding after Stripe checkout. Works for guests (tells them to sign in with the same email). */
+export async function sendPurchaseEmail(opts: { to: string; productId: string; hasAccount: boolean }) {
+  if (!resend) return null;
+  const { kits } = await import('@/data/skills');
+  const product = kits.find((k) => k.id === opts.productId);
+  const name = product?.name ?? 'GTM Skills';
+  const loginUrl = `${SITE}/login?next=/account&email=${encodeURIComponent(opts.to)}`;
+
+  return resend.emails.send({
+    from: 'GTM Skills <hello@gtm-skills.com>',
+    to: opts.to,
+    subject: `Your ${name} is ready`,
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color:#18181b;">
+        <h1 style="font-size: 22px; margin: 0 0 16px;">${name} — you're in.</h1>
+        <p style="font-size: 16px; line-height: 1.6; color:#3f3f46;">
+          ${opts.hasAccount
+            ? 'Your skills are unlocked on your account.'
+            : `Sign in with <strong>${opts.to}</strong> and your purchase attaches automatically. No password.`}
+        </p>
+        <a href="${opts.hasAccount ? `${SITE}/account` : loginUrl}" style="display:inline-block;background:#18181b;color:#fff;padding:12px 22px;text-decoration:none;border-radius:6px;font-weight:600;margin:12px 0 24px;">
+          ${opts.hasAccount ? 'Open your account' : 'Sign in to unlock'}
+        </a>
+        <p style="font-size: 14px; line-height: 1.6; color:#3f3f46;">
+          Install in Claude Code, Cursor, Codex, Gemini CLI or OpenClaw from any skill page. In ChatGPT, add the GTM Skills plugin and sign in with the same email.
+        </p>
+        <p style="font-size: 13px; color:#71717a; margin-top: 28px;">
+          14-day money-back guarantee. Reply to this email for anything. — Prospeda
+        </p>
+      </div>
+    `,
+  });
 }

@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 const downloadPacks = [
   {
     name: 'Complete Library',
-    description: 'All 2,500+ prompts in one download',
-    prompts: '2,500+',
+    description: 'Every prompt in one download',
+    prompts: '244',
     format: 'Notion + Markdown',
     popular: true,
   },
@@ -68,7 +68,7 @@ export default function DownloadPage() {
             Download the Complete Library
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            2,500+ prompts, templates, and tools for sales and marketing. Organized, searchable,
+            Prompts, templates, and tools for sales and marketing. Organized, searchable,
             and ready to use. No signup required for individual prompts - but
             subscribe for the full download and weekly updates.
           </p>

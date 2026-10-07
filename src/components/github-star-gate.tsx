@@ -138,7 +138,7 @@ export function GitHubStarGate({
         </Button>
       )}
       <p className="text-xs text-muted-foreground mt-4">
-        100% free • Open source • MIT licensed
+        Open-source core • MIT licensed
       </p>
     </div>
   );

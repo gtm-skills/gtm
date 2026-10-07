@@ -4,9 +4,10 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, ClipboardCheck } from 'lucide-react';
 import type { Metadata } from 'next';
+import { InlineUpsell } from '@/components/skills/inline-upsell';
 export const metadata: Metadata = {
-  title: 'MEDDIC/MEDDPICC Sales Framework | Qualification Prompts | Free GTM',
-  description: 'Master MEDDIC and MEDDPICC qualification. Metrics, Economic Buyer, Decision Criteria, Decision Process, Identify Pain, Champion, Competition. Free prompts.',
+  title: 'MEDDIC Discovery Questions — Free Prompt + Scorecard for Claude',
+  description: 'Questions for every MEDDIC element, a 0–2 scorecard, and a prompt that scores your call notes. Free. The Pro qualifier adds Paper process, Competition and CRM fields.',
   keywords: 'meddic sales, meddpicc framework, sales qualification framework, enterprise sales qualification, meddic questions, champion sales',
   openGraph: {
     title: 'MEDDIC/MEDDPICC Sales Framework | Qualification Prompts',
@@ -394,7 +395,8 @@ export default function MeddicPage() {
             </Button>
           </a>
         </div>
-      </main>
+      </main>      <div className="max-w-4xl mx-auto px-6"><InlineUpsell skill="meddpicc-qualifier" /></div>
+
 
       <footer className="border-t border-border mt-16">
         <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-4">

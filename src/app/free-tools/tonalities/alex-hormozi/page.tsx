@@ -4,11 +4,11 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
+import { InlineUpsell } from '@/components/skills/inline-upsell';
 
 export const metadata: Metadata = {
-  title: 'Alex Hormozi Tonality | No-BS Value Stack Sales Writing | Premium GTM Prompts',
-  description: 'Write like Alex Hormozi. Direct, math-driven, value stacking that makes the price feel irrelevant. Premium prompts for Claude/ChatGPT.',
+  title: 'Write Sales Emails Like Alex Hormozi — Free Claude Prompt',
+  description: 'A prompt that writes sales copy the Hormozi way: value stack, do the math, make the price irrelevant. Copy it into Claude or ChatGPT. Free.',
   keywords: 'alex hormozi sales style, $100M offers, value stacking, grand slam offer, no brainer offer, hormozi copywriting, acquisition.com style',
   openGraph: {
     title: 'Alex Hormozi Tonality | No-BS Value Stack Sales Writing',
@@ -255,7 +255,7 @@ export default function AlexHormoziTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Alex Hormozi">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -322,7 +322,7 @@ export default function AlexHormoziTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">
@@ -356,7 +356,8 @@ export default function AlexHormoziTonalityPage() {
             </Button>
           </a>
         </div>
-      </main>
+      </main>      <div className="max-w-4xl mx-auto px-6"><InlineUpsell skill="cold-email-sequences" /></div>
+
 
       <footer className="border-t border-border mt-16">
         <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-4">

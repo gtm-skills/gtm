@@ -7,6 +7,7 @@ import { SoftwareSourceCodeJsonLd, BreadcrumbJsonLd } from '@/components/json-ld
 import { roles, getRolePrompts } from '@/lib/prompts';
 import { ArrowLeft, Download, ChevronRight } from 'lucide-react';
 import type { Metadata } from 'next';
+import { InlineUpsell } from '@/components/skills/inline-upsell';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -158,6 +159,8 @@ export default async function RoleDetailPage({ params }: Props) {
           </div>
         )}
 
+        <InlineUpsell kit="sdr-kit" />
+
         {/* Bottom CTA */}
         <div className="mt-16 p-8 rounded-xl bg-card text-center">
           <h2 className="text-2xl font-bold text-foreground mb-4">
@@ -167,7 +170,7 @@ export default async function RoleDetailPage({ params }: Props) {
             Prospeda is an AI sales team that automates prospecting, research,
             and personalized outreach for {role.name.toLowerCase()}s.
           </p>
-          <a href="https://github.com/gtm-skills/gtm" target="_blank" rel="noopener noreferrer">
+          <a href="https://prospeda.com" target="_blank" rel="noopener noreferrer">
             <Button className="brand-gradient">
               Try Prospeda Free
             </Button>

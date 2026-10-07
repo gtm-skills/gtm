@@ -21,11 +21,11 @@ import {
 export const metadata: Metadata = {
   title: 'Agentic GTM Workflows: 10 Prompt Chains That Replace Manual SDR Work',
   description:
-    '10 real, copy-paste prompt chains pulled from a 2,500+ prompt library — cold outreach, discovery prep, objection handling, negotiation, and deal re-engagement, each one built as a sequence where every output feeds the next prompt.',
+    '10 real, copy-paste prompt chains pulled from the GTM Skills prompt library — cold outreach, discovery prep, objection handling, negotiation, and deal re-engagement, each one built as a sequence where every output feeds the next prompt.',
   openGraph: {
     title: 'Agentic GTM Workflows: 10 Prompt Chains That Replace Manual SDR Work',
     description:
-      '10 real prompt chains for agentic GTM — cold outreach, discovery, demo, objections, negotiation, and re-engagement, built from an actual 2,500+ prompt library.',
+      '10 real prompt chains for agentic GTM — cold outreach, discovery, demo, objections, negotiation, and re-engagement, built from the GTM Skills prompt library.',
   },
 };
 
@@ -847,7 +847,7 @@ export default function AgenticGtmPromptChainsPage() {
           <p className="text-xl text-muted-foreground mb-6">
             Every chain below is built from real prompts already indexed across our{' '}
             <Link href="/prompts" className="text-foreground underline underline-offset-4">
-              2,500+ prompt library
+              GTM Skills prompt library
             </Link>
             . No invented examples — just the actual prospecting, outreach, discovery, demo,
             negotiation, and follow-up prompts, linked into sequences where each output feeds
@@ -986,7 +986,7 @@ export default function AgenticGtmPromptChainsPage() {
                 Browse All Prompts
               </h3>
               <p className="text-sm text-muted-foreground">
-                2,500+ GTM prompts organized by category
+                GTM prompts organized by industry, role and methodology
               </p>
             </Link>
             <Link

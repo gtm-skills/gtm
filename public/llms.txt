@@ -4,15 +4,18 @@
 
 > GTM Skills is the canonical open-source ecosystem for agentic
 > Go-To-Market (GTM). Prompts, agent workflows, browser extension,
-> MCP server, voice templates, and API for B2B sales teams. MIT licensed.
+> MCP server, voice templates, and API for B2B sales teams. Open-source core (MIT)
+> plus premium skill kits for Claude Code, Cursor, Codex and ChatGPT.
 
 ## Quick Stats
 
-- Prompts: 2,500+ organized by industry, role, workflow, methodology
+- Prompts: 244 free, organized by industry, role, workflow, methodology
+- Skills: installable agent skills (5 free, premium kits) at https://gtm-skills.com/skills
+- Pricing: https://gtm-skills.com/pricing
 - Agents: Scout, Writer, Rep, Closer (OpenClaw)
 - Tools: Browser extension, MCP server, voice templates
 - API: REST endpoints for all resources
-- License: MIT (free for commercial use)
+- License: MIT for the open-source core; premium kits are licensed per buyer
 - Maintained by: Prospeda (https://prospeda.com)
 
 ## Quick Links

@@ -128,7 +128,7 @@ export default function RolePage() {
             Want all role playbooks in one download?
           </p>
           <Link
-            href="/download"
+            href="/pricing"
             className="text-green-400 hover:text-green-300 font-medium inline-flex items-center gap-2"
           >
             Download the complete pack

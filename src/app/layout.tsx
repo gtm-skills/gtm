@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Header } from '@/components/header';
@@ -15,15 +16,7 @@ const websiteJsonLd = {
   '@type': 'WebSite',
   name: 'GTM Skills',
   url: 'https://gtm-skills.com',
-  description: 'The open-source operating system for agentic GTM. Prompts, agent workflows, tools, browser extension, and API. Free and MIT licensed.',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://gtm-skills.com/search?q={search_term_string}',
-    },
-    'query-input': 'required name=search_term_string',
-  },
+  description: 'Installable GTM skills for Claude Code, Cursor, Codex and ChatGPT. Open-source core, premium skill kits for sales teams.',
 };
 
 const organizationJsonLd = {
@@ -37,25 +30,15 @@ const organizationJsonLd = {
   ],
 };
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
 export const metadata: Metadata = {
-  title: 'GTM Skills | The Agentic GTM Operating System',
-  description: 'The open-source operating system for agentic GTM. Prompts, agent workflows, tools, browser extension, and API for B2B sales teams. Free and MIT licensed.',
-  keywords: 'gtm skills, agentic gtm, agentic sales, agentic bdr, gtm operating system, sales agents, b2b sales tools, mcp server, openclaw, sales workflows',
+  title: 'GTM Skills | Installable Sales Skills for Claude Code, Cursor, Codex & ChatGPT',
+  description: 'Agent skills that sell. Research, outreach, discovery, closing and RevOps skills for Claude Code, Cursor, Codex, Gemini CLI, OpenClaw and ChatGPT. Open-source core, premium kits.',
+  keywords: 'gtm skills, claude code skills, gtm skill claude, sales skills for claude code, installable gtm workflows, gtm mcp server, agent skills sales, openclaw gtm',
   authors: [{ name: 'Prospeda' }],
   manifest: '/manifest.json',
   openGraph: {
-    title: 'GTM Skills | The Agentic GTM Operating System',
-    description: 'The open-source operating system for agentic GTM. Prompts, agent workflows, tools, and API for B2B sales.',
+    title: 'GTM Skills | Agent skills that sell',
+    description: 'Installable GTM skills for Claude Code, Cursor, Codex and ChatGPT. Open-source core, premium kits.',
     url: 'https://gtm-skills.com',
     siteName: 'GTM Skills',
     type: 'website',
@@ -64,7 +47,7 @@ export const metadata: Metadata = {
         url: 'https://gtm-skills.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'GTM Skills - The Agentic GTM Operating System',
+        alt: 'GTM Skills - Agent skills that sell',
       },
     ],
   },
@@ -92,11 +75,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${GeistSans.variable} ${GeistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

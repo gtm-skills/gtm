@@ -12,4 +12,7 @@ export function getStripe(): Stripe {
   return _stripe;
 }
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://gtm-skills.com';
+// Preview deployments have no fixed URL, so fall back to the deployment's own host there.
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_ENV === 'preview' && process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://gtm-skills.com');

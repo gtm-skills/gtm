@@ -4,11 +4,10 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, RotateCw } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'Win-Back Campaign Tonality | Re-Engagement Sales | Premium GTM Prompts',
-  description: 'Master win-back campaigns. Re-engage churned accounts and dormant opportunities with grace. Premium prompts for Claude/ChatGPT.',
+  title: 'Win-Back Campaign Tonality | Re-Engagement Sales | Free Claude Prompt',
+  description: 'Master win-back campaigns. Re-engage churned accounts and dormant opportunities with grace. Free prompt for Claude, ChatGPT and Claude Code.',
   keywords: 'win back campaign, customer re-engagement, churned customer outreach, lost deal recovery, dormant opportunity, reactivation campaign',
   openGraph: {
     title: 'Win-Back Campaign | Re-Engagement Sales',
@@ -298,7 +297,7 @@ export default function WinBackTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Win-Back Campaign">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -365,7 +364,7 @@ export default function WinBackTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

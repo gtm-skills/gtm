@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Trusted Advisor Selling | Relationship-First Sales Writing | Free GTM Prompts',
+  title: 'Trusted Advisor Selling | Relationship-First Sales Writing | Free Claude Prompt',
   description: 'Master the Trusted Advisor methodology. Build trust through credibility, reliability, intimacy, and low self-orientation. Free prompts for Claude & ChatGPT.',
   keywords: 'trusted advisor selling, relationship selling, consultative sales, trust equation sales, david maister trusted advisor',
   openGraph: {

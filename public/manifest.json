@@ -1,11 +1,11 @@
 {
   "name": "GTM Skills",
   "short_name": "GTM Skills",
-  "description": "The open-source operating system for agentic GTM. Prompts, agents, tools, and API.",
+  "description": "Installable GTM skills for Claude Code, Cursor, Codex and ChatGPT. Open-source core, premium kits.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#09090b",
-  "theme_color": "#f97316",
+  "background_color": "#0F1216",
+  "theme_color": "#0F1216",
   "icons": [
     {
       "src": "/icon-192.png",

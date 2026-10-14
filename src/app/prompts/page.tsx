@@ -10,8 +10,8 @@ import type { Metadata } from 'next';
 import { industries, roles, methodologies, workflows } from '@/data/pseo';
 
 export const metadata: Metadata = {
-  title: 'Browse All Prompts | 2,500+ GTM Prompts | GTM Skills',
-  description: 'Browse 2,500+ sales and marketing prompts organized by industry, role, methodology, and workflow. Find the perfect prompt for any GTM scenario.',
+  title: 'Browse All GTM Prompts by Industry, Role & Methodology | GTM Skills',
+  description: 'Free sales prompts organized by industry, role, methodology, and workflow. Copy, customize, or install them as agent skills.',
   keywords: 'sales prompts, marketing prompts, cold email templates, discovery questions, meddpicc questions, spin selling questions, sdr prompts, ae prompts',
 };
 
@@ -29,7 +29,7 @@ export default function PromptsIndexPage() {
         <div className="text-center max-w-3xl mx-auto mb-8">
           <Badge variant="outline" className="mb-4 border-orange-500/30 text-orange-400">
             <Search className="h-3 w-3 mr-1" />
-            2,500+ Prompts
+            Free Prompts
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
             Find the Perfect Prompt

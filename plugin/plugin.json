@@ -1,0 +1,27 @@
+{
+  "name": "gtm-skills",
+  "version": "1.0.0",
+  "description": "Prep, debrief and follow up on sales calls with proven methodology. Call prep briefs, MEDDIC scorecards from your notes, recap emails with mutual action plans, and objection reframes. Includes installable skills for Claude Code, Cursor and Codex.",
+  "author": { "name": "Prospeda", "url": "https://gtm-skills.com", "email": "hello@gtm-skills.com" },
+  "homepage": "https://gtm-skills.com/plugin",
+  "license": "See https://gtm-skills.com/terms",
+  "skills": "./skills",
+  "mcp": "./mcp.json",
+  "extensions": {
+    "com.openai.interface": {
+      "displayName": "GTM Skills",
+      "shortDescription": "Prep, debrief, follow up calls",
+      "longDescription": "GTM Skills brings sales methodology into your conversation. Before a call: a brief with hypotheses, discovery questions and likely objections. After a call: paste your notes and get a MEDDIC scorecard with gaps and the questions for next time. Then a recap email and a mutual action plan with owners and dates. Handle objections with reframes that keep the deal moving.\n\nFree to use every day. Sign in with your GTM Skills account to unlock unlimited use and the Pro playbooks: Scout Pro research signals, MEDDPICC Qualifier red flags, and Closer Pro close plans. Also returns the files for any skill you own so you can install it in Claude Code, Cursor, Codex, Gemini CLI or OpenClaw.\n\nWorks with your own notes; no CRM connection required. Not affiliated with OpenAI.",
+      "category": "Business & Operations",
+      "capabilities": ["Read", "Analyze", "Create"],
+      "brandColor": "#1EA872",
+      "logo": "./assets/logo.png",
+      "composerIcon": "./assets/icon.png",
+      "screenshots": ["./assets/screenshot-brief.png", "./assets/screenshot-scorecard.png", "./assets/screenshot-plan.png"],
+      "website": "https://gtm-skills.com",
+      "support": "https://gtm-skills.com/plugin#support",
+      "privacyPolicy": "https://gtm-skills.com/privacy",
+      "termsOfService": "https://gtm-skills.com/terms"
+    }
+  }
+}

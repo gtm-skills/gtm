@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Flame } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Cormac McCarthy Tonality | Powerful Sales Writing | Free GTM Prompts',
+  title: 'Cormac McCarthy Tonality | Powerful Sales Writing | Free Claude Prompt',
   description: 'Write like Cormac McCarthy. Sparse, powerful, biblical cadence. Copy these Claude/ChatGPT prompts for transformational deals and visionary founders.',
   keywords: 'powerful sales writing, visceral copywriting, literary sales techniques, biblical cadence business writing, cormac mccarthy style',
   openGraph: {

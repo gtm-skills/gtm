@@ -1,0 +1,46 @@
+name: Deploy
+
+# Deploys to Vercel on every push: main goes to production, every other
+# branch gets a preview. Used because the Vercel GitHub integration cannot
+# see this repository's owner account.
+on:
+  push:
+    branches: ['**']
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  VERCEL_ORG_ID: team_RGJTVNYV5RDkAOvkkMkleoAK
+  VERCEL_PROJECT_ID: prj_BUeq0nKCsYorvPsglScWNw1xxGiX
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm install --global vercel@latest
+
+      - name: Deploy production
+        if: github.ref == 'refs/heads/main'
+        run: |
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+          vercel build --prod --token="$VERCEL_TOKEN"
+          vercel deploy --prebuilt --archive=tgz --prod --token="$VERCEL_TOKEN"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy preview
+        if: github.ref != 'refs/heads/main'
+        run: |
+          vercel pull --yes --environment=preview --token="$VERCEL_TOKEN"
+          vercel build --token="$VERCEL_TOKEN"
+          url=$(vercel deploy --prebuilt --archive=tgz --token="$VERCEL_TOKEN")
+          echo "Preview: $url" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

@@ -4,11 +4,10 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, ShieldOff } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'Sandler Selling Tonality | Reverse Psychology Sales | Premium GTM Prompts',
-  description: 'Master Sandler Selling. Reverse selling, negative reverse, and pattern interrupts that let prospects convince themselves. Premium prompts for Claude/ChatGPT.',
+  title: 'Sandler Selling Tonality | Reverse Psychology Sales | Free Claude Prompt',
+  description: 'Master Sandler Selling. Reverse selling, negative reverse, and pattern interrupts that let prospects convince themselves. Free prompt for Claude, ChatGPT and Claude Code.',
   keywords: 'sandler selling, sandler training, reverse selling, negative reverse selling, pattern interrupt, anti-sales approach, upfront contracts',
   openGraph: {
     title: 'Sandler Selling Tonality | Reverse Psychology Sales',
@@ -286,7 +285,7 @@ export default function SandlerTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Sandler Selling">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -353,7 +352,7 @@ export default function SandlerTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

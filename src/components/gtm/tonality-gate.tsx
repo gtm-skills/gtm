@@ -113,7 +113,7 @@ export function TonalityGate({ children, tonalityName }: TonalityGateProps) {
 
             {/* Trust signals */}
             <p className="text-xs text-muted-foreground mt-4">
-              No email required • 100% free • MIT licensed
+              No email required • Open-source core • MIT licensed
             </p>
           </div>
         </div>

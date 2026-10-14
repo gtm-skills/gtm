@@ -188,7 +188,7 @@ export default function MethodologyPage() {
             Want prompts for all methodologies?
           </p>
           <Link
-            href="/download"
+            href="/pricing"
             className="text-yellow-400 hover:text-yellow-300 font-medium inline-flex items-center gap-2"
           >
             Download the complete library

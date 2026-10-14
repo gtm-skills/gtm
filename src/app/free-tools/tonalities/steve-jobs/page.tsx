@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Zap } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Steve Jobs Tonality | Brutally Direct Sales Writing | Free GTM Prompts',
+  title: 'Steve Jobs Tonality | Brutally Direct Sales Writing | Free Claude Prompt',
   description: 'Write like Steve Jobs. Brutally direct, product-obsessed, emotionally intense. Copy these Claude/ChatGPT prompts for high-stakes deals and premium positioning.',
   keywords: 'steve jobs communication style, reality distortion field sales, product launch messaging, apple email style, steve jobs writing, direct sales communication',
   openGraph: {

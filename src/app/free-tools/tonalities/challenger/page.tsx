@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Swords } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Challenger Sale Tonality | Teach-Tailor-Take Control | Free GTM Prompts',
+  title: 'Challenger Sale Tonality | Teach-Tailor-Take Control | Free Claude Prompt',
   description: 'Master the Challenger Sale methodology. Teach prospects something new, tailor your message, take control of the conversation. Free prompts for Claude & ChatGPT.',
   keywords: 'challenger sale methodology, challenger selling, teach tailor take control, commercial insight selling, challenger sales approach',
   openGraph: {

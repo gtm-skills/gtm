@@ -4,8 +4,9 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, MessageSquare } from 'lucide-react';
 import type { Metadata } from 'next';
+import { InlineUpsell } from '@/components/skills/inline-upsell';
 export const metadata: Metadata = {
-  title: 'Chris Voss Tonality | Tactical Empathy Sales Writing | Free GTM Prompts',
+  title: 'Negotiate Like Chris Voss — Tactical Empathy Prompt for Sales (Free)',
   description: 'Write like Chris Voss. Tactical empathy, calibrated questions, FBI negotiation techniques. Copy these Claude/ChatGPT prompts for negotiations and objection handling.',
   keywords: 'chris voss negotiation, tactical empathy sales, fbi negotiation techniques, never split the difference sales, calibrated questions, mirroring sales',
   openGraph: {
@@ -331,7 +332,8 @@ export default function ChrisVossTonalityPage() {
             </Button>
           </a>
         </div>
-      </main>
+      </main>      <div className="max-w-4xl mx-auto px-6"><InlineUpsell skill="closer-pro" /></div>
+
 
       <footer className="border-t border-border mt-16">
         <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-4">

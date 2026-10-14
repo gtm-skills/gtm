@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, HelpCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Socratic Selling | Question-Led Discovery | Free GTM Prompts',
+  title: 'Socratic Selling | Question-Led Discovery | Free Claude Prompt',
   description: 'Master Socratic selling. Lead with questions, not pitches. Guide prospects to their own conclusions. Free prompts for Claude & ChatGPT.',
   keywords: 'socratic selling, question based selling, discovery questions sales, consultative selling questions, sales questioning techniques',
   openGraph: {

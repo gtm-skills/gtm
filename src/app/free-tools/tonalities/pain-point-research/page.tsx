@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Search } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Pain Point Research | Deep Discovery Framework | Free GTM Prompts',
+  title: 'Pain Point Research | Deep Discovery Framework | Free Claude Prompt',
   description: 'Master pain point discovery. Uncover surface symptoms, root causes, business impact, and emotional drivers. Free prompts for Claude & ChatGPT.',
   keywords: 'pain point discovery, sales discovery framework, customer pain points, problem discovery questions, deep discovery sales',
   openGraph: {

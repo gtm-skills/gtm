@@ -4,11 +4,10 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Compass } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'Naval Ravikant Tonality | First Principles Sales Writing | Premium GTM Prompts',
-  description: 'Write like Naval Ravikant. Philosophical depth in few words. First principles thinking that reframes problems at their root. Premium prompts for Claude/ChatGPT.',
+  title: 'Naval Ravikant Tonality | First Principles Sales Writing | Free Claude Prompt',
+  description: 'Write like Naval Ravikant. Philosophical depth in few words. First principles thinking that reframes problems at their root. Free prompt for Claude, ChatGPT and Claude Code.',
   keywords: 'naval ravikant communication style, first principles thinking, specific knowledge, leverage thinking, navalmanack style, twitter wisdom sales',
   openGraph: {
     title: 'Naval Ravikant Tonality | First Principles Sales Writing',
@@ -241,7 +240,7 @@ export default function NavalRavikantTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Naval Ravikant">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -308,7 +307,7 @@ export default function NavalRavikantTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

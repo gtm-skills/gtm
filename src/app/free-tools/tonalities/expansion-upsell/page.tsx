@@ -4,10 +4,9 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'Expansion & Upsell Tonality | Land & Expand Sales | Premium GTM Prompts',
+  title: 'Expansion & Upsell Tonality | Land & Expand Sales | Free Claude Prompt',
   description: 'Master expansion selling. Leverage existing success to grow accounts. Premium prompts for CSMs, AMs, and NRR-driven teams.',
   keywords: 'expansion selling, upsell strategy, land and expand, account growth, NRR strategy, customer expansion, account management',
   openGraph: {
@@ -306,7 +305,7 @@ export default function ExpansionUpsellTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Expansion & Upsell">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -373,7 +372,7 @@ export default function ExpansionUpsellTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

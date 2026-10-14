@@ -4,11 +4,11 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, GitCompare } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
+import { InlineUpsell } from '@/components/skills/inline-upsell';
 
 export const metadata: Metadata = {
-  title: 'Gap Selling Tonality | Current State to Future State | Premium GTM Prompts',
-  description: 'Master Gap Selling. Quantify the delta between current state and desired future. Create urgency through the cost of inaction. Premium prompts for Claude/ChatGPT.',
+  title: 'Gap Selling Discovery — Current State to Future State Prompt (Free)',
+  description: 'Run discovery the Gap Selling way: current state, future state, the gap, and the cost of staying put. A free prompt for Claude and ChatGPT, plus the gap summary template.',
   keywords: 'gap selling, keenan sales, current state future state, cost of inaction, problem-centric selling, b2b discovery framework',
   openGraph: {
     title: 'Gap Selling Tonality | Current State to Future State',
@@ -294,7 +294,7 @@ export default function GapSellingTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Gap Selling">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -361,7 +361,7 @@ export default function GapSellingTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">
@@ -395,7 +395,8 @@ export default function GapSellingTonalityPage() {
             </Button>
           </a>
         </div>
-      </main>
+      </main>      <div className="max-w-4xl mx-auto px-6"><InlineUpsell skill="gap-selling-discovery" /></div>
+
 
       <footer className="border-t border-border mt-16">
         <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-4">

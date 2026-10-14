@@ -14,10 +14,10 @@ export const metadata = {
 };
 
 const stats = [
-  { label: 'Total Prompts', value: '2,500+', icon: Copy },
-  { label: 'Community Votes', value: '12.4K', icon: ThumbsUp },
-  { label: 'Contributors', value: '150+', icon: Users },
-  { label: 'Outcomes Tracked', value: '847', icon: Target },
+  { label: 'Prompts', value: '244', icon: Copy },
+  { label: 'Writing Styles', value: '24', icon: ThumbsUp },
+  { label: 'Agent Personas', value: '5', icon: Users },
+  { label: 'MCP Tools', value: '18', icon: Target },
 ];
 
 const features = [

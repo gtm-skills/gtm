@@ -27,12 +27,13 @@ import {
   Plug,
 } from 'lucide-react';
 import type { Metadata } from 'next';
+import { InlineUpsell } from '@/components/skills/inline-upsell';
 
 export const metadata: Metadata = {
-  title: 'GTM MCP Server | AI Sales Tools with Real CRM Integration',
-  description: 'Add 18 AI-powered sales tools to Claude with real HubSpot CRM integration. Research, draft, and log activities directly from Claude.',
+  title: 'GTM MCP Server for Claude — 18 Sales Tools + HubSpot CRM (Free)',
+  description: 'Install with npx gtm-mcp-server. Company research, cold email drafting, objection handling, call prep and 8 HubSpot CRM tools inside Claude Desktop and Claude Code. Open source.',
   openGraph: {
-    title: 'GTM MCP Server: Sales Tools with Real CRM Integration',
+    title: 'GTM MCP Server for Claude — 18 Sales Tools + HubSpot CRM',
     description: 'The only MCP server with real API integrations. HubSpot CRM, content generation, and agentic workflows for Claude.',
   },
 };
@@ -730,6 +731,8 @@ export default function MCPServerPage() {
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
+
+        <InlineUpsell skill="hubspot-crm-ops" title="HubSpot CRM Ops — operate HubSpot from Claude with guardrails" />
 
         {/* CTA */}
         <div className="text-center p-8 rounded-xl bg-card">

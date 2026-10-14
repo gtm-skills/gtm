@@ -4,11 +4,10 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Building2 } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'Executive Briefing Tonality | C-Suite Communication | Premium GTM Prompts',
-  description: 'Master executive communication. Top-down structure, strategic framing, and boardroom-ready messaging for C-suite conversations. Premium prompts for Claude/ChatGPT.',
+  title: 'Executive Briefing Tonality | C-Suite Communication | Free Claude Prompt',
+  description: 'Master executive communication. Top-down structure, strategic framing, and boardroom-ready messaging for C-suite conversations. Free prompt for Claude, ChatGPT and Claude Code.',
   keywords: 'executive communication, c-suite sales, board presentation, executive briefing, strategic selling, enterprise executive engagement',
   openGraph: {
     title: 'Executive Briefing | C-Suite Communication',
@@ -298,7 +297,7 @@ export default function ExecutiveBriefingTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Executive Briefing">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -365,7 +364,7 @@ export default function ExecutiveBriefingTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

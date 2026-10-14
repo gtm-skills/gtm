@@ -4,11 +4,10 @@ import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Crosshair } from 'lucide-react';
 import type { Metadata } from 'next';
-import { TonalityGate } from '@/components/gtm/tonality-gate';
 
 export const metadata: Metadata = {
-  title: 'Command of the Message Tonality | Value Framework Sales | Premium GTM Prompts',
-  description: 'Master Command of the Message. Required Capabilities, Positive Business Outcomes, and Value Frameworks for enterprise sales. Premium prompts for Claude/ChatGPT.',
+  title: 'Command of the Message Tonality | Value Framework Sales | Free Claude Prompt',
+  description: 'Master Command of the Message. Required Capabilities, Positive Business Outcomes, and Value Frameworks for enterprise sales. Free prompt for Claude, ChatGPT and Claude Code.',
   keywords: 'command of the message, force management, value framework, required capabilities, positive business outcomes, enterprise sales methodology',
   openGraph: {
     title: 'Command of the Message | Value Framework Sales',
@@ -301,7 +300,7 @@ export default function CommandOfMessageTonalityPage() {
         </div>
 
         {/* Prompts Section - Gated */}
-        <TonalityGate tonalityName="Command of the Message">
+        <div>
           <div className="space-y-8 mb-12">
             <h2 className="text-2xl font-bold text-foreground">The Prompts</h2>
 
@@ -368,7 +367,7 @@ export default function CommandOfMessageTonalityPage() {
               <pre className="text-sm text-foreground whitespace-pre-wrap">{exampleOutput}</pre>
             </div>
           </div>
-        </TonalityGate>
+        </div>
 
         {/* Related Tonalities */}
         <div className="mb-12">

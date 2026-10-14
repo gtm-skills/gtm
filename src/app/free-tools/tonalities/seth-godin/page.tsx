@@ -5,7 +5,7 @@ import { CopyButton } from '@/components/copy-button';
 import { ArrowRight, Lightbulb } from 'lucide-react';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Seth Godin Tonality | Remarkable & Purple Sales Writing | Free GTM Prompts',
+  title: 'Seth Godin Tonality | Remarkable & Purple Sales Writing | Free Claude Prompt',
   description: 'Write like Seth Godin. Be remarkable or be invisible. Permission marketing, ideas that spread, purple cow positioning. Copy these Claude/ChatGPT prompts.',
   keywords: 'seth godin writing style, purple cow marketing, permission marketing, remarkable marketing, ideas that spread, seth godin sales, tribe building',
   openGraph: {

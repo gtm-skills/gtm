@@ -17,7 +17,7 @@ const tools = [
   {
     title: 'Browser Extension',
     description: 'Get contextual prompts directly in LinkedIn and Gmail. One click to copy, customize, and send personalized messages.',
-    href: '/download',
+    href: '/pricing',
     icon: Globe,
     gradient: 'from-blue-500 to-cyan-500',
     badge: 'Chrome',

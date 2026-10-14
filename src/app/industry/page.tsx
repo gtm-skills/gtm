@@ -117,7 +117,7 @@ export default function IndustryPage() {
             Want all 1600+ industry prompts in one download?
           </p>
           <Link
-            href="/download"
+            href="/pricing"
             className="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center gap-2"
           >
             Download the complete pack

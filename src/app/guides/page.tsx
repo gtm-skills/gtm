@@ -88,7 +88,7 @@ const guides: Guide[] = [
     slug: 'agentic-gtm-prompt-chains',
     name: '10 Prompt Chains That Replace Manual SDR Work',
     description:
-      '10 real, copy-paste prompt chains from a 2,500+ prompt library — each one a sequence where every output feeds the next.',
+      '10 real, copy-paste prompt chains from the GTM Skills prompt library — each one a sequence where every output feeds the next.',
     icon: Link2,
     badge: '10 Chains',
   },

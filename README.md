@@ -17,7 +17,7 @@
 
 <p align="center">
   Prompts, agent workflows, browser extension, MCP server, voice templates, and API — everything you need to build agentic sales workflows.<br/>
-  <strong>Free. Open source. MIT licensed.</strong>
+  <strong>Open-source core (MIT). Premium skill kits at <a href="https://gtm-skills.com/pricing">gtm-skills.com/pricing</a>.</strong>
 </p>
 
 <p align="center">
@@ -191,7 +191,7 @@ Help me build a competitive displacement strategy:
 Be specific and tactical, not generic.
 ```
 
-[**Browse 2,500+ more prompts**](https://gtm-skills.com)
+[**Browse all prompts and skills**](https://gtm-skills.com/skills)
 
 ---
 

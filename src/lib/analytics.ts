@@ -12,6 +12,8 @@ type Events = {
   install_copied: { slug: string; method: string; agent: string };
   signup: { provider: string };
   banner_click: { productId: string };
+  waitlist_shown: { productId: string };
+  waitlist_joined: { productId: string };
 };
 
 export function trackEvent<K extends keyof Events>(name: K, props: Events[K]) {
